@@ -57,7 +57,7 @@
 
       <!-- Logo + Google badge -->
       <div style="display:flex;align-items:center;gap:24px;margin-bottom:36px;flex-wrap:wrap" class="reveal stagger-2">
-        <img src="/BBLSite/assets/logos/logo.png" alt="Bare Bayside Labs" style="height:120px">
+        <img src="/BBLSite/assets/logos/logo.png" alt="Bare Bayside Labs" style="height:180px">
         <div style="width:1px;height:80px;background:var(--border-subtle)"></div>
         <div class="google-badge" style="padding:20px 28px">
           <div class="google-g" style="font-size:32px"><span>G</span><span>o</span><span>o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></div>
@@ -169,8 +169,110 @@
 
 
 <!-- ============================================
-     MORE SECTIONS GO HERE (Phase 2)
+     VIDEO EXPLAINER
      ============================================ -->
+<section class="section">
+  <div class="inner">
+    <div class="grid-featured">
+      <!-- Video -->
+      <div style="position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:var(--surface2);border:1px solid var(--border-subtle);cursor:pointer" class="reveal">
+        <img src="https://picsum.photos/seed/bbl-explainer/960/540" alt="How Bare Bayside Labs works" style="width:100%;height:100%;object-fit:cover;opacity:0.55">
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;background:rgba(8,12,20,0.65);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;transition:transform 0.3s cubic-bezier(0.32,0.72,0,1),background 0.3s">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+        </div>
+        <div style="position:absolute;bottom:12px;right:12px;font-family:'DM Mono',monospace;font-size:12px;color:white;background:rgba(0,0,0,0.55);padding:3px 12px;border-radius:6px">1:48</div>
+      </div>
+      <!-- Text -->
+      <div class="reveal stagger-2">
+        <span class="eyebrow eyebrow-sky">WATCH HOW IT WORKS</span>
+        <h2 style="margin-bottom:16px">YOUR MARKETING ON AUTOPILOT</h2>
+        <p style="font-size:19px;color:var(--text2);line-height:1.7;margin-bottom:24px">See how a local business went from chasing every lead manually to a system that captures, nurtures, and converts — without them lifting a finger.</p>
+        <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:28px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--emerald)"></div>
+            <span style="color:var(--text2);font-size:16px">Leads captured automatically</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--sky)"></div>
+            <span style="color:var(--text2);font-size:16px">Follow-ups sent without you</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--gold)"></div>
+            <span style="color:var(--text2);font-size:16px">Every dollar tracked</span>
+          </div>
+        </div>
+        <a href="/BBLSite/pages/how-it-works/" class="btn-secondary">SEE THE FULL PROCESS</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     TRUST STATS
+     ============================================ -->
+<section class="section" style="background:var(--surface)">
+  <div class="inner" style="text-align:center">
+    <span class="eyebrow eyebrow-emerald reveal">BY THE NUMBERS</span>
+    <h2 class="reveal stagger-1" style="margin-bottom:48px">RESULTS THAT SPEAK FOR THEMSELVES</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px" class="reveal stagger-2">
+      <div class="surface" style="text-align:center;padding:40px 24px">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--emerald)" data-count="60" data-suffix="%">0%</div>
+        <div class="mono" style="margin-top:10px;font-size:14px">LESS ADMIN TIME</div>
+        <p style="font-size:14px;margin-top:8px;color:var(--muted)">Average reduction in manual work after setup</p>
+      </div>
+      <div class="surface" style="text-align:center;padding:40px 24px">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--sky)" data-count="10" data-suffix="+">0</div>
+        <div class="mono" style="margin-top:10px;font-size:14px">HOURS SAVED / WEEK</div>
+        <p style="font-size:14px;margin-top:8px;color:var(--muted)">Time back in your day, every single week</p>
+      </div>
+      <div class="surface" style="text-align:center;padding:40px 24px">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--gold)" data-static="true">1:4</div>
+        <div class="mono" style="margin-top:10px;font-size:14px">AD CLICK TO SIGNUP</div>
+        <p style="font-size:14px;margin-top:8px;color:var(--muted)">1 in 4 ad clicks convert to client signups</p>
+      </div>
+      <div class="surface" style="text-align:center;padding:40px 24px">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--emerald)" data-count="30" data-suffix="+">0</div>
+        <div class="mono" style="margin-top:10px;font-size:14px">MONTH AVG RETENTION</div>
+        <p style="font-size:14px;margin-top:8px;color:var(--muted)">Clients stay because the system works</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     CTA — LEARN MORE
+     ============================================ -->
+<section class="section">
+  <div class="inner">
+    <div class="surface-cta reveal">
+      <span class="eyebrow eyebrow-emerald">READY TO SEE MORE?</span>
+      <h2 style="margin-bottom:16px">YOUR BUSINESS DESERVES<br><span class="gradient-text">A SYSTEM THAT WORKS</span></h2>
+      <p style="color:var(--text2);font-size:19px;max-width:540px;margin:0 auto 36px">Book a free strategy call and we'll show you exactly what a marketing system could look like for your business. No obligation.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="/BBLSite/pages/contact/" class="btn-primary glow">BOOK A FREE STRATEGY CALL</a>
+        <a href="/BBLSite/pages/services/" class="btn-secondary">EXPLORE SERVICES</a>
+      </div>
+
+      <!-- Trust bar -->
+      <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:46px;height:46px;border-radius:10px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+          <div class="mono" style="line-height:1.35;font-size:14px">FREE, NO<br>OBLIGATION</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:46px;height:46px;border-radius:10px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="mono" style="line-height:1.35;font-size:14px">CUSTOM PLAN<br>IN 48 HOURS</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:46px;height:46px;border-radius:10px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="mono" style="line-height:1.35;font-size:14px">YOUR DATA<br>STAYS PRIVATE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- ============================================
