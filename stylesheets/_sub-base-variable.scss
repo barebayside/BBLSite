@@ -1,0 +1,52 @@
+$base_vars : (
+  color-primary : #574CAE,
+  color-secondary :#2E2A4D,
+  color-default : #FFFFFF,
+  color-light : #F5F4F2,
+  color-border : #EAEAEA,
+  color-text : #555555,
+  darkbg-color-link : #FFEB01,
+  color-link:#574CAE,
+  font-family-heading : unquote("'Libre Baskerville', serif"),
+  font-family-base : unquote("'Noto Sans', sans-serif")
+);
+
+@if variable-exists(user_base_vars) {
+  $base_vars : map-merge($base_vars,$user_base_vars);
+}
+
+$default_vars: (
+
+  // TYPOGRAPHY VARIABLES
+  font-size-text:16px,
+
+  // HEADING
+  font-size-heading-h1 : 38px,
+  font-size-heading-h2 : 34px,
+  font-size-heading-h3 : 30px,
+  font-size-heading-h4 : 26px,
+  font-size-heading-h5 : 22px,
+  font-size-heading-h6 : 18px,
+
+  font-weight-heading-h1 : 500,
+  font-weight-heading-h2 : 500,
+  font-weight-heading-h3 : 500,
+  font-weight-heading-h4 : 500,
+  font-weight-heading-h5 : 500,
+  font-weight-heading-h6 : 500,
+
+  color-heading-h1 : map-get($base_vars, 'color-primary'),
+  color-heading-h2 : map-get($base_vars, 'color-primary'),
+  color-heading-h3 : map-get($base_vars, 'color-primary'),
+  color-heading-h4 : map-get($base_vars, 'color-primary'),
+  color-heading-h5 : map-get($base_vars, 'color-primary'),
+  color-heading-h6 : map-get($base_vars, 'color-primary'),
+
+  // SITE NAME
+  font-family-site-name : map-get($base_vars,'font-family-heading')
+
+);
+
+@if variable-exists(user_default_vars) {
+  $default_vars : map-merge($default_vars,$user_default_vars);
+}
