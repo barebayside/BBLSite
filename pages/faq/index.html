@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Bare Bayside Labs</title>
+  <meta name="description" content="Common questions about marketing automation, Zoho setup, pricing, and what to expect when working with Bare Bayside Labs.">
+  <link rel="canonical" href="https://barebaysidelabs.com/pages/faq/">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .faq-item { border-bottom: 1px solid var(--border-subtle); }
+    .faq-q { display:flex;justify-content:space-between;align-items:center;padding:24px 0;cursor:pointer;transition:color 0.25s;gap:16px }
+    .faq-q:hover { color: var(--sky); }
+    .faq-q h4 { font-size:20px;letter-spacing:2px;margin:0;pointer-events:none }
+    .faq-arrow { font-size:24px;color:var(--muted);transition:transform 0.3s;flex-shrink:0;font-family:'Syne',sans-serif }
+    .faq-a { max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.32,0.72,0,1),padding 0.4s }
+    .faq-a-inner { padding:0 0 24px;color:var(--text2);font-size:17px;line-height:1.7 }
+    .faq-item.open .faq-arrow { transform:rotate(45deg);color:var(--sky) }
+    .faq-item.open .faq-a { max-height:300px }
+  </style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand">BARE BAYSIDE LABS</a><div class="nav-links"><a href="/pages/services/" class="nav-link">SERVICES</a><a href="/pages/how-it-works/" class="nav-link">HOW IT WORKS</a><a href="/pages/results/" class="nav-link">RESULTS</a><a href="/pages/about/" class="nav-link">ABOUT</a><a href="/pages/contact/" class="nav-cta">GET STARTED</a></div><button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu"><a href="/pages/services/" onclick="toggleMenu()">SERVICES</a><a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a><a href="/pages/results/" onclick="toggleMenu()">RESULTS</a><a href="/pages/about/" onclick="toggleMenu()">ABOUT</a><a href="/pages/contact/" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">GET STARTED</a></div>
+
+<!-- HERO -->
+<section class="section aurora">
+  <div class="inner">
+    <span class="eyebrow eyebrow-sky reveal">FAQ</span>
+    <h1 class="reveal stagger-1">COMMON<br><span class="gradient-text">QUESTIONS</span></h1>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="padding-top:0">
+  <div class="inner" style="max-width:800px">
+
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <h4>HOW LONG DOES SETUP TAKE?</h4>
+        <span class="faq-arrow">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Most marketing system builds take 2-4 weeks from strategy call to launch. Quick wins (email sequences, landing pages, audits) are delivered in 2-7 days depending on the service.</div></div>
+    </div>
+
+    <div class="faq-item reveal stagger-1">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <h4>DO I NEED TO KNOW ZOHO?</h4>
+        <span class="faq-arrow">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">No. We handle all the technical setup. After launch, we train you on the parts you need to use day-to-day (usually just checking a dashboard and responding to hot leads). If you want us to manage it ongoing, that's an option too.</div></div>
+    </div>
+
+    <div class="faq-item reveal stagger-2">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <h4>WHAT IF I ALREADY HAVE A CRM?</h4>
+        <span class="faq-arrow">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">If you're on Zoho already, we build on top of what you have. If you're on something else (HubSpot, Salesforce, spreadsheets), we can migrate your data over as part of the setup. We'll audit what you have in the strategy call and recommend the best path.</div></div>
+    </div>
+
+    <div class="faq-item reveal stagger-3">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <h4>CAN I CANCEL ANYTIME?</h4>
+        <span class="faq-arrow">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Yes. Monthly services have no lock-in. If you're on a managed plan and you cancel, you keep everything we built — the CRM, automations, funnels, all of it. It's yours. You just won't have us managing and optimising it anymore.</div></div>
+    </div>
+
+    <div class="faq-item reveal stagger-4">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <h4>HOW MUCH DOES IT COST?</h4>
+        <span class="faq-arrow">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Quick wins start at $197. Strategy sessions are $297. Full system builds depend on scope — we'll give you a clear quote after the strategy call. No hidden fees, no surprise invoices. Check the <a href="/pages/services/" style="color:var(--sky)">services page</a> for all pricing.</div></div>
+    </div>
+
+    <div class="faq-item reveal stagger-5">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <h4>WHAT'S INCLUDED IN THE FREE STRATEGY CALL?</h4>
+        <span class="faq-arrow">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">30-60 minutes where we dig into your business. We look at your current marketing, find the gaps, and give you a custom action plan. It's a real working session, not a sales pitch. If you want to work with us after, great. If not, you keep the plan.</div></div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <h4>DO YOU WORK WITH BUSINESSES OUTSIDE AUSTRALIA?</h4>
+        <span class="faq-arrow">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Yes. Everything we build is digital — Zoho works globally and all our meetings are on video call. We have clients across Australia and can work with businesses anywhere in the world.</div></div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <h4>WHAT MAKES YOU DIFFERENT FROM OTHER AGENCIES?</h4>
+        <span class="faq-arrow">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">We build systems, not campaigns. Most agencies run your ads for a month and leave. We build the infrastructure — CRM, automation, funnels, scoring — that keeps working whether we're involved or not. And we build exclusively on Zoho, so everything is integrated from day one.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="inner">
+    <div class="surface-cta reveal">
+      <span class="eyebrow eyebrow-emerald">STILL HAVE QUESTIONS?</span>
+      <h2 style="margin-bottom:16px">LET'S TALK</h2>
+      <p style="color:var(--text2);font-size:19px;max-width:500px;margin:0 auto 36px">Book a free strategy call and ask us anything. Or just send us a message.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="/pages/contact/" class="btn-primary glow">BOOK A CALL</a>
+        <a href="mailto:hello@barebaysidelabs.com" class="btn-secondary">EMAIL US</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-top"><div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you.</p></div><div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/services/">Marketing Systems</a></li><li><a href="/pages/services/">SEO Optimization</a></li></ul></div><div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/how-it-works/">How It Works</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div><div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div></div></div></footer>
+
+<script src="../../js/main.js"></script>
+</body>
+</html>
