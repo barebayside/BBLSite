@@ -408,4 +408,28 @@ p { color: var(--text2); }
   .surface-cta { padding: 48px 20px; }
   h1 { font-size: 36px !important; }
   h2 { font-size: 28px !important; }
+
+  /* Hero logo: smaller on mobile */
+  .hero-logo { height: 100px !important; }
+
+  /* Hero badge row: stack vertically, hide divider line */
+  .hero-badge-row { flex-direction: column; align-items: flex-start !important; gap: 16px !important; }
+  .hero-badge-row > div[style*="width:1px"] { display: none; }
+
+  /* Hero stats row: stack vertically, hide divider lines */
+  .hero-stats { flex-direction: column; align-items: flex-start !important; gap: 16px !important; }
+  .hero-stats > div[style*="width:1px"] { display: none; }
+
+  /* 4-column stats grid → 2 columns on mobile */
+  .stats-grid { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+
+  /* Client logo bar: smaller text */
+  .logo-bar { gap: 20px !important; }
+  .logo-bar span { font-size: 16px !important; letter-spacing: 2px !important; }
+
+  /* Trust bars: stack vertically */
+  .trust-bar { flex-direction: column; align-items: center; gap: 20px !important; }
+
+  /* How It Works step rows: stack number above text */
+  .step-row { flex-direction: column; gap: 16px !important; }
 }
