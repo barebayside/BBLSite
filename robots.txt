@@ -1,4 +1,27 @@
 User-agent: *
 Allow: /
 
+# AI crawlers — explicitly allowed (we want AI citation and visibility)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Block training-only crawlers with no search benefit
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
 Sitemap: https://barebaysidelabs.com/sitemap.xml
