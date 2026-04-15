@@ -516,14 +516,24 @@ p { color: var(--text2); }
   margin-top: 8px;
   text-shadow: 0 1px 10px rgba(0,0,0,0.4);
 }
+.blog-thumb img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
 
-/* Blog post header background — sits behind the title text */
-.blog-post-bg {
-  position: absolute !important;
+/* Blog post header — image background behind title */
+.blog-header-img {
+  position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 0 !important;
-  aspect-ratio: unset;
-  opacity: 0.6;
+  z-index: 0;
+}
+.blog-header-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
 }
 
 /* --- stop-losing-leads: Converging funnel with flowing dots --- */
