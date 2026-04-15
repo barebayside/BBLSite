@@ -484,6 +484,357 @@ p { color: var(--text2); }
 .category-desc { font-size: 15px; color: var(--text2); line-height: 1.6; }
 
 
+/* === BLOG THUMBNAILS === */
+.blog-thumb {
+  aspect-ratio: 16/9;
+  background: var(--surface2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.blog-thumb::before,
+.blog-thumb::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+.blog-thumb-content {
+  text-align: center;
+  padding: 24px;
+  position: relative;
+  z-index: 2;
+}
+.blog-thumb-stat {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+.blog-thumb-label {
+  margin-top: 8px;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+}
+
+/* Hero banner variant for individual blog posts */
+.blog-hero {
+  aspect-ratio: 3/1;
+  max-height: 280px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+}
+.blog-hero .blog-thumb-stat { font-size: 64px; }
+.blog-hero .blog-thumb-label { font-size: 14px; }
+
+/* --- stop-losing-leads: Converging funnel with flowing dots --- */
+.blog-thumb-stop-losing-leads {
+  background:
+    radial-gradient(circle at 20% 25%, rgba(52,211,153,0.18) 0%, transparent 25%),
+    radial-gradient(circle at 80% 20%, rgba(52,211,153,0.14) 0%, transparent 20%),
+    radial-gradient(circle at 35% 15%, rgba(52,211,153,0.1) 0%, transparent 12%),
+    radial-gradient(circle at 65% 30%, rgba(52,211,153,0.08) 0%, transparent 15%),
+    radial-gradient(circle at 50% 75%, rgba(52,211,153,0.22) 0%, transparent 30%),
+    linear-gradient(180deg, transparent 0%, rgba(52,211,153,0.04) 100%),
+    var(--surface2);
+}
+.blog-thumb-stop-losing-leads::before {
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 90px solid transparent;
+  border-right: 90px solid transparent;
+  border-top: 110px solid rgba(52,211,153,0.06);
+  z-index: 1;
+}
+.blog-thumb-stop-losing-leads::after {
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--emerald);
+  opacity: 0.4;
+  box-shadow:
+    -30px -40px 0 rgba(52,211,153,0.3),
+    30px -40px 0 rgba(52,211,153,0.3),
+    -15px -20px 0 rgba(52,211,153,0.35),
+    15px -20px 0 rgba(52,211,153,0.35),
+    0 -60px 0 rgba(52,211,153,0.2),
+    -50px -60px 0 rgba(52,211,153,0.15),
+    50px -60px 0 rgba(52,211,153,0.15);
+  z-index: 1;
+}
+
+/* --- why-ads-not-working: Broken connection / disconnected circles --- */
+.blog-thumb-why-ads-not-working {
+  background:
+    radial-gradient(circle at 30% 50%, rgba(56,189,248,0.18) 0%, transparent 28%),
+    radial-gradient(circle at 70% 50%, rgba(56,189,248,0.18) 0%, transparent 28%),
+    linear-gradient(90deg, transparent 46%, rgba(56,189,248,0.03) 46%, rgba(56,189,248,0.03) 54%, transparent 54%),
+    linear-gradient(160deg, rgba(56,189,248,0.03) 0%, transparent 100%),
+    var(--surface2);
+}
+.blog-thumb-why-ads-not-working::before {
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(56,189,248,0.2);
+  border-radius: 50%;
+  z-index: 1;
+}
+.blog-thumb-why-ads-not-working::after {
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(56,189,248,0.2);
+  border-right-color: transparent;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* --- google-reviews-tradie-guide: Star rise with golden glow --- */
+.blog-thumb-google-reviews {
+  background:
+    linear-gradient(145deg, rgba(245,158,11,0.05) 0%, transparent 40%, rgba(245,197,66,0.08) 100%),
+    radial-gradient(ellipse at 50% 70%, rgba(245,197,66,0.15) 0%, transparent 50%),
+    linear-gradient(0deg, rgba(245,158,11,0.06) 0%, transparent 50%),
+    var(--surface2);
+}
+.blog-thumb-google-reviews::before {
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(245,197,66,0.3), transparent);
+  z-index: 1;
+}
+.blog-thumb-google-reviews::after {
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--gold-bright);
+  border-radius: 50%;
+  opacity: 0.5;
+  box-shadow:
+    -40px 0 0 rgba(245,197,66,0.4),
+    -20px 0 0 rgba(245,197,66,0.45),
+    20px 0 0 rgba(245,197,66,0.45),
+    40px 0 0 rgba(245,197,66,0.4),
+    -50px 12px 0 rgba(245,197,66,0.15),
+    -25px 12px 0 rgba(245,197,66,0.15),
+    0 12px 0 rgba(245,197,66,0.15),
+    25px 12px 0 rgba(245,197,66,0.15),
+    50px 12px 0 rgba(245,197,66,0.15);
+  z-index: 1;
+}
+
+/* --- do-you-need-a-crm: Node network / decision points --- */
+.blog-thumb-do-you-need-a-crm {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(52,211,153,0.12) 0%, transparent 35%),
+    radial-gradient(circle at 25% 35%, rgba(52,211,153,0.08) 0%, transparent 18%),
+    radial-gradient(circle at 75% 65%, rgba(52,211,153,0.08) 0%, transparent 18%),
+    radial-gradient(circle at 40% 80%, rgba(52,211,153,0.06) 0%, transparent 14%),
+    radial-gradient(circle at 60% 20%, rgba(52,211,153,0.06) 0%, transparent 14%),
+    radial-gradient(circle at 15% 70%, rgba(52,211,153,0.04) 0%, transparent 12%),
+    radial-gradient(circle at 85% 30%, rgba(52,211,153,0.04) 0%, transparent 12%),
+    var(--surface2);
+}
+.blog-thumb-do-you-need-a-crm::before {
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    linear-gradient(45deg, transparent 48%, rgba(52,211,153,0.04) 48%, rgba(52,211,153,0.04) 52%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(52,211,153,0.04) 48%, rgba(52,211,153,0.04) 52%, transparent 52%);
+  z-index: 1;
+}
+.blog-thumb-do-you-need-a-crm::after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border: 2px dashed rgba(52,211,153,0.15);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* --- zoho-crm-trades-setup: Blueprint grid pattern --- */
+.blog-thumb-zoho-crm-trades-setup {
+  background:
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(52,211,153,0.04) 39px, rgba(52,211,153,0.04) 40px),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(52,211,153,0.04) 39px, rgba(52,211,153,0.04) 40px),
+    radial-gradient(ellipse at 50% 50%, rgba(52,211,153,0.1) 0%, transparent 55%),
+    var(--surface2);
+}
+.blog-thumb-zoho-crm-trades-setup::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 70px;
+  border: 1px solid rgba(52,211,153,0.15);
+  border-radius: 8px;
+  z-index: 1;
+}
+.blog-thumb-zoho-crm-trades-setup::after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 50px;
+  border: 1px solid rgba(52,211,153,0.08);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+/* --- crm-vs-spreadsheet: Split comparison panel --- */
+.blog-thumb-crm-vs-spreadsheet {
+  background:
+    linear-gradient(90deg, rgba(52,211,153,0.07) 0%, rgba(52,211,153,0.07) 50%, transparent 50%),
+    repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.02) 28px, rgba(255,255,255,0.02) 29px),
+    var(--surface2);
+}
+.blog-thumb-crm-vs-spreadsheet::before {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 10%, rgba(52,211,153,0.2) 30%, rgba(52,211,153,0.2) 70%, transparent 90%);
+  z-index: 1;
+}
+.blog-thumb-crm-vs-spreadsheet::after {
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(52,211,153,0.12);
+  border-radius: 8px;
+  box-shadow: 60px -15px 0 rgba(255,255,255,0.04), 60px 15px 0 rgba(255,255,255,0.04);
+  z-index: 1;
+}
+
+/* --- local-seo-checklist: Stacked checklist lines --- */
+.blog-thumb-local-seo-checklist {
+  background:
+    linear-gradient(0deg, rgba(245,158,11,0.08) 0%, transparent 50%),
+    var(--surface2);
+}
+.blog-thumb-local-seo-checklist::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 0;
+  border: none;
+  box-shadow:
+    0 -36px 0 rgba(245,197,66,0.25),
+    0 -24px 0 rgba(245,197,66,0.2),
+    0 -12px 0 rgba(245,197,66,0.2),
+    0 0 0 rgba(245,197,66,0.15),
+    0 12px 0 rgba(245,197,66,0.1),
+    0 24px 0 rgba(245,197,66,0.08),
+    0 36px 0 rgba(245,197,66,0.05);
+  z-index: 1;
+  height: 1px;
+  background: rgba(245,197,66,0.15);
+}
+.blog-thumb-local-seo-checklist::after {
+  top: 50%;
+  left: calc(50% - 80px);
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  box-shadow:
+    0 -36px 0 var(--gold),
+    0 -24px 0 var(--gold),
+    0 -12px 0 var(--gold),
+    0 0 0 rgba(245,158,11,0.3),
+    0 12px 0 rgba(245,158,11,0.2),
+    0 24px 0 rgba(245,158,11,0.15),
+    0 36px 0 rgba(245,158,11,0.1);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+/* --- 3-marketing-channels-local: Three pillars / bar chart --- */
+.blog-thumb-3-channels {
+  background:
+    linear-gradient(0deg, rgba(56,189,248,0.06) 0%, transparent 60%),
+    var(--surface2);
+}
+.blog-thumb-3-channels::before {
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 70px;
+  background: linear-gradient(0deg, rgba(56,189,248,0.2) 0%, rgba(56,189,248,0.08) 100%);
+  border-radius: 4px 4px 0 0;
+  box-shadow:
+    -45px 20px 0 rgba(56,189,248,0.15),
+    45px 10px 0 rgba(56,189,248,0.18);
+  z-index: 1;
+}
+.blog-thumb-3-channels::after {
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 1px;
+  background: rgba(56,189,248,0.15);
+  z-index: 1;
+}
+
+
+/* === TESTIMONIAL BACKGROUNDS === */
+.testimonial-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.testimonial-bg-1 {
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(52,211,153,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 60%, rgba(56,189,248,0.08) 0%, transparent 50%),
+    linear-gradient(160deg, var(--surface2) 0%, rgba(13,21,37,0.8) 100%);
+}
+.testimonial-bg-2 {
+  background:
+    radial-gradient(ellipse at 60% 30%, rgba(56,189,248,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 70%, rgba(52,211,153,0.06) 0%, transparent 40%),
+    linear-gradient(200deg, var(--surface2) 0%, rgba(13,21,37,0.8) 100%);
+}
+.testimonial-bg-3 {
+  background:
+    radial-gradient(ellipse at 40% 60%, rgba(245,158,11,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 30%, rgba(56,189,248,0.06) 0%, transparent 40%),
+    linear-gradient(140deg, var(--surface2) 0%, rgba(13,21,37,0.8) 100%);
+}
+.testimonial-bg-featured {
+  background:
+    radial-gradient(ellipse at 25% 35%, rgba(52,211,153,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 65%, rgba(56,189,248,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(245,158,11,0.04) 0%, transparent 40%),
+    linear-gradient(135deg, var(--surface2) 0%, rgba(13,21,37,0.8) 100%);
+}
+
+
 /* === MOBILE === */
 @media (max-width: 768px) {
   .section { padding: 60px 16px; }
@@ -526,4 +877,8 @@ p { color: var(--text2); }
   /* Blog article layout: sidebar below content on mobile */
   .article-layout { grid-template-columns: 1fr; gap: 32px; }
   .sidebar { position: static; }
+
+  /* Blog hero: shorter on mobile */
+  .blog-hero { aspect-ratio: 2/1; max-height: 200px; border-radius: 12px; margin-bottom: 28px; }
+  .blog-hero .blog-thumb-stat { font-size: 48px; }
 }
