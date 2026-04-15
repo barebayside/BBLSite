@@ -441,6 +441,28 @@ p { color: var(--text2); }
 .sidebar-link.active-sky { border-left-color: var(--sky); }
 .sidebar-link.active-gold { border-left-color: var(--gold); }
 
+/* Table of contents links */
+.toc-link {
+  display: block;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 6px;
+  border-left: 2px solid transparent;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  margin-bottom: 2px;
+  line-height: 1.4;
+}
+.toc-link:hover { background: var(--surface); color: var(--text2); }
+.toc-link.active {
+  background: var(--surface);
+  border-left-color: var(--emerald);
+  color: var(--text);
+  font-weight: 500;
+}
+.toc-link-h3 { padding-left: 24px; font-size: 12px; }
+
 .breadcrumb {
   font-family: 'DM Mono', monospace;
   font-size: 13px;
