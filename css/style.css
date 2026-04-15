@@ -517,15 +517,14 @@ p { color: var(--text2); }
   text-shadow: 0 1px 10px rgba(0,0,0,0.4);
 }
 
-/* Hero banner variant for individual blog posts */
-.blog-hero {
-  aspect-ratio: 3/1;
-  max-height: 280px;
-  border-radius: 16px;
-  margin-bottom: 40px;
+/* Blog post header background — sits behind the title text */
+.blog-post-bg {
+  position: absolute !important;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0 !important;
+  aspect-ratio: unset;
+  opacity: 0.6;
 }
-.blog-hero .blog-thumb-stat { font-size: 64px; }
-.blog-hero .blog-thumb-label { font-size: 14px; }
 
 /* --- stop-losing-leads: Converging funnel with flowing dots --- */
 .blog-thumb-stop-losing-leads {
@@ -878,7 +877,4 @@ p { color: var(--text2); }
   .article-layout { grid-template-columns: 1fr; gap: 32px; }
   .sidebar { position: static; }
 
-  /* Blog hero: shorter on mobile */
-  .blog-hero { aspect-ratio: 2/1; max-height: 200px; border-radius: 12px; margin-bottom: 28px; }
-  .blog-hero .blog-thumb-stat { font-size: 48px; }
 }
