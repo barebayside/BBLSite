@@ -86,3 +86,45 @@ function toggleMenu() {
 
   tocLinks.forEach(function(t) { scrollSpy.observe(t.heading); });
 })();
+
+// How It Works — toggle individual steps
+document.querySelectorAll('.hiw-card-header').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var step = this.closest('.hiw-step');
+    var isExpanded = step.classList.contains('expanded');
+    step.classList.toggle('expanded');
+    this.setAttribute('aria-expanded', String(!isExpanded));
+    step.querySelector('.hiw-step-detail').setAttribute('aria-hidden', String(isExpanded));
+  });
+});
+
+// How It Works — timeline scroll fill
+(function() {
+  var track = document.querySelector('.hiw-timeline-track');
+  var fill = document.querySelector('.hiw-timeline-fill');
+  if (!track || !fill) return;
+  var ticking = false;
+  function updateFill() {
+    var rect = track.getBoundingClientRect();
+    var trigger = window.innerHeight * 0.6;
+    var progress = (trigger - rect.top) / rect.height;
+    fill.style.height = Math.max(0, Math.min(100, progress * 100)) + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function() {
+    if (!ticking) { requestAnimationFrame(updateFill); ticking = true; }
+  }, { passive: true });
+  updateFill();
+})();
+
+// How It Works — node activation on scroll
+(function() {
+  var nodes = document.querySelectorAll('.hiw-node');
+  if (!nodes.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('active'); obs.unobserve(entry.target); }
+    });
+  }, { threshold: 0.5, rootMargin: '0px 0px -20% 0px' });
+  nodes.forEach(function(n) { obs.observe(n); });
+})();
