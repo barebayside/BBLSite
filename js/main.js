@@ -39,6 +39,38 @@ function toggleMenu() {
   document.querySelector('.mobile-menu').classList.toggle('open');
 }
 
+// Theme toggle (dark/light)
+(function() {
+  var saved = localStorage.getItem('bbl-theme');
+  if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+
+  var btn = document.getElementById('theme-toggle');
+  var mobileBtn = document.getElementById('mobile-theme-toggle');
+
+  function updateLabels() {
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    var label = isLight ? '\u2600 LIGHT' : '\u263D DARK';
+    if (btn) btn.textContent = label;
+    if (mobileBtn) mobileBtn.textContent = isLight ? '\u2600 SWITCH TO DARK' : '\u263D SWITCH TO LIGHT';
+  }
+
+  function toggle() {
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('bbl-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('bbl-theme', 'light');
+    }
+    updateLabels();
+  }
+
+  if (btn) btn.addEventListener('click', toggle);
+  if (mobileBtn) mobileBtn.addEventListener('click', toggle);
+  updateLabels();
+})();
+
 // Blog table of contents — auto-generated from headings
 (function() {
   const article = document.querySelector('.article-main');
