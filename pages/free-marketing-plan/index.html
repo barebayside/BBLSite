@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Marketing Plan — Bare Bayside Labs</title>
+  <meta name="description" content="Answer 6 quick questions and get a personalised marketing plan comparing your business against your local market. Free, no card required.">
+  <link rel="canonical" href="https://barebaysidelabs.com/pages/free-marketing-plan/">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Free Marketing Plan — Bare Bayside Labs">
+  <meta property="og:description" content="Answer 6 quick questions and get a personalised marketing plan comparing your business against your local market. Free, no card required.">
+  <meta property="og:image" content="https://barebaysidelabs.com/assets/images/og-default.jpg">
+  <meta property="og:url" content="https://barebaysidelabs.com/pages/free-marketing-plan/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bare Bayside Labs">
+  <style>
+    .quiz-wrap { max-width: 640px; margin: 0 auto; }
+    .quiz-progress { display: flex; gap: 6px; margin-bottom: 40px; }
+    .quiz-progress-bar { flex: 1; height: 4px; border-radius: 2px; background: var(--surface2); transition: background 0.3s; }
+    .quiz-progress-bar.active { background: var(--emerald); }
+    .quiz-progress-bar.done { background: var(--emerald); }
+    .quiz-step { display: none; animation: quizFadeIn 0.3s ease; }
+    .quiz-step.active { display: block; }
+    @keyframes quizFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .quiz-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+    .quiz-tile {
+      padding: 20px 16px; border-radius: 12px; border: 1px solid var(--border-subtle);
+      background: var(--surface2); cursor: pointer; text-align: center;
+      font-size: 15px; color: var(--text2); transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center; min-height: 64px;
+    }
+    .quiz-tile:hover { border-color: var(--sky); color: var(--text); }
+    .quiz-tile.selected { border-color: var(--emerald); background: rgba(52,211,153,0.08); color: var(--text); font-weight: 600; }
+    .quiz-tile.wide { grid-column: 1 / -1; }
+    .quiz-input {
+      width: 100%; padding: 16px 18px; border-radius: 10px; border: 1px solid var(--border-subtle);
+      background: var(--surface2); color: var(--text); font-size: 16px; font-family: 'Inter', sans-serif;
+      outline: none; transition: border-color 0.25s;
+    }
+    .quiz-input:focus { border-color: var(--sky); }
+    .quiz-input-helper { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); margin-top: 8px; }
+    .quiz-back { background: none; border: none; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 13px; cursor: pointer; padding: 8px 0; letter-spacing: 1px; }
+    .quiz-back:hover { color: var(--text); }
+    .quiz-conditional { display: none; margin-top: 16px; }
+    .quiz-conditional.visible { display: block; }
+    .quiz-q { font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
+    .quiz-sub { font-size: 16px; color: var(--text2); margin-bottom: 28px; }
+    @media (max-width: 768px) {
+      .quiz-tiles { grid-template-columns: 1fr; }
+      .quiz-q { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="/assets/logos/logo-nav.png" alt="Bare Bayside Labs" style="height:40px"></a><div class="nav-links"><a href="/" class="nav-link">HOME</a><a href="/pages/services/" class="nav-link">SERVICES</a><a href="/pages/how-it-works/" class="nav-link">HOW IT WORKS</a><a href="/pages/results/" class="nav-link">RESULTS</a><a href="/pages/about/" class="nav-link">ABOUT</a><a href="/pages/blog/" class="nav-link">BLOG</a><a href="/pages/faq/" class="nav-link">FAQ</a><button id="theme-toggle" class="theme-toggle"></button><a href="/pages/free-marketing-plan/" class="nav-cta" style="background:var(--sky)">GET YOUR FREE PLAN</a></div><button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu"><a href="/" onclick="toggleMenu()">HOME</a><a href="/pages/services/" onclick="toggleMenu()">SERVICES</a><a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a><a href="/pages/results/" onclick="toggleMenu()">RESULTS</a><a href="/pages/about/" onclick="toggleMenu()">ABOUT</a><a href="/pages/blog/" onclick="toggleMenu()">BLOG</a><a href="/pages/faq/" onclick="toggleMenu()">FAQ</a><a href="/pages/free-marketing-plan/" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">GET YOUR FREE PLAN</a><button id="mobile-theme-toggle" class="mobile-theme-toggle"></button></div>
+
+<!-- HERO -->
+<section class="section aurora" style="padding-bottom:40px">
+  <div class="inner" style="text-align:center">
+    <span class="eyebrow eyebrow-emerald reveal">FREE — NO CARD REQUIRED</span>
+    <h1 class="reveal stagger-1">YOUR FREE<br><span class="gradient-text">MARKETING PLAN</span></h1>
+    <p style="font-size:19px;color:var(--text2);max-width:500px;margin:16px auto 0" class="reveal stagger-2">Answer 6 quick questions. Get a personalised plan comparing your business against your local market.</p>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section" style="padding-top:20px">
+  <div class="quiz-wrap">
+
+    <!-- Progress -->
+    <div class="quiz-progress">
+      <div class="quiz-progress-bar active" id="prog-1"></div>
+      <div class="quiz-progress-bar" id="prog-2"></div>
+      <div class="quiz-progress-bar" id="prog-3"></div>
+      <div class="quiz-progress-bar" id="prog-4"></div>
+      <div class="quiz-progress-bar" id="prog-5"></div>
+      <div class="quiz-progress-bar" id="prog-6"></div>
+    </div>
+
+    <!-- Step 1: Industry -->
+    <div class="quiz-step active" data-step="1">
+      <span class="eyebrow eyebrow-emerald" style="margin-bottom:16px">STEP 1 OF 6</span>
+      <div class="quiz-q">What do you do?</div>
+      <div class="quiz-sub">Pick the closest match. This helps us search the right market.</div>
+      <div class="quiz-tiles">
+        <div class="quiz-tile" data-field="industry" data-value="trades">Trades & Construction</div>
+        <div class="quiz-tile" data-field="industry" data-value="health">Health & Wellness</div>
+        <div class="quiz-tile" data-field="industry" data-value="food">Food & Hospitality</div>
+        <div class="quiz-tile" data-field="industry" data-value="professional">Professional Services</div>
+        <div class="quiz-tile" data-field="industry" data-value="retail">Retail & eCommerce</div>
+        <div class="quiz-tile" data-field="industry" data-value="other">Other</div>
+      </div>
+      <div class="quiz-conditional" id="industry-other">
+        <input type="text" class="quiz-input" placeholder="Tell us what you do" id="industry-other-input">
+      </div>
+    </div>
+
+    <!-- Step 2: Challenge -->
+    <div class="quiz-step" data-step="2">
+      <button class="quiz-back" onclick="quizBack()">&#8592; BACK</button>
+      <span class="eyebrow eyebrow-emerald" style="margin-bottom:16px">STEP 2 OF 6</span>
+      <div class="quiz-q">What's your biggest challenge right now?</div>
+      <div class="quiz-sub">We'll focus the plan on what matters most to you.</div>
+      <div class="quiz-tiles">
+        <div class="quiz-tile" data-field="challenge" data-value="not-enough-leads">Not enough leads</div>
+        <div class="quiz-tile" data-field="challenge" data-value="leads-dont-convert">Leads come in but don't convert</div>
+        <div class="quiz-tile" data-field="challenge" data-value="no-visibility">No idea what's working</div>
+        <div class="quiz-tile" data-field="challenge" data-value="competitors-ahead">Competitors are ahead of me</div>
+        <div class="quiz-tile wide" data-field="challenge" data-value="just-starting">Just getting started with marketing</div>
+      </div>
+    </div>
+
+    <!-- Step 3: Competitor type -->
+    <div class="quiz-step" data-step="3">
+      <button class="quiz-back" onclick="quizBack()">&#8592; BACK</button>
+      <span class="eyebrow eyebrow-sky" style="margin-bottom:16px">STEP 3 OF 6</span>
+      <div class="quiz-q">Who do you compete with?</div>
+      <div class="quiz-sub">This changes how we search — local radius vs national brands.</div>
+      <div class="quiz-tiles">
+        <div class="quiz-tile" data-field="competitor_type" data-value="local">Local businesses like mine</div>
+        <div class="quiz-tile" data-field="competitor_type" data-value="big">Bigger companies & franchises</div>
+        <div class="quiz-tile wide" data-field="competitor_type" data-value="mix">Mix of both</div>
+      </div>
+    </div>
+
+    <!-- Step 4: Named competitor -->
+    <div class="quiz-step" data-step="4">
+      <button class="quiz-back" onclick="quizBack()">&#8592; BACK</button>
+      <span class="eyebrow eyebrow-sky" style="margin-bottom:16px">STEP 4 OF 6</span>
+      <div class="quiz-q">Got a specific competitor in mind?</div>
+      <div class="quiz-sub">If there's someone you want us to look at, tell us. Otherwise we'll find the top ones in your area.</div>
+      <div class="quiz-tiles">
+        <div class="quiz-tile" data-field="has_competitor" data-value="yes">Yes — analyse this one</div>
+        <div class="quiz-tile" data-field="has_competitor" data-value="no">No — find the best ones for me</div>
+      </div>
+      <div class="quiz-conditional" id="competitor-name">
+        <input type="text" class="quiz-input" placeholder="Competitor name or website" id="competitor-name-input">
+        <div class="quiz-input-helper">Their business name or website URL — either works</div>
+        <div style="margin-top:16px"><button class="btn-primary" style="width:100%;border:none;cursor:pointer" onclick="quizNext()">NEXT</button></div>
+      </div>
+    </div>
+
+    <!-- Step 5: Location -->
+    <div class="quiz-step" data-step="5">
+      <button class="quiz-back" onclick="quizBack()">&#8592; BACK</button>
+      <span class="eyebrow eyebrow-gold" style="margin-bottom:16px">STEP 5 OF 6</span>
+      <div class="quiz-q">Where are you based?</div>
+      <div class="quiz-sub">The more specific, the better your plan will be.</div>
+      <div style="margin-bottom:28px">
+        <input type="text" class="quiz-input" placeholder="Suburb or area" id="location-input">
+        <div class="quiz-input-helper">Be specific — suburb works better than city (e.g. Paddington, not Brisbane)</div>
+      </div>
+      <button class="btn-primary" style="width:100%;border:none;cursor:pointer" onclick="quizNext()">NEXT</button>
+    </div>
+
+    <!-- Step 6: Details -->
+    <div class="quiz-step" data-step="6">
+      <button class="quiz-back" onclick="quizBack()">&#8592; BACK</button>
+      <span class="eyebrow eyebrow-gold" style="margin-bottom:16px">STEP 6 OF 6</span>
+      <div class="quiz-q">Where should we send your plan?</div>
+      <div class="quiz-sub">We'll email your personalised marketing plan within 48 hours.</div>
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px">
+        <input type="text" class="quiz-input" placeholder="Your business name" id="business-name-input">
+        <input type="email" class="quiz-input" placeholder="Your email address" id="email-input">
+      </div>
+      <button class="btn-primary glow" style="width:100%;border:none;cursor:pointer;font-size:17px;padding:18px" onclick="quizSubmit()">GET MY FREE MARKETING PLAN</button>
+      <div style="text-align:center;margin-top:12px">
+        <span class="mono" style="font-size:12px">No spam. No card. Your plan lands in your inbox.</span>
+      </div>
+    </div>
+
+    <!-- Thank you -->
+    <div class="quiz-step" data-step="done" style="text-align:center">
+      <div style="font-size:48px;margin-bottom:20px">&#9989;</div>
+      <div class="quiz-q">You're in. Your plan is on the way.</div>
+      <div class="quiz-sub">Check your inbox within 48 hours. Your personalised marketing plan will compare your business against your local market and show you exactly where to start.</div>
+      <a href="/pages/blog/" class="btn-secondary" style="margin-top:16px">READ OUR BLOG WHILE YOU WAIT</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT YOU'LL GET -->
+<section class="section" style="background:var(--surface)">
+  <div class="inner" style="text-align:center">
+    <span class="eyebrow eyebrow-emerald reveal">WHAT'S IN YOUR FREE PLAN</span>
+    <h2 class="reveal stagger-1" style="margin-bottom:40px">NOT A TEMPLATE. A TAILORED PLAN.</h2>
+    <div class="grid-3 reveal stagger-2">
+      <div class="surface" style="padding:28px;text-align:left">
+        <h4 style="color:var(--emerald);margin-bottom:12px">YOUR POSITION</h4>
+        <ul style="list-style:none;font-size:15px">
+          <li style="padding:6px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>Online presence scored against competitors</li>
+          <li style="padding:6px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>Where you're winning and where you're behind</li>
+          <li style="padding:6px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>Strengths you probably don't realise you have</li>
+        </ul>
+      </div>
+      <div class="surface" style="padding:28px;text-align:left">
+        <h4 style="color:var(--sky);margin-bottom:12px">YOUR OPPORTUNITIES</h4>
+        <ul style="list-style:none;font-size:15px">
+          <li style="padding:6px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Gaps in your market nobody's filling</li>
+          <li style="padding:6px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Services people search for but can't find</li>
+          <li style="padding:6px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Quick wins you can act on this week</li>
+        </ul>
+      </div>
+      <div class="surface" style="padding:28px;text-align:left">
+        <h4 style="color:var(--gold);margin-bottom:12px">YOUR ACTION PLAN</h4>
+        <ul style="list-style:none;font-size:15px">
+          <li style="padding:6px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>What to fix first, second, third</li>
+          <li style="padding:6px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Prioritised by impact, not by cost</li>
+          <li style="padding:6px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Recommendations matched to your challenge</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section style="padding:44px 24px;border-top:1px solid var(--border-subtle)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap" class="reveal trust-bar">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:46px;height:46px;border-radius:10px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+      <div class="mono" style="line-height:1.35;font-size:14px">100% FREE<br>NO CARD</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:46px;height:46px;border-radius:10px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="mono" style="line-height:1.35;font-size:14px">DELIVERED IN<br>48 HOURS</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:46px;height:46px;border-radius:10px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="mono" style="line-height:1.35;font-size:14px">YOUR DATA<br>STAYS PRIVATE</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="footer-inner"><div class="footer-top"><div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you.</p></div><div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/competitor-intel/">Competitor Intelligence</a></li><li><a href="/pages/services/">Intelligence Reports</a></li><li><a href="/pages/services/">Marketing Systems</a></li></ul></div><div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/how-it-works/">How It Works</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div><div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div></div></div></footer>
+
+<script src="../../js/main.js"></script>
+<script>
+// Quiz logic
+var quizData = {};
+var currentStep = 1;
+var totalSteps = 6;
+
+function showStep(n) {
+  document.querySelectorAll('.quiz-step').forEach(function(s) { s.classList.remove('active'); });
+  var target = n === 'done' ? document.querySelector('[data-step="done"]') : document.querySelector('[data-step="' + n + '"]');
+  if (target) target.classList.add('active');
+  // Update progress
+  for (var i = 1; i <= totalSteps; i++) {
+    var bar = document.getElementById('prog-' + i);
+    if (bar) {
+      bar.classList.remove('active', 'done');
+      if (i < n) bar.classList.add('done');
+      if (i === n) bar.classList.add('active');
+    }
+  }
+  if (n === 'done') {
+    for (var j = 1; j <= totalSteps; j++) {
+      var b = document.getElementById('prog-' + j);
+      if (b) b.classList.add('done');
+    }
+  }
+}
+
+function quizNext() { if (currentStep < totalSteps) { currentStep++; showStep(currentStep); } }
+function quizBack() { if (currentStep > 1) { currentStep--; showStep(currentStep); } }
+
+// Tile clicks
+document.querySelectorAll('.quiz-tile').forEach(function(tile) {
+  tile.addEventListener('click', function() {
+    var field = this.getAttribute('data-field');
+    var value = this.getAttribute('data-value');
+    // Deselect siblings
+    this.parentElement.querySelectorAll('.quiz-tile').forEach(function(t) { t.classList.remove('selected'); });
+    this.classList.add('selected');
+    quizData[field] = value;
+
+    // Handle conditionals
+    if (field === 'industry' && value === 'other') {
+      document.getElementById('industry-other').classList.add('visible');
+      return; // don't auto-advance
+    } else if (field === 'industry') {
+      document.getElementById('industry-other').classList.remove('visible');
+    }
+
+    if (field === 'has_competitor' && value === 'yes') {
+      document.getElementById('competitor-name').classList.add('visible');
+      document.getElementById('competitor-name-input').focus();
+      return; // don't auto-advance, they need to type + click next
+    } else if (field === 'has_competitor' && value === 'no') {
+      document.getElementById('competitor-name').classList.remove('visible');
+    }
+
+    // Auto-advance after short delay
+    setTimeout(function() { quizNext(); }, 300);
+  });
+});
+
+// Handle "other" industry — advance on enter
+var otherInput = document.getElementById('industry-other-input');
+if (otherInput) {
+  otherInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && this.value.trim()) {
+      quizData.industry_other = this.value.trim();
+      quizNext();
+    }
+  });
+}
+
+function quizSubmit() {
+  var bizName = document.getElementById('business-name-input').value.trim();
+  var email = document.getElementById('email-input').value.trim();
+  if (!bizName || !email) { alert('Please fill in both fields.'); return; }
+  quizData.business_name = bizName;
+  quizData.email = email;
+  // Gather optional fields
+  var loc = document.getElementById('location-input');
+  if (loc) quizData.location = loc.value.trim();
+  var comp = document.getElementById('competitor-name-input');
+  if (comp && comp.value.trim()) quizData.competitor_name = comp.value.trim();
+  var otherInd = document.getElementById('industry-other-input');
+  if (otherInd && otherInd.value.trim()) quizData.industry_other = otherInd.value.trim();
+
+  console.log('Quiz submission:', quizData);
+  // TODO: Send to Zoho Form / CRM endpoint
+  showStep('done');
+}
+</script>
+</body>
+</html>
