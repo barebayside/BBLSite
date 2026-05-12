@@ -30,11 +30,12 @@
 <div class="mobile-menu"><a href="/" onclick="toggleMenu()">HOME</a><a href="/pages/services/" onclick="toggleMenu()">SERVICES</a><a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a><a href="/pages/results/" onclick="toggleMenu()">RESULTS</a><a href="/pages/about/" onclick="toggleMenu()">ABOUT</a><a href="/pages/blog/" onclick="toggleMenu()">BLOG</a><a href="/pages/faq/" onclick="toggleMenu()">FAQ</a><a href="/pages/free-marketing-plan/" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">GET YOUR FREE PLAN</a><button id="mobile-theme-toggle" class="mobile-theme-toggle"></button></div>
 
 <!-- HERO -->
-<section class="section aurora">
-  <div class="inner" style="text-align:center">
+<section class="section aurora hiw-hero">
+  <div class="blog-header-img"><img src="/assets/images/before-after-dashboard.jpg" alt=""></div>
+  <div class="inner" style="text-align:center;position:relative;z-index:2">
     <span class="eyebrow eyebrow-sky reveal">THE LAB PROCESS</span>
     <h1 class="reveal stagger-1">FROM GUESSWORK<br><span class="gradient-text">TO EVIDENCE.</span></h1>
-    <p style="font-size:19px;color:var(--text2);max-width:560px;margin:20px auto 0" class="reveal stagger-2">Most businesses run marketing blind — spending money, hoping it works, with no way to tell. Here's how we change that.</p>
+    <p style="font-size:19px;max-width:560px;margin:20px auto 0;color:rgba(255,255,255,0.88);text-shadow:0 1px 4px rgba(0,0,0,0.6)" class="reveal stagger-2">Most businesses run marketing blind — spending money, hoping it works, with no way to tell. Here's how we change that.</p>
     <div class="hiw-scroll-hint reveal stagger-3"><div class="hiw-scroll-arrow"></div></div>
   </div>
 </section>
@@ -194,8 +195,12 @@
 </section>
 
 <!-- THE LAB NEVER CLOSES -->
-<section class="section" style="background:var(--surface)">
-  <div class="inner" style="text-align:center">
+<section class="section hiw-lab-never-closes" style="background:var(--surface);position:relative;overflow:hidden">
+  <video autoplay muted loop playsinline preload="metadata" id="hiw-lab-video" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;opacity:0.22;z-index:0;pointer-events:none;object-fit:cover">
+    <source src="/assets/videos/lab-aesthetic.mp4" type="video/mp4">
+  </video>
+  <script>(function(){var v=document.getElementById('hiw-lab-video');if(v){v.addEventListener('loadedmetadata',function(){v.playbackRate=0.5;});}})();</script>
+  <div class="inner" style="text-align:center;position:relative;z-index:1">
     <span class="eyebrow eyebrow-emerald reveal">ONGOING</span>
     <h2 class="reveal stagger-1" style="margin-bottom:16px">THE LAB NEVER CLOSES.</h2>
     <p style="color:var(--text2);font-size:19px;max-width:600px;margin:0 auto 48px" class="reveal stagger-2">Your market changes every month. New competitors appear, search trends shift, ad costs move. The lab keeps running — testing, measuring, and finding new opportunities so you're always one step ahead.</p>
