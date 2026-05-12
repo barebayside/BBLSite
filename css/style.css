@@ -690,13 +690,11 @@ p { color: var(--text2); }
 }
 
 
-/* === BLOG THUMBNAILS === */
+/* === BLOG THUMBNAILS (full-bleed image, dark chip badge bottom-left) === */
 .blog-thumb {
   aspect-ratio: 16/9;
   background: var(--surface2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   position: relative;
   overflow: hidden;
 }
@@ -707,22 +705,32 @@ p { color: var(--text2); }
   pointer-events: none;
 }
 .blog-thumb-content {
-  text-align: center;
-  padding: 24px;
-  position: relative;
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
   z-index: 2;
+  text-align: left;
+  padding: 8px 14px 10px;
+  background: rgba(7, 12, 28, 0.78);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  max-width: calc(100% - 28px);
 }
 .blog-thumb-stat {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 48px;
+  font-size: 34px;
   line-height: 1;
   color: #ffffff !important;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.85), 0 0 24px rgba(0,0,0,0.55);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
 .blog-thumb-label {
-  margin-top: 8px;
+  margin-top: 4px;
   color: #ffffff !important;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.85), 0 0 16px rgba(0,0,0,0.5);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 .blog-thumb img {
   position: absolute;
@@ -742,6 +750,33 @@ p { color: var(--text2); }
   width: 100%; height: 100%;
   object-fit: cover;
   opacity: 1;
+}
+.blog-header-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7,12,28,0.45) 0%, rgba(7,12,28,0.78) 100%);
+  pointer-events: none;
+}
+
+/* Article hero text — force white in both themes when image banner present */
+section.aurora:has(.blog-header-img) h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+section.aurora:has(.blog-header-img) .breadcrumb,
+section.aurora:has(.blog-header-img) .breadcrumb a {
+  color: #ffffff !important;
+}
+section.aurora:has(.blog-header-img) .breadcrumb {
+  background: rgba(7,12,28,0.55) !important;
+  border-color: rgba(255,255,255,0.18) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+section.aurora:has(.blog-header-img) .mono {
+  color: rgba(255,255,255,0.88) !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.55);
 }
 
 /* --- stop-losing-leads: Converging funnel with flowing dots --- */
