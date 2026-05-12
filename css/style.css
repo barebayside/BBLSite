@@ -714,7 +714,12 @@ p { color: var(--text2); }
   display: flex;
   align-items: baseline;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.blog-thumb-label br {
+  display: none;
 }
 .blog-thumb-content::before {
   content: '';
