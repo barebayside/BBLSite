@@ -788,6 +788,25 @@ section.aurora:has(.blog-header-img) p {
   text-shadow: 0 1px 4px rgba(0,0,0,0.55);
 }
 
+/* Bright hero modifier — drop the scrim so the image pops, and bump text
+   shadow + override gradient-text to white for legibility. */
+section.aurora.bright-hero .blog-header-img::after {
+  background: none !important;
+}
+section.aurora.bright-hero h1,
+section.aurora.bright-hero h1 .gradient-text {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 4px 18px rgba(0,0,0,0.75), 0 0 32px rgba(0,0,0,0.55);
+}
+section.aurora.bright-hero p {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.7);
+}
+
 /* --- stop-losing-leads: Converging funnel with flowing dots --- */
 .blog-thumb-stop-losing-leads {
   background:
