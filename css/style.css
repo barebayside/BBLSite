@@ -721,17 +721,6 @@ p { color: var(--text2); }
 .blog-thumb-label br {
   display: none;
 }
-.blog-thumb-content::before {
-  content: '';
-  position: absolute;
-  top: -14px;
-  left: -16px;
-  right: -16px;
-  height: 90px;
-  background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 60%, transparent 100%);
-  pointer-events: none;
-  z-index: -1;
-}
 .blog-thumb-stat {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 36px;
