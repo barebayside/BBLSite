@@ -812,6 +812,20 @@ section.aurora.bright-hero p {
   text-shadow: 0 1px 3px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.7);
 }
 
+/* Bright-hero + dark scrim — for video heroes with bright frames where bare
+   bright-hero would blow text out in light mode. Re-enables the scrim that
+   .bright-hero removes, while keeping bright-hero's stronger text shadows. */
+section.aurora.bright-hero.dark-scrim-keep .blog-header-img::after {
+  background: linear-gradient(180deg, rgba(7,12,28,0.55) 0%, rgba(7,12,28,0.85) 100%) !important;
+}
+
+/* Gap between blog/page hero banner and the body section that follows.
+   Blog post templates set inline padding-top:0 on the body section so the
+   override needs !important to win. */
+section.aurora:has(.blog-header-img) + section.section {
+  padding-top: 56px !important;
+}
+
 
 /* --- stop-losing-leads: Converging funnel with flowing dots --- */
 .blog-thumb-stop-losing-leads {
@@ -1422,6 +1436,58 @@ section.aurora.bright-hero p {
   border: 1px solid var(--border-subtle);
   border-radius: 18px;
   padding: 48px 32px;
+}
+
+/* HIW pipeline: Discover → Diagnose → Design → Deliver
+   Replaces the old white .hiw-stats-card wrapper. Four cells with explicit
+   gaps, sequential reveal (existing stagger-N), chevrons between cells. */
+.hiw-pipeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+.hiw-pipeline-cell {
+  text-align: center;
+  padding: 24px 8px;
+  position: relative;
+}
+.hiw-pipeline-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.hiw-pipeline-cell:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 36px;
+  right: -32px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid var(--text2);
+  border-right: 2px solid var(--text2);
+  transform: rotate(45deg) scale(0.6);
+  opacity: 0;
+  transition: opacity 0.6s ease 0.45s, transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.45s;
+}
+.hiw-pipeline-cell.revealed:not(:last-child)::after {
+  opacity: 0.55;
+  transform: rotate(45deg) scale(1);
+}
+@media (max-width: 900px) {
+  .hiw-pipeline { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .hiw-pipeline-cell:nth-child(2)::after { display: none; }
+}
+@media (max-width: 540px) {
+  .hiw-pipeline { grid-template-columns: 1fr; }
+  .hiw-pipeline-cell::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hiw-pipeline-cell::after { transition: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
