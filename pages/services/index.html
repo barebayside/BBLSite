@@ -186,7 +186,7 @@
 </section>
 
 <!-- STANDALONE SUBSCRIPTIONS -->
-<section class="section" style="background:var(--surface)">
+<section id="subscriptions" class="section guided-step-target" style="background:var(--surface)">
   <div class="inner">
     <span class="eyebrow eyebrow-sky reveal">ONGOING MONITORING — STANDALONE SUBSCRIPTIONS</span>
     <h2 class="reveal stagger-1" style="margin-bottom:16px">KEEP THE INTEL CURRENT</h2>
@@ -235,7 +235,7 @@
 </section>
 
 <!-- MONITORING PLANS — SIGNAL / INTEL / LAB -->
-<section class="section">
+<section id="monitoring" class="section guided-step-target">
   <div class="inner">
     <span class="eyebrow eyebrow-sky reveal">MONITORING PLANS — BUNDLE &amp; SAVE</span>
     <h2 class="reveal stagger-1" style="margin-bottom:16px">STAY AHEAD EVERY WEEK —<br>NOT EVERY QUARTER</h2>
@@ -392,6 +392,46 @@
   </div>
 </section>
 
+<!-- SECTION NAV: desktop right-edge dots + mobile FAB -->
+<aside id="services-nav" class="services-nav" aria-label="Section navigation">
+  <a href="#step-1" data-target="step-1" class="services-nav-item">
+    <span class="services-nav-dot"></span>
+    <span class="services-nav-label">See Where You Stand</span>
+  </a>
+  <a href="#step-2" data-target="step-2" class="services-nav-item">
+    <span class="services-nav-dot"></span>
+    <span class="services-nav-label">Know What To Do</span>
+  </a>
+  <a href="#subscriptions" data-target="subscriptions" class="services-nav-item">
+    <span class="services-nav-dot"></span>
+    <span class="services-nav-label">Subscriptions</span>
+  </a>
+  <a href="#monitoring" data-target="monitoring" class="services-nav-item">
+    <span class="services-nav-dot"></span>
+    <span class="services-nav-label">Monitoring Plans</span>
+  </a>
+  <a href="#step-3" data-target="step-3" class="services-nav-item">
+    <span class="services-nav-dot"></span>
+    <span class="services-nav-label">Get It Done</span>
+  </a>
+</aside>
+
+<button id="services-fab" class="services-fab" aria-label="Jump to section" aria-expanded="false" aria-controls="services-fab-sheet">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+    <line x1="6" y1="7" x2="18" y2="7"/>
+    <line x1="6" y1="12" x2="18" y2="12"/>
+    <line x1="6" y1="17" x2="18" y2="17"/>
+  </svg>
+</button>
+
+<div id="services-fab-sheet" class="services-fab-sheet" role="menu" aria-labelledby="services-fab">
+  <a href="#step-1" data-target="step-1" role="menuitem">Step 1 — See Where You Stand</a>
+  <a href="#step-2" data-target="step-2" role="menuitem">Step 2 — Know What To Do</a>
+  <a href="#subscriptions" data-target="subscriptions" role="menuitem">Standalone Subscriptions</a>
+  <a href="#monitoring" data-target="monitoring" role="menuitem">Monitoring Plans</a>
+  <a href="#step-3" data-target="step-3" role="menuitem">Step 3 — Done For You</a>
+</div>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
@@ -413,5 +453,84 @@
 </footer>
 
 <script src="../../js/main.js"></script>
+<script>
+(function() {
+  var sections = ['step-1', 'step-2', 'subscriptions', 'monitoring', 'step-3'];
+  var sectionEls = sections.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!sectionEls.length) return;
+
+  var hero = document.querySelector('section.aurora');
+  var nav = document.getElementById('services-nav');
+  var fab = document.getElementById('services-fab');
+  var sheet = document.getElementById('services-fab-sheet');
+  var navItems = document.querySelectorAll('#services-nav .services-nav-item');
+  var sheetItems = document.querySelectorAll('#services-fab-sheet a');
+
+  // Show desktop nav + mobile FAB once hero is scrolled past
+  if (hero && nav && fab) {
+    var heroObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        var visible = entry.isIntersecting;
+        nav.classList.toggle('show', !visible);
+        fab.classList.toggle('show', !visible);
+        if (visible) {
+          sheet.classList.remove('open');
+          fab.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }, { rootMargin: '-80px 0px 0px 0px' });
+    heroObs.observe(hero);
+  } else if (nav && fab) {
+    nav.classList.add('show');
+    fab.classList.add('show');
+  }
+
+  // Track active section
+  function setActive(id) {
+    navItems.forEach(function(item) {
+      item.classList.toggle('active', item.dataset.target === id);
+    });
+    sheetItems.forEach(function(item) {
+      item.classList.toggle('active', item.dataset.target === id);
+    });
+  }
+
+  var spy = new IntersectionObserver(function(entries) {
+    var visible = entries.filter(function(e) { return e.isIntersecting; });
+    if (visible.length) {
+      visible.sort(function(a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+      setActive(visible[0].target.id);
+    }
+  }, { rootMargin: '-30% 0px -55% 0px' });
+  sectionEls.forEach(function(el) { spy.observe(el); });
+
+  // FAB toggle + dismiss
+  if (fab && sheet) {
+    fab.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var open = sheet.classList.toggle('open');
+      fab.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    sheet.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') {
+        sheet.classList.remove('open');
+        fab.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('click', function(e) {
+      if (!sheet.contains(e.target) && !fab.contains(e.target)) {
+        sheet.classList.remove('open');
+        fab.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        sheet.classList.remove('open');
+        fab.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+})();
+</script>
 </body>
 </html>
