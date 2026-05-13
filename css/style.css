@@ -826,6 +826,37 @@ section.aurora:has(.blog-header-img) + section.section {
   padding-top: 56px !important;
 }
 
+/* Services page — guided-path cards (the three numbered blocks up top)
+   become in-page anchor links to STEP 1/2/3 sections further down. */
+.guided-step-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.16,1,0.3,1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.guided-step-card:hover,
+.guided-step-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.18);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+[data-theme="light"] .guided-step-card:hover,
+[data-theme="light"] .guided-step-card:focus-visible {
+  border-color: rgba(37,99,235,0.2);
+  box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+}
+.guided-step-card:focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 3px;
+}
+/* Clear the sticky nav when the anchor scrolls into view */
+.guided-step-target {
+  scroll-margin-top: 96px;
+}
+
 
 /* --- stop-losing-leads: Converging funnel with flowing dots --- */
 .blog-thumb-stop-losing-leads {
