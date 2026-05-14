@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Zoho PageSense (smart code) -->
+  <script id="pagesenseCode">!function(){var e="1.0",t=document,a=window,n="zps-page-screen",r=t.head||t.getElementsByTagName("head")[0],i=t.getElementById("pagesenseCode");if(!t.getElementById(n)){var o=t.createElement("style");o.type="text/css",o.id=n;var s="body { background: transparent !important; opacity: 0 !important; visibility: hidden !important; } html { opacity: 0 !important; visibility: hidden !important; }";o.styleSheet?o.styleSheet.cssText=s:o.appendChild(t.createTextNode(s)),r.firstChild?r.insertBefore(o,r.firstChild):r.appendChild(o),a._ps_conf={};var c={addScript:function(e){try{var n=t.createElement("script");if(n.type="text/javascript",n.async=!0,e.src?n.src=e.src:e.text&&(void 0!==n.text?n.text=e.text:n.appendChild(t.createTextNode(e.text))),i&&i.getAttribute){var o=i.getAttribute("nonce");o&&n.setAttribute("nonce",o)}n.onload=n.onreadystatechange=function(){this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState||(n.onload=n.onreadystatechange=null,a._ps_conf&&a._ps_conf.pauseRenderForManualActivation?clearTimeout(d):c.revealPage())},n.onerror=function(){c.revealPage()},r.appendChild(n)}catch(e){throw c.revealPage(),e}},revealPage:function(){var e=t.getElementById(n);e&&e.parentNode&&e.parentNode.removeChild(e)}},d=setTimeout((function(){c.revealPage()}),1e4),p=c.revealPage;c.revealPage=function(){clearTimeout(d),p()};try{a._ps_conf&&a._ps_conf.pauseRenderForManualActivation&&(a.pagesense=a.pagesense||[],a.pagesense.push=function(e){e&&"activate"==e[0]&&c&&c.revealPage()}),a._ps_conf?a._ps_conf.version=e:a._ps_conf={version:e},c.addScript({src:"https://cdn-au.pagesense.io/js/yourrentalhomefinders/14574dedc7ea4fed9f16b7fea65d59f6.js"})}catch(e){c.revealPage()}}}();</script>
+
+<!-- BBL ASSET REGISTRY — DO NOT REMOVE -->
+<!-- This LP's identifier in the registry. The full asset code goes here. -->
+<meta name="bbl-asset-code" content="REPLACE_WITH_FULL_CODE">
+
+<!-- Block indexing for paid-traffic LPs -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>REPLACE_WITH_HEADLINE — Bare Bayside Labs</title>
+<meta name="description" content="REPLACE_WITH_META_DESCRIPTION">
+<link rel="canonical" href="https://barebaysidelabs.com/lp/REPLACE_WITH_SLUG/">
+
+<!-- Reuse main site CSS -->
+<link rel="stylesheet" href="/css/style.css">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!--
+  PageSense variant assignment + form stamping.
+  When Zoho PageSense runs an A/B test on this page, the variant is exposed as
+  one of these globals (verify in PageSense UI):
+    - window.$zoho.pagesense.experimentVariant
+    - data-pagesense-variant attribute on <body>
+  This script reads it and stamps LP_Variant + LP_Asset_Code into every <form>
+  so the CRM Lead record captures which variant the visitor saw.
+-->
+<script>
+(function() {
+  // Read the asset code from the meta tag (single source of truth)
+  var assetCodeMeta = document.querySelector('meta[name="bbl-asset-code"]');
+  var assetCodeBase = assetCodeMeta ? assetCodeMeta.content : '';
+
+  function getVariant() {
+    // Returns UPPERCASE variant letter (A, B, C, Control) to match the
+    // sequence-level variant convention. LP variants are sequence-level.
+    // 1. PageSense API (preferred)
+    try {
+      if (window.$zoho && window.$zoho.pagesense && window.$zoho.pagesense.experimentVariant) {
+        return String(window.$zoho.pagesense.experimentVariant).toUpperCase();
+      }
+    } catch (e) {}
+    // 2. PageSense body data attribute
+    var bodyVariant = document.body.dataset.pagesenseVariant;
+    if (bodyVariant) return String(bodyVariant).toUpperCase();
+    // 3. URL override (for manual testing): ?v=a
+    var url = new URL(window.location.href);
+    var urlVariant = url.searchParams.get('v');
+    if (urlVariant) return urlVariant.toUpperCase();
+    // 4. Fall back to no variant (asset has no A/B test running)
+    return null;
+  }
+
+  function buildAssetCode(baseCode, variant) {
+    if (!variant) return baseCode;
+    // Insert variant into the code at the variant slot.
+    // Format: {STAGE}-{PRODUCT}-{seq}.{ver}{VARIANT}_{PLATFORM}_{FORMAT}
+    // If the base already has an uppercase variant (e.g. AWR-COMP-1.0A_WEB_LP),
+    // override it with the test variant. Variant is UPPERCASE.
+    return baseCode.replace(/(\d+\.\d+)[A-Z]?(_)/, '$1' + variant + '$2');
+  }
+
+  function stampForms() {
+    var variant = getVariant();
+    var fullCode = buildAssetCode(assetCodeBase, variant);
+
+    document.querySelectorAll('form').forEach(function(form) {
+      // Don't double-stamp
+      if (form.querySelector('input[name="LP_Variant"]')) return;
+
+      if (variant) {
+        var vField = document.createElement('input');
+        vField.type = 'hidden';
+        vField.name = 'LP_Variant';
+        vField.value = variant;
+        form.appendChild(vField);
+      }
+
+      var cField = document.createElement('input');
+      cField.type = 'hidden';
+      cField.name = 'LP_Asset_Code';
+      cField.value = fullCode;
+      form.appendChild(cField);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', stampForms);
+  } else {
+    stampForms();
+  }
+})();
+</script>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="section aurora" style="padding-top:80px;position:relative">
+  <div class="inner">
+    <span class="eyebrow eyebrow-emerald">REPLACE_WITH_EYEBROW</span>
+    <h1 style="margin-bottom:16px;max-width:700px">REPLACE_WITH_HEADLINE</h1>
+    <p style="font-size:20px;color:var(--text2);max-width:600px;line-height:1.7;margin-bottom:32px">REPLACE_WITH_SUBHEAD</p>
+
+    <!-- LP FORM — replace action with your form handler (Zoho Forms embed or Zoho CRM webform) -->
+    <form action="REPLACE_WITH_FORM_ACTION" method="POST" style="max-width:500px">
+      <input type="text" name="Name" placeholder="Your name" required style="display:block;width:100%;padding:14px;margin-bottom:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:6px;font-size:16px">
+      <input type="email" name="Email" placeholder="Your email" required style="display:block;width:100%;padding:14px;margin-bottom:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:6px;font-size:16px">
+      <button type="submit" class="btn-primary glow" style="width:100%;padding:16px;font-size:18px">REPLACE_WITH_CTA</button>
+    </form>
+
+    <p style="margin-top:20px;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:1.5px">REPLACE_WITH_TRUST_LINE</p>
+  </div>
+</section>
+
+<!-- Add more sections as needed (proof, features, FAQ, etc.) -->
+
+</body>
+</html>

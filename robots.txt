@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /lp/
+
+# Paid-traffic landing pages live at /lp/ and should not compete with organic SEO.
+# They are reachable only via direct ad clicks (with UTM tokens).
 
 # AI crawlers — explicitly allowed (we want AI citation and visibility)
 User-agent: GPTBot

@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Zoho PageSense (smart code) -->
+  <script id="pagesenseCode">!function(){var e="1.0",t=document,a=window,n="zps-page-screen",r=t.head||t.getElementsByTagName("head")[0],i=t.getElementById("pagesenseCode");if(!t.getElementById(n)){var o=t.createElement("style");o.type="text/css",o.id=n;var s="body { background: transparent !important; opacity: 0 !important; visibility: hidden !important; } html { opacity: 0 !important; visibility: hidden !important; }";o.styleSheet?o.styleSheet.cssText=s:o.appendChild(t.createTextNode(s)),r.firstChild?r.insertBefore(o,r.firstChild):r.appendChild(o),a._ps_conf={};var c={addScript:function(e){try{var n=t.createElement("script");if(n.type="text/javascript",n.async=!0,e.src?n.src=e.src:e.text&&(void 0!==n.text?n.text=e.text:n.appendChild(t.createTextNode(e.text))),i&&i.getAttribute){var o=i.getAttribute("nonce");o&&n.setAttribute("nonce",o)}n.onload=n.onreadystatechange=function(){this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState||(n.onload=n.onreadystatechange=null,a._ps_conf&&a._ps_conf.pauseRenderForManualActivation?clearTimeout(d):c.revealPage())},n.onerror=function(){c.revealPage()},r.appendChild(n)}catch(e){throw c.revealPage(),e}},revealPage:function(){var e=t.getElementById(n);e&&e.parentNode&&e.parentNode.removeChild(e)}},d=setTimeout((function(){c.revealPage()}),1e4),p=c.revealPage;c.revealPage=function(){clearTimeout(d),p()};try{a._ps_conf&&a._ps_conf.pauseRenderForManualActivation&&(a.pagesense=a.pagesense||[],a.pagesense.push=function(e){e&&"activate"==e[0]&&c&&c.revealPage()}),a._ps_conf?a._ps_conf.version=e:a._ps_conf={version:e},c.addScript({src:"https://cdn-au.pagesense.io/js/yourrentalhomefinders/14574dedc7ea4fed9f16b7fea65d59f6.js"})}catch(e){c.revealPage()}}}();</script>
   <title>Free Marketing Plan — Bare Bayside Labs</title>
   <meta name="description" content="Answer 6 quick questions and get a personalised marketing plan comparing your business against your local market. Free, no card required.">
   <link rel="canonical" href="https://barebaysidelabs.com/pages/free-marketing-plan/">
@@ -53,6 +55,29 @@
     @media (max-width: 768px) {
       .quiz-tiles { grid-template-columns: 1fr; }
       .quiz-q { font-size: 20px; }
+    }
+    /* Google Places autocomplete styled to match the form */
+    #place-autocomplete-container gmp-place-autocomplete {
+      width: 100%;
+      --gmpx-color-surface: var(--surface2);
+      --gmpx-color-on-surface: var(--text);
+      --gmpx-color-on-surface-variant: var(--muted);
+      --gmpx-color-primary: var(--sky);
+      --gmpx-font-family-base: 'Inter', sans-serif;
+    }
+    #place-autocomplete-container gmp-place-autocomplete::part(input) {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: var(--surface2);
+      color: var(--text);
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+    }
+    #place-autocomplete-container gmp-place-autocomplete::part(input):focus {
+      border-color: var(--sky);
     }
   </style>
 </head>
@@ -153,10 +178,13 @@
       <button class="quiz-back" onclick="quizBack()">&#8592; BACK</button>
       <span class="eyebrow eyebrow-gold" style="margin-bottom:16px">STEP 5 OF 6</span>
       <div class="quiz-q">Where are you based?</div>
-      <div class="quiz-sub">The more specific, the better your plan will be.</div>
+      <div class="quiz-sub">Start typing your city or area — pick yours from the list.</div>
       <div style="margin-bottom:28px">
-        <input type="text" class="quiz-input" placeholder="Suburb or area" id="location-input">
-        <div class="quiz-input-helper">Be specific — suburb works better than city (e.g. Paddington, not Brisbane)</div>
+        <div id="place-autocomplete-container"></div>
+        <div class="quiz-input-helper">Works worldwide. Pick the closest match so your plan compares against your local market.</div>
+        <div id="location-selected" style="margin-top:12px;font-family:'DM Mono',monospace;font-size:12px;color:var(--emerald);display:none"></div>
+        <!-- legacy fallback if the API key isn't set or fails to load -->
+        <input type="text" class="quiz-input" placeholder="Or type your city manually" id="location-input" style="margin-top:12px;display:none">
       </div>
       <button class="btn-primary" style="width:100%;border:none;cursor:pointer" onclick="quizNext()">NEXT</button>
     </div>
@@ -322,9 +350,12 @@ function quizSubmit() {
   if (!bizName || !email) { alert('Please fill in both fields.'); return; }
   quizData.business_name = bizName;
   quizData.email = email;
-  // Gather optional fields
+  // Gather optional fields. quizData.location_* are populated by Google Places autocomplete.
+  // Fallback: free-text input if user typed manually instead of selecting.
   var loc = document.getElementById('location-input');
-  if (loc) quizData.location = loc.value.trim();
+  if (loc && loc.value.trim() && !quizData.location_display) {
+    quizData.location_display = loc.value.trim();
+  }
   var comp = document.getElementById('competitor-name-input');
   if (comp && comp.value.trim()) quizData.competitor_name = comp.value.trim();
   var otherInd = document.getElementById('industry-other-input');
@@ -334,6 +365,102 @@ function quizSubmit() {
   // TODO: Send to Zoho Form / CRM endpoint
   showStep('done');
 }
+
+// =====================================================================
+// Google Places Autocomplete (international address picker — Step 5)
+// =====================================================================
+// API key restricted to barebaysidelabs.com via Google Cloud Console.
+// Safe to publish; key is referrer-locked at Google's edge.
+var BBL_PLACES_API_KEY = '__BBL_PLACES_API_KEY__';
+
+function bblInitPlaceAutocomplete() {
+  if (!window.google || !google.maps) return;
+  google.maps.importLibrary('places').then(function(places) {
+    try {
+      var el = new places.PlaceAutocompleteElement();
+      el.id = 'bbl-place-autocomplete';
+      // Restrict to address-like results across all countries
+      // (no countries: filter = worldwide)
+      var container = document.getElementById('place-autocomplete-container');
+      if (!container) return;
+      container.appendChild(el);
+
+      // Capture selection
+      el.addEventListener('gmp-select', function(e) {
+        var placePrediction = e.placePrediction;
+        if (!placePrediction) return;
+        var place = placePrediction.toPlace();
+        place.fetchFields({
+          fields: ['displayName','formattedAddress','addressComponents','location']
+        }).then(function() {
+          var country = '', region = '', city = '', postcode = '';
+          (place.addressComponents || []).forEach(function(c) {
+            if (c.types.indexOf('country') > -1) country = c.shortText || '';
+            if (c.types.indexOf('administrative_area_level_1') > -1) region = c.longText || '';
+            if (c.types.indexOf('locality') > -1 && !city) city = c.longText || '';
+            if (c.types.indexOf('postal_town') > -1 && !city) city = c.longText || '';
+            if (c.types.indexOf('sublocality') > -1 && !city) city = c.longText || '';
+            if (c.types.indexOf('postal_code') > -1) postcode = c.longText || '';
+          });
+          quizData.location_country = country;
+          quizData.location_region = region;
+          quizData.location_city = city;
+          quizData.location_postcode = postcode;
+          quizData.location_display = place.formattedAddress || '';
+          if (place.location) {
+            quizData.location_lat = place.location.lat();
+            quizData.location_lng = place.location.lng();
+          }
+
+          // Visual confirmation
+          var confirmEl = document.getElementById('location-selected');
+          if (confirmEl) {
+            confirmEl.textContent = '✓ ' + quizData.location_display;
+            confirmEl.style.display = 'block';
+          }
+        });
+      });
+    } catch (err) {
+      console.warn('Google Places init failed; falling back to manual input.', err);
+      bblShowManualLocationInput();
+    }
+  }).catch(function(err) {
+    console.warn('Google Places library failed to load; falling back to manual input.', err);
+    bblShowManualLocationInput();
+  });
+}
+
+function bblShowManualLocationInput() {
+  var manual = document.getElementById('location-input');
+  if (manual) manual.style.display = 'block';
+}
+
+// Inject Maps API script. If the key placeholder hasn't been replaced
+// (development / preview environments), skip and show the manual input.
+(function() {
+  if (BBL_PLACES_API_KEY.indexOf('__') === 0) {
+    console.warn('Google Places API key not set — showing manual location input.');
+    bblShowManualLocationInput();
+    return;
+  }
+  var script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(BBL_PLACES_API_KEY)
+    + '&libraries=places&v=weekly&loading=async&callback=bblInitPlaceAutocomplete';
+  script.onerror = function() {
+    console.warn('Failed to load Google Maps script; showing manual input.');
+    bblShowManualLocationInput();
+  };
+  // Expose the callback globally
+  window.bblInitPlaceAutocomplete = bblInitPlaceAutocomplete;
+  document.head.appendChild(script);
+})();
+</script>
+
+<!-- PageSense Goal: Landed On Free Plan Page -->
+<script>
+  window.pagesense = window.pagesense || [];
+  window.pagesense.push(['trackEvent', 'Landed On Free Plan Page']);
 </script>
 </body>
 </html>
