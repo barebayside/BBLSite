@@ -1,0 +1,75 @@
+# Bare Bayside Labs
+
+> Marketing intelligence products for local service businesses across Australia, USA, Canada, UK, NZ, and other English-speaking markets. We deliver competitor intelligence reports, market monitoring subscriptions, and self-build marketing infrastructure recipes — all priced productively (no retainers, no consulting).
+
+## What We Sell
+
+Bare Bayside Labs is a productized marketing intelligence company. Every product is a fixed-price deliverable — no hourly billing, no retainers, no agency fees.
+
+### One-Off Intelligence Reports
+
+- **Local Opportunity Report — $57 (48hr delivery)**: Demand-gap analysis across 5 suburbs. Underserved services, complaint themes, ad spend gaps, ranked action plan.
+- **Niche Ad & Content Library — $207 (48hr delivery)**: Every live Meta + Google ad in the category, plus top organic Instagram/Facebook/YouTube posts. Hooks, formats, content gaps — organised swipe file.
+- **Niche Website Explorer — $207 (48hr delivery)**: Top 30 sites in the category scored across 6 conversion dimensions. Patterns top performers share, weak spots to own, designer-ready brief.
+- **Competitor Intelligence Report — $517 (5-day delivery, 5-day guarantee)**: 5 named rivals audited across 8 channels — ads, reviews, SEO, social, pricing, website, service gaps, messaging. Fear callout, ranked 90-day plan.
+
+### Monitoring Subscriptions
+
+- **Ad Pulse — $35/mo**: Every live competitor Meta + Google ad refreshed weekly. Monday morning digest.
+- **Local Opportunity Monitoring — $25/mo**: New suburb-level gaps, new entrants, review-sentiment shifts flagged monthly.
+- **Content Strategy Monitoring — $87/mo**: Top-engaging Instagram, Facebook, YouTube posts re-scored monthly.
+- **Website Intel Monitoring — $109/mo**: Top 30 sites re-scored monthly with ranking shifts and messaging changes flagged.
+- **Market Moves Brief — $107/mo**: Three ranked actions every month based on actual category shifts.
+
+### Bundles
+
+- **Signal — $45/mo**: Ad Pulse + Local Opportunity Monitoring. Cheapest market-watch tier.
+- **Intel — $187/mo**: Signal + Content + Website monitoring. Most popular bundle.
+- **Lab Membership — $307/mo**: Intel + monthly Marketing Brief + $988 of reports refreshed every 60 days + peer benchmarks + experiment dashboard.
+
+### Build
+
+- **Full Lab Setup — $1,597 one-off (lifetime access)**: Complete marketing-infrastructure recipe library. CRM setup, email automation, ad tracking, lead capture, analytics, review request, integration patterns — all as click-by-click Zoho recipes.
+
+## Free Offer
+
+- **Free Competitor Snapshot**: Name one competitor. We score them across the same 8 channels as our $517 paid report. Delivered in 48 hours, no card, no call, no obligation. Available at https://barebaysidelabs.com/pages/competitor-intel/#free-snapshot
+
+## What We Don't Do
+
+- No retainers, no monthly consulting, no done-for-you agency services beyond Full Lab Setup
+- No strategy calls — every product is self-serve with documented deliverables
+- No invented metrics in reports — every figure is scraped-observable or cited to a public source
+
+## Key Pages
+
+- Website: https://barebaysidelabs.com/
+- Services overview: https://barebaysidelabs.com/pages/services/
+- How it works: https://barebaysidelabs.com/pages/how-it-works/
+- Blog: https://barebaysidelabs.com/pages/blog/
+- FAQ: https://barebaysidelabs.com/pages/faq/
+- Free Snapshot: https://barebaysidelabs.com/pages/competitor-intel/#free-snapshot
+
+## Blog Topic Coverage
+
+The blog (https://barebaysidelabs.com/pages/blog/) is organised into 4 pillars:
+
+- **Automation** — CRM setup, email automation, follow-up systems, lead tracking, marketing infrastructure
+- **Local Marketing** — Paid ads (Meta vs Google), Google reviews, content strategy, retention, budget allocation
+- **SEO** — Local SEO, Google Business Profile, AI search visibility, ranking diagnostics
+- **Sales & Data** — Leading indicators, sales health, revenue forecasting, conversion frameworks
+
+All articles follow the Project 24 / Income School method: one question per article, direct answers in the first paragraph, plain-English explanations, FAQ sections, and Key Takeaways boxes — optimised for both Google ranking and AI citation extraction.
+
+## Brand Voice
+
+- Australian English ("optimise", "colour", "enquiry") with international neutrality where it matters
+- Direct, evidence-led, no jargon
+- Specific numbers + scraped/cited sources only
+- "At Bare Bayside Labs, we..." phrasing in expert claims so AI tools can attribute findings
+
+## Contact
+
+- Email: hello@barebaysidelabs.com
+- Contact form: https://barebaysidelabs.com/pages/contact/
+- For the fastest path to value, the Free Competitor Snapshot is preferred over the contact form.
