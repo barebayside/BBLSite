@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brief Received — Bare Bayside Labs</title>
+  <meta name="description" content="Your brief has been received. Your report is now in motion.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="https://barebaysidelabs.com/pages/intake/thank-you/">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    .thanks-shell { max-width: 720px; margin: 0 auto; padding: 96px 24px 96px; text-align: center; }
+    .thanks-check { width: 84px; height: 84px; margin: 0 auto 24px; border-radius: 50%; background: rgba(52,211,153,0.12); border: 2px solid var(--emerald); display: flex; align-items: center; justify-content: center; }
+    .thanks-check svg { width: 44px; height: 44px; color: var(--emerald); }
+    .thanks-eyebrow { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:2px; color:var(--emerald); text-transform:uppercase; margin-bottom:12px }
+    .thanks-headline { font-family:'Bebas Neue',sans-serif; font-size:56px; line-height:1.05; letter-spacing:1px; margin: 0 0 20px }
+    .thanks-sub { font-size:19px; color:var(--text2); line-height:1.6; margin: 0 auto 32px; max-width:560px }
+    .thanks-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 40px 0; }
+    .thanks-step { background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 24px 16px; text-align: center; }
+    .thanks-step .step-num { font-family:'Bebas Neue',sans-serif; font-size:32px; color: var(--emerald); margin-bottom: 8px; line-height: 1; }
+    .thanks-step .step-label { font-size: 14px; color: var(--text2); line-height: 1.5; }
+    .thanks-step.done { opacity: 0.55; }
+    .thanks-step.done .step-num { color: var(--text2); }
+    .thanks-step.active { border-color: var(--emerald); box-shadow: 0 0 0 2px rgba(52,211,153,0.18); }
+    .thanks-meta { background: var(--surface2); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 24px; margin: 32px 0; text-align: left; }
+    .thanks-meta-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed var(--border-subtle); font-size: 15px; }
+    .thanks-meta-row:last-child { border-bottom: none; }
+    .thanks-meta-label { color: var(--muted); font-family:'DM Mono',monospace; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    .thanks-meta-value { color: var(--text); font-weight: 600; }
+    .thanks-help { margin: 40px 0 0; padding: 24px 28px; background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 12px; font-size: 15px; color: var(--text2); line-height: 1.7; text-align: left; }
+    .thanks-help strong { color: var(--text); }
+    .thanks-help a { color: var(--emerald); text-decoration: none; font-weight: 600; }
+    .thanks-help a:hover { text-decoration: underline; }
+    .thanks-cta-row { display: flex; gap: 16px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+    .thanks-cta-secondary { background: transparent; border: 1px solid var(--border-subtle); color: var(--text2); padding: 14px 28px; border-radius: 10px; font-family:'DM Mono',monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+    .thanks-cta-secondary:hover { border-color: var(--emerald); color: var(--emerald); }
+    @media (max-width:720px) {
+      .thanks-shell { padding: 56px 16px 64px; }
+      .thanks-headline { font-size: 40px; }
+      .thanks-steps { grid-template-columns: 1fr; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand"><img src="/assets/logos/logo-nav.png" alt="Bare Bayside Labs" style="height:40px"></a>
+    <div class="nav-links">
+      <a href="/pages/services/" class="nav-link">SERVICES</a>
+      <a href="/pages/how-it-works/" class="nav-link">HOW IT WORKS</a>
+      <a href="/pages/results/" class="nav-link">RESULTS</a>
+      <a href="/pages/about/" class="nav-link">ABOUT</a>
+      <a href="/pages/blog/" class="nav-link">BLOG</a>
+      <a href="/pages/faq/" class="nav-link">FAQ</a>
+      <button id="theme-toggle" class="theme-toggle"></button>
+      <a href="/pages/services/" class="nav-cta">SEE ALL REPORTS</a>
+    </div>
+    <button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="/" onclick="toggleMenu()">HOME</a>
+  <a href="/pages/services/" onclick="toggleMenu()">SERVICES</a>
+  <a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a>
+  <a href="/pages/results/" onclick="toggleMenu()">RESULTS</a>
+  <a href="/pages/about/" onclick="toggleMenu()">ABOUT</a>
+  <a href="/pages/blog/" onclick="toggleMenu()">BLOG</a>
+  <a href="/pages/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/pages/services/" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">SEE ALL REPORTS</a>
+  <button id="mobile-theme-toggle" class="mobile-theme-toggle"></button>
+</div>
+
+<main class="thanks-shell">
+
+  <div class="thanks-check">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+  </div>
+
+  <div class="thanks-eyebrow">Brief Received</div>
+  <h1 class="thanks-headline">GOT IT. YOUR REPORT IS NOW IN MOTION.</h1>
+  <p class="thanks-sub">Sit tight. Our team takes it from here.</p>
+
+  <div class="thanks-steps">
+    <div class="thanks-step done">
+      <div class="step-num">✓</div>
+      <div class="step-label">Payment received</div>
+    </div>
+    <div class="thanks-step done">
+      <div class="step-num">✓</div>
+      <div class="step-label">Brief submitted</div>
+    </div>
+    <div class="thanks-step active">
+      <div class="step-num">48h</div>
+      <div class="step-label">Report delivered to your inbox</div>
+    </div>
+  </div>
+
+  <div class="thanks-meta" id="order-meta" style="display:none">
+    <div class="thanks-meta-row">
+      <span class="thanks-meta-label">Reference</span>
+      <span class="thanks-meta-value" id="order-ref">—</span>
+    </div>
+    <div class="thanks-meta-row">
+      <span class="thanks-meta-label">Submitted</span>
+      <span class="thanks-meta-value" id="order-date">—</span>
+    </div>
+  </div>
+
+  <div class="thanks-help">
+    <strong>What happens next.</strong>
+    Your report will land in the inbox you paid with — usually well within 48 hours. We'll send a single email when it's ready, with a private link to your report.
+    <br><br>
+    <strong>Need to add or change something?</strong>
+    Reply to your payment receipt or email <a href="mailto:service@barebaysidelabs.com">service@barebaysidelabs.com</a> with your reference number. We're a small team and we read every message.
+  </div>
+
+  <div class="thanks-cta-row">
+    <a href="/" class="thanks-cta-secondary">← Back to home</a>
+    <a href="/pages/services/" class="thanks-cta-secondary">Browse more reports</a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you. Strategy, automation, and Zoho implementation for small businesses.</p></div>
+      <div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li><li><a href="/pages/services/">All Products</a></li></ul></div>
+      <div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div>
+      <div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="../../../js/main.js"></script>
+
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var sessionId = (params.get('session_id') || '').trim();
+
+  if (sessionId && /^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
+    var ref = sessionId.slice(-10).toUpperCase();
+    var metaBox = document.getElementById('order-meta');
+    var refEl = document.getElementById('order-ref');
+    var dateEl = document.getElementById('order-date');
+    if (refEl) refEl.textContent = ref;
+    if (dateEl) {
+      var d = new Date();
+      var opts = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+      dateEl.textContent = d.toLocaleDateString('en-AU', opts);
+    }
+    if (metaBox) metaBox.style.display = 'block';
+  }
+
+  if (window.pagesense) {
+    window.pagesense = window.pagesense || [];
+    window.pagesense.push(['trackEvent', 'Intake — Brief Submitted']);
+  }
+})();
+</script>
+
+</body>
+</html>
