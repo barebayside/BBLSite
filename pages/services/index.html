@@ -63,6 +63,78 @@
       margin: 0 0 20px;
     }
 
+    /* Featured cards — used for prominent secondary products */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 8px;
+    }
+    .featured-card {
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.25);
+    }
+    .featured-card .featured-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      align-self: flex-start;
+      margin-bottom: 14px;
+    }
+    .featured-card h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      margin: 0 0 12px;
+    }
+    .featured-card .featured-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 44px;
+      line-height: 1;
+      margin: 0 0 4px;
+    }
+    .featured-card .featured-cadence {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .featured-card p {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.6;
+      margin: 0 0 20px;
+      flex: 1;
+    }
+    .featured-card .featured-cta {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text);
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 14px;
+      transition: color 0.2s ease;
+    }
+    .featured-card:hover .featured-cta { color: var(--text); }
+
     .secondary-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -184,7 +256,7 @@
     }
 
     @media (max-width: 720px) {
-      .secondary-grid, .tier-grid { grid-template-columns: 1fr }
+      .secondary-grid, .tier-grid, .featured-grid { grid-template-columns: 1fr }
     }
   </style>
 </head>
@@ -301,22 +373,36 @@
       </div>
     </div>
 
-    <!-- Secondary diagnose products -->
-    <div class="secondary-grid reveal stagger-2">
-      <a href="/pages/products/local-opportunity/" class="secondary-card" style="border-color:rgba(125,211,252,0.15)">
-        <h4>LOCAL OPPORTUNITY REPORT</h4>
-        <div class="secondary-price" style="color:var(--sky)">$47 · ONE-OFF</div>
-        <p>Hyperlocal supply-vs-demand map for your suburb. Find under-served services and over-saturated ones. Entry-level paid intel.</p>
+    <!-- Or pick a targeted intel report -->
+    <div style="margin:48px 0 16px;text-align:center">
+      <span style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;padding:0 16px;background:var(--surface);position:relative;z-index:1">OR PICK A TARGETED REPORT</span>
+      <div style="height:1px;background:var(--border-subtle);margin-top:-9px;position:relative;z-index:0"></div>
+    </div>
+
+    <div class="featured-grid reveal stagger-2">
+      <a href="/pages/products/local-opportunity/" class="featured-card" style="border-color:rgba(125,211,252,0.25)">
+        <span class="featured-tag" style="background:rgba(125,211,252,0.1);color:var(--sky);border:1px solid rgba(125,211,252,0.3)">HYPERLOCAL</span>
+        <h4 style="color:var(--sky)">LOCAL OPPORTUNITY REPORT</h4>
+        <div class="featured-price" style="color:var(--sky)">$47</div>
+        <div class="featured-cadence">ONE-OFF · YOUR SUBURB</div>
+        <p>Hyperlocal supply-vs-demand map for your area. Find under-served services and over-saturated ones. The cheapest paid entry — most customers start here.</p>
+        <span class="featured-cta">SEE THE LOCAL OPPORTUNITY REPORT →</span>
       </a>
-      <a href="/pages/products/niche-ad-content-library/" class="secondary-card" style="border-color:rgba(125,211,252,0.15)">
-        <h4>NICHE AD & CONTENT LIBRARY</h4>
-        <div class="secondary-price" style="color:var(--sky)">$207 · ONE-OFF</div>
-        <p>A swipe-file of what's actually working in your niche — ads, social posts, hooks. Stop staring at a blank page.</p>
+      <a href="/pages/products/niche-ad-content-library/" class="featured-card" style="border-color:rgba(125,211,252,0.25)">
+        <span class="featured-tag" style="background:rgba(125,211,252,0.1);color:var(--sky);border:1px solid rgba(125,211,252,0.3)">SWIPE FILE</span>
+        <h4 style="color:var(--sky)">NICHE AD &amp; CONTENT LIBRARY</h4>
+        <div class="featured-price" style="color:var(--sky)">$207</div>
+        <div class="featured-cadence">ONE-OFF · CURATED</div>
+        <p>The ads, posts, hooks and angles that are actually working in your niche right now. Stop staring at a blank page — copy what's winning and adapt it to your brand.</p>
+        <span class="featured-cta">SEE THE AD &amp; CONTENT LIBRARY →</span>
       </a>
-      <a href="/pages/products/niche-website-explorer/" class="secondary-card" style="border-color:rgba(125,211,252,0.15)">
-        <h4>NICHE WEBSITE EXPLORER</h4>
-        <div class="secondary-price" style="color:var(--sky)">$107 · ONE-OFF</div>
-        <p>Top-performing websites in your niche, deconstructed. Pages, copy, structure, tech stack. Steal what works.</p>
+      <a href="/pages/products/niche-website-explorer/" class="featured-card" style="border-color:rgba(125,211,252,0.25)">
+        <span class="featured-tag" style="background:rgba(125,211,252,0.1);color:var(--sky);border:1px solid rgba(125,211,252,0.3)">BUILD PATTERNS</span>
+        <h4 style="color:var(--sky)">NICHE WEBSITE EXPLORER</h4>
+        <div class="featured-price" style="color:var(--sky)">$107</div>
+        <div class="featured-cadence">ONE-OFF · DECONSTRUCTED</div>
+        <p>Top-performing websites in your niche, taken apart. Pages, copy structure, tech stack, conversion patterns. The blueprint to rebuild yours from.</p>
+        <span class="featured-cta">SEE THE WEBSITE EXPLORER →</span>
       </a>
     </div>
   </div>
@@ -327,21 +413,47 @@
   <div class="inner">
     <span class="eyebrow eyebrow-gold reveal">PHASE 03 · IMPLEMENTATION</span>
     <h2 class="reveal stagger-1" style="margin-bottom:8px;color:var(--gold)">DESIGN</h2>
-    <p style="font-size:19px;color:var(--text2);max-width:600px;margin-bottom:40px" class="reveal stagger-2">Turn the intel into a working system. We give you the recipe — you build it at your own pace.</p>
+    <p style="font-size:19px;color:var(--text2);max-width:600px;margin-bottom:40px" class="reveal stagger-2">Turn the intel into a working system. Buy the recipe you need today. Build it at your own pace.</p>
 
-    <div class="phase-hero-card reveal" style="border-color:rgba(245,158,11,0.3);background:linear-gradient(135deg,rgba(245,158,11,0.05) 0%,rgba(245,158,11,0.01) 100%)">
-      <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center">
-        <div>
-          <span class="eyebrow" style="background:rgba(245,158,11,0.1);color:var(--gold);border:1px solid rgba(245,158,11,0.3);margin-bottom:12px;display:inline-block">DIY RECIPE PACK</span>
-          <h3 style="color:var(--gold)">FULL LAB SETUP</h3>
-          <div class="phase-price" style="color:var(--gold)">$1,597</div>
-          <div class="phase-cadence">ONE-OFF · 7 RECIPES · INSTANT ACCESS</div>
-          <p>Every recipe you need to wire up your CRM, automate follow-ups, set up ad tracking, build referral systems, and connect your tools. Step-by-step Zoho One implementation guides. Build it yourself — at your pace, no consultants.</p>
-          <a href="/pages/products/full-lab-setup/" class="btn-primary glow" style="background:var(--gold);color:#0d1525;font-size:16px;padding:14px 32px">GET THE RECIPE PACK →</a>
-        </div>
-        <div style="font-size:120px;line-height:1;color:rgba(245,158,11,0.15);font-family:'Bebas Neue',sans-serif" aria-hidden="true">03</div>
-      </div>
+    <!-- 3 featured DESIGN products -->
+    <div class="featured-grid reveal">
+      <a href="/pages/products/full-lab-setup/" class="featured-card" style="border-color:rgba(245,158,11,0.25)">
+        <span class="featured-tag" style="background:rgba(245,158,11,0.1);color:var(--gold);border:1px solid rgba(245,158,11,0.3)">INFRASTRUCTURE</span>
+        <h4 style="color:var(--gold)">BUILD THE LAB — RECIPES</h4>
+        <div class="featured-price" style="color:var(--gold)">$197<span style="font-size:16px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0">/recipe</span></div>
+        <div class="featured-cadence">ONE-OFF · 6 RECIPES · INSTANT ACCESS</div>
+        <p>The Zoho infrastructure recipes — CRM setup, Email automation, Ad tracking, Lead capture forms, Analytics dashboard, Review request system. Step-by-step, click-by-click. Pick the recipe you need; buy more later.</p>
+        <span class="featured-cta">BROWSE INFRASTRUCTURE RECIPES →</span>
+      </a>
+      <a href="/pages/contact/" class="featured-card" style="border-color:rgba(245,158,11,0.25)">
+        <span class="featured-tag" style="background:rgba(245,158,11,0.1);color:var(--gold);border:1px solid rgba(245,158,11,0.3)">CAMPAIGNS</span>
+        <h4 style="color:var(--gold)">EXPERIMENT RECIPES</h4>
+        <div class="featured-price" style="color:var(--gold)">$47<span style="font-size:16px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0">/recipe</span></div>
+        <div class="featured-cadence">ONE-OFF · NEW EACH MONTH</div>
+        <p>Campaign playbooks — referral program, squeeze-page funnel, email nurture sequence, review-request campaign, re-engagement sequence, seasonal promo. Strategy + setup steps + templates in one pack each.</p>
+        <span class="featured-cta">BROWSE EXPERIMENT RECIPES →</span>
+      </a>
+      <a href="/pages/products/market-moves-brief/" class="featured-card" style="border-color:rgba(245,158,11,0.25)">
+        <span class="featured-tag" style="background:rgba(245,158,11,0.1);color:var(--gold);border:1px solid rgba(245,158,11,0.3)">MONTHLY BRIEF</span>
+        <h4 style="color:var(--gold)">MARKET MOVES BRIEF</h4>
+        <div class="featured-price" style="color:var(--gold)">$97<span style="font-size:16px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0">/mo</span></div>
+        <div class="featured-cadence">MONTHLY · 3 RANKED ACTIONS</div>
+        <p>The top three actions for the month, based on what actually shifted in your market — new ads, new entrants, new complaints, new search trends. Plug-and-play templates included.</p>
+        <span class="featured-cta">SEE THIS MONTH'S BRIEF →</span>
+      </a>
     </div>
+
+    <!-- Small Full Lab Setup bundle callout -->
+    <a href="/pages/products/full-lab-setup/" style="display:block;margin-top:32px;padding:20px 28px;background:linear-gradient(135deg,rgba(245,158,11,0.05) 0%,rgba(245,158,11,0.01) 100%);border:1px solid rgba(245,158,11,0.2);border-radius:12px;text-decoration:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+        <div style="flex:1;min-width:240px">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:6px">SAVE BY BUNDLING</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;color:var(--text);line-height:1.2">Get all 6 infrastructure recipes — Full Lab Setup at $1,597.</div>
+          <div style="font-size:13px;color:var(--text2);margin-top:6px">Saves $400+ vs buying recipes individually. Lifetime access, updates included.</div>
+        </div>
+        <span style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);white-space:nowrap">SEE THE FULL PACK →</span>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -411,11 +523,6 @@
           <h4>WEBSITE INTEL MONITORING</h4>
           <div class="secondary-price" style="color:#a78bfa">$109/MO · MONTHLY</div>
           <p>Competitor website changes, tech-stack moves, new pages.</p>
-        </a>
-        <a href="/pages/products/market-moves-brief/" class="secondary-card" style="border-color:rgba(167,139,250,0.15)">
-          <h4>MARKET MOVES BRIEF</h4>
-          <div class="secondary-price" style="color:#a78bfa">$107/MO · MONTHLY</div>
-          <p>A monthly executive brief — what shifted in your market and what to do about it.</p>
         </a>
       </div>
     </details>
