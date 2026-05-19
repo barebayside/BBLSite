@@ -259,69 +259,6 @@
       .secondary-grid, .tier-grid, .featured-grid { grid-template-columns: 1fr }
     }
 
-    /* ============ BUBBLE LAYER ============ */
-    .bubble-layer {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 3;
-      overflow: hidden;
-    }
-    .bubble {
-      position: absolute;
-      bottom: -40px;
-      border-radius: 50%;
-      opacity: 0;
-      will-change: transform, opacity, background-color;
-      animation-name: bblRise;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      mix-blend-mode: screen;
-    }
-    @keyframes bblRise {
-      0%   { transform: translate3d(0, 0, 0) scale(0.85); opacity: 0;    background: #a78bfa; box-shadow: 0 0 14px rgba(167,139,250,0.55); }
-      8%   { opacity: 0.65; }
-      30%  { transform: translate3d(10px, -28vh, 0) scale(1); background: #a78bfa; box-shadow: 0 0 16px rgba(167,139,250,0.55); }
-      45%  { transform: translate3d(-8px, -45vh, 0) scale(1); background: #f59e0b; box-shadow: 0 0 16px rgba(245,158,11,0.55); }
-      65%  { transform: translate3d(12px, -65vh, 0) scale(1); background: #7dd3fc; box-shadow: 0 0 16px rgba(125,211,252,0.5); }
-      85%  { transform: translate3d(-10px, -85vh, 0) scale(0.95); background: #34d399; box-shadow: 0 0 18px rgba(52,211,153,0.6); opacity: 0.55; }
-      100% { transform: translate3d(0, -110vh, 0) scale(0.7); opacity: 0; background: #34d399; box-shadow: 0 0 8px rgba(52,211,153,0.2); }
-    }
-    /* Pause animation when tab is hidden — saves battery */
-    @media (prefers-reduced-motion: reduce) {
-      .bubble-layer { display: none }
-    }
-
-    /* ============ BEAKER GLOW (bottom CTA decoration) ============ */
-    .beaker-decor {
-      position: relative;
-      width: 220px;
-      height: 180px;
-      margin: 32px auto 0;
-      pointer-events: none;
-    }
-    .beaker-decor::after {
-      /* Glow underneath */
-      content: '';
-      position: absolute;
-      left: 50%; bottom: 0;
-      transform: translateX(-50%);
-      width: 280px; height: 80px;
-      background: radial-gradient(ellipse at center, rgba(52,211,153,0.35) 0%, rgba(167,139,250,0.18) 40%, transparent 70%);
-      filter: blur(8px);
-      z-index: 0;
-    }
-    .beaker-decor svg { position: relative; z-index: 1; }
-    .beaker-decor .beaker-liquid { animation: liquidBubble 3.5s ease-in-out infinite; transform-origin: bottom; }
-    @keyframes liquidBubble {
-      0%, 100% { transform: scaleY(1) }
-      50% { transform: scaleY(1.03) }
-    }
-    .beaker-decor .vent { animation: ventPulse 2.1s ease-in-out infinite; }
-    @keyframes ventPulse {
-      0%, 100% { opacity: 0.3; transform: translateY(0) }
-      50% { opacity: 0.8; transform: translateY(-6px) }
-    }
   </style>
 </head>
 <body>
@@ -603,83 +540,8 @@
     <p style="color:var(--text2);font-size:17px;margin:0 auto 24px">10 minutes. No credit card. See where you stand before you spend a cent.</p>
     <a href="/pages/competitor-intel/#free-snapshot" class="btn-primary glow" style="font-size:18px;padding:18px 48px">CLAIM YOUR FREE SNAPSHOT →</a>
     <p style="color:var(--muted);font-size:13px;margin-top:16px;font-family:'DM Mono',monospace">FOR LOCAL SERVICES, E-COM BRANDS, CREATORS &amp; SMALL SAAS</p>
-
-    <!-- Beaker decoration — bubbles "emerge from" here -->
-    <div class="beaker-decor" aria-hidden="true">
-      <svg viewBox="0 0 220 180" width="220" height="180" fill="none">
-        <!-- Beaker 1 (left) -->
-        <g transform="translate(30, 20)">
-          <!-- Vents/steam -->
-          <ellipse class="vent" cx="35" cy="0" rx="4" ry="6" fill="#34d399" opacity="0.5"/>
-          <ellipse class="vent" cx="35" cy="-10" rx="3" ry="5" fill="#7dd3fc" opacity="0.4" style="animation-delay:0.4s"/>
-          <!-- Beaker outline -->
-          <path d="M 18 30 L 18 110 Q 18 130 38 130 L 58 130 Q 78 130 78 110 L 78 30 Z" stroke="#7dd3fc" stroke-width="2" fill="rgba(13,21,37,0.6)"/>
-          <!-- Spout -->
-          <path d="M 18 30 L 12 22 L 18 22" stroke="#7dd3fc" stroke-width="2" fill="none"/>
-          <!-- Liquid -->
-          <path class="beaker-liquid" d="M 20 70 Q 30 66 48 68 Q 66 70 76 67 L 76 110 Q 76 128 58 128 L 38 128 Q 20 128 20 110 Z" fill="url(#liquid1)"/>
-          <!-- Measurement marks -->
-          <line x1="22" y1="50" x2="30" y2="50" stroke="#7dd3fc" stroke-width="1" opacity="0.6"/>
-          <line x1="22" y1="80" x2="28" y2="80" stroke="#7dd3fc" stroke-width="1" opacity="0.6"/>
-          <line x1="22" y1="110" x2="30" y2="110" stroke="#7dd3fc" stroke-width="1" opacity="0.6"/>
-          <!-- Inside bubbles -->
-          <circle cx="35" cy="90" r="3" fill="#a78bfa" opacity="0.7"/>
-          <circle cx="55" cy="100" r="2" fill="#34d399" opacity="0.6"/>
-          <circle cx="45" cy="115" r="2.5" fill="#7dd3fc" opacity="0.6"/>
-        </g>
-        <!-- Beaker 2 (right) -->
-        <g transform="translate(115, 30)">
-          <ellipse class="vent" cx="30" cy="-5" rx="3.5" ry="5" fill="#a78bfa" opacity="0.5" style="animation-delay:0.9s"/>
-          <ellipse class="vent" cx="30" cy="-14" rx="2.5" ry="4" fill="#f59e0b" opacity="0.4" style="animation-delay:1.3s"/>
-          <path d="M 15 25 L 15 95 Q 15 115 32 115 L 48 115 Q 65 115 65 95 L 65 25 Z" stroke="#a78bfa" stroke-width="2" fill="rgba(13,21,37,0.6)"/>
-          <path d="M 65 25 L 71 18 L 65 18" stroke="#a78bfa" stroke-width="2" fill="none"/>
-          <path class="beaker-liquid" d="M 17 60 Q 26 57 40 58 Q 54 60 63 58 L 63 95 Q 63 113 48 113 L 32 113 Q 17 113 17 95 Z" fill="url(#liquid2)" style="animation-delay:0.6s"/>
-          <line x1="19" y1="42" x2="25" y2="42" stroke="#a78bfa" stroke-width="1" opacity="0.6"/>
-          <line x1="19" y1="68" x2="25" y2="68" stroke="#a78bfa" stroke-width="1" opacity="0.6"/>
-          <line x1="19" y1="95" x2="25" y2="95" stroke="#a78bfa" stroke-width="1" opacity="0.6"/>
-          <circle cx="28" cy="78" r="2.5" fill="#f59e0b" opacity="0.7"/>
-          <circle cx="45" cy="88" r="2" fill="#34d399" opacity="0.6"/>
-          <circle cx="38" cy="100" r="2" fill="#7dd3fc" opacity="0.6"/>
-        </g>
-        <!-- Table line under both beakers -->
-        <line x1="10" y1="151" x2="210" y2="151" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-        <line x1="10" y1="152" x2="210" y2="152" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-        <defs>
-          <linearGradient id="liquid1" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#34d399" stop-opacity="0.45"/>
-            <stop offset="100%" stop-color="#7dd3fc" stop-opacity="0.7"/>
-          </linearGradient>
-          <linearGradient id="liquid2" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.45"/>
-            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.55"/>
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
   </div>
 </section>
-
-<!-- Bubble overlay — rises from page bottom through to top, cycles colours through the 4 D phase colours -->
-<div class="bubble-layer" aria-hidden="true">
-  <span class="bubble" style="left:6%;  width:14px;height:14px; animation-duration:18s; animation-delay:0s"></span>
-  <span class="bubble" style="left:12%; width:10px;height:10px; animation-duration:22s; animation-delay:2s"></span>
-  <span class="bubble" style="left:19%; width:18px;height:18px; animation-duration:16s; animation-delay:5s"></span>
-  <span class="bubble" style="left:26%; width:8px;height:8px;   animation-duration:24s; animation-delay:1s"></span>
-  <span class="bubble" style="left:33%; width:22px;height:22px; animation-duration:14s; animation-delay:7s"></span>
-  <span class="bubble" style="left:40%; width:12px;height:12px; animation-duration:20s; animation-delay:3s"></span>
-  <span class="bubble" style="left:47%; width:16px;height:16px; animation-duration:18s; animation-delay:9s"></span>
-  <span class="bubble" style="left:54%; width:9px;height:9px;   animation-duration:23s; animation-delay:4s"></span>
-  <span class="bubble" style="left:61%; width:14px;height:14px; animation-duration:17s; animation-delay:11s"></span>
-  <span class="bubble" style="left:68%; width:11px;height:11px; animation-duration:21s; animation-delay:6s"></span>
-  <span class="bubble" style="left:75%; width:20px;height:20px; animation-duration:15s; animation-delay:8s"></span>
-  <span class="bubble" style="left:82%; width:8px;height:8px;   animation-duration:25s; animation-delay:2.5s"></span>
-  <span class="bubble" style="left:88%; width:13px;height:13px; animation-duration:19s; animation-delay:10s"></span>
-  <span class="bubble" style="left:94%; width:10px;height:10px; animation-duration:22s; animation-delay:4.5s"></span>
-  <span class="bubble" style="left:15%; width:7px;height:7px;   animation-duration:26s; animation-delay:13s"></span>
-  <span class="bubble" style="left:43%; width:6px;height:6px;   animation-duration:28s; animation-delay:14s"></span>
-  <span class="bubble" style="left:72%; width:7px;height:7px;   animation-duration:25s; animation-delay:12s"></span>
-  <span class="bubble" style="left:30%; width:11px;height:11px; animation-duration:20s; animation-delay:15s"></span>
-</div>
 
 <!-- STICKY SECTION NAV (desktop) -->
 <aside id="services-nav" class="services-nav" aria-label="Section navigation">
