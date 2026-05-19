@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Competitor Intel Report — Quick Brief</title>
+  <meta name="description" content="Tell us about your business so we can start your Competitor Intelligence Report. Five minutes, then we get to work.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="https://barebaysidelabs.com/pages/products/competitor-intel-report/intake/">
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    .intake-hero {
+      position: relative;
+      padding: 80px 24px 40px;
+      overflow: hidden;
+    }
+    .intake-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(52,211,153,0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .intake-shell { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+    .intake-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px; letter-spacing: 2.5px;
+      color: var(--emerald);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid rgba(52,211,153,0.3);
+      border-radius: 999px;
+      background: rgba(52,211,153,0.05);
+    }
+    .intake-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1.0;
+      letter-spacing: 1.5px;
+      margin: 0 0 20px;
+      max-width: 720px;
+    }
+    .intake-sub {
+      font-size: 19px;
+      color: var(--text2);
+      line-height: 1.6;
+      margin: 0 0 40px;
+      max-width: 620px;
+    }
+
+    /* Visual step indicator */
+    .intake-progress {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 32px 0 56px;
+      max-width: 640px;
+    }
+    .intake-step {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 10px;
+      flex: 0 0 auto;
+    }
+    .intake-step-circle {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px; letter-spacing: 1px;
+      background: var(--surface2);
+      border: 2px solid var(--border-subtle);
+      color: var(--muted);
+      transition: all 0.3s ease;
+    }
+    .intake-step.done .intake-step-circle {
+      background: var(--emerald);
+      border-color: var(--emerald);
+      color: #0F1419;
+    }
+    .intake-step.active .intake-step-circle {
+      background: rgba(52,211,153,0.15);
+      border-color: var(--emerald);
+      color: var(--emerald);
+      box-shadow: 0 0 0 6px rgba(52,211,153,0.08);
+    }
+    .intake-step-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px; letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .intake-step.done .intake-step-label,
+    .intake-step.active .intake-step-label { color: var(--text) }
+    .intake-step-line {
+      flex: 1; height: 2px;
+      background: linear-gradient(to right, var(--emerald) 0%, var(--emerald) var(--fill, 50%), var(--border-subtle) var(--fill, 50%));
+      margin-top: -28px;
+    }
+
+    /* Expectation cards */
+    .intake-expect {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 0 0 48px;
+    }
+    .intake-expect-card {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      position: relative;
+    }
+    .intake-expect-card::before {
+      content: attr(data-step);
+      position: absolute;
+      top: 16px; right: 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 1.5px;
+      color: var(--muted);
+    }
+    .intake-expect-icon {
+      width: 32px; height: 32px;
+      margin-bottom: 12px;
+      color: var(--emerald);
+    }
+    .intake-expect-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px; letter-spacing: 1px;
+      margin: 0 0 6px;
+      color: var(--text);
+    }
+    .intake-expect-body {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Form card — uses Zoho's auto-resize */
+    .intake-card {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 8px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 2px 4px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .intake-card::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 24px; right: 24px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--emerald), transparent);
+      opacity: 0.4;
+    }
+    /* Override Zoho's default 90% width — fill the card */
+    #zf_div_FTlF687KaHwaGX1tiw5WF0uZQvrhKvOQb-ksI6O63Jk { width: 100% }
+    #zf_div_FTlF687KaHwaGX1tiw5WF0uZQvrhKvOQb-ksI6O63Jk iframe {
+      width: 100% !important;
+      border: 0 !important;
+      border-radius: 12px;
+      display: block;
+      background: var(--surface);
+      transition: height 0.4s ease;
+    }
+    .intake-skeleton {
+      padding: 120px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 13px; letter-spacing: 1.5px;
+    }
+    .intake-skeleton::after {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      margin-left: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      animation: pulse 1.4s infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 0.3 } 50% { opacity: 1 } }
+
+    /* Error block */
+    .intake-error {
+      display: none;
+      background: rgba(248,113,113,0.06);
+      border: 1px solid rgba(248,113,113,0.25);
+      border-left: 3px solid #f87171;
+      padding: 24px 28px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+    .intake-error.visible { display: block }
+    .intake-error h3 {
+      margin: 0 0 8px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px; letter-spacing: 1.5px;
+      color: #f87171;
+    }
+    .intake-error p { margin: 0; color: var(--text2); font-size: 15px; line-height: 1.6 }
+    .intake-error code {
+      font-family: 'DM Mono', monospace;
+      background: rgba(0,0,0,0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    /* Trust strip */
+    .intake-trust {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 32px 0;
+      padding: 20px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .intake-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .intake-trust-item svg { color: var(--emerald); flex-shrink: 0 }
+
+    /* Help block */
+    .intake-help {
+      margin-top: 16px;
+      padding: 24px 28px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+    .intake-help strong { color: var(--text) }
+    .intake-help a { color: var(--emerald); text-decoration: none; border-bottom: 1px solid rgba(52,211,153,0.3) }
+    .intake-help a:hover { border-bottom-color: var(--emerald) }
+
+    @media (max-width: 720px) {
+      .intake-hero { padding: 48px 16px 32px }
+      .intake-expect { grid-template-columns: 1fr; gap: 12px }
+      .intake-progress { gap: 0 }
+      .intake-step-label { font-size: 10px }
+      .intake-trust { gap: 16px; flex-direction: column; align-items: flex-start; padding-left: 8px }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand"><img src="/assets/logos/logo-nav.png" alt="Bare Bayside Labs" style="height:40px"></a>
+    <div class="nav-links">
+      <a href="/pages/services/" class="nav-link">SERVICES</a>
+      <a href="/pages/how-it-works/" class="nav-link">HOW IT WORKS</a>
+      <a href="/pages/results/" class="nav-link">RESULTS</a>
+      <a href="/pages/about/" class="nav-link">ABOUT</a>
+      <a href="/pages/blog/" class="nav-link">BLOG</a>
+      <a href="/pages/faq/" class="nav-link">FAQ</a>
+      <button id="theme-toggle" class="theme-toggle"></button>
+      <a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">GET YOUR FREE SNAPSHOT</a>
+    </div>
+    <button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="/" onclick="toggleMenu()">HOME</a>
+  <a href="/pages/services/" onclick="toggleMenu()">SERVICES</a>
+  <a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a>
+  <a href="/pages/results/" onclick="toggleMenu()">RESULTS</a>
+  <a href="/pages/about/" onclick="toggleMenu()">ABOUT</a>
+  <a href="/pages/blog/" onclick="toggleMenu()">BLOG</a>
+  <a href="/pages/competitor-intel/#free-snapshot" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">GET YOUR FREE SNAPSHOT</a>
+  <button id="mobile-theme-toggle" class="mobile-theme-toggle"></button>
+</div>
+
+<main class="intake-hero">
+  <div class="intake-shell">
+
+    <div class="intake-eyebrow">Step 2 of 3 · Quick brief</div>
+    <h1 class="intake-headline">Payment received. Now tell us about your business.</h1>
+    <p class="intake-sub">Five minutes of context so we know who you are, who you're competing with, and where to look. Your report starts the moment you hit submit.</p>
+
+    <!-- Visual step indicator -->
+    <div class="intake-progress" aria-label="Progress">
+      <div class="intake-step done">
+        <div class="intake-step-circle">✓</div>
+        <div class="intake-step-label">Paid</div>
+      </div>
+      <div class="intake-step-line" style="--fill:100%"></div>
+      <div class="intake-step active">
+        <div class="intake-step-circle">2</div>
+        <div class="intake-step-label">Quick brief</div>
+      </div>
+      <div class="intake-step-line" style="--fill:0%"></div>
+      <div class="intake-step">
+        <div class="intake-step-circle">3</div>
+        <div class="intake-step-label">Report delivered</div>
+      </div>
+    </div>
+
+    <!-- What happens next -->
+    <div class="intake-expect">
+      <div class="intake-expect-card" data-step="NOW">
+        <svg class="intake-expect-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        <h3 class="intake-expect-title">Fill the brief</h3>
+        <p class="intake-expect-body">Seven short pages. Most customers finish in under five minutes. No fluff, no AI-detection nonsense.</p>
+      </div>
+      <div class="intake-expect-card" data-step="NEXT">
+        <svg class="intake-expect-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h3 class="intake-expect-title">We get to work</h3>
+        <p class="intake-expect-body">Your brief queues for analysis. We pull competitor data, score eight channels, and draft your strategic verdicts.</p>
+      </div>
+      <div class="intake-expect-card" data-step="WITHIN 48H">
+        <svg class="intake-expect-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <h3 class="intake-expect-title">Report in your inbox</h3>
+        <p class="intake-expect-body">A boardroom-grade PDF lands in your email within 48 hours. Verdicts, ranked actions, side-by-side competitor breakdown.</p>
+      </div>
+    </div>
+
+    <!-- Missing-token error block -->
+    <div id="intake-error" class="intake-error" role="alert">
+      <h3>We can't find your payment session.</h3>
+      <p>This page needs a <code>session_id</code> from Stripe to attach your brief to the right order. If you arrived here directly, please use the link in the email we just sent you. If you think this is a mistake, reply to that email or contact <a href="mailto:service@barebaysidelabs.com">service@barebaysidelabs.com</a> with your payment receipt.</p>
+    </div>
+
+    <!-- Form container -->
+    <div class="intake-card">
+      <div class="intake-skeleton" id="intake-skeleton">Loading your brief</div>
+      <div id="zf_div_FTlF687KaHwaGX1tiw5WF0uZQvrhKvOQb-ksI6O63Jk" style="display:none"></div>
+    </div>
+
+    <!-- Trust strip -->
+    <div class="intake-trust">
+      <div class="intake-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Encrypted submission
+      </div>
+      <div class="intake-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        48-hour delivery
+      </div>
+      <div class="intake-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+        Direct line to a human
+      </div>
+    </div>
+
+    <!-- Help -->
+    <div class="intake-help">
+      <strong>Stuck?</strong> If the form doesn't load or a question doesn't make sense for your business, reply to your payment receipt or email <a href="mailto:service@barebaysidelabs.com">service@barebaysidelabs.com</a> with your order number. We'll start your report manually and circle back within 24 hours.
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you. Strategy, automation, and Zoho implementation for small businesses.</p></div>
+      <div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li><li><a href="/pages/services/">All Products</a></li></ul></div>
+      <div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div>
+      <div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="../../../../js/main.js"></script>
+
+<!-- Step 1: validate session_id from Stripe before loading form -->
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var sessionId = (params.get('session_id') || '').trim();
+  var productCode = (params.get('product_code') || '').trim();
+  var skeleton = document.getElementById('intake-skeleton');
+  var errorBox = document.getElementById('intake-error');
+  var formContainer = document.getElementById('zf_div_FTlF687KaHwaGX1tiw5WF0uZQvrhKvOQb-ksI6O63Jk');
+
+  function looksLikeStripeSession(s) {
+    return /^cs_(test|live)_[A-Za-z0-9]+$/.test(s);
+  }
+
+  if (!sessionId || !looksLikeStripeSession(sessionId)) {
+    skeleton.style.display = 'none';
+    errorBox.classList.add('visible');
+    if (window.pagesense) window.pagesense.push(['trackEvent', 'Intake Page — Missing Session ID']);
+    window.__bbl_intake_session_valid = false;
+    return;
+  }
+
+  // Save for the Zoho script below
+  window.__bbl_intake_session_valid = true;
+  window.__bbl_intake_session_id = sessionId;
+  window.__bbl_intake_product_code = productCode;
+
+  // Reveal Zoho container — its script will inject the iframe
+  formContainer.style.display = 'block';
+
+  if (window.pagesense) {
+    window.pagesense = window.pagesense || [];
+    window.pagesense.push(['trackEvent', 'Intake Page — Loaded', { product_code: productCode || 'unknown' }]);
+  }
+})();
+</script>
+
+<!-- Step 2: Zoho Forms official embed (with session_id + product_code injection + auto-resize) -->
+<script type="text/javascript">
+(function() {
+    if (window.__bbl_intake_session_valid !== true) {
+      return; // skip form load if session validation failed
+    }
+    try{
+        var f = document.createElement("iframe");
+        var ifrmSrc = 'https://forms.zohopublic.com.au/BareBayside/form/BBLIntakeForm/formperma/FTlF687KaHwaGX1tiw5WF0uZQvrhKvOQb-ksI6O63Jk?zf_rszfm=1';
+
+        // BBL: inject session_id and product_code BEFORE Zoho's UTM logic
+        ifrmSrc += '&session_id=' + encodeURIComponent(window.__bbl_intake_session_id);
+        if (window.__bbl_intake_product_code) {
+          ifrmSrc += '&product_code=' + encodeURIComponent(window.__bbl_intake_product_code);
+        }
+
+        try{
+            if ( typeof ZFAdvLead != "undefined" && typeof zfutm_zfAdvLead != "undefined" ) {
+                for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
+                    var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
+                    utmPm = ( ZFAdvLead.isSameDomian && ( ZFAdvLead.utmcustPNameArr.indexOf(utmPm) == -1 ) ) ? "zf_" + utmPm : utmPm;
+                    var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
+                    if ( typeof utmVal !== "undefined" ) {
+                      if ( utmVal != "" ) {
+                        if(ifrmSrc.indexOf('?') > 0){
+                             ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;
+                        }else{
+                            ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;
+                        }
+                      }
+                    }
+                }
+            }
+            if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
+                for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
+                    var utmPm = ZFLead.utmPNameArr[ prmIdx ];
+                    var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
+                    if ( typeof utmVal !== "undefined" ) {
+                      if ( utmVal != "" ){
+                        if(ifrmSrc.indexOf('?') > 0){
+                          ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;
+                        }else{
+                          ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;
+                        }
+                      }
+                    }
+                  }
+            }
+            if (!((new RegExp("[?&]referrername=")).test(ifrmSrc))) {
+              var rfr = window.location.href;
+              try {
+                  rfr = window.self !== window.top ?
+                      window.top.location.href :
+                      (/^https?:\/\/[\w.-]+\.[a-zA-Z]{2,}/i.test(rfr) ? rfr : "");
+              } catch (e) {}
+              if (rfr && rfr !== "") {
+                  if (rfr.length > 1800) {
+                      var queryIndex = rfr.indexOf('?');
+                      if (queryIndex > -1) { rfr = rfr.substring(0, queryIndex); }
+                      if (rfr.length > 1800) { rfr = rfr.substring(0, 1800); }
+                  }
+                  ifrmSrc += ((ifrmSrc.indexOf('?') > 0) ? '&' : '?') + 'referrername=' + encodeURIComponent(rfr);
+              }
+            }
+        }catch(e){}
+
+        f.src = ifrmSrc;
+        f.style.border = "none";
+        f.style.height = "528px";
+        f.style.width = "100%";
+        f.style.transition = "all 0.5s ease";
+        f.setAttribute("aria-label", 'BBL Intake Form');
+
+        var d = document.getElementById("zf_div_FTlF687KaHwaGX1tiw5WF0uZQvrhKvOQb-ksI6O63Jk");
+        d.appendChild(f);
+
+        // Hide skeleton once iframe is in DOM
+        f.addEventListener('load', function () {
+          var sk = document.getElementById('intake-skeleton');
+          if (sk) sk.style.display = 'none';
+        });
+
+        window.addEventListener('message', function (event){
+            var evntData = event.data;
+            if( evntData && evntData.constructor == String ){
+                var zf_ifrm_data = evntData.split("|");
+                if ( zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3 ) {
+                    var zf_perma = zf_ifrm_data[0];
+                    var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
+                    var iframe = document.getElementById("zf_div_FTlF687KaHwaGX1tiw5WF0uZQvrhKvOQb-ksI6O63Jk").getElementsByTagName("iframe")[0];
+                    if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
+                        var prevIframeHeight = iframe.style.height;
+                        var zf_tout = false;
+                        if( zf_ifrm_data.length == 3 ) {
+                            iframe.scrollIntoView();
+                            zf_tout = true;
+                        }
+                        if ( prevIframeHeight != zf_ifrm_ht_nw ) {
+                            if( zf_tout ) {
+                                setTimeout(function(){ iframe.style.height = zf_ifrm_ht_nw; }, 500);
+                            } else {
+                                iframe.style.height = zf_ifrm_ht_nw;
+                            }
+                        }
+                    }
+                }
+            }
+        }, false);
+    }catch(e){}
+})();
+</script>
+
+</body>
+</html>
