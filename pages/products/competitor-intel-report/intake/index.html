@@ -145,6 +145,64 @@
       margin: 0;
     }
 
+    /* Urgent CTA above form */
+    .intake-cta {
+      text-align: center;
+      margin: 8px 0 24px;
+      padding: 32px 24px;
+      background: linear-gradient(135deg, rgba(52,211,153,0.08) 0%, rgba(52,211,153,0.02) 100%);
+      border: 1px solid rgba(52,211,153,0.25);
+      border-radius: 14px;
+      position: relative;
+    }
+    .intake-cta-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px; letter-spacing: 2px;
+      color: var(--emerald);
+      text-transform: uppercase;
+      padding: 4px 12px;
+      background: rgba(52,211,153,0.12);
+      border-radius: 999px;
+      margin-bottom: 14px;
+      animation: blink 1.8s infinite;
+    }
+    @keyframes blink { 0%,100% { opacity: 1 } 50% { opacity: 0.5 } }
+    .intake-cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5.5vw, 56px);
+      line-height: 1;
+      letter-spacing: 2px;
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+    .intake-cta-title em {
+      color: var(--emerald);
+      font-style: normal;
+    }
+    .intake-cta-sub {
+      font-size: 16px;
+      color: var(--text2);
+      line-height: 1.5;
+      margin: 0;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .intake-cta-sub strong { color: var(--text); font-weight: 600 }
+    .intake-cta-arrow {
+      display: block;
+      margin: 20px auto 0;
+      width: 32px;
+      height: 32px;
+      color: var(--emerald);
+      animation: bounce 1.8s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) }
+      50% { transform: translateY(8px) }
+    }
+
     /* Form card — uses Zoho's auto-resize */
     .intake-card {
       background: var(--surface);
@@ -342,6 +400,17 @@
     <div id="intake-error" class="intake-error" role="alert">
       <h3>We can't find your payment session.</h3>
       <p>This page needs a <code>session_id</code> from Stripe to attach your brief to the right order. If you arrived here directly, please use the link in the email we just sent you. If you think this is a mistake, reply to that email or contact <a href="mailto:service@barebaysidelabs.com">service@barebaysidelabs.com</a> with your payment receipt.</p>
+    </div>
+
+    <!-- Urgent CTA above form -->
+    <div class="intake-cta">
+      <div class="intake-cta-tag">● Action required</div>
+      <h2 class="intake-cta-title">Complete the form <em>below</em></h2>
+      <p class="intake-cta-sub">To start your report, we need a few details about your business. <strong>You must fill this out</strong> — without it, we can't begin the analysis.</p>
+      <svg class="intake-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="5" x2="12" y2="19"/>
+        <polyline points="19 12 12 19 5 12"/>
+      </svg>
     </div>
 
     <!-- Form container -->
