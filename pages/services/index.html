@@ -7,7 +7,7 @@
   <!-- Zoho PageSense (smart code) -->
   <script id="pagesenseCode">!function(){var e="1.0",t=document,a=window,n="zps-page-screen",r=t.head||t.getElementsByTagName("head")[0],i=t.getElementById("pagesenseCode");if(!t.getElementById(n)){var o=t.createElement("style");o.type="text/css",o.id=n;var s="body { background: transparent !important; opacity: 0 !important; visibility: hidden !important; } html { opacity: 0 !important; visibility: hidden !important; }";o.styleSheet?o.styleSheet.cssText=s:o.appendChild(t.createTextNode(s)),r.firstChild?r.insertBefore(o,r.firstChild):r.appendChild(o),a._ps_conf={};var c={addScript:function(e){try{var n=t.createElement("script");if(n.type="text/javascript",n.async=!0,e.src?n.src=e.src:e.text&&(void 0!==n.text?n.text=e.text:n.appendChild(t.createTextNode(e.text))),i&&i.getAttribute){var o=i.getAttribute("nonce");o&&n.setAttribute("nonce",o)}n.onload=n.onreadystatechange=function(){this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState||(n.onload=n.onreadystatechange=null,a._ps_conf&&a._ps_conf.pauseRenderForManualActivation?clearTimeout(d):c.revealPage())},n.onerror=function(){c.revealPage()},r.appendChild(n)}catch(e){throw c.revealPage(),e}},revealPage:function(){var e=t.getElementById(n);e&&e.parentNode&&e.parentNode.removeChild(e)}},d=setTimeout((function(){c.revealPage()}),1e4),p=c.revealPage;c.revealPage=function(){clearTimeout(d),p()};try{a._ps_conf&&a._ps_conf.pauseRenderForManualActivation&&(a.pagesense=a.pagesense||[],a.pagesense.push=function(e){e&&"activate"==e[0]&&c&&c.revealPage()}),a._ps_conf?a._ps_conf.version=e:a._ps_conf={version:e},c.addScript({src:"https://cdn-au.pagesense.io/js/yourrentalhomefinders/14574dedc7ea4fed9f16b7fea65d59f6.js"})}catch(e){c.revealPage()}}}();</script>
   <title>Services — Bare Bayside Labs</title>
-  <meta name="description" content="Find out what your competitors are doing, where your marketing is leaking money, and what to fix first. Intelligence reports, DIY courses, and done-for-you marketing systems for local businesses.">
+  <meta name="description" content="Four phases. Pick where you are. Discover what's happening in your market, diagnose what to do, design the system from our recipes, and deliver fresh intel every month.">
   <link rel="canonical" href="https://barebaysidelabs.com/pages/services/">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -15,16 +15,178 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <meta property="og:title" content="Services — Bare Bayside Labs">
-  <meta property="og:description" content="Find out what your competitors are doing, where your marketing is leaking money, and what to fix first. Intelligence reports, DIY courses, and done-for-you marketing systems for local businesses.">
+  <meta property="og:description" content="Four phases. Pick where you are. Discover, diagnose, design, deliver — the BBL way.">
   <meta property="og:image" content="https://barebaysidelabs.com/assets/images/og-default.jpg">
   <meta property="og:url" content="https://barebaysidelabs.com/pages/services/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Bare Bayside Labs">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Services — Bare Bayside Labs">
-  <meta name="twitter:description" content="Find out what your competitors are doing, where your marketing is leaking money, and what to fix first. Intelligence reports, DIY courses, and done-for-you marketing systems for local businesses.">
+  <meta name="twitter:description" content="Four phases. Pick where you are. Discover, diagnose, design, deliver — the BBL way.">
   <meta name="twitter:image" content="https://barebaysidelabs.com/assets/images/og-default.jpg">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Marketing Automation","provider":{"@type":"Organization","name":"Bare Bayside Labs","url":"https://barebaysidelabs.com"},"description":"Marketing systems built on Zoho One for small businesses.","areaServed":{"@type":"Place","name":"Worldwide"},"url":"https://barebaysidelabs.com/pages/services/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Marketing Intelligence","provider":{"@type":"Organization","name":"Bare Bayside Labs","url":"https://barebaysidelabs.com"},"description":"Competitive intelligence reports and marketing-monitoring subscriptions for small businesses.","areaServed":{"@type":"Place","name":"Worldwide"},"url":"https://barebaysidelabs.com/pages/services/"}</script>
+  <style>
+    /* Phase card — one card per D, hero product highlighted */
+    .phase-hero-card {
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+    }
+    .phase-hero-card .phase-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      line-height: 1;
+      letter-spacing: 1px;
+      margin: 8px 0 4px;
+    }
+    .phase-hero-card .phase-cadence {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .phase-hero-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 1px;
+      margin: 0 0 8px;
+    }
+    .phase-hero-card p {
+      color: var(--text2);
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 20px;
+    }
+
+    .secondary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .secondary-card {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      text-decoration: none;
+      display: block;
+    }
+    .secondary-card:hover { transform: translateY(-2px) }
+    .secondary-card h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 1px;
+      margin: 0 0 6px;
+      color: var(--text);
+    }
+    .secondary-card .secondary-price {
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: var(--emerald);
+      margin-bottom: 8px;
+    }
+    .secondary-card p {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* DELIVER 3-tier comparison */
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .tier-card {
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      position: relative;
+    }
+    .tier-card.tier-hero {
+      border-color: rgba(167,139,250,0.45);
+      box-shadow: 0 0 0 1px rgba(167,139,250,0.2), 0 16px 40px rgba(0,0,0,0.25);
+    }
+    .tier-card.tier-hero::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -10px; left: 50%;
+      transform: translateX(-50%);
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      padding: 4px 12px;
+      background: #a78bfa;
+      color: #0d1525;
+      border-radius: 999px;
+    }
+    .tier-card h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 1px;
+      margin: 0 0 4px;
+    }
+    .tier-card .tier-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      line-height: 1;
+      margin: 4px 0 16px;
+      color: #a78bfa;
+    }
+    .tier-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+    .tier-card ul li {
+      padding: 6px 0;
+      font-size: 14px;
+      color: var(--text2);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .tier-card ul li::before {
+      content: '✓';
+      color: #a78bfa;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+    .tier-card .btn-purple {
+      display: inline-block;
+      padding: 12px 24px;
+      background: rgba(167,139,250,0.1);
+      color: #a78bfa;
+      border: 1px solid rgba(167,139,250,0.4);
+      border-radius: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .tier-card.tier-hero .btn-purple {
+      background: #a78bfa;
+      color: #0d1525;
+    }
+    .tier-card .btn-purple:hover {
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 720px) {
+      .secondary-grid, .tier-grid { grid-template-columns: 1fr }
+    }
+  </style>
 </head>
 <body>
 
@@ -60,378 +222,250 @@
     <source src="/assets/videos/lab-aesthetic.mp4" type="video/mp4">
   </video>
   <div class="inner" style="position:relative;z-index:1">
-    <span class="eyebrow eyebrow-emerald reveal">YOUR MARKETING, SORTED</span>
-    <h1 class="reveal stagger-1">YOU DON'T NEED ANOTHER CAMPAIGN<br><span class="gradient-text">THAT FIZZLES OUT</span></h1>
-    <p style="font-size:19px;color:var(--text2);max-width:600px;margin-top:20px;line-height:1.7" class="reveal stagger-2">Ads burning cash. Leads going cold. Tools that don't talk. Sound familiar?</p>
-    <p style="font-size:19px;color:var(--text2);max-width:600px;margin-top:12px;line-height:1.7" class="reveal stagger-3"><strong style="color:var(--gold)">Every month without a system, leads slip to your competitors.</strong></p>
-    <p style="font-size:19px;color:var(--text2);max-width:600px;margin-top:12px;line-height:1.7" class="reveal stagger-4">We build systems that capture, nurture, and convert. Start here:</p>
+    <span class="eyebrow eyebrow-emerald reveal">THE BBL WAY</span>
+    <h1 class="reveal stagger-1">FOUR PHASES.<br><span class="gradient-text">PICK WHERE YOU ARE.</span></h1>
+    <p style="font-size:19px;color:var(--text2);max-width:640px;margin-top:20px;line-height:1.7" class="reveal stagger-2">Discover what's happening in your market. Diagnose what's costing you leads. Design the system from our recipes. Deliver fresh intel and content every month. One product per phase. No fluff.</p>
   </div>
 </section>
 
-<!-- GUIDED PATH -->
+<!-- GUIDED PATH — 4 colored anchor dots -->
 <section style="padding:44px 24px;border-top:1px solid var(--border-subtle)">
   <div style="max-width:1200px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center" class="reveal stats-grid">
-      <a href="#step-1" class="surface guided-step-card" style="padding:28px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--emerald);margin-bottom:8px">1</div>
-        <h4 style="margin-bottom:8px">SEE WHERE YOU STAND</h4>
-        <p style="font-size:15px;color:var(--text2)">Free competitor snapshot — find out what you're up against</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center" class="reveal stats-grid">
+      <a href="#discover" class="surface guided-step-card" style="padding:24px">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--emerald);margin-bottom:4px">01</div>
+        <h4 style="margin:0 0 4px;color:var(--emerald)">DISCOVER</h4>
+        <p style="font-size:13px;color:var(--text2);margin:0">See where you stand</p>
       </a>
-      <a href="#step-2" class="surface guided-step-card" style="padding:28px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--sky);margin-bottom:8px">2</div>
-        <h4 style="margin-bottom:8px">KNOW WHAT TO DO</h4>
-        <p style="font-size:15px;color:var(--text2)">Intelligence reports that show you exactly where the gaps and opportunities are</p>
+      <a href="#diagnose" class="surface guided-step-card" style="padding:24px">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--sky);margin-bottom:4px">02</div>
+        <h4 style="margin:0 0 4px;color:var(--sky)">DIAGNOSE</h4>
+        <p style="font-size:13px;color:var(--text2);margin:0">Know what to do</p>
       </a>
-      <a href="#step-3" class="surface guided-step-card" style="padding:28px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold);margin-bottom:8px">3</div>
-        <h4 style="margin-bottom:8px">GET IT DONE FOR YOU</h4>
-        <p style="font-size:15px;color:var(--text2)">We build and run the whole system — CRM, ads, emails, funnels, tracking</p>
+      <a href="#design" class="surface guided-step-card" style="padding:24px">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);margin-bottom:4px">03</div>
+        <h4 style="margin:0 0 4px;color:var(--gold)">DESIGN</h4>
+        <p style="font-size:13px;color:var(--text2);margin:0">Build the system</p>
+      </a>
+      <a href="#deliver" class="surface guided-step-card" style="padding:24px">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#a78bfa;margin-bottom:4px">04</div>
+        <h4 style="margin:0 0 4px;color:#a78bfa">DELIVER</h4>
+        <p style="font-size:13px;color:var(--text2);margin:0">Keep winning</p>
       </a>
     </div>
   </div>
 </section>
 
-<!-- STEP 1: SEE WHERE YOU STAND (EMERALD) -->
-<section id="step-1" class="section guided-step-target">
+<!-- SECTION 01: DISCOVER (EMERALD) -->
+<section id="discover" class="section guided-step-target">
   <div class="inner">
-    <span class="eyebrow eyebrow-emerald reveal">STEP 1 — SEE WHERE YOU STAND</span>
-    <h2 class="reveal stagger-1" style="margin-bottom:48px">YOU VS YOUR MARKET</h2>
+    <span class="eyebrow eyebrow-emerald reveal">PHASE 01 · FREE</span>
+    <h2 class="reveal stagger-1" style="margin-bottom:8px;color:var(--emerald)">DISCOVER</h2>
+    <p style="font-size:19px;color:var(--text2);max-width:600px;margin-bottom:40px" class="reveal stagger-2">Start here. Free. 10 minutes. See where you stand.</p>
 
-    <div class="reveal">
-      <div class="card" style="padding:36px;background:linear-gradient(135deg,rgba(52,211,153,0.08) 0%,rgba(52,211,153,0.02) 100%);border:1px solid rgba(52,211,153,0.2)">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px">
-          <div style="flex:1;min-width:280px">
-            <span class="eyebrow eyebrow-emerald">FLAGSHIP · 5 NAMED RIVALS, DEEP</span>
-            <h3 style="margin-bottom:16px">COMPETITOR INTELLIGENCE REPORT</h3>
-            <p style="margin-bottom:24px;line-height:1.7">You're losing leads to 5 rivals and you can't see why. Every week of guessing costs ground you don't get back. Pick them. We audit everything they do — ads, reviews, SEO, social, pricing, website, service gaps, messaging — and hand you a scorecard, a fear callout, and a ranked plan.</p>
-            <ul style="list-style:none;margin-bottom:28px">
-              <li style="padding:10px 0;border-bottom:1px solid var(--border-subtle);color:var(--text2);display:flex;align-items:center;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>Every rival scored across 8 channels — nothing they do stays hidden</li>
-              <li style="padding:10px 0;border-bottom:1px solid var(--border-subtle);color:var(--text2);display:flex;align-items:center;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>The exact ad angles winning in your category — ready to copy or counter</li>
-              <li style="padding:10px 0;border-bottom:1px solid var(--border-subtle);color:var(--text2);display:flex;align-items:center;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>Service gaps nobody in your area is filling — find the opening before they do</li>
-              <li style="padding:10px 0;border-bottom:1px solid var(--border-subtle);color:var(--text2);display:flex;align-items:center;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>A "fear callout" — the one competitor move that should worry you most</li>
-              <li style="padding:10px 0;border-bottom:1px solid var(--border-subtle);color:var(--text2);display:flex;align-items:center;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>A ranked plan — fix this week, this month, this quarter</li>
-              <li style="padding:10px 0;color:var(--text2);display:flex;align-items:center;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>Plain English, no jargon — read it once, know what to do</li>
-            </ul>
-          </div>
-          <div style="text-align:center;min-width:200px">
-            <div style="font-family:'DM Mono',monospace;font-size:14px;color:var(--muted);margin-bottom:4px">FREE SNAPSHOT</div>
-            <div style="font-family:'DM Mono',monospace;font-size:36px;color:var(--emerald);margin-bottom:16px">$0</div>
-            <div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:8px;text-decoration:line-through">Ad audit + SEO review + social analysis + action plan separately: $2,000+</div>
-            <div style="font-family:'DM Mono',monospace;font-size:14px;color:var(--muted);margin-bottom:4px">FULL REPORT</div>
-            <div style="font-family:'DM Mono',monospace;font-size:36px;color:var(--emerald);margin-bottom:20px">$517</div>
-            <a href="/pages/products/competitor-intel-report/" class="btn-primary" style="width:100%;text-align:center">ORDER THE FULL REPORT</a>
-            <a href="/pages/competitor-intel/#free-snapshot" style="display:block;margin-top:10px;font-family:'DM Mono',monospace;font-size:13px;color:var(--emerald)">or get your free snapshot first — $0, no strings</a>
-          </div>
+    <div class="phase-hero-card reveal" style="border-color:rgba(52,211,153,0.3);background:linear-gradient(135deg,rgba(52,211,153,0.05) 0%,rgba(52,211,153,0.01) 100%)">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center">
+        <div>
+          <span class="eyebrow eyebrow-emerald" style="margin-bottom:12px;display:inline-block">RECOMMENDED ENTRY POINT</span>
+          <h3 style="color:var(--emerald)">FREE COMPETITOR SNAPSHOT</h3>
+          <div class="phase-price" style="color:var(--emerald)">$0</div>
+          <div class="phase-cadence">10-MIN FORM · DELIVERED IN 24-48 HOURS</div>
+          <p>One competitor, scored across 8 channels. You'll see exactly where they're winning, where they're vulnerable, and where you can move first. No credit card, no commitment.</p>
+          <a href="/pages/competitor-intel/#free-snapshot" class="btn-primary glow" style="font-size:16px;padding:14px 32px">CLAIM YOUR FREE SNAPSHOT →</a>
         </div>
+        <div style="font-size:120px;line-height:1;color:rgba(52,211,153,0.15);font-family:'Bebas Neue',sans-serif" aria-hidden="true">01</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STEP 2: KNOW WHAT TO DO (SKY) -->
-<section id="step-2" class="section guided-step-target" style="background:var(--surface)">
+<!-- SECTION 02: DIAGNOSE (SKY) -->
+<section id="diagnose" class="section guided-step-target" style="background:var(--surface)">
   <div class="inner">
-    <span class="eyebrow eyebrow-sky reveal">STEP 2 — KNOW WHAT TO DO</span>
-    <h2 class="reveal stagger-1" style="margin-bottom:16px">NICHE-WIDE INTELLIGENCE REPORTS</h2>
-    <p style="color:var(--text2);max-width:600px;margin-bottom:48px" class="reveal stagger-2">Three reports, three different questions. The flagship goes deep on 5 named rivals. These three go wide across your whole category — every live ad, every ranked site, every monthly shift — so you stop guessing and start acting on proof.</p>
+    <span class="eyebrow eyebrow-sky reveal">PHASE 02 · ONE-OFF INTEL</span>
+    <h2 class="reveal stagger-1" style="margin-bottom:8px;color:var(--sky)">DIAGNOSE</h2>
+    <p style="font-size:19px;color:var(--text2);max-width:600px;margin-bottom:40px" class="reveal stagger-2">Know exactly what's costing you leads and money.</p>
 
-    <div class="grid-3">
-      <div class="card reveal stagger-1" style="display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(56,189,248,0.08) 0%,rgba(56,189,248,0.02) 100%);border:1px solid rgba(56,189,248,0.2)">
-        <span class="eyebrow eyebrow-sky">AUTOMATED REPORT</span>
-        <h4 style="margin-bottom:8px">LOCAL OPPORTUNITY REPORT</h4>
-        <p style="margin-bottom:12px">There are services people in your area are searching for that nobody's offering well. This report finds those gaps — and shows you how to test them.</p>
-        <ul style="list-style:none;margin-bottom:20px;font-size:14px;flex:1">
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Google Reviews analysis across 5 suburbs</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Search demand data — what people actually look for</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Ad spend gaps — where competitors aren't spending</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Services with demand but weak supply</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Test plan — validate any opportunity for under $200</li>
-        </ul>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:28px;color:var(--sky)">$57</span><span style="font-size:16px;color:var(--muted);margin-left:8px">one-off report</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--text2);margin-bottom:20px">+ $25/mo monitoring — new gaps, entrants, and trend shifts as they happen</div>
-        <a href="/pages/products/local-opportunity/" class="btn-primary" style="width:100%;text-align:center">FIND MY OPPORTUNITIES</a>
+    <!-- Hero product: Competitor Intel -->
+    <div class="phase-hero-card reveal" style="border-color:rgba(125,211,252,0.3);background:linear-gradient(135deg,rgba(125,211,252,0.05) 0%,rgba(125,211,252,0.01) 100%)">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center">
+        <div>
+          <span class="eyebrow" style="background:rgba(125,211,252,0.1);color:var(--sky);border:1px solid rgba(125,211,252,0.3);margin-bottom:12px;display:inline-block">FLAGSHIP REPORT</span>
+          <h3 style="color:var(--sky)">COMPETITOR INTEL REPORT</h3>
+          <div class="phase-price" style="color:var(--sky)">$517</div>
+          <div class="phase-cadence">ONE-OFF · 5-DAY DELIVERY</div>
+          <p>Five competitors, scored across 8 channels (ads, SEO, social, reviews, website, pricing, content, off-Google sentiment). A ranked plan — not a dashboard you have to interpret. Most customers recoup the cost in the first month of acting on it.</p>
+          <a href="/pages/products/competitor-intel-report/" class="btn-primary glow" style="background:var(--sky);color:#0d1525;font-size:16px;padding:14px 32px">ORDER THE FULL REPORT →</a>
+        </div>
+        <div style="font-size:120px;line-height:1;color:rgba(125,211,252,0.15);font-family:'Bebas Neue',sans-serif" aria-hidden="true">02</div>
       </div>
-      <div class="card reveal stagger-2" style="display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(56,189,248,0.08) 0%,rgba(56,189,248,0.02) 100%);border:1px solid rgba(56,189,248,0.2)">
-        <span class="eyebrow eyebrow-sky">NICHE-WIDE · SWIPE LIBRARY</span>
-        <h4 style="margin-bottom:8px">NICHE AD &amp; CONTENT LIBRARY</h4>
-        <p style="margin-bottom:12px">The best-performing ad in your category is running right now — and you've never seen it. Meanwhile you're burning budget on creative that doesn't convert. We pull every live Meta and Google ad in your market, plus the winning organic posts across Instagram, Facebook, and YouTube, then organise it all into a swipe file you can use before every campaign.</p>
-        <ul style="list-style:none;margin-bottom:20px;font-size:14px;flex:1">
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Every live Meta ad in your category and region — hook, offer, creative</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Every Google ad running across your market — copy, keywords, landing pages</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Top-engaging Instagram, Facebook, and YouTube posts from the whole niche</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>The repeating hooks, offers, and formats — so you stop reinventing from scratch</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Updated monthly — new winners in, dead creative out</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Content gaps nobody's covering — own the topic before they do</li>
-        </ul>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:28px;color:var(--sky)">$207</span><span style="font-size:16px;color:var(--muted);margin-left:8px">one-off report</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--text2);margin-bottom:20px">+ Ad Pulse $35/mo (weekly ads) + Content Strategy $87/mo (monthly content) — or both inside the Intel bundle $187/mo</div>
-        <a href="/pages/products/niche-ad-content-library/" class="btn-primary" style="width:100%;text-align:center">GET MY SWIPE FILE</a>
-      </div>
-      <div class="card reveal stagger-3" style="display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(56,189,248,0.08) 0%,rgba(56,189,248,0.02) 100%);border:1px solid rgba(56,189,248,0.2)">
-        <span class="eyebrow eyebrow-sky">NICHE-WIDE · TOP 30 WEBSITES</span>
-        <h4 style="margin-bottom:8px">NICHE WEBSITE EXPLORER</h4>
-        <p style="margin-bottom:12px">You're about to pay $8,000 for a website rebuild. If it converts the same as the old one, that's $8,000 you won't see again. Before the designer opens Figma, see exactly what the top 30 sites in your category do — and where the whole niche is weak enough for you to own a position.</p>
-        <ul style="list-style:none;margin-bottom:20px;font-size:14px;flex:1">
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Top 30 sites in your category pulled, crawled, and graded</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>6 conversion dimensions scored — messaging, pricing, trust, CTAs, SEO, content depth</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>The patterns top performers share — and the ones the rest miss</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Where the whole category is weak — your position to own</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Claims-vs-reviews gap — where rivals' websites don't match what their customers actually say</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>What to brief your designer before a single pixel gets moved</li>
-        </ul>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:28px;color:var(--sky)">$207</span><span style="font-size:16px;color:var(--muted);margin-left:8px">one-off report</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--text2);margin-bottom:20px">+ $109/mo monitoring — top 30 sites re-scored monthly, ranking and messaging shifts flagged as they happen</div>
-        <a href="/pages/products/niche-website-explorer/" class="btn-primary" style="width:100%;text-align:center">SHOW ME THE TOP 30</a>
-      </div>
+    </div>
+
+    <!-- Secondary diagnose products -->
+    <div class="secondary-grid reveal stagger-2">
+      <a href="/pages/products/local-opportunity/" class="secondary-card" style="border-color:rgba(125,211,252,0.15)">
+        <h4>LOCAL OPPORTUNITY REPORT</h4>
+        <div class="secondary-price" style="color:var(--sky)">$47 · ONE-OFF</div>
+        <p>Hyperlocal supply-vs-demand map for your suburb. Find under-served services and over-saturated ones. Entry-level paid intel.</p>
+      </a>
+      <a href="/pages/products/niche-ad-content-library/" class="secondary-card" style="border-color:rgba(125,211,252,0.15)">
+        <h4>NICHE AD & CONTENT LIBRARY</h4>
+        <div class="secondary-price" style="color:var(--sky)">$207 · ONE-OFF</div>
+        <p>A swipe-file of what's actually working in your niche — ads, social posts, hooks. Stop staring at a blank page.</p>
+      </a>
+      <a href="/pages/products/niche-website-explorer/" class="secondary-card" style="border-color:rgba(125,211,252,0.15)">
+        <h4>NICHE WEBSITE EXPLORER</h4>
+        <div class="secondary-price" style="color:var(--sky)">$107 · ONE-OFF</div>
+        <p>Top-performing websites in your niche, deconstructed. Pages, copy, structure, tech stack. Steal what works.</p>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- STANDALONE SUBSCRIPTIONS -->
-<section id="subscriptions" class="section guided-step-target" style="background:var(--surface)">
+<!-- SECTION 03: DESIGN (GOLD) -->
+<section id="design" class="section guided-step-target">
   <div class="inner">
-    <span class="eyebrow eyebrow-sky reveal">ONGOING MONITORING — STANDALONE SUBSCRIPTIONS</span>
-    <h2 class="reveal stagger-1" style="margin-bottom:16px">KEEP THE INTEL CURRENT</h2>
-    <p style="color:var(--text2);max-width:620px;margin-bottom:48px" class="reveal stagger-2">Four standalone monitoring subs — each tracks one slice of your market. Subscribe to one, or bundle the combinations below for a discount.</p>
+    <span class="eyebrow eyebrow-gold reveal">PHASE 03 · IMPLEMENTATION</span>
+    <h2 class="reveal stagger-1" style="margin-bottom:8px;color:var(--gold)">DESIGN</h2>
+    <p style="font-size:19px;color:var(--text2);max-width:600px;margin-bottom:40px" class="reveal stagger-2">Turn the intel into a working system. We give you the recipe — you build it at your own pace.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
-
-      <div class="card reveal stagger-1" style="display:flex;flex-direction:column;padding:24px;background:linear-gradient(135deg,rgba(56,189,248,0.06) 0%,rgba(56,189,248,0.02) 100%);border:1px solid rgba(56,189,248,0.18)">
-        <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px">REFRESHED MONTHLY</div>
-        <h4 style="margin-bottom:8px;font-size:22px">LOCAL OPPORTUNITY MONITORING</h4>
-        <p style="font-size:14px;color:var(--text2);margin-bottom:16px;flex:1">New suburb-level gaps, new entrants, and review-sentiment shifts flagged as they appear.</p>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:26px;color:var(--sky)">$25</span><span style="font-size:14px;color:var(--muted);margin-left:6px">/mo</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:12px">Included in Signal &amp; Intel &amp; Lab</div>
-        <a href="/pages/products/local-opportunity-monitoring/" class="btn-primary" style="width:100%;text-align:center;font-size:14px;padding:10px">SUBSCRIBE SOLO</a>
+    <div class="phase-hero-card reveal" style="border-color:rgba(245,158,11,0.3);background:linear-gradient(135deg,rgba(245,158,11,0.05) 0%,rgba(245,158,11,0.01) 100%)">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center">
+        <div>
+          <span class="eyebrow" style="background:rgba(245,158,11,0.1);color:var(--gold);border:1px solid rgba(245,158,11,0.3);margin-bottom:12px;display:inline-block">DIY RECIPE PACK</span>
+          <h3 style="color:var(--gold)">FULL LAB SETUP</h3>
+          <div class="phase-price" style="color:var(--gold)">$1,597</div>
+          <div class="phase-cadence">ONE-OFF · 7 RECIPES · INSTANT ACCESS</div>
+          <p>Every recipe you need to wire up your CRM, automate follow-ups, set up ad tracking, build referral systems, and connect your tools. Step-by-step Zoho One implementation guides. Build it yourself — at your pace, no consultants.</p>
+          <a href="/pages/products/full-lab-setup/" class="btn-primary glow" style="background:var(--gold);color:#0d1525;font-size:16px;padding:14px 32px">GET THE RECIPE PACK →</a>
+        </div>
+        <div style="font-size:120px;line-height:1;color:rgba(245,158,11,0.15);font-family:'Bebas Neue',sans-serif" aria-hidden="true">03</div>
       </div>
-
-      <div class="card reveal stagger-2" style="display:flex;flex-direction:column;padding:24px;background:linear-gradient(135deg,rgba(56,189,248,0.06) 0%,rgba(56,189,248,0.02) 100%);border:1px solid rgba(56,189,248,0.18)">
-        <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px">REFRESHED WEEKLY</div>
-        <h4 style="margin-bottom:8px;font-size:22px">AD PULSE</h4>
-        <p style="font-size:14px;color:var(--text2);margin-bottom:16px;flex:1">Every live Meta and Google ad in your category — hook, offer, creative, landing page. Refreshed weekly because ads change weekly.</p>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:26px;color:var(--sky)">$35</span><span style="font-size:14px;color:var(--muted);margin-left:6px">/mo</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:12px">Included in Signal &amp; Intel &amp; Lab</div>
-        <a href="/pages/products/ad-pulse/" class="btn-primary" style="width:100%;text-align:center;font-size:14px;padding:10px">SUBSCRIBE SOLO</a>
-      </div>
-
-      <div class="card reveal stagger-3" style="display:flex;flex-direction:column;padding:24px;background:linear-gradient(135deg,rgba(56,189,248,0.06) 0%,rgba(56,189,248,0.02) 100%);border:1px solid rgba(56,189,248,0.18)">
-        <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px">REFRESHED MONTHLY</div>
-        <h4 style="margin-bottom:8px;font-size:22px">CONTENT STRATEGY MONITORING</h4>
-        <p style="font-size:14px;color:var(--text2);margin-bottom:16px;flex:1">Top-engaging Instagram, Facebook, and YouTube posts across your whole niche. Hooks, formats, content gaps — re-scored every month.</p>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:26px;color:var(--sky)">$87</span><span style="font-size:14px;color:var(--muted);margin-left:6px">/mo</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:12px">Included in Intel &amp; Lab</div>
-        <a href="/pages/products/content-strategy-monitoring/" class="btn-primary" style="width:100%;text-align:center;font-size:14px;padding:10px">SUBSCRIBE SOLO</a>
-      </div>
-
-      <div class="card reveal stagger-1" style="display:flex;flex-direction:column;padding:24px;background:linear-gradient(135deg,rgba(56,189,248,0.06) 0%,rgba(56,189,248,0.02) 100%);border:1px solid rgba(56,189,248,0.18)">
-        <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px">REFRESHED MONTHLY</div>
-        <h4 style="margin-bottom:8px;font-size:22px">WEBSITE INTEL MONITORING</h4>
-        <p style="font-size:14px;color:var(--text2);margin-bottom:16px;flex:1">Top 30 sites in your category re-scored monthly. Ranking shifts, messaging changes, and new entrants flagged.</p>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:26px;color:var(--sky)">$109</span><span style="font-size:14px;color:var(--muted);margin-left:6px">/mo</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:12px">Included in Intel &amp; Lab</div>
-        <a href="/pages/products/website-intel-monitoring/" class="btn-primary" style="width:100%;text-align:center;font-size:14px;padding:10px">SUBSCRIBE SOLO</a>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- MONITORING PLANS — SIGNAL / INTEL / LAB -->
-<section id="monitoring" class="section guided-step-target">
+<!-- SECTION 04: DELIVER (PURPLE) -->
+<section id="deliver" class="section guided-step-target" style="background:var(--surface)">
   <div class="inner">
-    <span class="eyebrow eyebrow-sky reveal">MONITORING PLANS — BUNDLE &amp; SAVE</span>
-    <h2 class="reveal stagger-1" style="margin-bottom:16px">STAY AHEAD EVERY WEEK —<br>NOT EVERY QUARTER</h2>
-    <p style="color:var(--text2);max-width:620px;margin-bottom:48px" class="reveal stagger-2">One-off reports tell you where you stand today. Bundle the subscriptions and the intelligence keeps compounding — ads refreshed weekly, reports re-scored every 60 days, trends tracked month over month. Pick the plan that matches how fast you need to move.</p>
+    <span class="eyebrow" style="background:rgba(167,139,250,0.08);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">PHASE 04 · MONTHLY MONITORING</span>
+    <h2 class="reveal stagger-1" style="margin-bottom:8px;color:#a78bfa">DELIVER</h2>
+    <p style="font-size:19px;color:var(--text2);max-width:600px;margin-bottom:40px" class="reveal stagger-2">Your market changes every month. Keep watching. Keep winning.</p>
 
-    <div class="grid-3">
-      <!-- SIGNAL -->
-      <div class="card reveal stagger-1" style="display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(56,189,248,0.08) 0%,rgba(56,189,248,0.02) 100%);border:1px solid rgba(56,189,248,0.2)">
-        <span class="eyebrow eyebrow-sky">DETECT WHAT'S MOVING</span>
-        <h4 style="margin-bottom:8px">SIGNAL</h4>
-        <p style="margin-bottom:12px">The cheapest way to stay plugged into your market. Ads change weekly — so we scrape them weekly. Local gaps track month to month. You see changes the week they happen.</p>
-        <ul style="list-style:none;margin-bottom:20px;font-size:14px;flex:1">
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span><strong style="color:var(--text1)">Ad Pulse</strong> — every live competitor ad, refreshed weekly</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span><strong style="color:var(--text1)">Local Opportunity</strong> — suburb-level demand gaps, tracked monthly</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Weekly digest email — what changed, what to watch</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Rolling history — your market's movements, tracked from day one</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0"></span>Pause anytime — keep your history, skip the bill</li>
+    <!-- 3-tier bundle ladder -->
+    <div class="tier-grid reveal">
+      <div class="tier-card">
+        <h4 style="color:#a78bfa">SIGNAL</h4>
+        <div class="tier-price">$45<span style="font-size:14px;color:var(--muted)">/mo</span></div>
+        <ul>
+          <li>Weekly Ad Pulse — what competitors just launched</li>
+          <li>Monthly Local Opportunity refresh</li>
+          <li>Card-on-file gateway tier</li>
         </ul>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:28px;color:var(--sky)">$45</span><span style="font-size:16px;color:var(--muted);margin-left:8px">/mo</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--text2);margin-bottom:20px">Save $15/mo vs subs separately · cancel anytime</div>
-        <a href="/pages/products/signal-bundle/" class="btn-primary" style="width:100%;text-align:center">START WITH SIGNAL</a>
+        <a href="/pages/products/signal-bundle/" class="btn-purple">START WITH SIGNAL</a>
       </div>
-
-      <!-- INTEL (FEATURED) -->
-      <div class="card reveal stagger-2" style="display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(52,211,153,0.1) 0%,rgba(52,211,153,0.02) 100%);border:1px solid rgba(52,211,153,0.35);position:relative">
-        <div style="position:absolute;top:-12px;right:20px;background:var(--emerald);color:#0b0f17;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;padding:4px 12px;border-radius:4px">MOST POPULAR</div>
-        <span class="eyebrow eyebrow-emerald">UNDERSTAND WHAT'S MOVING</span>
-        <h4 style="margin-bottom:8px">INTEL</h4>
-        <p style="margin-bottom:12px">Signal plus the full picture. Every competitor's content, every top-30 website, scored and tracked. Cross-insights only show up when you watch all three — ads, content, and sites moving together is the real story.</p>
-        <ul style="list-style:none;margin-bottom:20px;font-size:14px;flex:1">
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>Everything in Signal — Ad Pulse + Local Opportunity</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span><strong style="color:var(--text1)">Content Strategy monitoring</strong> — monthly niche-wide content shifts</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span><strong style="color:var(--text1)">Website Intel monitoring</strong> — top 30 sites re-scored monthly</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span><strong style="color:var(--text1)">Cross-insights</strong> — when a competitor's ad shift lines up with an SEO push, you see it</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>Weekly digest + monthly deep-dive email</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--emerald);flex-shrink:0"></span>Full market-movement archive — your rolling baseline</li>
+      <div class="tier-card">
+        <h4 style="color:#a78bfa">INTEL</h4>
+        <div class="tier-price">$187<span style="font-size:14px;color:var(--muted)">/mo</span></div>
+        <ul>
+          <li>Everything in Signal</li>
+          <li>Monthly Content Strategy</li>
+          <li>Monthly Website Intel</li>
+          <li>Bundle-only cross-insights</li>
         </ul>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:28px;color:var(--emerald)">$187</span><span style="font-size:16px;color:var(--muted);margin-left:8px">/mo</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--text2);margin-bottom:20px">Save $69/mo vs subs separately · annual prepay = 2 months free</div>
-        <a href="/pages/products/intel-bundle/" class="btn-primary" style="width:100%;text-align:center">GET INTEL</a>
+        <a href="/pages/products/intel-bundle/" class="btn-purple">UPGRADE TO INTEL</a>
       </div>
-
-      <!-- LAB -->
-      <div class="card reveal stagger-3" style="display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(245,158,11,0.08) 0%,rgba(245,158,11,0.02) 100%);border:1px solid rgba(245,158,11,0.25)">
-        <span class="eyebrow eyebrow-gold">ACT ON WHAT'S MOVING</span>
-        <h4 style="margin-bottom:8px">LAB</h4>
-        <p style="margin-bottom:12px">Intel plus the prescription. Every 60 days your full reports regenerate with fresh data — competitor intel, content, websites, local gaps. Monthly Brief tells you what to actually do. Your own experiments tracked alongside the market's.</p>
-        <ul style="list-style:none;margin-bottom:20px;font-size:14px;flex:1">
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Everything in Intel — Signal + Content + Website monitoring</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span><strong style="color:var(--text1)">60-day Report Refresh</strong> — Competitor Intel, Content Library, Website Explorer, Opportunity, all regenerated ($988 of reports, every 60 days)</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span><strong style="color:var(--text1)">Monthly Marketing Brief</strong> — 3 ranked actions, every month, with "why now" reasoning</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span><strong style="color:var(--text1)">Peer benchmarks</strong> — how your numbers compare to other Lab members in your category</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span><strong style="color:var(--text1)">Experiment Dashboard</strong> — log your tests, track what worked, build your own playbook</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Member-since status — founding members locked at this rate</li>
+      <div class="tier-card tier-hero">
+        <h4 style="color:#a78bfa">LAB MEMBERSHIP</h4>
+        <div class="tier-price">$307<span style="font-size:14px;color:var(--muted)">/mo</span></div>
+        <ul>
+          <li>Everything in Intel</li>
+          <li>Monthly Market Moves Brief</li>
+          <li>60-day deep report refresh ($988 value)</li>
+          <li>Peer benchmarks + experiment dashboard</li>
         </ul>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:28px;color:var(--gold)">$307</span><span style="font-size:16px;color:var(--muted);margin-left:8px">/mo</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--text2);margin-bottom:20px">$988 of reports refreshed every 60 days · annual prepay = 2 months free</div>
-        <a href="/pages/products/lab-membership/" class="btn-primary" style="width:100%;text-align:center">JOIN THE LAB</a>
+        <a href="/pages/products/lab-membership/" class="btn-purple">GO ALL-IN</a>
       </div>
     </div>
+
+    <!-- Standalone subs — collapsed -->
+    <details style="margin-top:32px;background:var(--bg);border:1px solid var(--border-subtle);border-radius:12px;padding:0">
+      <summary style="cursor:pointer;padding:20px 24px;font-family:'DM Mono',monospace;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2)">→ Or pick a single feed (standalone subscriptions)</summary>
+      <div style="padding:0 24px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+        <a href="/pages/products/ad-pulse/" class="secondary-card" style="border-color:rgba(167,139,250,0.15)">
+          <h4>AD PULSE</h4>
+          <div class="secondary-price" style="color:#a78bfa">$35/MO · WEEKLY</div>
+          <p>Weekly digest of what your competitors just launched on Meta + Google ads.</p>
+        </a>
+        <a href="/pages/products/local-opportunity-monitoring/" class="secondary-card" style="border-color:rgba(167,139,250,0.15)">
+          <h4>LOCAL OPPORTUNITY MONITORING</h4>
+          <div class="secondary-price" style="color:#a78bfa">$25/MO · MONTHLY</div>
+          <p>Hyperlocal supply-vs-demand refreshed monthly for your area.</p>
+        </a>
+        <a href="/pages/products/content-strategy-monitoring/" class="secondary-card" style="border-color:rgba(167,139,250,0.15)">
+          <h4>CONTENT STRATEGY MONITORING</h4>
+          <div class="secondary-price" style="color:#a78bfa">$87/MO · MONTHLY</div>
+          <p>What's working in your niche this month — hooks, formats, posting frequency.</p>
+        </a>
+        <a href="/pages/products/website-intel-monitoring/" class="secondary-card" style="border-color:rgba(167,139,250,0.15)">
+          <h4>WEBSITE INTEL MONITORING</h4>
+          <div class="secondary-price" style="color:#a78bfa">$109/MO · MONTHLY</div>
+          <p>Competitor website changes, tech-stack moves, new pages.</p>
+        </a>
+        <a href="/pages/products/market-moves-brief/" class="secondary-card" style="border-color:rgba(167,139,250,0.15)">
+          <h4>MARKET MOVES BRIEF</h4>
+          <div class="secondary-price" style="color:#a78bfa">$107/MO · MONTHLY</div>
+          <p>A monthly executive brief — what shifted in your market and what to do about it.</p>
+        </a>
+      </div>
+    </details>
   </div>
 </section>
 
-<!-- STEP 3: GET IT DONE (GOLD) -->
-<section id="step-3" class="section guided-step-target">
-  <div class="inner">
-    <span class="eyebrow eyebrow-gold reveal">STEP 3 — GET IT DONE</span>
-    <h2 class="reveal stagger-1" style="margin-bottom:16px">BUILD THE LAB. RUN THE EXPERIMENTS.</h2>
-    <p style="color:var(--text2);max-width:600px;margin-bottom:48px" class="reveal stagger-2">Set up your marketing infrastructure once. Then run fresh experiments through it every month — campaigns, sequences, and content based on real market data.</p>
-
-    <div class="grid-2">
-      <div class="card reveal stagger-1" style="display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(245,158,11,0.08) 0%,rgba(245,158,11,0.02) 100%);border:1px solid rgba(245,158,11,0.2)">
-        <span class="eyebrow eyebrow-gold">ONE-TIME SETUP</span>
-        <h4 style="margin-bottom:8px">BUILD THE LAB</h4>
-        <p style="margin-bottom:12px">Your marketing infrastructure — the foundation everything else runs on. CRM, pipelines, tracking, dashboards, email automation. Set it up once, it runs forever.</p>
-        <ul style="list-style:none;margin-bottom:20px;font-size:14px;flex:1">
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>CRM setup — contacts, leads, deals, pipelines</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Email automation — follow-ups that send themselves</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Ad tracking — know which ads bring in customers</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Lead capture forms and landing pages</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Analytics dashboard — see every dollar in and out</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Review request system</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Each recipe: step-by-step, click-by-click in Zoho</li>
-        </ul>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:28px;color:var(--gold)">$197</span><span style="font-size:16px;color:var(--muted);margin-left:8px">per recipe</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--text2);margin-bottom:20px">Full lab setup $1,597 · Done-for-you: custom quote</div>
-        <a href="/pages/products/full-lab-setup/" class="btn-primary" style="width:100%;text-align:center">START BUILDING YOUR LAB</a>
-      </div>
-      <div class="card reveal stagger-2" style="display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(245,158,11,0.08) 0%,rgba(245,158,11,0.02) 100%);border:1px solid rgba(245,158,11,0.2)">
-        <span class="eyebrow eyebrow-gold">ONE-TIME PER RECIPE</span>
-        <h4 style="margin-bottom:8px">EXPERIMENT RECIPES</h4>
-        <p style="margin-bottom:12px">The strategy and method for a specific campaign. How to run a referral program, set up a squeeze funnel, build a review system. The blueprint — you adapt it to your brand.</p>
-        <ul style="list-style:none;margin-bottom:20px;font-size:14px;flex:1">
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Referral program — how to build and launch one</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Squeeze page funnel — capture leads from ads</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Email nurture sequence — warm leads to sale</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Review request campaign — get 5-star reviews on autopilot</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Re-engagement sequence — win back cold leads</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Seasonal campaign playbook — time-based promotions</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Each recipe includes strategy, setup steps, and templates</li>
-        </ul>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:28px;color:var(--gold)">$47</span><span style="font-size:16px;color:var(--muted);margin-left:8px">per recipe</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--text2);margin-bottom:20px">New recipes added monthly</div>
-        <a href="/pages/contact/" class="btn-primary" style="width:100%;text-align:center">BROWSE EXPERIMENT RECIPES</a>
-      </div>
-      <div class="card reveal stagger-1" style="display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(245,158,11,0.08) 0%,rgba(245,158,11,0.02) 100%);border:1px solid rgba(245,158,11,0.2)">
-        <span class="eyebrow eyebrow-gold">MONTHLY · 3 RANKED MOVES</span>
-        <h4 style="margin-bottom:8px">MARKET MOVES BRIEF</h4>
-        <p style="margin-bottom:12px">Every marketing newsletter tells you what's happening in "marketing." None tell you what changed in your market this month — so you end up making decisions on gut feel and a podcast you listened to last week. Three ranked actions, every month, based on what actually shifted in your category: new ads, new entrants, new complaints, new search trends.</p>
-        <ul style="list-style:none;margin-bottom:20px;font-size:14px;flex:1">
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>3 ranked actions — the top launches, posts, or changes for the month</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Month-over-month deltas — ads, content, reviews, search, new entrants</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>The "why now" behind every recommendation — so you can back your decision</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>New competitors entering your market — flagged the month they appear</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Shifting review complaints — what customers are newly unhappy about</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Timing — when to launch, how long to run</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Plug-and-play templates to start from — adapt to your brand voice</li>
-        </ul>
-        <div style="font-family:'DM Mono',monospace;margin-bottom:8px"><span style="font-size:28px;color:var(--gold)">$97</span><span style="font-size:16px;color:var(--muted);margin-left:8px">/mo</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--text2);margin-bottom:20px">Pairs with any intelligence report subscription</div>
-        <a href="/pages/products/market-moves-brief/" class="btn-primary" style="width:100%;text-align:center">SEND ME THIS MONTH'S MOVES</a>
-      </div>
-      <div class="card reveal stagger-2" style="display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(245,158,11,0.08) 0%,rgba(245,158,11,0.02) 100%);border:1px solid rgba(245,158,11,0.2)">
-        <span class="eyebrow eyebrow-gold">DONE FOR YOU</span>
-        <h4 style="margin-bottom:8px">THE FULL EXPERIMENT</h4>
-        <p style="margin-bottom:12px">We build your lab, design your experiments, and deliver the monthly brief. The complete marketing system — designed, built, launched, and managed. You just check the dashboard.</p>
-        <ul style="list-style:none;margin-bottom:20px;font-size:14px;flex:1">
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Everything in Build The Lab — set up and configured</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>All experiment recipes included</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Monthly marketing brief included</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Ad campaigns connected to your pipeline</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Analytics dashboard — every dollar in, every customer out</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Training session so you can read your own numbers</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>30-day support after launch</li>
-          <li style="padding:5px 0;color:var(--text2);display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>Built in 2-4 weeks</li>
-        </ul>
-        <div style="font-family:'DM Mono',monospace;font-size:28px;color:var(--gold);margin-bottom:20px">Custom Quote</div>
-        <a href="/pages/contact/" class="btn-primary" style="width:100%;text-align:center">SEND US A MESSAGE</a>
-      </div>
-    </div>
+<!-- FINAL CTA -->
+<section class="section" style="text-align:center;padding-top:80px;padding-bottom:80px">
+  <div class="inner" style="max-width:680px">
+    <span class="eyebrow eyebrow-emerald">NOT SURE WHERE TO START?</span>
+    <h2 style="margin:12px 0 16px">START WITH THE FREE SNAPSHOT.</h2>
+    <p style="color:var(--text2);font-size:17px;margin:0 auto 24px">10 minutes. No credit card. See where you stand before you spend a cent.</p>
+    <a href="/pages/competitor-intel/#free-snapshot" class="btn-primary glow" style="font-size:18px;padding:18px 48px">CLAIM YOUR FREE SNAPSHOT →</a>
+    <p style="color:var(--muted);font-size:13px;margin-top:16px;font-family:'DM Mono',monospace">FOR LOCAL SERVICES, E-COM BRANDS, CREATORS &amp; SMALL SAAS</p>
   </div>
 </section>
 
-
-<!-- CTA -->
-<section class="section">
-  <div class="inner">
-    <div class="surface-cta reveal">
-      <span class="eyebrow eyebrow-emerald">NOT SURE WHERE TO START?</span>
-      <h2 style="margin-bottom:16px">SEE WHAT ONE OF YOUR RIVALS IS DOING.<br>WE'LL TELL YOU WHERE THEY'RE WEAK.</h2>
-      <p style="color:var(--text2);font-size:19px;max-width:500px;margin:0 auto 36px">Name 1 competitor. We score them across 8 channels — ads, reviews, SEO, social, pricing, website, service gaps, messaging — and hand you a plain-English snapshot in 48 hours. Free, no card, no call.</p>
-      <a href="/pages/competitor-intel/#free-snapshot" class="btn-primary glow">GET YOUR FREE SNAPSHOT</a>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION NAV: desktop right-edge dots + mobile FAB -->
+<!-- STICKY SECTION NAV (desktop) -->
 <aside id="services-nav" class="services-nav" aria-label="Section navigation">
-  <a href="#step-1" data-target="step-1" class="services-nav-item" style="--dot-color: var(--emerald)">
+  <a href="#discover" data-target="discover" class="services-nav-item" style="--dot-color: var(--emerald)">
     <span class="services-nav-dot"></span>
-    <span class="services-nav-label">See Where You Stand</span>
+    <span class="services-nav-label">01 Discover</span>
   </a>
-  <a href="#step-2" data-target="step-2" class="services-nav-item" style="--dot-color: var(--sky)">
+  <a href="#diagnose" data-target="diagnose" class="services-nav-item" style="--dot-color: var(--sky)">
     <span class="services-nav-dot"></span>
-    <span class="services-nav-label">Know What To Do</span>
+    <span class="services-nav-label">02 Diagnose</span>
   </a>
-  <a href="#subscriptions" data-target="subscriptions" class="services-nav-item" style="--dot-color: var(--sky)">
+  <a href="#design" data-target="design" class="services-nav-item" style="--dot-color: var(--gold)">
     <span class="services-nav-dot"></span>
-    <span class="services-nav-label">Subscriptions</span>
+    <span class="services-nav-label">03 Design</span>
   </a>
-  <a href="#monitoring" data-target="monitoring" class="services-nav-item" style="--dot-color: var(--sky)">
+  <a href="#deliver" data-target="deliver" class="services-nav-item" style="--dot-color: #a78bfa">
     <span class="services-nav-dot"></span>
-    <span class="services-nav-label">Monitoring Plans</span>
-  </a>
-  <a href="#step-3" data-target="step-3" class="services-nav-item" style="--dot-color: var(--gold)">
-    <span class="services-nav-dot"></span>
-    <span class="services-nav-label">Get It Done</span>
+    <span class="services-nav-label">04 Deliver</span>
   </a>
 </aside>
 
+<!-- MOBILE FAB -->
 <button id="services-fab" class="services-fab" aria-label="Jump to section" aria-expanded="false" aria-controls="services-fab-sheet">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
-    <line x1="6" y1="7" x2="18" y2="7"/>
-    <line x1="6" y1="12" x2="18" y2="12"/>
-    <line x1="6" y1="17" x2="18" y2="17"/>
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <line x1="3" y1="12" x2="21" y2="12"></line>
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <line x1="3" y1="18" x2="21" y2="18"></line>
   </svg>
 </button>
-
 <div id="services-fab-sheet" class="services-fab-sheet" role="menu" aria-labelledby="services-fab">
-  <a href="#step-1" data-target="step-1" role="menuitem" style="--dot-color: var(--emerald)">Step 1 — See Where You Stand</a>
-  <a href="#step-2" data-target="step-2" role="menuitem" style="--dot-color: var(--sky)">Step 2 — Know What To Do</a>
-  <a href="#subscriptions" data-target="subscriptions" role="menuitem" style="--dot-color: var(--sky)">Standalone Subscriptions</a>
-  <a href="#monitoring" data-target="monitoring" role="menuitem" style="--dot-color: var(--sky)">Monitoring Plans</a>
-  <a href="#step-3" data-target="step-3" role="menuitem" style="--dot-color: var(--gold)">Step 3 — Done For You</a>
+  <a href="#discover" data-target="discover" style="--dot-color: var(--emerald)"><span class="services-nav-dot"></span> 01 Discover</a>
+  <a href="#diagnose" data-target="diagnose" style="--dot-color: var(--sky)"><span class="services-nav-dot"></span> 02 Diagnose</a>
+  <a href="#design" data-target="design" style="--dot-color: var(--gold)"><span class="services-nav-dot"></span> 03 Design</a>
+  <a href="#deliver" data-target="deliver" style="--dot-color: #a78bfa"><span class="services-nav-dot"></span> 04 Deliver</a>
 </div>
 
 <!-- FOOTER -->
@@ -439,13 +473,14 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you. Strategy, automation, and Zoho implementation for small businesses.</p></div>
-      <div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li><li><a href="/pages/services/">Intelligence Reports</a></li><li><a href="/pages/services/">Marketing Systems</a></li><li><a href="/pages/services/">Strategy Sessions</a></li></ul></div>
-      <div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/how-it-works/">How It Works</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div>
-      <div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/strategy/">Free Strategy Tool</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div>
+      <div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li><li><a href="/pages/products/lab-membership/">Lab Membership</a></li><li><a href="/pages/services/">All Products</a></li></ul></div>
+      <div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div>
+      <div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li><li><a href="/pages/how-it-works/">How It Works</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div>
       <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
         <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
         <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
@@ -457,7 +492,7 @@
 <script src="../../js/main.js"></script>
 <script>
 (function() {
-  var sections = ['step-1', 'step-2', 'subscriptions', 'monitoring', 'step-3'];
+  var sections = ['discover', 'diagnose', 'design', 'deliver'];
   var sectionEls = sections.map(function(id) { return document.getElementById(id); }).filter(Boolean);
   if (!sectionEls.length) return;
 
