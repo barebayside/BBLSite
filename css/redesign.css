@@ -86,8 +86,9 @@ h2.display{font-size:clamp(40px,5.5vw,82px)}
 .nav-pill{pointer-events:auto;display:flex;align-items:center;gap:30px;background:rgba(251,250,247,.72);backdrop-filter:blur(20px) saturate(1.4);
   -webkit-backdrop-filter:blur(20px) saturate(1.4);border:1px solid rgba(14,22,38,.07);border-radius:100px;
   padding:9px 9px 9px 26px;box-shadow:0 10px 40px -22px rgba(14,22,38,.4)}
-.brand{font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:.13em;color:var(--ink);white-space:nowrap}
+.brand{font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:.13em;color:var(--ink);white-space:nowrap;display:flex;align-items:center;gap:9px}
 .brand b{color:var(--emerald);font-weight:400}
+.brand img{height:30px;width:auto;display:block}
 .nav-links{display:flex;gap:22px;align-items:center}
 .nav-links a{font-size:14px;font-weight:500;color:var(--ink2);transition:color .3s var(--ease);white-space:nowrap}
 .nav-links a:hover,.nav-links a.active{color:var(--ink)}
@@ -475,7 +476,8 @@ h2.display{font-size:clamp(40px,5.5vw,82px)}
 /* ---------- FOOTER (dark navy) ---------- */
 .footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.08);padding:72px 0 36px;color:#EAF1FB}
 .footer-top{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
-.footer .brand{font-size:24px;margin-bottom:14px;color:#fff}
+.footer .brand{font-size:26px;margin-bottom:14px;color:#fff;display:flex;align-items:center;gap:13px}
+.footer .brand img{height:56px;width:auto;display:block}
 .footer-desc{font-size:15px;color:#8FA0BC;max-width:290px;line-height:1.6}
 .footer h5{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:18px}
 .footer ul{list-style:none}.footer ul li{margin-bottom:11px}
