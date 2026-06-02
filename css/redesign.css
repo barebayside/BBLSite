@@ -567,6 +567,14 @@ h2.display{font-size:clamp(40px,5.5vw,82px)}
 .pdp-gets b{color:var(--ink);font-size:17px;display:block;margin-bottom:4px}
 .pdp-gets p{font-size:15px;color:var(--ink2);line-height:1.6;margin:0}
 .pdp-gets em{color:var(--muted);font-style:italic}
+.pdp-gets li.locked{opacity:.6}
+.pdp-gets li.locked .lk{min-width:42px;display:flex;align-items:center;color:var(--muted)}
+.pdp-gets li.locked .lk svg{width:23px;height:23px}
+.pdp-gets li.locked b{color:var(--muted)}
+.pdp-gets li.locked b s{text-decoration-color:var(--muted)}
+.pdp-gets .lock-pill{display:inline-block;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--gold);background:rgba(214,137,12,.1);border:1px solid rgba(214,137,12,.28);
+  border-radius:100px;padding:2px 9px;margin-left:9px;vertical-align:middle}
 
 /* fit grid (yes / no) */
 .pdp-fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}
