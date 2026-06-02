@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Zoho PageSense (smart code) -->
+  <script id="pagesenseCode">!function(){var e="1.0",t=document,a=window,n="zps-page-screen",r=t.head||t.getElementsByTagName("head")[0],i=t.getElementById("pagesenseCode");if(!t.getElementById(n)){var o=t.createElement("style");o.type="text/css",o.id=n;var s="body { background: transparent !important; opacity: 0 !important; visibility: hidden !important; } html { opacity: 0 !important; visibility: hidden !important; }";o.styleSheet?o.styleSheet.cssText=s:o.appendChild(t.createTextNode(s)),r.firstChild?r.insertBefore(o,r.firstChild):r.appendChild(o),a._ps_conf={};var c={addScript:function(e){try{var n=t.createElement("script");if(n.type="text/javascript",n.async=!0,e.src?n.src=e.src:e.text&&(void 0!==n.text?n.text=e.text:n.appendChild(t.createTextNode(e.text))),i&&i.getAttribute){var o=i.getAttribute("nonce");o&&n.setAttribute("nonce",o)}n.onload=n.onreadystatechange=function(){this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState||(n.onload=n.onreadystatechange=null,a._ps_conf&&a._ps_conf.pauseRenderForManualActivation?clearTimeout(d):c.revealPage())},n.onerror=function(){c.revealPage()},r.appendChild(n)}catch(e){throw c.revealPage(),e}},revealPage:function(){var e=t.getElementById(n);e&&e.parentNode&&e.parentNode.removeChild(e)}},d=setTimeout((function(){c.revealPage()}),1e4),p=c.revealPage;c.revealPage=function(){clearTimeout(d),p()};try{a._ps_conf&&a._ps_conf.pauseRenderForManualActivation&&(a.pagesense=a.pagesense||[],a.pagesense.push=function(e){e&&"activate"==e[0]&&c&&c.revealPage()}),a._ps_conf?a._ps_conf.version=e:a._ps_conf={version:e},c.addScript({src:"https://cdn-au.pagesense.io/js/yourrentalhomefinders/14574dedc7ea4fed9f16b7fea65d59f6.js"})}catch(e){c.revealPage()}}}();</script>
   <title>Sales & Data — Bare Bayside Labs Blog</title>
   <meta name="description" content="Sales psychology, tracking, attribution, and the tools that tie your marketing to revenue. From Bare Bayside Labs.">
   <link rel="canonical" href="https://barebaysidelabs.com/pages/blog/sales-data/">
-  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css?v=26">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -24,96 +29,156 @@
   <meta name="twitter:image" content="https://barebaysidelabs.com/assets/images/blog/cat-sales-data.jpg">
 </head>
 <body>
+<div class="grain"></div>
 
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="/assets/logos/logo-nav.png" alt="Bare Bayside Labs" style="height:40px"></a><div class="nav-links"><a href="/" class="nav-link">HOME</a><a href="/pages/services/" class="nav-link">SERVICES</a><a href="/pages/how-it-works/" class="nav-link">HOW IT WORKS</a><a href="/pages/results/" class="nav-link">RESULTS</a><a href="/pages/about/" class="nav-link">ABOUT</a><a href="/pages/blog/" class="nav-link">BLOG</a><a href="/pages/faq/" class="nav-link">FAQ</a><button id="theme-toggle" class="theme-toggle"></button><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">GET YOUR FREE SNAPSHOT</a></div><button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mobile-menu"><a href="/" onclick="toggleMenu()">HOME</a><a href="/pages/services/" onclick="toggleMenu()">SERVICES</a><a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a><a href="/pages/results/" onclick="toggleMenu()">RESULTS</a><a href="/pages/about/" onclick="toggleMenu()">ABOUT</a>
-  <a href="/pages/blog/" onclick="toggleMenu()">BLOG</a>
-  <a href="/pages/faq/" onclick="toggleMenu()">FAQ</a><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">GET YOUR FREE SNAPSHOT</a>
-<button id="mobile-theme-toggle" class="mobile-theme-toggle"></button></div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-pill">
+    <a href="/" class="brand">BARE BAYSIDE <b>LABS</b></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/services/">Services</a>
+      <a href="/pages/how-it-works/">How it works</a>
+      <a href="/pages/results/">Results</a>
+      <a href="/pages/about/">About</a>
+      <a href="/pages/blog/" class="active">Blog</a>
+      <a href="/pages/faq/">FAQ</a>
+      <a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">Free snapshot</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.mobile').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile">
+  <a href="/" onclick="this.parentElement.classList.remove('open')">Home</a>
+  <a href="/pages/services/" onclick="this.parentElement.classList.remove('open')">Services</a>
+  <a href="/pages/how-it-works/" onclick="this.parentElement.classList.remove('open')">How it works</a>
+  <a href="/pages/results/" onclick="this.parentElement.classList.remove('open')">Results</a>
+  <a href="/pages/about/" onclick="this.parentElement.classList.remove('open')">About</a>
+  <a href="/pages/blog/" onclick="this.parentElement.classList.remove('open')">Blog</a>
+  <a href="/pages/faq/" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+  <a href="/pages/competitor-intel/#free-snapshot" class="cta-m" onclick="this.parentElement.classList.remove('open')">Get your free snapshot</a>
+</div>
 
-<!-- HERO -->
-<section class="section aurora">
-  <div class="inner">
-    <span class="eyebrow eyebrow-purple reveal">SALES & DATA</span>
-    <h1 class="reveal stagger-1">SALES &<br><span class="gradient-text">DATA</span></h1>
-    <p style="font-size:19px;color:var(--text2);max-width:560px;margin-top:20px" class="reveal stagger-2">Sales psychology, tracking, attribution, and the tools that tie your marketing to actual revenue.</p>
+<!-- DARK HERO -->
+<section class="blog-hero has-video" style="--accent:#7C3AED">
+  <div class="blog-hero-media"><video autoplay muted loop playsinline poster="/assets/images/hero-guesswork-to-evidence.jpg"><source src="/assets/videos/hero-background.mp4" type="video/mp4"></video></div>
+  <div class="wrap">
+    <nav class="article-crumb"><a href="/pages/blog/">Blog</a><span class="sep">/</span><span>Sales &amp; Data</span></nav>
+    <span class="eyebrow"><span class="dot"></span>Sales &amp; Data</span>
+    <h1>Sales &amp; Data</h1>
+    <p>Sales psychology, tracking, attribution, and the tools that tie your marketing to actual revenue.</p>
   </div>
 </section>
 
-<!-- BREADCRUMB -->
-<section class="section" style="padding-top:24px;padding-bottom:0">
-  <div class="inner">
-    <div class="breadcrumb"><a href="/pages/blog/">Blog</a><span>&rsaquo;</span>Sales & Data</div>
-  </div>
-</section>
+<!-- ARTICLE GRID -->
+<section class="blog-sec">
+  <div class="wrap">
+    <div class="bgrid">
 
-<!-- ARTICLES -->
-<section class="section" style="padding-top:24px">
-  <div class="inner">
-    <div class="grid-3">
-      <a href="/pages/blog/five-numbers-every-small-business-should-know/" class="card reveal" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/five-numbers-every-small-business-should-know/" class="bcard reveal" style="--accent:#7C3AED">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-five-numbers.jpg" alt="Five glowing violet metric dials above beakers of purple liquid at different fill levels">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--purple)">5</div>
-            <div class="blog-thumb-label mono">NUMBERS ON A<br>NAPKIN</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">5</div>
+            <div class="bcard-lab">NUMBERS ON A NAPKIN</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">SALES &amp; DATA &middot; 7 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">THE 5 NUMBERS EVERY SMALL BUSINESS SHOULD KNOW</h4>
-          <p style="font-size:15px;flex:1">Skip the 26-metric corporate lists. Here are the 5 numbers a local business can calculate on the back of a napkin — with formulas.</p>
-          <span style="color:var(--purple);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Sales &amp; Data · 7 min read</div>
+          <h3>The 5 numbers every small business should know</h3>
+          <p>Skip the 26-metric corporate lists. Here are the 5 numbers a local business can calculate on the back of a napkin — with formulas.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
-      <a href="/pages/blog/why-your-sales-feel-random/" class="card reveal stagger-1" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+
+      <a href="/pages/blog/why-your-sales-feel-random/" class="bcard reveal" style="--accent:#7C3AED">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-sales-feel-random.jpg" alt="Chaotic violet revenue chart transforming into a smooth rising line — predictable sales">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--purple)">3</div>
-            <div class="blog-thumb-label mono">LEADING<br>INDICATORS</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">3</div>
+            <div class="bcard-lab">LEADING INDICATORS</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">SALES &amp; DATA &middot; 6 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">WHY YOUR SALES FEEL RANDOM</h4>
-          <p style="font-size:15px;flex:1">The "good month, bad month" rollercoaster is a measurement problem. Here are 3 leading indicators that make next month predictable.</p>
-          <span style="color:var(--purple);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Sales &amp; Data · 6 min read</div>
+          <h3>Why your sales feel random</h3>
+          <p>The "good month, bad month" rollercoaster is a measurement problem. Here are 3 leading indicators that make next month predictable.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
-      <a href="/pages/blog/sales-health-check-7-questions/" class="card reveal stagger-2" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+
+      <a href="/pages/blog/sales-health-check-7-questions/" class="bcard reveal" style="--accent:#7C3AED">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-sales-health-check.jpg" alt="Violet cardiogram pulse line on a lab dashboard with stethoscope and seven check glyphs">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--purple)">7</div>
-            <div class="blog-thumb-label mono">CHECKS YOU<br>CAN'T FAKE</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">7</div>
+            <div class="bcard-lab">CHECKS YOU CAN'T FAKE</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">SALES &amp; DATA &middot; 6 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">7 CHECKS — ARE YOUR SALES ACTUALLY HEALTHY?</h4>
-          <p style="font-size:15px;flex:1">Seven yes-or-no questions that cut through "we're doing well." Answer honestly — most businesses fail at least 3.</p>
-          <span style="color:var(--purple);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Sales &amp; Data · 6 min read</div>
+          <h3>7 checks — are your sales actually healthy?</h3>
+          <p>Seven yes-or-no questions that cut through "we're doing well." Answer honestly — most businesses fail at least 3.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
+
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="section">
-  <div class="inner">
-    <div class="surface-cta reveal">
-      <span class="eyebrow eyebrow-purple">WANT HELP?</span>
-      <h2 style="margin-bottom:16px">DONE READING. READY TO BUILD.</h2>
-      <p style="color:var(--text2);font-size:19px;max-width:500px;margin:0 auto 36px">Get a free competitor snapshot — one of your rivals scored across 8 channels, in plain English. 48 hours, no card, no call.</p>
-      <a href="/pages/competitor-intel/#free-snapshot" class="btn-primary glow">GET YOUR FREE SNAPSHOT</a>
+<section class="blog-sec">
+  <div class="wrap">
+    <div class="article-cta reveal" style="--accent:#0E9C6E">
+      <div class="ck">Want help?</div>
+      <h3>Done reading. Ready to build.</h3>
+      <p>Get a free competitor snapshot — one of your rivals scored across 8 channels, in plain English. 48 hours, no card, no call.</p>
+      <a href="/pages/competitor-intel/#free-snapshot" class="btn btn-accent">Get your free snapshot<span class="ic">→</span></a>
     </div>
   </div>
 </section>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-top"><div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you.</p></div><div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li><li><a href="/pages/services/">Intelligence Reports</a></li></ul></div><div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/how-it-works/">How It Works</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div><div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div></div></div></footer>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="brand">BARE BAYSIDE <b style="color:var(--emerald)">LABS</b></div>
+        <p class="footer-desc">Marketing intelligence for local businesses. We run the tests, score your rivals, and hand you the evidence.</p>
+      </div>
+      <div><h5>Products</h5><ul>
+        <li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li>
+        <li><a href="/pages/services/">Intelligence Reports</a></li>
+        <li><a href="/pages/services/">Marketing Systems</a></li>
+        <li><a href="/pages/services/">Strategy Sessions</a></li>
+      </ul></div>
+      <div><h5>Company</h5><ul>
+        <li><a href="/pages/about/">About</a></li>
+        <li><a href="/pages/results/">Results</a></li>
+        <li><a href="/pages/how-it-works/">How it works</a></li>
+        <li><a href="/pages/contact/">Contact</a></li>
+      </ul></div>
+      <div><h5>Resources</h5><ul>
+        <li><a href="/pages/blog/">Blog</a></li>
+        <li><a href="/strategy/">Free strategy tool</a></li>
+        <li><a href="/pages/faq/">FAQ</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="c">© 2026 Bare Bayside Labs. All rights reserved.</div>
+      <div class="c">Marketing systems that run without you.</div>
+    </div>
+  </div>
+</footer>
 
-<script src="../../../js/main.js"></script>
+<script>
+if(location.search.indexOf('still')>-1){
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+}else{
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+}
+</script>
 </body>
 </html>

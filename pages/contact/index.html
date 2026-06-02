@@ -9,7 +9,10 @@
   <title>Contact — Bare Bayside Labs</title>
   <meta name="description" content="Get in touch with Bare Bayside Labs. Book a free strategy call or send us a message.">
   <link rel="canonical" href="https://barebaysidelabs.com/pages/contact/">
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css?v=26">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -27,84 +30,211 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","name":"Contact Bare Bayside Labs","url":"https://barebaysidelabs.com/pages/contact/"}</script>
 </head>
 <body>
+<div class="grain"></div>
 
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="/assets/logos/logo-nav.png" alt="Bare Bayside Labs" style="height:40px"></a><div class="nav-links"><a href="/" class="nav-link">HOME</a><a href="/pages/services/" class="nav-link">SERVICES</a><a href="/pages/how-it-works/" class="nav-link">HOW IT WORKS</a><a href="/pages/results/" class="nav-link">RESULTS</a><a href="/pages/about/" class="nav-link">ABOUT</a><a href="/pages/blog/" class="nav-link">BLOG</a><a href="/pages/faq/" class="nav-link">FAQ</a><button id="theme-toggle" class="theme-toggle"></button><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">GET YOUR FREE SNAPSHOT</a></div><button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mobile-menu"><a href="/" onclick="toggleMenu()">HOME</a><a href="/pages/services/" onclick="toggleMenu()">SERVICES</a><a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a><a href="/pages/results/" onclick="toggleMenu()">RESULTS</a><a href="/pages/about/" onclick="toggleMenu()">ABOUT</a>
-  <a href="/pages/blog/" onclick="toggleMenu()">BLOG</a>
-  <a href="/pages/faq/" onclick="toggleMenu()">FAQ</a><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">GET YOUR FREE SNAPSHOT</a>
-  <button id="mobile-theme-toggle" class="mobile-theme-toggle"></button></div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-pill">
+    <a href="/" class="brand">BARE BAYSIDE <b>LABS</b></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/services/">Services</a>
+      <a href="/pages/how-it-works/">How it works</a>
+      <a href="/pages/results/">Results</a>
+      <a href="/pages/about/">About</a>
+      <a href="/pages/blog/">Blog</a>
+      <a href="/pages/faq/">FAQ</a>
+      <a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">Free snapshot</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.mobile').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile">
+  <a href="/" onclick="this.parentElement.classList.remove('open')">Home</a>
+  <a href="/pages/services/" onclick="this.parentElement.classList.remove('open')">Services</a>
+  <a href="/pages/how-it-works/" onclick="this.parentElement.classList.remove('open')">How it works</a>
+  <a href="/pages/results/" onclick="this.parentElement.classList.remove('open')">Results</a>
+  <a href="/pages/about/" onclick="this.parentElement.classList.remove('open')">About</a>
+  <a href="/pages/blog/" onclick="this.parentElement.classList.remove('open')">Blog</a>
+  <a href="/pages/faq/" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+  <a href="/pages/competitor-intel/#free-snapshot" class="cta-m" onclick="this.parentElement.classList.remove('open')">Get your free snapshot</a>
+</div>
 
 <!-- HERO -->
-<section class="section aurora">
-  <div class="inner grid-hero">
-    <div>
-      <span class="eyebrow eyebrow-emerald reveal">GET IN TOUCH</span>
-      <h1 class="reveal stagger-1">SEND US A<br><span class="gradient-text">MESSAGE</span></h1>
-      <p style="font-size:19px;color:var(--text2);max-width:520px;margin-top:20px;line-height:1.7" class="reveal stagger-2">Got a question we haven't answered? Want to talk about a specific product? Drop us a line. We reply within 24 hours. If you're after the free competitor snapshot, <a href="/pages/competitor-intel/#free-snapshot" style="color:var(--sky)">start here</a> instead — that's the fast lane.</p>
+<header class="hero hero-short hero-bg" id="contact">
+  <div class="hero-media">
+    <img src="/assets/images/hero-guesswork-to-evidence.jpg" alt="Bare Bayside Labs — get in touch">
+  </div>
+  <div class="wrap">
+    <div class="pagehead">
+      <span class="eyebrow reveal"><span class="dot"></span>Get in touch</span>
+      <h1 class="display reveal d1">Send us a<br>message.</h1>
+      <p class="reveal d2" style="font-size:20px;color:#C3CEE0;max-width:520px;margin-top:20px;line-height:1.6">Got a question we haven't answered? Want to talk about a specific product? Drop us a line — we reply within 24 hours. If you're after the free competitor snapshot, <a href="/pages/competitor-intel/#free-snapshot" style="color:#7FE3CF;text-decoration:underline;text-underline-offset:3px">start here</a> instead — that's the fast lane.</p>
+    </div>
+  </div>
+</header>
 
-      <div style="margin-top:40px" class="reveal stagger-3">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
-          <div style="width:46px;height:46px;border-radius:10px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-          <div><div class="mono" style="margin-bottom:2px">EMAIL</div><a href="mailto:hello@barebaysidelabs.com" style="font-size:17px;color:var(--text)">hello@barebaysidelabs.com</a></div>
+<!-- CONTACT SECTION -->
+<section class="section" id="form">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+
+      <!-- LEFT: contact details -->
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span>Ways to reach us</span>
+        <h2 class="display" style="font-size:clamp(36px,4.5vw,56px);margin-top:16px;margin-bottom:32px">We're here<br>to help.</h2>
+
+        <div style="display:flex;flex-direction:column;gap:28px">
+          <div style="display:flex;align-items:flex-start;gap:18px">
+            <div style="width:48px;height:48px;border-radius:var(--r-md);background:var(--accent-tint);border:1px solid var(--accent-line);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.6"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:5px">Email</div>
+              <a href="mailto:hello@barebaysidelabs.com" style="font-size:17px;color:var(--ink);font-weight:500;transition:color .3s" onmouseover="this.style.color='var(--emerald-d)'" onmouseout="this.style.color='var(--ink)'">hello@barebaysidelabs.com</a>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:18px">
+            <div style="width:48px;height:48px;border-radius:var(--r-md);background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:5px">Working with</div>
+              <div style="font-size:17px;color:var(--ink2);line-height:1.5">Businesses worldwide — everything digital,<br>meetings on video</div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:18px">
+            <div style="width:48px;height:48px;border-radius:var(--r-md);background:rgba(214,137,12,.07);border:1px solid rgba(214,137,12,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:5px">Response time</div>
+              <div style="font-size:17px;color:var(--ink2)">Within 24 hours</div>
+            </div>
+          </div>
         </div>
-        <div style="display:flex;align-items:center;gap:16px">
-          <div style="width:46px;height:46px;border-radius:10px;background:rgba(56,189,248,0.06);border:1px solid rgba(56,189,248,0.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div>
-          <div><div class="mono" style="margin-bottom:2px">WORKING WITH</div><div style="font-size:17px;color:var(--text)">Businesses worldwide — everything digital, meetings on video</div></div>
+
+        <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--line)">
+          <div class="mono" style="margin-bottom:16px">Not what you're looking for?</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="/pages/competitor-intel/#free-snapshot" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;color:var(--emerald-d);font-weight:500;transition:gap .3s" onmouseover="this.style.gap='12px'" onmouseout="this.style.gap='8px'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              Get your free competitor snapshot
+            </a>
+            <a href="/pages/services/" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;color:var(--ink2);font-weight:500;transition:gap .3s;transition:color .3s" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink2)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              Browse all products &amp; services
+            </a>
+            <a href="/pages/faq/" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;color:var(--ink2);font-weight:500;transition:color .3s" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink2)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              Read the FAQ
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Contact Form -->
-    <div class="reveal stagger-2">
-      <div class="surface" style="padding:36px">
-        <h3 style="margin-bottom:24px">SEND US A MESSAGE</h3>
-        <form style="display:flex;flex-direction:column;gap:20px">
-          <div>
-            <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">YOUR NAME</label>
-            <input type="text" placeholder="Full name" style="width:100%;background:var(--surface2);border:1px solid var(--border-subtle);color:var(--text);border-radius:10px;padding:14px 16px;font-family:'Inter',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--sky)'" onblur="this.style.borderColor='var(--border-subtle)'">
-          </div>
-          <div>
-            <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">EMAIL</label>
-            <input type="email" placeholder="you@business.com" style="width:100%;background:var(--surface2);border:1px solid var(--border-subtle);color:var(--text);border-radius:10px;padding:14px 16px;font-family:'Inter',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--sky)'" onblur="this.style.borderColor='var(--border-subtle)'">
-          </div>
-          <div>
-            <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">BUSINESS TYPE</label>
-            <input type="text" placeholder="e.g. Plumber, Physio, Restaurant" style="width:100%;background:var(--surface2);border:1px solid var(--border-subtle);color:var(--text);border-radius:10px;padding:14px 16px;font-family:'Inter',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--sky)'" onblur="this.style.borderColor='var(--border-subtle)'">
-          </div>
-          <div>
-            <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">WHAT DO YOU NEED HELP WITH?</label>
-            <textarea rows="4" placeholder="Tell us what's broken or what you want to build..." style="width:100%;background:var(--surface2);border:1px solid var(--border-subtle);color:var(--text);border-radius:10px;padding:14px 16px;font-family:'Inter',sans-serif;font-size:16px;resize:vertical;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--sky)'" onblur="this.style.borderColor='var(--border-subtle)'"></textarea>
-          </div>
-          <button type="submit" class="btn-primary glow" style="width:100%;text-align:center;border:none;cursor:pointer">GET MY FREE ACTION PLAN</button>
-          <div class="mono" style="text-align:center">We reply within 24 hours · No obligation · Your data stays private</div>
-        </form>
+      <!-- RIGHT: preserved form -->
+      <div class="reveal d1">
+        <div style="background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:clamp(20px,3vw,32px)">
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:24px;color:var(--ink)">Send us a message</h3>
+          <form style="display:flex;flex-direction:column;gap:20px">
+            <div>
+              <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">YOUR NAME</label>
+              <input type="text" placeholder="Full name" style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'">
+            </div>
+            <div>
+              <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">EMAIL</label>
+              <input type="email" placeholder="you@business.com" style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'">
+            </div>
+            <div>
+              <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">BUSINESS TYPE</label>
+              <input type="text" placeholder="e.g. Plumber, Physio, Restaurant" style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'">
+            </div>
+            <div>
+              <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">WHAT DO YOU NEED HELP WITH?</label>
+              <textarea rows="4" placeholder="Tell us what's broken or what you want to build..." style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;resize:vertical;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding-left:26px;border:none">Get my free action plan
+              <span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </button>
+            <div class="mono" style="text-align:center;color:var(--muted)">We reply within 24 hours · No obligation · Your data stays private</div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="section-sm" style="background:var(--mist);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap">
+      <div class="reveal" style="display:flex;align-items:center;gap:14px">
+        <div style="width:46px;height:46px;border-radius:var(--r-md);background:var(--accent-tint);border:1px solid var(--accent-line);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <div class="mono" style="line-height:1.45;color:var(--ink2)">Free, no<br>obligation</div>
+      </div>
+      <div class="reveal d1" style="display:flex;align-items:center;gap:14px">
+        <div style="width:46px;height:46px;border-radius:var(--r-md);background:var(--accent-tint);border:1px solid var(--accent-line);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="mono" style="line-height:1.45;color:var(--ink2)">Reply within<br>24 hours</div>
+      </div>
+      <div class="reveal d2" style="display:flex;align-items:center;gap:14px">
+        <div style="width:46px;height:46px;border-radius:var(--r-md);background:var(--accent-tint);border:1px solid var(--accent-line);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="mono" style="line-height:1.45;color:var(--ink2)">Your data<br>stays private</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<section class="section" style="padding-top:0">
-  <div class="inner">
-    <div style="display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap;padding:32px 0;border-top:1px solid var(--border-subtle)" class="reveal trust-bar">
-      <div style="display:flex;align-items:center;gap:12px">
-        <div style="width:46px;height:46px;border-radius:10px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-        <div class="mono" style="line-height:1.35">FREE, NO<br>OBLIGATION</div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="brand">BARE BAYSIDE <b style="color:var(--emerald)">LABS</b></div>
+        <p class="footer-desc">Marketing intelligence for local businesses. We run the tests, score your rivals, and hand you the evidence.</p>
       </div>
-      <div style="display:flex;align-items:center;gap:12px">
-        <div style="width:46px;height:46px;border-radius:10px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <div class="mono" style="line-height:1.35">REPLY WITHIN<br>24 HOURS</div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px">
-        <div style="width:46px;height:46px;border-radius:10px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="mono" style="line-height:1.35">YOUR DATA<br>STAYS PRIVATE</div>
-      </div>
+      <div><h5>Products</h5><ul>
+        <li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li>
+        <li><a href="/pages/services/">Intelligence Reports</a></li>
+        <li><a href="/pages/services/">Marketing Systems</a></li>
+        <li><a href="/pages/services/">Strategy Sessions</a></li>
+      </ul></div>
+      <div><h5>Company</h5><ul>
+        <li><a href="/pages/about/">About</a></li>
+        <li><a href="/pages/results/">Results</a></li>
+        <li><a href="/pages/how-it-works/">How it works</a></li>
+        <li><a href="/pages/contact/">Contact</a></li>
+      </ul></div>
+      <div><h5>Resources</h5><ul>
+        <li><a href="/pages/blog/">Blog</a></li>
+        <li><a href="/strategy/">Free strategy tool</a></li>
+        <li><a href="/pages/faq/">FAQ</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="c">© 2026 Bare Bayside Labs. All rights reserved.</div>
+      <div class="c">Marketing systems that run without you.</div>
     </div>
   </div>
-</section>
+</footer>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-top"><div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you.</p></div><div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li><li><a href="/pages/services/">Intelligence Reports</a></li></ul></div><div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/how-it-works/">How It Works</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div><div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div></div></div></footer>
-
-<script src="../../js/main.js"></script>
+<script>
+if(location.search.indexOf('still')>-1){
+  var s=document.createElement('style');s.textContent='.hero{min-height:auto!important}';document.head.appendChild(s);
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+}else{
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+}
+</script>
 </body>
 </html>

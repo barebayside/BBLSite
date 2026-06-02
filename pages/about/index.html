@@ -9,7 +9,10 @@
   <title>About Bare Bayside Labs — Why People Trust Us With Their Marketing</title>
   <meta name="description" content="Real client stories from local businesses, creators, and short-window campaigns. Plain English, no jargon, no guesswork — see why people trust BBL before they buy.">
   <link rel="canonical" href="https://barebaysidelabs.com/pages/about/">
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css?v=26">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -27,238 +30,322 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"About Bare Bayside Labs","url":"https://barebaysidelabs.com/pages/about/","mainEntity":{"@type":"Organization","name":"Bare Bayside Labs","url":"https://barebaysidelabs.com","logo":"https://barebaysidelabs.com/assets/logos/logo-white.png"}}</script>
 </head>
 <body>
+<div class="grain"></div>
 
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="/assets/logos/logo-nav.png" alt="Bare Bayside Labs" style="height:40px"></a><div class="nav-links"><a href="/" class="nav-link">HOME</a><a href="/pages/services/" class="nav-link">SERVICES</a><a href="/pages/how-it-works/" class="nav-link">HOW IT WORKS</a><a href="/pages/results/" class="nav-link">RESULTS</a><a href="/pages/about/" class="nav-link" style="color:var(--sky)">ABOUT</a><a href="/pages/blog/" class="nav-link">BLOG</a><a href="/pages/faq/" class="nav-link">FAQ</a><button id="theme-toggle" class="theme-toggle"></button><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">GET YOUR FREE SNAPSHOT</a></div><button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mobile-menu"><a href="/" onclick="toggleMenu()">HOME</a><a href="/pages/services/" onclick="toggleMenu()">SERVICES</a><a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a><a href="/pages/results/" onclick="toggleMenu()">RESULTS</a><a href="/pages/about/" onclick="toggleMenu()">ABOUT</a>
-  <a href="/pages/blog/" onclick="toggleMenu()">BLOG</a>
-  <a href="/pages/faq/" onclick="toggleMenu()">FAQ</a><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">GET YOUR FREE SNAPSHOT</a>
-  <button id="mobile-theme-toggle" class="mobile-theme-toggle"></button></div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-pill">
+    <a href="/" class="brand">BARE BAYSIDE <b>LABS</b></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/services/">Services</a>
+      <a href="/pages/how-it-works/">How it works</a>
+      <a href="/pages/results/">Results</a>
+      <a href="/pages/about/" class="active">About</a>
+      <a href="/pages/blog/">Blog</a>
+      <a href="/pages/faq/">FAQ</a>
+      <a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">Free snapshot</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.mobile').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile">
+  <a href="/" onclick="this.parentElement.classList.remove('open')">Home</a>
+  <a href="/pages/services/" onclick="this.parentElement.classList.remove('open')">Services</a>
+  <a href="/pages/how-it-works/" onclick="this.parentElement.classList.remove('open')">How it works</a>
+  <a href="/pages/results/" onclick="this.parentElement.classList.remove('open')">Results</a>
+  <a href="/pages/about/" onclick="this.parentElement.classList.remove('open')">About</a>
+  <a href="/pages/blog/" onclick="this.parentElement.classList.remove('open')">Blog</a>
+  <a href="/pages/faq/" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+  <a href="/pages/competitor-intel/#free-snapshot" class="cta-m" onclick="this.parentElement.classList.remove('open')">Get your free snapshot</a>
+</div>
 
-<!-- HERO — REASSURANCE PROMISE -->
-<section class="section aurora bright-hero dark-scrim-keep">
-  <div class="blog-header-img">
-    <video autoplay muted loop playsinline preload="metadata">
+<!-- HERO -->
+<header class="hero hero-bg">
+  <div class="hero-media">
+    <video autoplay muted loop playsinline>
       <source src="/assets/videos/about-circuit-network.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="inner grid-hero" style="position:relative;z-index:2">
+  <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow eyebrow-sky reveal">WHY PEOPLE TRUST US</span>
-      <h1 class="reveal stagger-1">YOU DON'T HAVE TO<br>TAKE OUR WORD FOR IT —<br><span class="gradient-text">READ THEIRS</span></h1>
-      <p style="font-size:19px;color:var(--text2);max-width:540px;margin-top:20px;line-height:1.7" class="reveal stagger-2">If you're thinking about buying from us, you probably want one thing before you click: proof that this isn't going to be another marketing tool you regret.</p>
-      <p style="font-size:19px;color:var(--text2);max-width:540px;margin-top:16px;line-height:1.7" class="reveal stagger-3">Below are three stories from people who were in your shoes — plus a clear picture of who BBL is built for, and who it isn't.</p>
-    </div>
-    <div class="reveal stagger-2">
-      <div class="surface" style="padding:36px">
-        <h3 style="margin-bottom:20px;color:var(--emerald)">AT A GLANCE</h3>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px">
-          <div style="text-align:center;padding:14px 8px;background:var(--surface2);border-radius:10px;border:1px solid var(--border-subtle)">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--emerald);line-height:1">60%</div>
-            <div class="mono" style="margin-top:4px;font-size:11px">LESS ADMIN</div>
-          </div>
-          <div style="text-align:center;padding:14px 8px;background:var(--surface2);border-radius:10px;border:1px solid var(--border-subtle)">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--sky);line-height:1">10+</div>
-            <div class="mono" style="margin-top:4px;font-size:11px">HOURS / WEEK</div>
-          </div>
-          <div style="text-align:center;padding:14px 8px;background:var(--surface2);border-radius:10px;border:1px solid var(--border-subtle)">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--gold);line-height:1">1:4</div>
-            <div class="mono" style="margin-top:4px;font-size:11px">CLICK → SIGNUP</div>
-          </div>
-          <div style="text-align:center;padding:14px 8px;background:var(--surface2);border-radius:10px;border:1px solid var(--border-subtle)">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--emerald);line-height:1">30+</div>
-            <div class="mono" style="margin-top:4px;font-size:11px">MONTH AVG STAY</div>
-          </div>
-        </div>
-        <a href="/pages/results/" class="mono" style="color:var(--sky);text-decoration:none;font-size:13px">SEE THE FULL RESULTS PAGE →</a>
+      <span class="eyebrow reveal"><span class="dot"></span>Why people trust us</span>
+      <h1 class="display reveal d1">
+        <span class="ev">You don't have to</span>
+        <span class="ev">take our word for it —</span>
+        <span class="lab-line">read theirs.</span>
+      </h1>
+      <p class="hero-sub reveal d2">If you're thinking about buying from us, you probably want one thing before you click: proof that this isn't going to be another marketing tool you regret. Below are real stories from people who were in your shoes.</p>
+      <div class="hero-cta reveal d2">
+        <a href="/pages/services/" class="btn btn-primary">Explore the systems
+          <span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a href="/pages/competitor-intel/#free-snapshot" class="btn btn-ghost">Or start with a free snapshot</a>
       </div>
+    </div>
+    <div class="hero-box reveal d2">
+      <div class="hb-top">
+        <div>
+          <div class="hb-label">At a glance</div>
+          <div class="hb-score">60<small>%</small></div>
+        </div>
+        <div class="hb-live">Less admin</div>
+      </div>
+      <div class="hb-row"><div class="rl"><span>Hours back / week</span><span>10+</span></div><div class="hb-bar"><i style="width:72%"></i></div></div>
+      <div class="hb-row"><div class="rl"><span>Ad click → client signup</span><span>1-in-4</span></div><div class="hb-bar"><i style="width:50%"></i></div></div>
+      <div class="hb-row"><div class="rl"><span>Average monthly stay</span><span>30+ days</span></div><div class="hb-bar"><i style="width:88%"></i></div></div>
+      <div class="hb-foot"><a href="/pages/results/" style="color:#5FE0B6">See the full results page →</a></div>
     </div>
   </div>
-</section>
+  <a href="#stories" class="scrollcue" aria-label="Scroll to client stories">
+    <span class="sc-label">Client stories</span>
+    <span class="sc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </a>
+</header>
 
-<!-- CASE STORIES — BEFORE / SHIFT / NOW -->
-<section class="section" style="background:var(--surface)">
-  <div class="inner">
-    <span class="eyebrow eyebrow-emerald reveal">CLIENT STORIES</span>
-    <h2 class="reveal stagger-1" style="margin-bottom:16px">FROM GUESSING TO KNOWING</h2>
-    <p class="reveal stagger-2" style="color:var(--text2);font-size:18px;max-width:640px;margin-bottom:48px">Three businesses, three different starting points. What they had in common: they were tired of spending money on marketing they couldn't measure.</p>
+<!-- STORIES — FROM GUESSING TO KNOWING -->
+<section class="section" id="stories">
+  <div class="wrap">
+    <span class="eyebrow reveal"><span class="dot"></span>Client stories</span>
+    <h2 class="display reveal d1" style="margin-top:16px;max-width:760px">From guessing to knowing.</h2>
+    <p class="reveal d2" style="font-size:19px;color:var(--ink2);max-width:640px;margin:14px 0 54px">Three businesses, three different starting points. What they had in common: tired of spending money on marketing they couldn't measure.</p>
 
     <!-- STORY 1 — BAYSIDE PLUMBING -->
-    <div class="card reveal" style="padding:36px;margin-bottom:28px">
-      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;flex-wrap:wrap">
-        <span class="eyebrow eyebrow-sky">BAYSIDE PLUMBING</span>
-        <span class="mono" style="color:var(--muted);font-size:12px">TRADES · LOCAL SERVICE</span>
+    <div class="proof-row reveal" id="story-mark">
+      <div class="pq">
+        <span class="mono" style="color:var(--cyan);margin-bottom:14px;display:block">BAYSIDE PLUMBING · TRADES</span>
+        <div style="display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:28px">
+          <div>
+            <div class="mono" style="color:var(--gold);margin-bottom:6px">BEFORE</div>
+            <p style="font-size:15px;color:var(--ink2);line-height:1.65">Running ads blind. No tracking, no follow-ups. Spending money each month and hoping some of it worked.</p>
+          </div>
+          <div>
+            <div class="mono" style="color:var(--cyan);margin-bottom:6px">THE SHIFT</div>
+            <p style="font-size:15px;color:var(--ink2);line-height:1.65">Every lead captured. Every follow-up automatic. Every ad dollar tracked back to a real customer — and what that customer was worth.</p>
+          </div>
+          <div>
+            <div class="mono" style="color:var(--emerald);margin-bottom:6px">NOW</div>
+            <p style="font-size:15px;color:var(--ink2);line-height:1.65"><strong style="color:var(--ink)">60% less admin</strong> in the first month. Follow-up emails still running on autopilot 14 months later. Mark takes Friday afternoons off.</p>
+          </div>
+        </div>
+        <blockquote>"For the first time, I can actually see which ad brought in which customer — and what they're worth."</blockquote>
+        <div class="who"><div class="av">MR</div><div><div class="nm">Mark Reeves</div><div class="biz">Bayside Plumbing</div></div></div>
       </div>
-      <div class="grid-3" style="gap:24px;margin-bottom:24px">
-        <div>
-          <div class="mono" style="color:var(--gold);font-size:12px;margin-bottom:8px">BEFORE</div>
-          <p style="font-size:15px;line-height:1.6;color:var(--text2)">Running ads blind. No tracking, no follow-ups. Spending money each month and hoping some of it worked.</p>
-        </div>
-        <div>
-          <div class="mono" style="color:var(--sky);font-size:12px;margin-bottom:8px">THE SHIFT</div>
-          <p style="font-size:15px;line-height:1.6;color:var(--text2)">Every lead captured. Every follow-up automatic. Every ad dollar tracked back to a real customer — and what that customer was worth.</p>
-        </div>
-        <div>
-          <div class="mono" style="color:var(--emerald);font-size:12px;margin-bottom:8px">NOW</div>
-          <p style="font-size:15px;line-height:1.6;color:var(--text2)"><strong style="color:var(--emerald)">60% less admin</strong> in the first month. Follow-up emails still running on autopilot 14 months later. Mark takes Friday afternoons off.</p>
+      <div class="exhibit reveal d1">
+        <div class="exhibit-frame">
+          <img src="/assets/images/before-after-dashboard.jpg" alt="The shift from scattered notes to a measured marketing dashboard">
         </div>
       </div>
-      <blockquote style="font-size:17px;color:var(--text);line-height:1.65;font-style:italic;padding-left:20px;border-left:2px solid var(--sky);margin:0">
-        "For the first time, I can actually see which ad brought in which customer — and what they're worth."
-        <div style="margin-top:10px;font-style:normal;font-size:14px;color:var(--muted)">— Mark Reeves, Owner, Bayside Plumbing</div>
-      </blockquote>
     </div>
 
     <!-- STORY 2 — COASTAL PHYSIO -->
-    <div class="card reveal stagger-1" style="padding:36px;margin-bottom:28px">
-      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;flex-wrap:wrap">
-        <span class="eyebrow eyebrow-emerald">COASTAL PHYSIO CLINIC</span>
-        <span class="mono" style="color:var(--muted);font-size:12px">HEALTH · APPOINTMENT-BASED</span>
+    <div class="proof-row flip reveal" id="story-sarah">
+      <div class="pq">
+        <span class="mono" style="color:var(--emerald);margin-bottom:14px;display:block">COASTAL PHYSIO · HEALTH</span>
+        <div style="display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:28px">
+          <div>
+            <div class="mono" style="color:var(--gold);margin-bottom:6px">BEFORE</div>
+            <p style="font-size:15px;color:var(--ink2);line-height:1.65">$2K a month going into ads with no idea which ones converted. 10 hours a week buried in admin and spreadsheets.</p>
+          </div>
+          <div>
+            <div class="mono" style="color:var(--cyan);margin-bottom:6px">THE SHIFT</div>
+            <p style="font-size:15px;color:var(--ink2);line-height:1.65">Tracking switched on across every channel. Automatic follow-ups for new enquiries. A single dashboard showing what's pulling its weight.</p>
+          </div>
+          <div>
+            <div class="mono" style="color:var(--emerald);margin-bottom:6px">NOW</div>
+            <p style="font-size:15px;color:var(--ink2);line-height:1.65"><strong style="color:var(--ink)">Wasted ad spend cut.</strong> Admin handled by the system. Sarah checks the dashboard once a day instead of living in it.</p>
+          </div>
+        </div>
+        <blockquote>"I stopped worrying about where next month's clients are coming from."</blockquote>
+        <div class="who"><div class="av">SL</div><div><div class="nm">Sarah Lin</div><div class="biz">Coastal Physio Clinic</div></div></div>
       </div>
-      <div class="grid-3" style="gap:24px;margin-bottom:24px">
-        <div>
-          <div class="mono" style="color:var(--gold);font-size:12px;margin-bottom:8px">BEFORE</div>
-          <p style="font-size:15px;line-height:1.6;color:var(--text2)">$2K a month going into ads with no idea which ones converted. 10 hours a week buried in admin and spreadsheets.</p>
-        </div>
-        <div>
-          <div class="mono" style="color:var(--sky);font-size:12px;margin-bottom:8px">THE SHIFT</div>
-          <p style="font-size:15px;line-height:1.6;color:var(--text2)">Tracking switched on across every channel. Automatic follow-ups for new enquiries. A single dashboard showing what's pulling its weight.</p>
-        </div>
-        <div>
-          <div class="mono" style="color:var(--emerald);font-size:12px;margin-bottom:8px">NOW</div>
-          <p style="font-size:15px;line-height:1.6;color:var(--text2)"><strong style="color:var(--emerald)">Wasted ad spend cut.</strong> Admin handled by the system. Sarah checks the dashboard once a day instead of living in it.</p>
+      <div class="exhibit reveal d1">
+        <div class="exhibit-frame">
+          <img src="/assets/images/results-hero-bright.jpg" alt="A single dashboard that shows exactly what is working">
         </div>
       </div>
-      <blockquote style="font-size:17px;color:var(--text);line-height:1.65;font-style:italic;padding-left:20px;border-left:2px solid var(--emerald);margin:0">
-        "I stopped worrying about where next month's clients are coming from."
-        <div style="margin-top:10px;font-style:normal;font-size:14px;color:var(--muted)">— Sarah Lin, Coastal Physio Clinic</div>
-      </blockquote>
     </div>
 
     <!-- STORY 3 — JT ELECTRICAL -->
-    <div class="card reveal stagger-2" style="padding:36px">
-      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;flex-wrap:wrap">
-        <span class="eyebrow eyebrow-gold">JT ELECTRICAL</span>
-        <span class="mono" style="color:var(--muted);font-size:12px">TRADES · AGENCY-WEARY</span>
+    <div class="proof-row reveal" id="story-james">
+      <div class="pq">
+        <span class="mono" style="color:var(--gold);margin-bottom:14px;display:block">JT ELECTRICAL · TRADES</span>
+        <div style="display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:28px">
+          <div>
+            <div class="mono" style="color:var(--gold);margin-bottom:6px">BEFORE</div>
+            <p style="font-size:15px;color:var(--ink2);line-height:1.65">Three agencies, three monthly invoices, nothing that kept working once the contract ended.</p>
+          </div>
+          <div>
+            <div class="mono" style="color:var(--cyan);margin-bottom:6px">THE SHIFT</div>
+            <p style="font-size:15px;color:var(--ink2);line-height:1.65">A productised setup instead of billed hours. Built once, owned forever — no retainer creep, no surprise invoices.</p>
+          </div>
+          <div>
+            <div class="mono" style="color:var(--emerald);margin-bottom:6px">NOW</div>
+            <p style="font-size:15px;color:var(--ink2);line-height:1.65"><strong style="color:var(--ink)">Six months in, marketing just runs.</strong> James hasn't had to think about it.</p>
+          </div>
+        </div>
+        <blockquote>"They're the only ones who built something that actually works."</blockquote>
+        <div class="who"><div class="av">JT</div><div><div class="nm">James Tran</div><div class="biz">JT Electrical Services</div></div></div>
       </div>
-      <div class="grid-3" style="gap:24px;margin-bottom:24px">
-        <div>
-          <div class="mono" style="color:var(--gold);font-size:12px;margin-bottom:8px">BEFORE</div>
-          <p style="font-size:15px;line-height:1.6;color:var(--text2)">Three agencies, three monthly invoices, nothing that kept working once the contract ended.</p>
-        </div>
-        <div>
-          <div class="mono" style="color:var(--sky);font-size:12px;margin-bottom:8px">THE SHIFT</div>
-          <p style="font-size:15px;line-height:1.6;color:var(--text2)">A productised setup instead of billed hours. Built once, owned forever — no retainer creep, no surprise invoices.</p>
-        </div>
-        <div>
-          <div class="mono" style="color:var(--emerald);font-size:12px;margin-bottom:8px">NOW</div>
-          <p style="font-size:15px;line-height:1.6;color:var(--text2)"><strong style="color:var(--emerald)">Six months in, marketing just runs.</strong> James hasn't had to think about it.</p>
+      <div class="exhibit reveal d1">
+        <div class="exhibit-frame">
+          <img src="/assets/images/marketing-system-funnel.jpg" alt="The productised marketing system that runs itself">
         </div>
       </div>
-      <blockquote style="font-size:17px;color:var(--text);line-height:1.65;font-style:italic;padding-left:20px;border-left:2px solid var(--gold);margin:0">
-        "They're the only ones who built something that actually works."
-        <div style="margin-top:10px;font-style:normal;font-size:14px;color:var(--muted)">— James Tran, JT Electrical Services</div>
-      </blockquote>
     </div>
   </div>
 </section>
 
-<!-- WHO THIS IS FOR — 4 SEGMENTS -->
-<section class="section">
-  <div class="inner">
-    <div style="text-align:center;margin-bottom:48px">
-      <span class="eyebrow eyebrow-sky reveal">WHO THIS IS FOR</span>
-      <h2 class="reveal stagger-1" style="margin-bottom:16px">FOUR PEOPLE WE BUILT BBL FOR</h2>
-      <p class="reveal stagger-2" style="color:var(--text2);font-size:18px;max-width:640px;margin:0 auto">If you see yourself in any of these four, you're in the right place. If you don't — we'll tell you straight.</p>
-    </div>
+<!-- WHO THIS IS FOR -->
+<section class="section tinted" id="who" style="background:var(--mist)">
+  <div class="wrap">
+    <span class="eyebrow reveal"><span class="dot"></span>Who this is for</span>
+    <h2 class="display reveal d1" style="margin-top:16px;max-width:780px">Four people we built BBL for.</h2>
+    <p class="reveal d2" style="font-size:19px;color:var(--ink2);max-width:640px;margin:14px 0 48px">If you see yourself in any of these four, you're in the right place. If you don't — we'll tell you straight.</p>
 
-    <div class="grid-2" style="gap:24px;margin-bottom:24px">
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px" class="reveal">
       <!-- SEGMENT 1 -->
-      <div class="card reveal" style="text-align:left;padding:32px">
-        <span class="eyebrow eyebrow-sky" style="margin-bottom:14px;display:inline-block">SEGMENT 1</span>
-        <h3 style="margin-bottom:14px;color:var(--sky)">SMALL BUSINESS OWNERS</h3>
-        <p style="font-size:15px;line-height:1.7;margin-bottom:14px;color:var(--text2)">You're running a team of 1–10 people. You know you need better systems but you don't have the time to research tools, learn software, or build it yourself. You just need someone to make it work.</p>
-        <div class="mono" style="color:var(--text2);font-size:13px;background:var(--surface2);padding:14px;border-radius:8px;border:1px solid var(--border-subtle)"><strong style="color:var(--text)">SOUNDS LIKE YOU?</strong> Leads fall through the cracks. Follow-ups are inconsistent. You're tracking everything in your head or a spreadsheet.</div>
+      <div style="background:var(--white);border:1px solid var(--line2);border-radius:var(--r-md);padding:32px">
+        <span class="eyebrow blue" style="margin-bottom:14px"><span class="dot"></span>Segment 01</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.03em;text-transform:uppercase;color:var(--blue);margin:12px 0 10px">Small Business Owners</h3>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.7;margin-bottom:14px">You're running a team of 1–10 people. You know you need better systems but you don't have the time to research tools, learn software, or build it yourself. You just need someone to make it work.</p>
+        <div style="background:var(--mist);border:1px solid var(--line2);border-radius:10px;padding:14px">
+          <span class="mono">Sounds like you?</span>
+          <p style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">Leads fall through the cracks. Follow-ups are inconsistent. You're tracking everything in your head or a spreadsheet.</p>
+        </div>
       </div>
 
       <!-- SEGMENT 2 -->
-      <div class="card reveal stagger-1" style="text-align:left;padding:32px">
-        <span class="eyebrow eyebrow-emerald" style="margin-bottom:14px;display:inline-block">SEGMENT 2</span>
-        <h3 style="margin-bottom:14px;color:var(--emerald)">LOCAL SERVICE BUSINESSES</h3>
-        <p style="font-size:15px;line-height:1.7;margin-bottom:14px;color:var(--text2)">Trades, clinics, studios, salons, restaurants — you're great at what you do, but the phone should be ringing more than it is. You're spending on ads and can't tell which ones work.</p>
-        <div class="mono" style="color:var(--text2);font-size:13px;background:var(--surface2);padding:14px;border-radius:8px;border:1px solid var(--border-subtle)"><strong style="color:var(--text)">SOUNDS LIKE YOU?</strong> Your calendar has gaps. Happy customers don't leave reviews. You're paying for ads with no idea what they produce.</div>
+      <div style="background:var(--white);border:1px solid var(--line2);border-radius:var(--r-md);padding:32px">
+        <span class="eyebrow" style="margin-bottom:14px"><span class="dot"></span>Segment 02</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.03em;text-transform:uppercase;color:var(--emerald-d);margin:12px 0 10px">Local Service Businesses</h3>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.7;margin-bottom:14px">Trades, clinics, studios, salons, restaurants — you're great at what you do, but the phone should be ringing more than it is. You're spending on ads and can't tell which ones work.</p>
+        <div style="background:var(--mist);border:1px solid var(--line2);border-radius:10px;padding:14px">
+          <span class="mono">Sounds like you?</span>
+          <p style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">Your calendar has gaps. Happy customers don't leave reviews. You're paying for ads with no idea what they produce.</p>
+        </div>
       </div>
 
-      <!-- SEGMENT 3 — NEW -->
-      <div class="card reveal stagger-2" style="text-align:left;padding:32px">
-        <span class="eyebrow eyebrow-gold" style="margin-bottom:14px;display:inline-block">SEGMENT 3 — NEW</span>
-        <h3 style="margin-bottom:14px;color:var(--gold)">CREATORS &amp; SOCIAL PERSONALITIES</h3>
-        <p style="font-size:15px;line-height:1.7;margin-bottom:14px;color:var(--text2)">You're building an audience and watching rivals get ahead with ads or content you can't quite see. You want a clean read on what they're spending on, what they're testing, and what's actually landing — so you can leapfrog instead of guess.</p>
-        <div class="mono" style="color:var(--text2);font-size:13px;background:var(--surface2);padding:14px;border-radius:8px;border:1px solid var(--border-subtle)"><strong style="color:var(--text)">SOUNDS LIKE YOU?</strong> You keep seeing a competitor's ads and wondering "why is this one working?" You want answers, not gut feel.</div>
+      <!-- SEGMENT 3 -->
+      <div style="background:var(--white);border:1px solid var(--line2);border-radius:var(--r-md);padding:32px">
+        <span class="eyebrow gold" style="margin-bottom:14px"><span class="dot"></span>Segment 03 — New</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.03em;text-transform:uppercase;color:var(--gold);margin:12px 0 10px">Creators &amp; Social Personalities</h3>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.7;margin-bottom:14px">You're building an audience and watching rivals get ahead with ads or content you can't quite see. You want a clean read on what they're spending on, what they're testing, and what's actually landing — so you can leapfrog instead of guess.</p>
+        <div style="background:var(--mist);border:1px solid var(--line2);border-radius:10px;padding:14px">
+          <span class="mono">Sounds like you?</span>
+          <p style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">You keep seeing a competitor's ads and wondering "why is this one working?" You want answers, not gut feel.</p>
+        </div>
       </div>
 
-      <!-- SEGMENT 4 — NEW -->
-      <div class="card reveal stagger-3" style="text-align:left;padding:32px">
-        <span class="eyebrow eyebrow-purple" style="margin-bottom:14px;display:inline-block">SEGMENT 4 — NEW</span>
-        <h3 style="margin-bottom:14px;color:var(--purple)">SHORT-WINDOW &amp; EVENT CAMPAIGNS</h3>
-        <p style="font-size:15px;line-height:1.7;margin-bottom:14px;color:var(--text2)">Festivals, pop-ups, seasonal launches, election-style pushes — a wave of competitors all activating in the same 2–6 week window. You need a fast, current read on who's running what, where, and how loudly, so you don't get drowned out before the window closes.</p>
-        <div class="mono" style="color:var(--text2);font-size:13px;background:var(--surface2);padding:14px;border-radius:8px;border:1px solid var(--border-subtle)"><strong style="color:var(--text)">SOUNDS LIKE YOU?</strong> Your campaign has a hard end-date. The noise is loudest right when it matters most. You need intel this week, not next quarter.</div>
+      <!-- SEGMENT 4 -->
+      <div style="background:var(--white);border:1px solid var(--line2);border-radius:var(--r-md);padding:32px">
+        <span class="eyebrow purple" style="margin-bottom:14px"><span class="dot"></span>Segment 04 — New</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.03em;text-transform:uppercase;color:var(--purple);margin:12px 0 10px">Short-Window &amp; Event Campaigns</h3>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.7;margin-bottom:14px">Festivals, pop-ups, seasonal launches, election-style pushes — a wave of competitors all activating in the same 2–6 week window. You need a fast, current read on who's running what, where, and how loudly, so you don't get drowned out before the window closes.</p>
+        <div style="background:var(--mist);border:1px solid var(--line2);border-radius:10px;padding:14px">
+          <span class="mono">Sounds like you?</span>
+          <p style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">Your campaign has a hard end-date. The noise is loudest right when it matters most. You need intel this week, not next quarter.</p>
+        </div>
       </div>
     </div>
 
     <!-- WHO IT'S NOT FOR -->
-    <div class="surface reveal" style="padding:28px;margin-top:8px;border-left:3px solid var(--gold)">
-      <div style="display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap">
-        <div style="flex:0 0 auto">
-          <span class="eyebrow eyebrow-gold">WHO IT'S NOT FOR</span>
-        </div>
-        <div style="flex:1 1 360px">
-          <p style="font-size:15px;line-height:1.7;color:var(--text2);margin:0">If you want a retainer agency that bills hours, or a custom DFY build, BBL isn't the fit. We sell productised reports and subscriptions — built once, owned forever, no surprise invoices. We'll happily point you elsewhere if that's what you need.</p>
-        </div>
+    <div class="reveal" style="margin-top:28px;padding:28px 32px;border-left:3px solid var(--gold);background:var(--white);border-radius:var(--r-md);border:1px solid var(--line2);border-left-width:3px">
+      <span class="eyebrow gold" style="margin-bottom:12px"><span class="dot"></span>Who it's not for</span>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;margin-top:12px;max-width:680px">If you want a retainer agency that bills hours, or a custom done-for-you build, BBL isn't the fit. We sell productised reports and subscriptions — built once, owned forever, no surprise invoices. We'll happily point you elsewhere if that's what you need.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BELIEFS — FOUR RULES -->
+<section class="section" id="beliefs">
+  <div class="wrap">
+    <span class="eyebrow reveal"><span class="dot"></span>What we believe</span>
+    <h2 class="display reveal d1" style="margin-top:16px;max-width:680px">Four rules we don't break.</h2>
+    <div class="bento" style="margin-top:40px">
+      <div class="tile reveal">
+        <span class="mono">Rule 01</span>
+        <h3>Systems over campaigns</h3>
+        <p>A campaign ends. A system keeps working. Every product we sell is built to run without you.</p>
+      </div>
+      <div class="tile reveal d1">
+        <span class="mono">Rule 02</span>
+        <h3>Data over guesswork</h3>
+        <p>Every dollar tracked. Every lead scored. No more hunches about what's working.</p>
+      </div>
+      <div class="tile tile-accent reveal d2">
+        <span class="mono" style="color:rgba(255,255,255,.75)">Rule 03</span>
+        <h3>Outcomes over activity</h3>
+        <p>We don't sell hours. We sell results you can measure the day they arrive.</p>
+      </div>
+      <div class="tile reveal d3">
+        <span class="mono">Rule 04</span>
+        <h3>Plain language always</h3>
+        <p>No jargon. Written for owners, not analysts. If you don't get it, we haven't said it well.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BELIEFS — CONDENSED ROW -->
-<section class="section" style="background:var(--surface)">
-  <div class="inner" style="text-align:center">
-    <span class="eyebrow eyebrow-emerald reveal">WHAT WE BELIEVE</span>
-    <h2 class="reveal stagger-1" style="margin-bottom:48px">FOUR RULES WE DON'T BREAK</h2>
-    <div class="reveal stagger-2 stats-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
-      <div class="surface" style="padding:24px;text-align:left">
-        <h5 style="margin-bottom:8px;font-size:16px;color:var(--sky)">SYSTEMS OVER CAMPAIGNS</h5>
-        <p style="font-size:14px;line-height:1.6;color:var(--text2)">A campaign ends. A system keeps working.</p>
-      </div>
-      <div class="surface" style="padding:24px;text-align:left">
-        <h5 style="margin-bottom:8px;font-size:16px;color:var(--emerald)">DATA OVER GUESSWORK</h5>
-        <p style="font-size:14px;line-height:1.6;color:var(--text2)">Every dollar tracked. Every lead scored. No more hunches.</p>
-      </div>
-      <div class="surface" style="padding:24px;text-align:left">
-        <h5 style="margin-bottom:8px;font-size:16px;color:var(--gold)">OUTCOMES OVER ACTIVITY</h5>
-        <p style="font-size:14px;line-height:1.6;color:var(--text2)">We don't sell hours. We sell results you can measure.</p>
-      </div>
-      <div class="surface" style="padding:24px;text-align:left">
-        <h5 style="margin-bottom:8px;font-size:16px;color:var(--purple)">PLAIN LANGUAGE ALWAYS</h5>
-        <p style="font-size:14px;line-height:1.6;color:var(--text2)">No jargon. If you don't get it, we haven't said it well.</p>
-      </div>
+<!-- CLOSING CTA -->
+<section class="section cta" id="cta">
+  <div class="wrap cta-inner">
+    <span class="eyebrow gold reveal" style="background:rgba(242,163,59,.12);border-color:rgba(242,163,59,.3);color:var(--amber)"><span class="dot"></span>Free — no card</span>
+    <h2 class="display reveal d1">See exactly what one of your <em>rivals is doing.</em></h2>
+    <p class="reveal d2">Name one competitor. We score them across 8 channels and hand you a plain-English snapshot in 48 hours. No call. No pitch. No card.</p>
+    <div class="cta-btns reveal d2">
+      <a href="/pages/services/" class="btn btn-light">Explore the systems
+        <span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a href="/pages/competitor-intel/#free-snapshot" class="btn btn-ghost" style="border-color:rgba(255,255,255,.25);color:#fff">Or start with a free snapshot</a>
+    </div>
+    <div class="cta-trust reveal d3">
+      <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg> Free, no<br>obligation</div>
+      <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Yours in<br>48 hours</div>
+      <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Your data,<br>private</div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section">
-  <div class="inner">
-    <div class="surface-cta reveal">
-      <span class="eyebrow eyebrow-emerald">FREE — NO CARD</span>
-      <h2 style="margin-bottom:16px">SEE EXACTLY WHAT<br>ONE OF YOUR RIVALS IS DOING</h2>
-      <p style="color:var(--text2);font-size:19px;max-width:500px;margin:0 auto 36px">Name 1 competitor. We score them across 8 channels and hand you a plain-English snapshot in 48 hours. No call. No pitch. No card.</p>
-      <a href="/pages/competitor-intel/#free-snapshot" class="btn-primary glow">GET YOUR FREE SNAPSHOT</a>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="brand">BARE BAYSIDE <b style="color:var(--emerald)">LABS</b></div>
+        <p class="footer-desc">Marketing intelligence for local businesses. We run the tests, score your rivals, and hand you the evidence.</p>
+      </div>
+      <div><h5>Products</h5><ul>
+        <li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li>
+        <li><a href="/pages/services/">Intelligence Reports</a></li>
+        <li><a href="/pages/services/">Marketing Systems</a></li>
+        <li><a href="/pages/services/">Strategy Sessions</a></li>
+      </ul></div>
+      <div><h5>Company</h5><ul>
+        <li><a href="/pages/about/">About</a></li>
+        <li><a href="/pages/results/">Results</a></li>
+        <li><a href="/pages/how-it-works/">How it works</a></li>
+        <li><a href="/pages/contact/">Contact</a></li>
+      </ul></div>
+      <div><h5>Resources</h5><ul>
+        <li><a href="/pages/blog/">Blog</a></li>
+        <li><a href="/strategy/">Free strategy tool</a></li>
+        <li><a href="/pages/faq/">FAQ</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="c">© 2026 Bare Bayside Labs. All rights reserved.</div>
+      <div class="c">Marketing systems that run without you.</div>
     </div>
   </div>
-</section>
+</footer>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-top"><div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you.</p></div><div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li><li><a href="/pages/services/">Intelligence Reports</a></li></ul></div><div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/how-it-works/">How It Works</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div><div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div></div></div></footer>
-
-<script src="../../js/main.js"></script>
+<script>
+if(location.search.indexOf('still')>-1){
+  var s=document.createElement('style');s.textContent='.hero{min-height:auto!important}';document.head.appendChild(s);
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+}else{
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+}
+</script>
 </body>
 </html>

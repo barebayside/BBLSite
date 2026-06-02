@@ -25,7 +25,6 @@ Bare Bayside Labs is a productized marketing intelligence company. Every product
 
 - **Signal — $45/mo**: Ad Pulse + Local Opportunity Monitoring. Cheapest market-watch tier.
 - **Intel — $187/mo**: Signal + Content + Website monitoring. Most popular bundle.
-- **Lab Membership — $307/mo**: Intel + monthly Marketing Brief + $988 of reports refreshed every 60 days + peer benchmarks + experiment dashboard.
 
 ### Build
 

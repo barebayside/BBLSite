@@ -9,7 +9,10 @@
   <title>Results — Bare Bayside Labs</title>
   <meta name="description" content="Real results from real clients. 60% less admin, 10+ hours saved per week, 1-in-4 ad clicks convert to signups.">
   <link rel="canonical" href="https://barebaysidelabs.com/pages/results/">
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css?v=26">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -24,143 +27,222 @@
   <meta name="twitter:title" content="Results — Bare Bayside Labs">
   <meta name="twitter:description" content="Real results from real clients. 60% less admin, 10+ hours saved per week, 1-in-4 ad clicks convert to signups.">
   <meta name="twitter:image" content="https://barebaysidelabs.com/assets/images/og-default.jpg">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Results — Bare Bayside Labs","url":"https://barebaysidelabs.com/pages/results/","description":"Real results from real clients. 60% less admin, 10+ hours saved per week, 1-in-4 ad clicks convert to signups.","publisher":{"@type":"Organization","name":"Bare Bayside Labs","url":"https://barebaysidelabs.com"}}</script>
 </head>
 <body>
+<div class="grain"></div>
 
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="/assets/logos/logo-nav.png" alt="Bare Bayside Labs" style="height:40px"></a><div class="nav-links"><a href="/" class="nav-link">HOME</a><a href="/pages/services/" class="nav-link">SERVICES</a><a href="/pages/how-it-works/" class="nav-link">HOW IT WORKS</a><a href="/pages/results/" class="nav-link" style="color:var(--sky)">RESULTS</a><a href="/pages/about/" class="nav-link">ABOUT</a><a href="/pages/blog/" class="nav-link">BLOG</a><a href="/pages/faq/" class="nav-link">FAQ</a><button id="theme-toggle" class="theme-toggle"></button><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">GET YOUR FREE SNAPSHOT</a></div><button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mobile-menu"><a href="/" onclick="toggleMenu()">HOME</a><a href="/pages/services/" onclick="toggleMenu()">SERVICES</a><a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a><a href="/pages/results/" onclick="toggleMenu()">RESULTS</a><a href="/pages/about/" onclick="toggleMenu()">ABOUT</a>
-  <a href="/pages/blog/" onclick="toggleMenu()">BLOG</a>
-  <a href="/pages/faq/" onclick="toggleMenu()">FAQ</a><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">GET YOUR FREE SNAPSHOT</a>
-  <button id="mobile-theme-toggle" class="mobile-theme-toggle"></button></div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-pill">
+    <a href="/" class="brand">BARE BAYSIDE <b>LABS</b></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/services/">Services</a>
+      <a href="/pages/how-it-works/">How it works</a>
+      <a href="/pages/results/" class="active">Results</a>
+      <a href="/pages/about/">About</a>
+      <a href="/pages/blog/">Blog</a>
+      <a href="/pages/faq/">FAQ</a>
+      <a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">Free snapshot</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.mobile').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile">
+  <a href="/" onclick="this.parentElement.classList.remove('open')">Home</a>
+  <a href="/pages/services/" onclick="this.parentElement.classList.remove('open')">Services</a>
+  <a href="/pages/how-it-works/" onclick="this.parentElement.classList.remove('open')">How it works</a>
+  <a href="/pages/results/" onclick="this.parentElement.classList.remove('open')">Results</a>
+  <a href="/pages/about/" onclick="this.parentElement.classList.remove('open')">About</a>
+  <a href="/pages/blog/" onclick="this.parentElement.classList.remove('open')">Blog</a>
+  <a href="/pages/faq/" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+  <a href="/pages/competitor-intel/#free-snapshot" class="cta-m" onclick="this.parentElement.classList.remove('open')">Get your free snapshot</a>
+</div>
 
 <!-- HERO -->
-<section class="section aurora bright-hero">
-  <div class="blog-header-img"><img src="/assets/images/results-hero-bright.jpg" alt="Bright laboratory victory scene with an emerald-and-sky-blue mascot figure raising arms in celebration and a rocket trailing light — Bare Bayside Labs client results"></div>
-  <div class="inner" style="position:relative;z-index:2">
-    <span class="eyebrow eyebrow-emerald reveal">PROOF</span>
-    <h1 class="reveal stagger-1">RESULTS OUR CLIENTS<br><span class="gradient-text">ACTUALLY GET</span></h1>
-    <p style="font-size:19px;max-width:560px;margin-top:20px" class="reveal stagger-2">Not promises. Not projections. Real numbers from real businesses that were in the same position you're in right now.</p>
+<header class="hero hero-bg" id="top">
+  <div class="hero-media">
+    <img src="/assets/images/results-hero-victory.jpg" alt="Bare Bayside Labs client results — real numbers from real businesses">
   </div>
-</section>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow reveal"><span class="dot"></span>Proof</span>
+      <h1 class="display reveal d1">
+        <span class="ev">Results our clients</span>
+        <span class="lab-line">actually get.</span>
+      </h1>
+      <p class="hero-sub reveal d2">Not promises. Not projections. Real numbers from real businesses that were in the same position you're in right now.</p>
+      <div class="hero-cta reveal d2">
+        <a href="/pages/services/" class="btn btn-primary">See the systems
+          <span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a href="/pages/competitor-intel/#free-snapshot" class="btn btn-ghost">Or start free</a>
+      </div>
+    </div>
+  </div>
+  <a href="#numbers" class="scrollcue" aria-label="Scroll to the numbers">
+    <span class="sc-label">The numbers</span>
+    <span class="sc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </a>
+</header>
 
-<!-- METRICS -->
-<section class="section">
-  <div class="inner">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px" class="reveal stats-grid">
-      <div class="surface" style="text-align:center;padding:36px 24px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--emerald)" data-count="60" data-suffix="%">0%</div>
-        <div class="mono" style="margin-top:8px">LESS ADMIN TIME</div>
-      </div>
-      <div class="surface" style="text-align:center;padding:36px 24px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--sky)" data-count="10" data-suffix="+">0</div>
-        <div class="mono" style="margin-top:8px">HOURS SAVED / WEEK</div>
-      </div>
-      <div class="surface" style="text-align:center;padding:36px 24px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--gold)" data-static="true">1:4</div>
-        <div class="mono" style="margin-top:8px">AD CLICK TO SIGNUP</div>
-      </div>
-      <div class="surface" style="text-align:center;padding:36px 24px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--emerald)" data-count="30" data-suffix="+">0</div>
-        <div class="mono" style="margin-top:8px">MONTH AVG RETENTION</div>
-      </div>
+<!-- NUMBERS BAND -->
+<section class="section numbers" id="numbers">
+  <div class="wrap">
+    <div class="num-grid">
+      <div class="stat reveal"><div class="n">60<small>%</small></div><div class="l">Less admin time</div></div>
+      <div class="stat reveal d1"><div class="n">10<small>+</small></div><div class="l">Hours back / week</div></div>
+      <div class="stat reveal d2"><div class="n">1:4</div><div class="l">Ad click to client signup</div></div>
+      <div class="stat reveal d3"><div class="n">30<small>+</small></div><div class="l">Month avg retention</div></div>
     </div>
   </div>
 </section>
 
-<!-- VIDEO TESTIMONIALS -->
-<section class="section" style="background:var(--surface)">
-  <div class="inner">
-    <span class="eyebrow eyebrow-sky reveal">CLIENT STORIES</span>
-    <h2 class="reveal stagger-1" style="margin-bottom:48px">HEAR IT FROM THEM</h2>
+<!-- TESTIMONIALS — alternating proof rows -->
+<section class="section" id="stories">
+  <div class="wrap">
+    <span class="eyebrow reveal"><span class="dot"></span>Client stories</span>
+    <h2 class="display reveal d1" style="margin-top:16px;max-width:680px">Owners who stopped guessing.</h2>
 
-    <div class="grid-3">
-      <div class="card reveal stagger-1" style="padding:0;overflow:hidden">
-        <div style="position:relative;aspect-ratio:16/9;background:var(--surface2);cursor:pointer">
-          <div class="testimonial-bg testimonial-bg-1"></div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:rgba(8,12,20,0.65);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg></div>
-          <div style="position:absolute;bottom:10px;right:10px;font-family:'DM Mono',monospace;font-size:12px;color:white;background:rgba(0,0,0,0.55);padding:3px 10px;border-radius:6px">2:14</div>
-        </div>
-        <div style="padding:24px">
-          <p style="font-size:17px;color:var(--text2);line-height:1.6;margin-bottom:20px;font-style:italic">"The system pays for itself every month. We went from chasing leads manually to a pipeline that fills itself. I actually take Friday afternoons off now — something I haven't done in five years."</p>
-          <div style="display:flex;align-items:center;gap:12px">
-            <div style="width:38px;height:38px;border-radius:50%;background:var(--surface2);border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--sky)">MR</div>
-            <div><div style="font-size:16px;font-weight:600;color:var(--text)">Mark Reeves</div><div class="mono">Bayside Plumbing</div></div>
+    <!-- Mark Reeves -->
+    <div class="proof-row reveal" style="margin-top:48px">
+      <div class="pq">
+        <blockquote>"The system pays for itself every month. We went from chasing leads manually to a pipeline that fills itself. I actually take Friday afternoons off now — something I haven't done in five years."</blockquote>
+        <div class="who">
+          <div class="av">MR</div>
+          <div>
+            <div class="nm">Mark Reeves</div>
+            <div class="biz">Bayside Plumbing</div>
           </div>
         </div>
       </div>
+      <div class="proof-metric">
+        <div class="m">60%</div>
+        <div class="ml">Admin time cut in first month</div>
+      </div>
+    </div>
 
-      <div class="card reveal stagger-2" style="padding:0;overflow:hidden">
-        <div style="position:relative;aspect-ratio:16/9;background:var(--surface2);cursor:pointer">
-          <div class="testimonial-bg testimonial-bg-2"></div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:rgba(8,12,20,0.65);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg></div>
-          <div style="position:absolute;bottom:10px;right:10px;font-family:'DM Mono',monospace;font-size:12px;color:white;background:rgba(0,0,0,0.55);padding:3px 10px;border-radius:6px">1:47</div>
-        </div>
-        <div style="padding:24px">
-          <p style="font-size:17px;color:var(--text2);line-height:1.6;margin-bottom:20px;font-style:italic">"I was spending 10 hours a week on admin. Now the system handles it and I just check the dashboard once a day. I stopped worrying about where next month's clients are coming from."</p>
-          <div style="display:flex;align-items:center;gap:12px">
-            <div style="width:38px;height:38px;border-radius:50%;background:var(--surface2);border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--sky)">SL</div>
-            <div><div style="font-size:16px;font-weight:600;color:var(--text)">Sarah Lin</div><div class="mono">Coastal Physio Clinic</div></div>
+    <!-- Sarah Lin -->
+    <div class="proof-row flip reveal">
+      <div class="pq">
+        <blockquote>"I was spending 10 hours a week on admin. Now the system handles it and I just check the dashboard once a day. I stopped worrying about where next month's clients are coming from."</blockquote>
+        <div class="who">
+          <div class="av">SL</div>
+          <div>
+            <div class="nm">Sarah Lin</div>
+            <div class="biz">Coastal Physio Clinic</div>
           </div>
         </div>
       </div>
+      <div class="proof-metric">
+        <div class="m">10h</div>
+        <div class="ml">Admin hours reclaimed every week</div>
+      </div>
+    </div>
 
-      <div class="card reveal stagger-3" style="padding:0;overflow:hidden">
-        <div style="position:relative;aspect-ratio:16/9;background:var(--surface2);cursor:pointer">
-          <div class="testimonial-bg testimonial-bg-3"></div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:rgba(8,12,20,0.65);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg></div>
-          <div style="position:absolute;bottom:10px;right:10px;font-family:'DM Mono',monospace;font-size:12px;color:white;background:rgba(0,0,0,0.55);padding:3px 10px;border-radius:6px">3:02</div>
-        </div>
-        <div style="padding:24px">
-          <p style="font-size:17px;color:var(--text2);line-height:1.6;margin-bottom:20px;font-style:italic">"We tried three different agencies before BBL. They're the only ones who built something that actually works. I haven't thought about marketing in six months — it just runs."</p>
-          <div style="display:flex;align-items:center;gap:12px">
-            <div style="width:38px;height:38px;border-radius:50%;background:var(--surface2);border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--sky)">JT</div>
-            <div><div style="font-size:16px;font-weight:600;color:var(--text)">James Tran</div><div class="mono">JT Electrical Services</div></div>
+    <!-- James Tran -->
+    <div class="proof-row reveal">
+      <div class="pq">
+        <blockquote>"We tried three different agencies before BBL. They're the only ones who built something that actually works. I haven't thought about marketing in six months — it just runs."</blockquote>
+        <div class="who">
+          <div class="av">JT</div>
+          <div>
+            <div class="nm">James Tran</div>
+            <div class="biz">JT Electrical Services</div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURED TESTIMONIAL -->
-<section class="section">
-  <div class="inner">
-    <div class="grid-featured">
-      <div style="position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:var(--surface2);border:1px solid var(--border-subtle);cursor:pointer" class="reveal">
-        <div class="testimonial-bg testimonial-bg-featured"></div>
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(8,12,20,0.65);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg></div>
-      </div>
-      <div class="reveal stagger-2">
-        <blockquote style="font-size:21px;color:var(--text);line-height:1.65;margin-bottom:28px;font-style:italic;padding-left:24px;border-left:2px solid var(--sky)">
-          "Before BBL, we were running ads blind. No tracking, no follow-up system, no idea what was working. They built us a complete marketing engine in three weeks. For the first time, I can actually see which ad brought in which customer — and what they're worth."
-        </blockquote>
-        <div style="display:flex;align-items:center;gap:14px">
-          <div style="width:52px;height:52px;border-radius:50%;background:var(--surface2);border:2px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--sky)">MR</div>
-          <div><div style="font-size:18px;font-weight:700;color:var(--text)">Mark Reeves</div><div class="mono">OWNER, BAYSIDE PLUMBING</div></div>
-        </div>
-        <div style="margin-top:24px;display:inline-flex;align-items:center;gap:12px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.12);border-radius:10px;padding:14px 20px">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--emerald)" data-count="60" data-suffix="%">0%</div>
-          <div class="mono">LESS ADMIN TIME<br>IN FIRST MONTH</div>
-        </div>
+      <div class="proof-metric">
+        <div class="m">6mo</div>
+        <div class="ml">Hands-off since setup</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section">
-  <div class="inner">
-    <div class="surface-cta reveal">
-      <span class="eyebrow eyebrow-emerald">YOUR TURN</span>
-      <h2 style="margin-bottom:16px">READY FOR RESULTS LIKE THESE?</h2>
-      <p style="color:var(--text2);font-size:19px;max-width:500px;margin:0 auto 36px">Start with a free competitor snapshot. Name one rival, we'll score them across 8 channels, and email it back in 48 hours. No card, no call.</p>
-      <a href="/pages/competitor-intel/#free-snapshot" class="btn-primary glow">GET YOUR FREE SNAPSHOT</a>
+<!-- FEATURED TESTIMONIAL — tinted band -->
+<section class="section tinted" id="featured" style="background:var(--mist)">
+  <div class="wrap">
+    <span class="eyebrow reveal"><span class="dot"></span>In their words</span>
+    <div class="proof-row reveal d1" style="margin-top:32px">
+      <div class="pq">
+        <blockquote style="font-size:clamp(22px,2.8vw,32px)">"Before BBL, we were running ads blind. No tracking, no follow-up system, no idea what was working. They built us a complete marketing engine in three weeks. For the first time, I can actually see which ad brought in which customer — and what they're worth."</blockquote>
+        <div class="who">
+          <div class="av">MR</div>
+          <div>
+            <div class="nm">Mark Reeves</div>
+            <div class="biz">Owner, Bayside Plumbing</div>
+          </div>
+        </div>
+      </div>
+      <div class="proof-metric">
+        <div class="m">$2K</div>
+        <div class="ml">Monthly ad waste identified &amp; stopped — Sarah Lin, Coastal Physio</div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-top"><div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you.</p></div><div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li><li><a href="/pages/services/">Intelligence Reports</a></li></ul></div><div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/how-it-works/">How It Works</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div><div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div></div></div></footer>
+<!-- CLOSING CTA -->
+<section class="section cta" id="cta">
+  <div class="wrap cta-inner">
+    <span class="eyebrow gold reveal" style="background:rgba(242,163,59,.12);border-color:rgba(242,163,59,.3);color:var(--amber)"><span class="dot"></span>Your turn</span>
+    <h2 class="display reveal d1">Ready for results <em>like these?</em></h2>
+    <p class="reveal d2">Start with a free competitor snapshot. Name one rival, we'll score them across 8 channels, and email it back in 48 hours. No card, no call.</p>
+    <div class="cta-btns reveal d2">
+      <a href="/pages/services/" class="btn btn-light">Explore the systems
+        <span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a href="/pages/competitor-intel/#free-snapshot" class="btn btn-ghost" style="border-color:rgba(255,255,255,.25);color:#fff">Or start with a free snapshot</a>
+    </div>
+    <div class="cta-trust reveal d3">
+      <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg> Free, no<br>obligation</div>
+      <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Yours in<br>48 hours</div>
+      <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Your data,<br>private</div>
+    </div>
+  </div>
+</section>
 
-<script src="../../js/main.js"></script>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="brand">BARE BAYSIDE <b style="color:var(--emerald)">LABS</b></div>
+        <p class="footer-desc">Marketing intelligence for local businesses. We run the tests, score your rivals, and hand you the evidence.</p>
+      </div>
+      <div><h5>Products</h5><ul>
+        <li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li>
+        <li><a href="/pages/services/">Intelligence Reports</a></li>
+        <li><a href="/pages/services/">Marketing Systems</a></li>
+        <li><a href="/pages/services/">Strategy Sessions</a></li>
+      </ul></div>
+      <div><h5>Company</h5><ul>
+        <li><a href="/pages/about/">About</a></li>
+        <li><a href="/pages/results/">Results</a></li>
+        <li><a href="/pages/how-it-works/">How it works</a></li>
+        <li><a href="/pages/contact/">Contact</a></li>
+      </ul></div>
+      <div><h5>Resources</h5><ul>
+        <li><a href="/pages/blog/">Blog</a></li>
+        <li><a href="/strategy/">Free strategy tool</a></li>
+        <li><a href="/pages/faq/">FAQ</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="c">© 2026 Bare Bayside Labs. All rights reserved.</div>
+      <div class="c">Marketing systems that run without you.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+if(location.search.indexOf('still')>-1){
+  var s=document.createElement('style');s.textContent='.hero{min-height:auto!important}';document.head.appendChild(s);
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+}else{
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+}
+</script>
 </body>
 </html>

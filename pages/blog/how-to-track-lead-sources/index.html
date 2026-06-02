@@ -4,171 +4,320 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Zoho PageSense (smart code) -->
+  <script id="pagesenseCode">!function(){var e="1.0",t=document,a=window,n="zps-page-screen",r=t.head||t.getElementsByTagName("head")[0],i=t.getElementById("pagesenseCode");if(!t.getElementById(n)){var o=t.createElement("style");o.type="text/css",o.id=n;var s="body { background: transparent !important; opacity: 0 !important; visibility: hidden !important; } html { opacity: 0 !important; visibility: hidden !important; }";o.styleSheet?o.styleSheet.cssText=s:o.appendChild(t.createTextNode(s)),r.firstChild?r.insertBefore(o,r.firstChild):r.appendChild(o),a._ps_conf={};var c={addScript:function(e){try{var n=t.createElement("script");if(n.type="text/javascript",n.async=!0,e.src?n.src=e.src:e.text&&(void 0!==n.text?n.text=e.text:n.appendChild(t.createTextNode(e.text))),i&&i.getAttribute){var o=i.getAttribute("nonce");o&&n.setAttribute("nonce",o)}n.onload=n.onreadystatechange=function(){this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState||(n.onload=n.onreadystatechange=null,a._ps_conf&&a._ps_conf.pauseRenderForManualActivation?clearTimeout(d):c.revealPage())},n.onerror=function(){c.revealPage()},r.appendChild(n)}catch(e){throw c.revealPage(),e}},revealPage:function(){var e=t.getElementById(n);e&&e.parentNode&&e.parentNode.removeChild(e)}},d=setTimeout((function(){c.revealPage()}),1e4),p=c.revealPage;c.revealPage=function(){clearTimeout(d),p()};try{a._ps_conf&&a._ps_conf.pauseRenderForManualActivation&&(a.pagesense=a.pagesense||[],a.pagesense.push=function(e){e&&"activate"==e[0]&&c&&c.revealPage()}),a._ps_conf?a._ps_conf.version=e:a._ps_conf={version:e},c.addScript({src:"https://cdn-au.pagesense.io/js/yourrentalhomefinders/14574dedc7ea4fed9f16b7fea65d59f6.js"})}catch(e){c.revealPage()}}}();</script>
   <title>How to Track Where Your Leads Actually Come From — Bare Bayside Labs</title>
   <meta name="description" content="Most local businesses guess at lead sources — and the guesses are usually wrong. Here are the 3 layers of tracking, what each catches, and which to build first.">
   <link rel="canonical" href="https://barebaysidelabs.com/pages/blog/how-to-track-lead-sources/">
-  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css?v=26">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <meta property="og:title" content="How to Track Where Your Leads Actually Come From — Bare Bayside Labs">
-  <meta property="og:description" content="3 layers of lead-source tracking, what each catches, and which to build first.">
+  <meta property="og:description" content="Most local businesses guess at lead sources — and the guesses are usually wrong. Here are the 3 layers of tracking, what each catches, and which to build first.">
   <meta property="og:image" content="https://barebaysidelabs.com/assets/images/blog/blog-how-to-track-lead-sources.jpg">
   <meta property="og:url" content="https://barebaysidelabs.com/pages/blog/how-to-track-lead-sources/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Bare Bayside Labs">
+  <meta name="twitter:image" content="https://barebaysidelabs.com/assets/images/blog/blog-how-to-track-lead-sources.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Track Where Your Leads Actually Come From — Bare Bayside Labs">
+  <meta name="twitter:description" content="Most local businesses guess at lead sources — and the guesses are usually wrong. Here are the 3 layers of tracking, what each catches, and which to build first.">
+
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Track Where Your Leads Actually Come From","description":"3 layers of lead-source tracking, what each catches, and which to build first.","author":{"@type":"Organization","name":"Bare Bayside Labs","url":"https://barebaysidelabs.com"},"publisher":{"@type":"Organization","name":"Bare Bayside Labs","url":"https://barebaysidelabs.com"},"datePublished":"2026-05-18","dateModified":"2026-05-18","image":"https://barebaysidelabs.com/assets/images/blog/blog-how-to-track-lead-sources.jpg","mainEntityOfPage":"https://barebaysidelabs.com/pages/blog/how-to-track-lead-sources/"}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What if my leads come by phone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use a call tracking service like CallRail or Whisper that assigns unique numbers per channel. Each ad campaign gets its own number; the system records which ad drove which call. Solves the \"phone is invisible\" problem at most digital tracking systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this work without a CRM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Layers 1 and 2 work without a CRM (Google Sheet + Google Analytics is enough). Layer 3 effectively requires one — without a unified customer record, multi-touch can't be reconstructed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What about iOS privacy changes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Privacy changes hit cross-app tracking (which is mainly Meta-side targeting), not your own UTM data. Your tracking still works — it's the platform attribution that got harder. UTMs and first-party CRM data are MORE valuable now, not less."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should I review the data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Monthly is the right cadence for most local businesses. Weekly creates noise — single bad weeks look catastrophic. Annual is too late to act. A monthly 30-minute review of source + conversion catches everything that matters."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+<div class="grain"></div>
 
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="/assets/logos/logo-nav.png" alt="Bare Bayside Labs" style="height:40px"></a><div class="nav-links"><a href="/" class="nav-link">HOME</a><a href="/pages/services/" class="nav-link">SERVICES</a><a href="/pages/how-it-works/" class="nav-link">HOW IT WORKS</a><a href="/pages/results/" class="nav-link">RESULTS</a><a href="/pages/about/" class="nav-link">ABOUT</a><a href="/pages/blog/" class="nav-link" style="color:var(--sky)">BLOG</a><a href="/pages/faq/" class="nav-link">FAQ</a><button id="theme-toggle" class="theme-toggle"></button><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">GET YOUR FREE SNAPSHOT</a></div><button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mobile-menu"><a href="/" onclick="toggleMenu()">HOME</a><a href="/pages/services/" onclick="toggleMenu()">SERVICES</a><a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a><a href="/pages/results/" onclick="toggleMenu()">RESULTS</a><a href="/pages/about/" onclick="toggleMenu()">ABOUT</a><a href="/pages/blog/" onclick="toggleMenu()">BLOG</a><a href="/pages/faq/" onclick="toggleMenu()">FAQ</a><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">GET YOUR FREE SNAPSHOT</a><button id="mobile-theme-toggle" class="mobile-theme-toggle"></button></div>
-
-<section class="section aurora" style="padding-bottom:40px">
-  <div class="blog-header-img"><img src="/assets/images/blog/blog-how-to-track-lead-sources.jpg" alt="Three glowing emerald light streams converging into a holographic CRM record card — tracking where leads actually come from"></div>
-  <div class="inner" style="max-width:800px">
-    <a href="/pages/blog/" class="back-to-blog">&larr; BACK TO BLOG</a>
-    <div style="margin-top:24px">
-      <div class="breadcrumb"><a href="/pages/blog/">Blog</a><span>›</span><a href="/pages/blog/automation/">Automation</a><span>›</span>Track Lead Sources</div>
-      <span class="eyebrow eyebrow-emerald">AUTOMATION</span>
-      <h1 style="margin-top:12px">HOW TO TRACK WHERE YOUR LEADS ACTUALLY COME FROM</h1>
-      <div style="display:flex;align-items:center;gap:16px;margin-top:16px">
-        <span class="mono">18 MAY 2026</span>
-        <span class="mono">7 MIN READ</span>
-      </div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-pill">
+    <a href="/" class="brand">BARE BAYSIDE <b>LABS</b></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/services/">Services</a>
+      <a href="/pages/how-it-works/">How it works</a>
+      <a href="/pages/results/">Results</a>
+      <a href="/pages/about/">About</a>
+      <a href="/pages/blog/" class="active">Blog</a>
+      <a href="/pages/faq/">FAQ</a>
+      <a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">Free snapshot</a>
     </div>
+    <button class="burger" onclick="document.querySelector('.mobile').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-</section>
+</nav>
+<div class="mobile">
+  <a href="/" onclick="this.parentElement.classList.remove('open')">Home</a>
+  <a href="/pages/services/" onclick="this.parentElement.classList.remove('open')">Services</a>
+  <a href="/pages/how-it-works/" onclick="this.parentElement.classList.remove('open')">How it works</a>
+  <a href="/pages/results/" onclick="this.parentElement.classList.remove('open')">Results</a>
+  <a href="/pages/about/" onclick="this.parentElement.classList.remove('open')">About</a>
+  <a href="/pages/blog/" onclick="this.parentElement.classList.remove('open')">Blog</a>
+  <a href="/pages/faq/" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+  <a href="/pages/competitor-intel/#free-snapshot" class="cta-m" onclick="this.parentElement.classList.remove('open')">Get your free snapshot</a>
+</div>
 
-<section class="section" style="padding-top:0">
-  <div class="inner">
-    <div class="article-layout">
-      <div class="article-main">
+<main class="article" style="--accent:#0E9C6E;--accent-tint:rgba(14,156,110,.08);--accent-line:rgba(14,156,110,.24)">
 
-    <p style="font-size:19px;line-height:1.8;margin-bottom:32px">
-      Ask most local business owners where their leads come from and you'll get an answer like "word of mouth" or "Google, I think." When you actually measure it, the picture is almost always different. The "Google ads" customer who actually found you through a referral. The "Facebook lead" who'd seen your van twice that week. Without tracking, you're spending budget on guesses. Here are the 3 layers of lead tracking, what each one catches, and the order to build them.
-    </p>
-
-    <h2 style="margin-top:48px;margin-bottom:16px">WHY GUESSING IS EXPENSIVE</h2>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">If you don't know which channel brings paying customers, you can't make a real decision about where to spend more. So you spend evenly. Or you spend based on the loudest channel (the one that "feels" busy). Or you keep running the same ads because you don't know what to change.</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">Tracking isn't an admin task — it's the single thing that makes every other marketing decision sane.</p>
-
-    <div class="surface" style="padding:24px;margin:24px 0;border-left:3px solid var(--emerald)">
-      <p style="font-size:17px;line-height:1.7;margin:0"><strong>72% of small businesses can't trace a sale back to a specific marketing source</strong> — HubSpot State of Marketing 2024. At Bare Bayside Labs, we see that gap fixed inside a quarter once a basic three-layer tracking system is in place — and the businesses who fix it almost always cut 20-40% of their marketing spend without losing leads.</p>
+  <!-- DARK HERO -->
+  <header class="article-head">
+    <div class="wrap">
+      <nav class="article-crumb" aria-label="Breadcrumb">
+        <a href="/pages/blog/">Blog</a><span class="sep">/</span>
+        <a href="/pages/blog/automation/">Automation</a><span class="sep">/</span>
+        <span>Track Lead Sources</span>
+      </nav>
+      <span class="eyebrow"><span class="dot"></span>Automation</span>
+      <h1 class="article-title">How to track where your leads actually come from</h1>
+      <div class="article-meta">
+        <span class="m">18 May 2026</span>
+        <span class="dot"></span>
+        <span class="m">7 min read</span>
+      </div>
+      <figure class="article-figure reveal">
+        <img src="/assets/images/blog/blog-how-to-track-lead-sources.jpg" alt="Three glowing emerald light streams converging into a holographic CRM record card — tracking where leads actually come from">
+      </figure>
     </div>
+  </header>
 
-    <h2 style="margin-top:48px;margin-bottom:16px">LAYER 1: ASK EVERY LEAD (THE BASIC LAYER)</h2>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">The simplest tracking is also the most unreliable: ask every new lead "how did you hear about us?" and write it down somewhere consistent.</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">Why it's unreliable: customers don't always remember accurately. They'll say "Google" when they saw your ad on Instagram. They'll say "a friend" when actually a friend forwarded them a Facebook post.</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">Why it's still worth doing: it's directionally useful at zero cost. If "asked" matches "actually tracked" later, your customers are good reporters. If they diverge, you know to weight tracked data heavier than self-reported.</p>
+  <!-- TWO-COLUMN: reading column + sticky sidebar TOC -->
+  <div class="article-wrap">
+    <div class="article-body">
 
-    <h3 style="margin-top:32px;margin-bottom:12px;font-size:22px">How to do it well</h3>
-    <ul style="margin:12px 0 16px;padding-left:24px">
-      <li style="font-size:17px;line-height:1.8;margin-bottom:8px;color:var(--text2)">One question, same words every time: "How did you hear about us?"</li>
-      <li style="font-size:17px;line-height:1.8;margin-bottom:8px;color:var(--text2)">Required field on every form, every booking flow, every intake call</li>
-      <li style="font-size:17px;line-height:1.8;margin-bottom:8px;color:var(--text2)">Pre-set options to choose from (Google, Facebook, Instagram, friend referral, drove past, other) — open-ended answers are messy</li>
-      <li style="font-size:17px;line-height:1.8;margin-bottom:8px;color:var(--text2)">Reviewed monthly, even just as a tally</li>
-    </ul>
+      <p class="article-lead">Ask most local business owners where their leads come from and you'll get an answer like "word of mouth" or "Google, I think." When you actually measure it, the picture is almost always different. The "Google ads" customer who actually found you through a referral. The "Facebook lead" who'd seen your van twice that week. Without tracking, you're spending budget on guesses. Here are the 3 layers of lead tracking, what each one catches, and the order to build them.</p>
 
-    <h2 style="margin-top:48px;margin-bottom:16px">LAYER 2: UTM TAGGING (THE DIGITAL LAYER)</h2>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">UTM parameters are tiny labels you add to the end of any link. They tell your website where the click came from. They're invisible to the customer, free to use, and they don't lie.</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">A link like <code>yoursite.com</code> tells you nothing. A link like <code>yoursite.com/?utm_source=facebook&amp;utm_medium=paid&amp;utm_campaign=may-promo</code> tells you the source, the medium, and the specific campaign — every time someone clicks.</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">Why this matters: it catches what "ask the customer" misses. Self-report data has a 30-50% error rate; UTM data is exact.</p>
+      <!-- DARK BLOCK — sections 1-2 -->
+      <div class="aband dark reveal">
+        <h2 id="s1"><span class="n">1</span>Why guessing is expensive</h2>
+        <p>If you don't know which channel brings paying customers, you can't make a real decision about where to spend more. So you spend evenly. Or you spend based on the loudest channel (the one that "feels" busy). Or you keep running the same ads because you don't know what to change.</p>
+        <p>Tracking isn't an admin task — it's the single thing that makes every other marketing decision sane.</p>
+        <div class="article-callout">
+          <p><strong>72% of small businesses can't trace a sale back to a specific marketing source</strong> — HubSpot State of Marketing 2024. At Bare Bayside Labs, we see that gap fixed inside a quarter once a basic three-layer tracking system is in place — and the businesses who fix it almost always cut 20-40% of their marketing spend without losing leads.</p>
+        </div>
 
-    <h3 style="margin-top:32px;margin-bottom:12px;font-size:22px">Where to put UTMs</h3>
-    <ul style="margin:12px 0 16px;padding-left:24px">
-      <li style="font-size:17px;line-height:1.8;margin-bottom:8px;color:var(--text2)">Every Google Ads URL</li>
-      <li style="font-size:17px;line-height:1.8;margin-bottom:8px;color:var(--text2)">Every Meta/Facebook/Instagram ad URL</li>
-      <li style="font-size:17px;line-height:1.8;margin-bottom:8px;color:var(--text2)">Every email campaign link (newsletter, promo, nurture)</li>
-      <li style="font-size:17px;line-height:1.8;margin-bottom:8px;color:var(--text2)">Every social post link to your site (organic too — you'd be surprised which organic posts actually convert)</li>
-      <li style="font-size:17px;line-height:1.8;margin-bottom:8px;color:var(--text2)">Every partner / affiliate / sponsored link</li>
-    </ul>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">Don't UTM your direct website URL or print materials — those need a different solution (call tracking, QR codes, vanity URLs).</p>
+        <h2 id="s2"><span class="n">2</span>Layer 1: ask every lead (the basic layer)</h2>
+        <p>The simplest tracking is also the most unreliable: ask every new lead "how did you hear about us?" and write it down somewhere consistent.</p>
+        <p>Why it's unreliable: customers don't always remember accurately. They'll say "Google" when they saw your ad on Instagram. They'll say "a friend" when actually a friend forwarded them a Facebook post.</p>
+        <p>Why it's still worth doing: it's directionally useful at zero cost. If "asked" matches "actually tracked" later, your customers are good reporters. If they diverge, you know to weight tracked data heavier than self-reported.</p>
+        <h3>How to do it well</h3>
+        <ul>
+          <li>One question, same words every time: "How did you hear about us?"</li>
+          <li>Required field on every form, every booking flow, every intake call</li>
+          <li>Pre-set options to choose from (Google, Facebook, Instagram, friend referral, drove past, other) — open-ended answers are messy</li>
+          <li>Reviewed monthly, even just as a tally</li>
+        </ul>
+      </div>
 
-    <h2 style="margin-top:48px;margin-bottom:16px">LAYER 3: MULTI-TOUCH ATTRIBUTION (THE FULL LAYER)</h2>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">UTMs catch the last touch — the click that immediately preceded the form fill. But most customers see your business 5-15 times before they convert. The Instagram reel they saw 3 weeks ago, the Google ad they saw last week, the review that pushed them over the edge — all of it matters.</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">Multi-touch attribution stores every touchpoint in your CRM, ties it to the same customer record, and shows you the full journey instead of just the last click.</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">Why this matters: if you only optimise for last-touch, you'll cut the channels that create awareness even though they're feeding the channel that closes. Many businesses kill their Meta ads after a "Google works better" report and watch their Google performance drop 3 months later — because Meta was warming up the audience Google captured.</p>
+      <!-- LIGHT — sections 3-4 -->
+      <div class="reveal">
+        <h2 id="s3"><span class="n">3</span>Layer 2: UTM tagging (the digital layer)</h2>
+        <p>UTM parameters are tiny labels you add to the end of any link. They tell your website where the click came from. They're invisible to the customer, free to use, and they don't lie.</p>
+        <p>A link like <code>yoursite.com</code> tells you nothing. A link like <code>yoursite.com/?utm_source=facebook&amp;utm_medium=paid&amp;utm_campaign=may-promo</code> tells you the source, the medium, and the specific campaign — every time someone clicks.</p>
+        <p>Why this matters: it catches what "ask the customer" misses. Self-report data has a 30-50% error rate; UTM data is exact.</p>
+        <h3>Where to put UTMs</h3>
+        <ul>
+          <li>Every Google Ads URL</li>
+          <li>Every Meta/Facebook/Instagram ad URL</li>
+          <li>Every email campaign link (newsletter, promo, nurture)</li>
+          <li>Every social post link to your site (organic too — you'd be surprised which organic posts actually convert)</li>
+          <li>Every partner / affiliate / sponsored link</li>
+        </ul>
+        <p>Don't UTM your direct website URL or print materials — those need a different solution (call tracking, QR codes, vanity URLs).</p>
 
-    <div class="surface" style="padding:24px;margin:24px 0;border-left:3px solid var(--emerald)">
-      <p style="font-size:17px;line-height:1.7;margin:0"><strong>The average B2C customer interacts with a brand 5-9 times before purchasing</strong> — Salesforce State of Marketing 2024. At Bare Bayside Labs, we routinely see "this channel doesn't work" claims that vanish the moment multi-touch tracking goes in — turns out the channel was warming up half the conversions.</p>
-    </div>
+        <h2 id="s4"><span class="n">4</span>Layer 3: multi-touch attribution (the full layer)</h2>
+        <p>UTMs catch the last touch — the click that immediately preceded the form fill. But most customers see your business 5-15 times before they convert. The Instagram reel they saw 3 weeks ago, the Google ad they saw last week, the review that pushed them over the edge — all of it matters.</p>
+        <p>Multi-touch attribution stores every touchpoint in your CRM, ties it to the same customer record, and shows you the full journey instead of just the last click.</p>
+        <p>Why this matters: if you only optimise for last-touch, you'll cut the channels that create awareness even though they're feeding the channel that closes. Many businesses kill their Meta ads after a "Google works better" report and watch their Google performance drop 3 months later — because Meta was warming up the audience Google captured.</p>
+        <div class="article-callout">
+          <p><strong>The average B2C customer interacts with a brand 5-9 times before purchasing</strong> — Salesforce State of Marketing 2024. At Bare Bayside Labs, we routinely see "this channel doesn't work" claims that vanish the moment multi-touch tracking goes in — turns out the channel was warming up half the conversions.</p>
+        </div>
+      </div>
 
-    <h2 style="margin-top:48px;margin-bottom:16px">THE BUILD ORDER</h2>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">Build Layer 1 today. It's free, it's fast, and you'll have decent signal in a week.</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">Build Layer 2 this month. It's a one-time effort to UTM all your active links, plus a 15-minute habit of UTM-tagging anything new. Both Google Analytics and any half-decent CRM read UTMs natively.</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px">Build Layer 3 this quarter. Multi-touch needs a CRM that supports it (most do, with the right setup). The setup is the work; once it's running, it generates reports automatically.</p>
+      <!-- DARK BLOCK — sections 5-6 -->
+      <div class="aband dark reveal">
+        <h2 id="s5"><span class="n">5</span>The build order</h2>
+        <p>Build Layer 1 today. It's free, it's fast, and you'll have decent signal in a week.</p>
+        <p>Build Layer 2 this month. It's a one-time effort to UTM all your active links, plus a 15-minute habit of UTM-tagging anything new. Both Google Analytics and any half-decent CRM read UTMs natively.</p>
+        <p>Build Layer 3 this quarter. Multi-touch needs a CRM that supports it (most do, with the right setup). The setup is the work; once it's running, it generates reports automatically.</p>
 
-    <h2 style="margin-top:48px;margin-bottom:16px">WHAT BAD TRACKING LOOKS LIKE</h2>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px"><strong>Symptom 1:</strong> You can't say what % of last month's customers came from each channel without guessing.</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px"><strong>Symptom 2:</strong> Your Google Analytics shows "direct traffic" as your biggest source. ("Direct" usually means UTM-less — you're losing the source data on most clicks.)</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px"><strong>Symptom 3:</strong> Your CRM doesn't have a "lead source" field, or it's filled in 30% of the time.</p>
-    <p style="font-size:17px;line-height:1.8;margin-bottom:16px"><strong>Symptom 4:</strong> You've never cancelled a marketing channel because "what if it's secretly working?"</p>
+        <h2 id="s6"><span class="n">6</span>What bad tracking looks like</h2>
+        <p><strong>Symptom 1:</strong> You can't say what % of last month's customers came from each channel without guessing.</p>
+        <p><strong>Symptom 2:</strong> Your Google Analytics shows "direct traffic" as your biggest source. ("Direct" usually means UTM-less — you're losing the source data on most clicks.)</p>
+        <p><strong>Symptom 3:</strong> Your CRM doesn't have a "lead source" field, or it's filled in 30% of the time.</p>
+        <p><strong>Symptom 4:</strong> You've never cancelled a marketing channel because "what if it's secretly working?"</p>
+      </div>
 
-    <div class="surface" style="padding:28px;margin:40px 0;border:1px solid rgba(52,211,153,0.25)">
-      <h3 style="color:var(--emerald);margin-bottom:16px">KEY TAKEAWAYS</h3>
-      <ul style="list-style:none;margin:0;padding:0">
-        <li style="padding:8px 0;color:var(--text2);display:flex;align-items:flex-start;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0;margin-top:10px"></span><strong style="color:var(--text)">3 layers:</strong> ask the customer, UTM the digital, multi-touch the journey.</li>
-        <li style="padding:8px 0;color:var(--text2);display:flex;align-items:flex-start;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0;margin-top:10px"></span><strong style="color:var(--text)">"Ask the customer" lies</strong> 30-50% of the time — useful but not enough.</li>
-        <li style="padding:8px 0;color:var(--text2);display:flex;align-items:flex-start;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0;margin-top:10px"></span><strong style="color:var(--text)">UTM every paid + email link.</strong> No exceptions. Habit, not project.</li>
-        <li style="padding:8px 0;color:var(--text2);display:flex;align-items:flex-start;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0;margin-top:10px"></span><strong style="color:var(--text)">Last-touch attribution kills awareness channels</strong> that are actually feeding your closers.</li>
-        <li style="padding:8px 0;color:var(--text2);display:flex;align-items:flex-start;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0;margin-top:10px"></span><strong style="color:var(--text)">Build order:</strong> Layer 1 today, Layer 2 this month, Layer 3 this quarter.</li>
-        <li style="padding:8px 0;color:var(--text2);display:flex;align-items:flex-start;gap:10px"><span style="width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0;margin-top:10px"></span><strong style="color:var(--text)">Most businesses cut 20-40% of marketing spend</strong> in the first quarter of real tracking.</li>
+      <!-- KEY TAKEAWAYS (light) -->
+      <div class="article-takeaways reveal">
+        <h2 id="takeaways">Key takeaways</h2>
+        <ul>
+          <li><strong>3 layers:</strong> ask the customer, UTM the digital, multi-touch the journey.</li>
+          <li><strong>"Ask the customer" lies</strong> 30-50% of the time — useful but not enough.</li>
+          <li><strong>UTM every paid + email link.</strong> No exceptions. Habit, not project.</li>
+          <li><strong>Last-touch attribution kills awareness channels</strong> that are actually feeding your closers.</li>
+          <li><strong>Build order:</strong> Layer 1 today, Layer 2 this month, Layer 3 this quarter.</li>
+          <li><strong>Most businesses cut 20-40% of marketing spend</strong> in the first quarter of real tracking.</li>
+        </ul>
+      </div>
+
+      <!-- FAQ -->
+      <h2 id="faq" class="reveal">Common questions</h2>
+      <div class="article-faq reveal">
+        <details>
+          <summary>What if my leads come by phone?</summary>
+          <p>Use a call tracking service like CallRail or Whisper that assigns unique numbers per channel. Each ad campaign gets its own number; the system records which ad drove which call. Solves the "phone is invisible" problem at most digital tracking systems.</p>
+        </details>
+        <details>
+          <summary>Does this work without a CRM?</summary>
+          <p>Layers 1 and 2 work without a CRM (Google Sheet + Google Analytics is enough). Layer 3 effectively requires one — without a unified customer record, multi-touch can't be reconstructed.</p>
+        </details>
+        <details>
+          <summary>What about iOS privacy changes?</summary>
+          <p>Privacy changes hit cross-app tracking (which is mainly Meta-side targeting), not your own UTM data. Your tracking still works — it's the platform attribution that got harder. UTMs and first-party CRM data are MORE valuable now, not less.</p>
+        </details>
+        <details>
+          <summary>How often should I review the data?</summary>
+          <p>Monthly is the right cadence for most local businesses. Weekly creates noise — single bad weeks look catastrophic. Annual is too late to act. A monthly 30-minute review of source + conversion catches everything that matters.</p>
+        </details>
+      </div>
+
+      <!-- RELATED -->
+      <h2 id="related" class="reveal">Related articles</h2>
+      <ul class="article-related reveal">
+        <li><a href="/pages/blog/why-ads-not-working/">Why Your Ads Aren't Working (And What to Fix First)</a></li>
+        <li><a href="/pages/blog/crm-vs-spreadsheet/">CRM vs Spreadsheet: When To Make The Switch</a></li>
+        <li><a href="/pages/blog/3-automations-every-local-business-needs/">3 Automations Every Local Business Should Set Up First</a></li>
       </ul>
-    </div>
 
-    <h2 style="margin-top:48px;margin-bottom:16px">COMMON QUESTIONS</h2>
-
-    <div style="margin-bottom:24px">
-      <h3 style="font-size:20px;margin-bottom:8px">WHAT IF MY LEADS COME BY PHONE?</h3>
-      <p style="font-size:17px;line-height:1.8;color:var(--text2)">Use a call tracking service like CallRail or Whisper that assigns unique numbers per channel. Each ad campaign gets its own number; the system records which ad drove which call. Solves the "phone is invisible" problem at most digital tracking systems.</p>
-    </div>
-
-    <div style="margin-bottom:24px">
-      <h3 style="font-size:20px;margin-bottom:8px">DOES THIS WORK WITHOUT A CRM?</h3>
-      <p style="font-size:17px;line-height:1.8;color:var(--text2)">Layers 1 and 2 work without a CRM (Google Sheet + Google Analytics is enough). Layer 3 effectively requires one — without a unified customer record, multi-touch can't be reconstructed.</p>
-    </div>
-
-    <div style="margin-bottom:24px">
-      <h3 style="font-size:20px;margin-bottom:8px">WHAT ABOUT iOS PRIVACY CHANGES?</h3>
-      <p style="font-size:17px;line-height:1.8;color:var(--text2)">Privacy changes hit cross-app tracking (which is mainly Meta-side targeting), not your own UTM data. Your tracking still works — it's the platform attribution that got harder. UTMs and first-party CRM data are MORE valuable now, not less.</p>
-    </div>
-
-    <div style="margin-bottom:24px">
-      <h3 style="font-size:20px;margin-bottom:8px">HOW OFTEN SHOULD I REVIEW THE DATA?</h3>
-      <p style="font-size:17px;line-height:1.8;color:var(--text2)">Monthly is the right cadence for most local businesses. Weekly creates noise — single bad weeks look catastrophic. Annual is too late to act. A monthly 30-minute review of source + conversion catches everything that matters.</p>
-    </div>
-
-    <h2 style="margin-top:48px;margin-bottom:16px">RELATED ARTICLES</h2>
-    <ul style="list-style:none;padding:0">
-      <li style="padding:12px 0;border-bottom:1px solid var(--border-subtle)"><a href="/pages/blog/why-ads-not-working/" style="font-size:17px">Why Your Ads Aren't Working (And What to Fix First)</a></li>
-      <li style="padding:12px 0;border-bottom:1px solid var(--border-subtle)"><a href="/pages/blog/crm-vs-spreadsheet/" style="font-size:17px">CRM vs Spreadsheet: When To Make The Switch</a></li>
-      <li style="padding:12px 0"><a href="/pages/blog/3-automations-every-local-business-needs/" style="font-size:17px">3 Automations Every Local Business Should Set Up First</a></li>
-    </ul>
-
-    <div class="surface-cta" style="margin-top:48px;padding:40px 28px">
-      <h3 style="margin-bottom:12px">WANT THIS BUILT FOR YOU IN ZOHO?</h3>
-      <p style="color:var(--text2);margin-bottom:24px">Full Lab Setup includes the Ad Tracking Recipe — UTM templates, Zoho lead-source fields, attribution rules, and the dashboards that turn it all into one report you'll actually read.</p>
-      <a href="/pages/products/full-lab-setup/?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=how-to-track-lead-sources&amp;utm_content=end-cta" class="btn-primary glow">GET THE FULL LAB SETUP — $1,597</a>
-    </div>
-
+      <!-- END CTA -->
+      <div class="article-cta reveal">
+        <div class="ck">Full Lab Setup</div>
+        <h3>Want this built for you in Zoho?</h3>
+        <p>Full Lab Setup includes the Ad Tracking Recipe — UTM templates, Zoho lead-source fields, attribution rules, and the dashboards that turn it all into one report you'll actually read.</p>
+        <a href="/pages/products/full-lab-setup/?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=how-to-track-lead-sources&amp;utm_content=end-cta" class="btn btn-accent">Get the Full Lab Setup<span class="ic">→</span></a>
       </div>
-      <aside class="sidebar">
-        <div id="toc-container">
-          <div class="sidebar-heading">ON THIS PAGE</div>
+
+    </div><!-- /.article-body -->
+
+    <!-- STICKY SIDEBAR -->
+    <aside class="article-aside">
+      <div class="stick">
+        <div class="article-toc">
+          <div class="aside-h">On this page</div>
+          <a href="#s1">1. Why guessing is expensive</a>
+          <a href="#s2">2. Layer 1: ask every lead</a>
+          <a href="#s3">3. Layer 2: UTM tagging</a>
+          <a href="#s4">4. Layer 3: multi-touch</a>
+          <a href="#s5">5. The build order</a>
+          <a href="#s6">6. What bad tracking looks like</a>
+          <a href="#faq">Common questions</a>
         </div>
-        <div style="margin-top:32px">
-          <div class="sidebar-heading">IN THIS CATEGORY</div>
-          <a href="/pages/blog/how-to-track-lead-sources/" class="sidebar-link active">How to Track Lead Sources</a>
-          <a href="/pages/blog/why-ads-not-working/" class="sidebar-link">Why Your Ads Aren't Working</a>
-          <a href="/pages/blog/crm-vs-spreadsheet/" class="sidebar-link">CRM vs Spreadsheet</a>
-          <a href="/pages/blog/3-automations-every-local-business-needs/" class="sidebar-link">3 Automations Every Local Business Needs</a>
+        <div class="aside-cat">
+          <div class="aside-h">In this category</div>
+          <a href="/pages/blog/how-to-track-lead-sources/" class="active">How to track lead sources</a>
+          <a href="/pages/blog/why-ads-not-working/">Why your ads aren't working</a>
+          <a href="/pages/blog/crm-vs-spreadsheet/">CRM vs spreadsheet</a>
+          <a href="/pages/blog/3-automations-every-local-business-needs/">3 automations every local business needs</a>
         </div>
-      </aside>
+      </div>
+    </aside>
+  </div><!-- /.article-wrap -->
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="brand">BARE BAYSIDE <b style="color:var(--emerald)">LABS</b></div>
+        <p class="footer-desc">Marketing intelligence for local businesses. We run the tests, score your rivals, and hand you the evidence.</p>
+      </div>
+      <div><h5>Products</h5><ul>
+        <li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li>
+        <li><a href="/pages/services/">Intelligence Reports</a></li>
+        <li><a href="/pages/services/">Marketing Systems</a></li>
+        <li><a href="/pages/services/">Strategy Sessions</a></li>
+      </ul></div>
+      <div><h5>Company</h5><ul>
+        <li><a href="/pages/about/">About</a></li>
+        <li><a href="/pages/results/">Results</a></li>
+        <li><a href="/pages/how-it-works/">How it works</a></li>
+        <li><a href="/pages/contact/">Contact</a></li>
+      </ul></div>
+      <div><h5>Resources</h5><ul>
+        <li><a href="/pages/blog/">Blog</a></li>
+        <li><a href="/strategy/">Free strategy tool</a></li>
+        <li><a href="/pages/faq/">FAQ</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="c">© 2026 Bare Bayside Labs. All rights reserved.</div>
+      <div class="c">Marketing systems that run without you.</div>
     </div>
   </div>
-</section>
+</footer>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-top"><div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you.</p></div><div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li><li><a href="/pages/services/">Intelligence Reports</a></li></ul></div><div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/how-it-works/">How It Works</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div><div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div></div></div></footer>
-
-<script src="../../../js/main.js"></script>
+<script>
+if(location.search.indexOf('still')>-1){
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+}else{
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+}
+// sticky TOC scroll-spy
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.article-toc a'));
+  if(!links.length)return;
+  var map={};links.forEach(function(l){var id=l.getAttribute('href').slice(1);var t=document.getElementById(id);if(t)map[id]={link:l,target:t};});
+  var spy=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove('active')});var id=e.target.id;if(map[id])map[id].link.classList.add('active');}});
+  },{rootMargin:'-18% 0px -72% 0px'});
+  Object.keys(map).forEach(function(id){spy.observe(map[id].target)});
+})();
+</script>
 </body>
 </html>

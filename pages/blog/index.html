@@ -9,7 +9,10 @@
   <title>Blog — Bare Bayside Labs</title>
   <meta name="description" content="Marketing automation tips, Zoho how-tos, funnel breakdowns, and local business marketing strategies from Bare Bayside Labs.">
   <link rel="canonical" href="https://barebaysidelabs.com/pages/blog/">
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css?v=26">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -27,70 +30,90 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Blog — Bare Bayside Labs","url":"https://barebaysidelabs.com/pages/blog/"}</script>
 </head>
 <body>
+<div class="grain"></div>
 
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="/assets/logos/logo-nav.png" alt="Bare Bayside Labs" style="height:40px"></a><div class="nav-links"><a href="/" class="nav-link">HOME</a><a href="/pages/services/" class="nav-link">SERVICES</a><a href="/pages/how-it-works/" class="nav-link">HOW IT WORKS</a><a href="/pages/results/" class="nav-link">RESULTS</a><a href="/pages/about/" class="nav-link">ABOUT</a><a href="/pages/blog/" class="nav-link">BLOG</a><a href="/pages/faq/" class="nav-link">FAQ</a><button id="theme-toggle" class="theme-toggle"></button><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">GET YOUR FREE SNAPSHOT</a></div><button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mobile-menu"><a href="/" onclick="toggleMenu()">HOME</a><a href="/pages/services/" onclick="toggleMenu()">SERVICES</a><a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a><a href="/pages/results/" onclick="toggleMenu()">RESULTS</a><a href="/pages/about/" onclick="toggleMenu()">ABOUT</a>
-  <a href="/pages/blog/" onclick="toggleMenu()">BLOG</a>
-  <a href="/pages/faq/" onclick="toggleMenu()">FAQ</a><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">GET YOUR FREE SNAPSHOT</a>
-<button id="mobile-theme-toggle" class="mobile-theme-toggle"></button></div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-pill">
+    <a href="/" class="brand">BARE BAYSIDE <b>LABS</b></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/services/">Services</a>
+      <a href="/pages/how-it-works/">How it works</a>
+      <a href="/pages/results/">Results</a>
+      <a href="/pages/about/">About</a>
+      <a href="/pages/blog/" class="active">Blog</a>
+      <a href="/pages/faq/">FAQ</a>
+      <a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">Free snapshot</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.mobile').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile">
+  <a href="/" onclick="this.parentElement.classList.remove('open')">Home</a>
+  <a href="/pages/services/" onclick="this.parentElement.classList.remove('open')">Services</a>
+  <a href="/pages/how-it-works/" onclick="this.parentElement.classList.remove('open')">How it works</a>
+  <a href="/pages/results/" onclick="this.parentElement.classList.remove('open')">Results</a>
+  <a href="/pages/about/" onclick="this.parentElement.classList.remove('open')">About</a>
+  <a href="/pages/blog/" onclick="this.parentElement.classList.remove('open')">Blog</a>
+  <a href="/pages/faq/" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+  <a href="/pages/competitor-intel/#free-snapshot" class="cta-m" onclick="this.parentElement.classList.remove('open')">Get your free snapshot</a>
+</div>
 
-<!-- HERO -->
-<section class="section aurora">
-  <div class="inner">
-    <span class="eyebrow eyebrow-sky reveal">BLOG</span>
-    <h1 class="reveal stagger-1">MARKETING<br><span class="gradient-text">KNOWLEDGE BASE</span></h1>
-    <p style="font-size:19px;color:var(--text2);max-width:560px;margin-top:20px" class="reveal stagger-2">Automation tips, funnel breakdowns, Zoho how-tos, and strategies for local businesses. No fluff — just things you can use.</p>
+<!-- DARK HERO -->
+<section class="blog-hero has-video" style="--accent:#0E9C6E">
+  <div class="blog-hero-media">
+    <video autoplay muted loop playsinline poster="/assets/images/hero-guesswork-to-evidence.jpg">
+      <source src="/assets/videos/hero-background.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Blog</span>
+    <h1>Marketing Knowledge Base</h1>
+    <p>Automation tips, funnel breakdowns, Zoho how-tos, and strategies for local businesses. No fluff — just things you can use.</p>
   </div>
 </section>
 
 <!-- CATEGORIES -->
-<section class="section" style="padding-top:0">
-  <div class="inner">
-    <h2 class="reveal" style="text-align:center;margin-bottom:48px">CATEGORIES</h2>
-    <div class="grid-2">
+<section class="blog-sec reveal">
+  <div class="wrap">
+    <div class="blog-sec-h"><h2>Categories</h2></div>
+    <div class="bcats">
 
-      <a href="/pages/blog/automation/" class="card category-card category-card-img grad-left reveal stagger-1" style="text-decoration:none;padding:40px 32px;display:flex;flex-direction:column;align-items:flex-start">
+      <a href="/pages/blog/automation/" class="bcat reveal" style="--accent:#0E9C6E">
         <img src="/assets/images/blog/cat-automation.jpg" alt="Automated lab conveyor with glowing emerald beakers">
-        <div class="category-card-text">
-          <div class="category-count" style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--emerald);line-height:1">7</div>
-          <div class="category-name" style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--text);margin-top:8px;letter-spacing:2px">AUTOMATION</div>
-          <p class="category-desc" style="font-size:15px;color:var(--text2);margin-top:12px">CRM setup, email automation, follow-up systems, and workflow guides for small business.</p>
-          <div class="category-subs">ZOHO CRM &middot; MARKETING AUTOMATION &middot; EMAIL & COMMS</div>
-          <span style="color:var(--emerald);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:20px;display:inline-block">VIEW ARTICLES &rarr;</span>
-        </div>
+        <div class="bcat-count">7</div>
+        <div class="bcat-name">Automation</div>
+        <p class="bcat-desc">CRM setup, email automation, follow-up systems, and workflow guides for small business.</p>
+        <div class="bcat-subs">Zoho CRM · Marketing Automation · Email &amp; Comms</div>
+        <span class="bcat-link">View articles →</span>
       </a>
 
-      <a href="/pages/blog/local-marketing/" class="card category-card category-card-img grad-left reveal stagger-2" style="text-decoration:none;padding:40px 32px;display:flex;flex-direction:column;align-items:flex-start">
+      <a href="/pages/blog/local-marketing/" class="bcat reveal" style="--accent:#2563EB">
         <img src="/assets/images/blog/cat-local-marketing.jpg" alt="Holographic map with glowing blue location pins">
-        <div class="category-card-text">
-          <div class="category-count" style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--sky);line-height:1">9</div>
-          <div class="category-name" style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--text);margin-top:8px;letter-spacing:2px">MARKETING</div>
-          <p class="category-desc" style="font-size:15px;color:var(--text2);margin-top:12px">Ad strategies, Google reviews, and the marketing channels that work for tradies and service businesses.</p>
-          <div class="category-subs">STRATEGY &middot; PAID ADS &middot; LOCAL BUSINESS GROWTH</div>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:20px;display:inline-block">VIEW ARTICLES &rarr;</span>
-        </div>
+        <div class="bcat-count">9</div>
+        <div class="bcat-name">Marketing</div>
+        <p class="bcat-desc">Ad strategies, Google reviews, and the marketing channels that work for tradies and service businesses.</p>
+        <div class="bcat-subs">Strategy · Paid Ads · Local Business Growth</div>
+        <span class="bcat-link">View articles →</span>
       </a>
 
-      <a href="/pages/blog/seo/" class="card category-card category-card-img grad-left reveal stagger-1" style="text-decoration:none;padding:40px 32px;display:flex;flex-direction:column;align-items:flex-start">
+      <a href="/pages/blog/seo/" class="bcat reveal" style="--accent:#D6890C">
         <img src="/assets/images/blog/cat-seo.jpg" alt="Magnifying glass over golden beaker revealing data particles">
-        <div class="category-card-text">
-          <div class="category-count" style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--gold);line-height:1">5</div>
-          <div class="category-name" style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--text);margin-top:8px;letter-spacing:2px">SEO</div>
-          <p class="category-desc" style="font-size:15px;color:var(--text2);margin-top:12px">Local SEO, Google rankings, and getting found by customers searching for your services.</p>
-          <div class="category-subs">LOCAL SEO & RANKINGS &middot; AI SEARCH (GEO)</div>
-          <span style="color:var(--gold);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:20px;display:inline-block">VIEW ARTICLES &rarr;</span>
-        </div>
+        <div class="bcat-count">5</div>
+        <div class="bcat-name">SEO</div>
+        <p class="bcat-desc">Local SEO, Google rankings, and getting found by customers searching for your services.</p>
+        <div class="bcat-subs">Local SEO &amp; Rankings · AI Search (GEO)</div>
+        <span class="bcat-link">View articles →</span>
       </a>
 
-      <a href="/pages/blog/sales-data/" class="card category-card category-card-img grad-left reveal stagger-2" style="text-decoration:none;padding:40px 32px;display:flex;flex-direction:column;align-items:flex-start">
+      <a href="/pages/blog/sales-data/" class="bcat reveal" style="--accent:#7C3AED">
         <img src="/assets/images/blog/cat-sales-data.jpg" alt="Holographic violet sales pipeline above beakers of glowing purple liquid">
-        <div class="category-card-text">
-          <div class="category-count" style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--purple);line-height:1">3</div>
-          <div class="category-name" style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--text);margin-top:8px;letter-spacing:2px">SALES & DATA</div>
-          <p class="category-desc" style="font-size:15px;color:var(--text2);margin-top:12px">Sales psychology, tracking, attribution, and the tools that tie everything together.</p>
-          <div class="category-subs">SALES PSYCHOLOGY &middot; TRACKING & ATTRIBUTION &middot; TECH & TOOLS</div>
-          <span style="color:var(--purple);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:20px;display:inline-block">VIEW ARTICLES &rarr;</span>
-        </div>
+        <div class="bcat-count">3</div>
+        <div class="bcat-name">Sales &amp; Data</div>
+        <p class="bcat-desc">Sales psychology, tracking, attribution, and the tools that tie everything together.</p>
+        <div class="bcat-subs">Sales Psychology · Tracking &amp; Attribution · Tech &amp; Tools</div>
+        <span class="bcat-link">View articles →</span>
       </a>
 
     </div>
@@ -98,317 +121,325 @@
 </section>
 
 <!-- JUST PUBLISHED -->
-<section class="section" style="padding-top:0">
-  <div class="inner">
-    <h2 class="reveal" style="text-align:center;margin-bottom:12px">JUST PUBLISHED</h2>
-    <p style="text-align:center;color:var(--text2);margin-bottom:40px">Three new articles on sales data and measurement — the numbers most small businesses ignore until it's too late.</p>
-    <div class="grid-3">
-      <a href="/pages/blog/five-numbers-every-small-business-should-know/" class="card reveal" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+<section class="blog-sec tight">
+  <div class="wrap">
+    <div class="blog-sec-h">
+      <h2>Just published</h2>
+      <p>Three new articles on sales data and measurement — the numbers most small businesses ignore until it's too late.</p>
+    </div>
+    <div class="bgrid">
+
+      <a href="/pages/blog/five-numbers-every-small-business-should-know/" class="bcard reveal" style="--accent:#7C3AED">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-five-numbers.jpg" alt="Five glowing violet metric dials above beakers of purple liquid at different fill levels">
-          <div class="blog-thumb-content">
-          <div class="blog-thumb-stat" style="color:var(--purple)">5</div>
-          <div class="blog-thumb-label mono">NUMBERS ON A<br>NAPKIN</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">5</div>
+            <div class="bcard-lab">NUMBERS ON A NAPKIN</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="eyebrow eyebrow-purple">SALES &amp; DATA</span>
-          <h4 style="margin:12px 0 12px;font-size:20px;line-height:1.3;color:var(--text)">THE 5 NUMBERS EVERY SMALL BUSINESS SHOULD KNOW</h4>
-          <p style="color:var(--text2);font-size:15px;line-height:1.6;margin-bottom:20px;flex:1">Skip the 26-metric corporate lists. Here are the 5 numbers a local business can calculate on the back of a napkin — with formulas.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Sales &amp; Data · 6 min read</div>
+          <h3>The 5 numbers every small business should know</h3>
+          <p>Skip the 26-metric corporate lists. Here are the 5 numbers a local business can calculate on the back of a napkin — with formulas.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
-      <a href="/pages/blog/why-your-sales-feel-random/" class="card reveal stagger-1" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+
+      <a href="/pages/blog/why-your-sales-feel-random/" class="bcard reveal" style="--accent:#7C3AED">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-sales-feel-random.jpg" alt="Chaotic violet revenue chart transforming into a smooth rising line — predictable sales">
-          <div class="blog-thumb-content">
-          <div class="blog-thumb-stat" style="color:var(--purple)">3</div>
-          <div class="blog-thumb-label mono">LEADING<br>INDICATORS</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">3</div>
+            <div class="bcard-lab">LEADING INDICATORS</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="eyebrow eyebrow-purple">SALES &amp; DATA</span>
-          <h4 style="margin:12px 0 12px;font-size:20px;line-height:1.3;color:var(--text)">WHY YOUR SALES FEEL RANDOM</h4>
-          <p style="color:var(--text2);font-size:15px;line-height:1.6;margin-bottom:20px;flex:1">The "good month, bad month" rollercoaster is a measurement problem. Here are 3 leading indicators that make next month predictable.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Sales &amp; Data · 5 min read</div>
+          <h3>Why your sales feel random</h3>
+          <p>The "good month, bad month" rollercoaster is a measurement problem. Here are 3 leading indicators that make next month predictable.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
-      <a href="/pages/blog/sales-health-check-7-questions/" class="card reveal stagger-2" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+
+      <a href="/pages/blog/sales-health-check-7-questions/" class="bcard reveal" style="--accent:#7C3AED">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-sales-health-check.jpg" alt="Violet cardiogram pulse line on a lab dashboard with stethoscope and seven check glyphs">
-          <div class="blog-thumb-content">
-          <div class="blog-thumb-stat" style="color:var(--purple)">7</div>
-          <div class="blog-thumb-label mono">CHECKS YOU<br>CAN'T FAKE</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">7</div>
+            <div class="bcard-lab">CHECKS YOU CAN'T FAKE</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="eyebrow eyebrow-purple">SALES &amp; DATA</span>
-          <h4 style="margin:12px 0 12px;font-size:20px;line-height:1.3;color:var(--text)">7 CHECKS — ARE YOUR SALES ACTUALLY HEALTHY?</h4>
-          <p style="color:var(--text2);font-size:15px;line-height:1.6;margin-bottom:20px;flex:1">Seven yes-or-no questions that cut through "we're doing well." Answer honestly — most businesses fail at least 3.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Sales &amp; Data · 5 min read</div>
+          <h3>7 checks — are your sales actually healthy?</h3>
+          <p>Seven yes-or-no questions that cut through "we're doing well." Answer honestly — most businesses fail at least 3.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
+
     </div>
   </div>
 </section>
 
 <!-- LATEST ARTICLES -->
-<section class="section" style="padding-top:0">
-  <div class="inner">
-    <h2 class="reveal" style="text-align:center;margin-bottom:48px">LATEST ARTICLES</h2>
-    <div class="grid-3">
+<section class="blog-sec tight">
+  <div class="wrap">
+    <div class="blog-sec-h">
+      <h2>Latest articles</h2>
+    </div>
+    <div class="bgrid">
 
-      <a href="/pages/blog/3-automations-every-local-business-needs/" class="card reveal stagger-1" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/3-automations-every-local-business-needs/" class="bcard reveal" style="--accent:#0E9C6E">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-3-automations-every-local-business-needs.jpg" alt="Three glowing emerald automation gears stacked">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--emerald)">3</div>
-            <div class="blog-thumb-label mono">AUTOMATIONS BEFORE<br>ANYTHING ELSE</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">3</div>
+            <div class="bcard-lab">AUTOMATIONS BEFORE ANYTHING ELSE</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">AUTOMATION &middot; 7 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">3 AUTOMATIONS EVERY LOCAL BUSINESS SHOULD SET UP FIRST</h4>
-          <p style="font-size:15px;flex:1">Most owners try to automate everything at once. Three matter more than the other twenty — and only one is "send a follow-up email." Build in this order.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Automation · 7 min read</div>
+          <h3>3 automations every local business should set up first</h3>
+          <p>Most owners try to automate everything at once. Three matter more than the other twenty — and only one is "send a follow-up email." Build in this order.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/email-nurture-sequence-that-converts/" class="card reveal stagger-2" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/email-nurture-sequence-that-converts/" class="bcard reveal" style="--accent:#0E9C6E">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-email-nurture-sequence-that-converts.jpg" alt="Email envelope on emerald lab background">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--emerald)">5</div>
-            <div class="blog-thumb-label mono">TOUCHES, 14 DAYS,<br>5 STAGES</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">5</div>
+            <div class="bcard-lab">TOUCHES, 14 DAYS, 5 STAGES</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">AUTOMATION &middot; 8 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">HOW TO BUILD AN EMAIL NURTURE SEQUENCE THAT ACTUALLY CONVERTS</h4>
-          <p style="font-size:15px;flex:1">Most "nurture" sequences are five emails that say the same thing. The structure matters more than the writing. Here's the 5-touch framework.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Automation · 8 min read</div>
+          <h3>How to build an email nurture sequence that actually converts</h3>
+          <p>Most "nurture" sequences are five emails that say the same thing. The structure matters more than the writing. Here's the 5-touch framework.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/facebook-ads-vs-google-ads-local-business/" class="card reveal stagger-3" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/facebook-ads-vs-google-ads-local-business/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-facebook-ads-vs-google-ads-local-business.jpg" alt="Meta and Google ad logos balanced on a scale">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky);font-size:36px;line-height:1.1">META<br><span style="color:var(--muted);font-size:18px">VS</span><br>GOOGLE</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">META<br><span style="font-size:.55em;opacity:.7">VS</span><br>GOOGLE</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 7 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">FACEBOOK ADS VS GOOGLE ADS: WHICH WORKS FOR LOCAL SERVICE BUSINESSES?</h4>
-          <p style="font-size:15px;flex:1">Google captures demand. Meta creates it. The choice isn't preference — it depends on whether your customers already search for what you sell.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Marketing · 7 min read</div>
+          <h3>Facebook ads vs Google ads: which works for local service businesses?</h3>
+          <p>Google captures demand. Meta creates it. The choice isn't preference — it depends on whether your customers already search for what you sell.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/500-month-marketing-budget/" class="card reveal stagger-1" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/500-month-marketing-budget/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-500-month-marketing-budget.jpg" alt="Small marketing budget allocated across channels">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky)">$500</div>
-            <div class="blog-thumb-label mono">A MONTH,<br>ALLOCATED PROPERLY</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">$500</div>
+            <div class="bcard-lab">A MONTH, ALLOCATED PROPERLY</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 6 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">WHAT A $500/MONTH MARKETING BUDGET SHOULD ACTUALLY BUY YOU</h4>
-          <p style="font-size:15px;flex:1">Enough to run, not enough to waste. The honest split between ads, reviews, intel, and content — plus what to cut first and what to add as budget grows.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Marketing · 6 min read</div>
+          <h3>What a $500/month marketing budget should actually buy you</h3>
+          <p>Enough to run, not enough to waste. The honest split between ads, reviews, intel, and content — plus what to cut first and what to add as budget grows.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/website-not-showing-on-google/" class="card reveal stagger-2" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/website-not-showing-on-google/" class="bcard reveal" style="--accent:#D6890C">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-website-not-showing-on-google.jpg" alt="Search bar with empty results — site missing from Google">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--gold)">5</div>
-            <div class="blog-thumb-label mono">REASONS YOU'RE<br>INVISIBLE</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">5</div>
+            <div class="bcard-lab">REASONS YOU'RE INVISIBLE</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">SEO &middot; 7 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">WHY YOUR WEBSITE ISN'T SHOWING UP ON GOOGLE (5 COMMON REASONS)</h4>
-          <p style="font-size:15px;flex:1">It's almost never bad luck. One of 5 specific causes is killing your visibility — and they're all diagnosable in 30 minutes. Here's the order to check.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">SEO · 7 min read</div>
+          <h3>Why your website isn't showing up on Google (5 common reasons)</h3>
+          <p>It's almost never bad luck. One of 5 specific causes is killing your visibility — and they're all diagnosable in 30 minutes. Here's the order to check.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/how-to-track-lead-sources/" class="card reveal stagger-3" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/how-to-track-lead-sources/" class="bcard reveal" style="--accent:#0E9C6E">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-how-to-track-lead-sources.jpg" alt="UTM tracking pipeline routing leads to their sources">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--emerald)">72%</div>
-            <div class="blog-thumb-label mono">CAN'T TRACE<br>A SALE TO A SOURCE</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">72%</div>
+            <div class="bcard-lab">CAN'T TRACE A SALE TO A SOURCE</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">AUTOMATION &middot; 7 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">HOW TO TRACK WHERE YOUR LEADS ACTUALLY COME FROM</h4>
-          <p style="font-size:15px;flex:1">Most owners guess. The guesses are usually wrong. Three layers of tracking — ask, UTM, multi-touch — and the order to build them.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Automation · 7 min read</div>
+          <h3>How to track where your leads actually come from</h3>
+          <p>Most owners guess. The guesses are usually wrong. Three layers of tracking — ask, UTM, multi-touch — and the order to build them.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/turn-one-time-customers-into-repeat-clients/" class="card reveal stagger-1" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/turn-one-time-customers-into-repeat-clients/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-turn-one-time-customers-into-repeat-clients.jpg" alt="Customer returning to the same business — retention cycle">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky)">5X</div>
-            <div class="blog-thumb-label mono">CHEAPER THAN<br>WINNING NEW ONES</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">5X</div>
+            <div class="bcard-lab">CHEAPER THAN WINNING NEW ONES</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 6 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">HOW TO TURN ONE-TIME CUSTOMERS INTO REPEAT CLIENTS</h4>
-          <p style="font-size:15px;flex:1">5x cheaper to retain than acquire — but most local businesses spend nothing on retention. Three frameworks: 30-60-90 touch, anniversary, referral ask.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Marketing · 6 min read</div>
+          <h3>How to turn one-time customers into repeat clients</h3>
+          <p>5x cheaper to retain than acquire — but most local businesses spend nothing on retention. Three frameworks: 30-60-90 touch, anniversary, referral ask.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/stop-losing-leads/" class="card reveal stagger-1" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb blog-thumb-stop-losing-leads">
+      <a href="/pages/blog/stop-losing-leads/" class="bcard reveal" style="--accent:#0E9C6E">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-stop-losing-leads.jpg" alt="Lab funnel with glowing green liquid — lead follow-up system">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--emerald)">80%</div>
-            <div class="blog-thumb-label mono">OF SALES NEED 5+<br>FOLLOW-UPS</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">80%</div>
+            <div class="bcard-lab">OF SALES NEED 5+ FOLLOW-UPS</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">AUTOMATION &middot; 7 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">HOW TO STOP LOSING LEADS: THE AUTOMATED FOLLOW-UP SYSTEM</h4>
-          <p style="font-size:15px;flex:1">80% of sales need 5 follow-ups but most businesses quit after 1. Here's how to build a system using Zoho CRM that works while you sleep.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Automation · 7 min read</div>
+          <h3>How to stop losing leads: the automated follow-up system</h3>
+          <p>80% of sales need 5 follow-ups but most businesses quit after 1. Here's how to build a system using Zoho CRM that works while you sleep.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/why-ads-not-working/" class="card reveal stagger-2" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb blog-thumb-why-ads-not-working">
+      <a href="/pages/blog/why-ads-not-working/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-why-ads-not-working.jpg" alt="Lab beakers with cracked tube leaking — broken ad tracking">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky)">72%</div>
-            <div class="blog-thumb-label mono">CAN'T TRACE A SALE<br>BACK TO AN AD</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">72%</div>
+            <div class="bcard-lab">CAN'T TRACE A SALE BACK TO AN AD</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 8 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">WHY YOUR ADS AREN'T WORKING (AND WHAT TO FIX FIRST)</h4>
-          <p style="font-size:15px;flex:1">The problem isn't your ads — it's that nobody's tracking what happens after the click. Here's how to connect ads to actual revenue.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Marketing · 8 min read</div>
+          <h3>Why your ads aren't working (and what to fix first)</h3>
+          <p>The problem isn't your ads — it's that nobody's tracking what happens after the click. Here's how to connect ads to actual revenue.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/google-reviews-tradie-guide/" class="card reveal stagger-3" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb blog-thumb-google-reviews">
+      <a href="/pages/blog/google-reviews-tradie-guide/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-google-reviews.jpg" alt="Test tubes with golden liquid rising like a bar chart — review growth">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--gold)">266%</div>
-            <div class="blog-thumb-label mono">MORE LEADS WITH<br>50+ REVIEWS</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">266%</div>
+            <div class="bcard-lab">MORE LEADS WITH 50+ REVIEWS</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 6 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">HOW TO GET MORE GOOGLE REVIEWS (THE TRADIE'S GUIDE)</h4>
-          <p style="font-size:15px;flex:1">93% of people read reviews before hiring. Here's how to ask, when to ask, and how to automate the whole thing.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Marketing · 6 min read</div>
+          <h3>How to get more Google reviews (the tradie's guide)</h3>
+          <p>93% of people read reviews before hiring. Here's how to ask, when to ask, and how to automate the whole thing.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/crm-vs-spreadsheet/" class="card reveal" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/crm-vs-spreadsheet/" class="bcard reveal" style="--accent:#0E9C6E">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-crm-vs-spreadsheet.jpg" alt="Spreadsheet vs CRM dashboard comparison in a lab setting">
-          <div class="blog-thumb-content">
-          <div class="blog-thumb-stat" style="color:var(--emerald);font-size:28px;line-height:1.1">SPREADSHEET<br><span style="color:var(--muted);font-size:20px">VS</span><br>CRM</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">SPREADSHEET<br><span style="font-size:.55em;opacity:.7">VS</span><br>CRM</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="eyebrow eyebrow-emerald">AUTOMATION</span>
-          <h4 style="margin:12px 0 12px;font-size:20px;line-height:1.3;color:var(--text)">CRM VS SPREADSHEET: WHEN TO MAKE THE SWITCH</h4>
-          <p style="color:var(--text2);font-size:15px;line-height:1.6;margin-bottom:20px;flex:1">The exact point at which a spreadsheet starts costing you money — and what to switch to instead.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Automation</div>
+          <h3>CRM vs spreadsheet: when to make the switch</h3>
+          <p>The exact point at which a spreadsheet starts costing you money — and what to switch to instead.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/do-you-need-a-crm/" class="card reveal stagger-1" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/do-you-need-a-crm/" class="bcard reveal" style="--accent:#0E9C6E">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-do-you-need-a-crm.jpg" alt="CRM contact card with glowing connection nodes">
-          <div class="blog-thumb-content">
-          <div class="blog-thumb-stat" style="color:var(--emerald)">CRM?</div>
-          <div class="blog-thumb-label mono">HERE'S HOW<br>TO KNOW</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">CRM?</div>
+            <div class="bcard-lab">HERE'S HOW TO KNOW</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="eyebrow eyebrow-emerald">AUTOMATION</span>
-          <h4 style="margin:12px 0 12px;font-size:20px;line-height:1.3;color:var(--text)">DO YOU ACTUALLY NEED A CRM?</h4>
-          <p style="color:var(--text2);font-size:15px;line-height:1.6;margin-bottom:20px;flex:1">Most small businesses overpay for CRMs they don't use. Here's how to tell if you actually need one (and which one).</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Automation</div>
+          <h3>Do you actually need a CRM?</h3>
+          <p>Most small businesses overpay for CRMs they don't use. Here's how to tell if you actually need one (and which one).</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/local-seo-checklist/" class="card reveal stagger-2" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/local-seo-checklist/" class="bcard reveal" style="--accent:#D6890C">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-local-seo-checklist.jpg" alt="Local SEO checklist with golden ranking markers on a map">
-          <div class="blog-thumb-content">
-          <div class="blog-thumb-stat" style="color:var(--gold)">10</div>
-          <div class="blog-thumb-label mono">FIXES YOU CAN DO<br>THIS WEEK</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">10</div>
+            <div class="bcard-lab">FIXES YOU CAN DO THIS WEEK</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="eyebrow eyebrow-gold">SEO</span>
-          <h4 style="margin:12px 0 12px;font-size:20px;line-height:1.3;color:var(--text)">THE LOCAL SEO CHECKLIST: 14 THINGS THAT MOVE THE NEEDLE</h4>
-          <p style="color:var(--text2);font-size:15px;line-height:1.6;margin-bottom:20px;flex:1">Skip the 100-point lists. Here are the 14 local SEO fixes that actually change your ranking — in priority order.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">SEO</div>
+          <h3>The local SEO checklist: 14 things that move the needle</h3>
+          <p>Skip the 100-point lists. Here are the 14 local SEO fixes that actually change your ranking — in priority order.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/3-marketing-channels-local/" class="card reveal" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/3-marketing-channels-local/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-3-channels.jpg" alt="Three glowing marketing channel paths converging on a central business hub">
-          <div class="blog-thumb-content">
-          <div class="blog-thumb-stat" style="color:var(--sky)">3</div>
-          <div class="blog-thumb-label mono">CHANNELS.<br>THAT'S ALL.</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">3</div>
+            <div class="bcard-lab">CHANNELS. THAT'S ALL.</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="eyebrow eyebrow-sky">LOCAL MARKETING</span>
-          <h4 style="margin:12px 0 12px;font-size:20px;line-height:1.3;color:var(--text)">THE 3 MARKETING CHANNELS EVERY LOCAL BUSINESS NEEDS</h4>
-          <p style="color:var(--text2);font-size:15px;line-height:1.6;margin-bottom:20px;flex:1">Stop chasing every platform. Here are the 3 channels that actually bring local customers in — and how to set them up.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Marketing</div>
+          <h3>The 3 marketing channels every local business needs</h3>
+          <p>Stop chasing every platform. Here are the 3 channels that actually bring local customers in — and how to set them up.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/zoho-crm-trades-setup/" class="card reveal stagger-1" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/zoho-crm-trades-setup/" class="bcard reveal" style="--accent:#0E9C6E">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-zoho-crm-trades-setup.jpg" alt="Zoho CRM dashboard configured for trades with glowing emerald pipeline stages">
-          <div class="blog-thumb-content">
-          <div class="blog-thumb-stat" style="color:var(--emerald)">ZOHO</div>
-          <div class="blog-thumb-label mono">SETUP GUIDE<br>FOR TRADIES</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">ZOHO</div>
+            <div class="bcard-lab">SETUP GUIDE FOR TRADIES</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="eyebrow eyebrow-emerald">AUTOMATION</span>
-          <h4 style="margin:12px 0 12px;font-size:20px;line-height:1.3;color:var(--text)">ZOHO CRM FOR TRADES: THE 30-MINUTE SETUP</h4>
-          <p style="color:var(--text2);font-size:15px;line-height:1.6;margin-bottom:20px;flex:1">Don't waste a week on CRM setup. Here's the exact 30-minute configuration that gets a tradie tracking jobs in Zoho today.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Automation</div>
+          <h3>Zoho CRM for trades: the 30-minute setup</h3>
+          <p>Don't waste a week on CRM setup. Here's the exact 30-minute configuration that gets a tradie tracking jobs in Zoho today.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/ai-search-visibility/" class="card reveal stagger-2" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/ai-search-visibility/" class="bcard reveal" style="--accent:#D6890C">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-ai-search-visibility.jpg" alt="Holographic search bar with a glowing brain inside, golden result cards streaming outward">
-          <div class="blog-thumb-content">
-          <div class="blog-thumb-stat" style="color:var(--gold)">AI</div>
-          <div class="blog-thumb-label mono">SEARCH<br>VISIBILITY</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">AI</div>
+            <div class="bcard-lab">SEARCH VISIBILITY</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="eyebrow eyebrow-gold">SEO</span>
-          <h4 style="margin:12px 0 12px;font-size:20px;line-height:1.3;color:var(--text)">HOW TO MAKE YOUR BUSINESS APPEAR IN AI SEARCH RESULTS</h4>
-          <p style="color:var(--text2);font-size:15px;line-height:1.6;margin-bottom:20px;flex:1">ChatGPT, Google AI Overviews, and Perplexity are changing how people find local businesses. Here's how to make sure they mention yours.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">SEO</div>
+          <h3>How to make your business appear in AI search results</h3>
+          <p>ChatGPT, Google AI Overviews, and Perplexity are changing how people find local businesses. Here's how to make sure they mention yours.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
@@ -417,19 +448,57 @@
 </section>
 
 <!-- CTA -->
-<section class="section">
-  <div class="inner">
-    <div class="surface-cta reveal">
-      <span class="eyebrow eyebrow-emerald">WANT HELP?</span>
-      <h2 style="margin-bottom:16px">DONE READING. READY TO BUILD.</h2>
-      <p style="color:var(--text2);font-size:19px;max-width:500px;margin:0 auto 36px">Get a free competitor snapshot — one of your rivals scored across 8 channels, in plain English. 48 hours, no card, no call.</p>
-      <a href="/pages/competitor-intel/#free-snapshot" class="btn-primary glow">GET YOUR FREE SNAPSHOT</a>
+<section class="blog-sec">
+  <div class="wrap">
+    <div class="article-cta reveal" style="--accent:#0E9C6E">
+      <div class="ck">Want help?</div>
+      <h3>Done reading. Ready to build.</h3>
+      <p>Get a free competitor snapshot — one of your rivals scored across 8 channels, in plain English. 48 hours, no card, no call.</p>
+      <a href="/pages/competitor-intel/#free-snapshot" class="btn btn-accent">Get your free snapshot<span class="ic">→</span></a>
     </div>
   </div>
 </section>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-top"><div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you.</p></div><div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li><li><a href="/pages/services/">Intelligence Reports</a></li></ul></div><div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/how-it-works/">How It Works</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div><div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div></div></div></footer>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="brand">BARE BAYSIDE <b style="color:var(--emerald)">LABS</b></div>
+        <p class="footer-desc">Marketing intelligence for local businesses. We run the tests, score your rivals, and hand you the evidence.</p>
+      </div>
+      <div><h5>Products</h5><ul>
+        <li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li>
+        <li><a href="/pages/services/">Intelligence Reports</a></li>
+        <li><a href="/pages/services/">Marketing Systems</a></li>
+        <li><a href="/pages/services/">Strategy Sessions</a></li>
+      </ul></div>
+      <div><h5>Company</h5><ul>
+        <li><a href="/pages/about/">About</a></li>
+        <li><a href="/pages/results/">Results</a></li>
+        <li><a href="/pages/how-it-works/">How it works</a></li>
+        <li><a href="/pages/contact/">Contact</a></li>
+      </ul></div>
+      <div><h5>Resources</h5><ul>
+        <li><a href="/pages/blog/">Blog</a></li>
+        <li><a href="/strategy/">Free strategy tool</a></li>
+        <li><a href="/pages/faq/">FAQ</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="c">© 2026 Bare Bayside Labs. All rights reserved.</div>
+      <div class="c">Marketing systems that run without you.</div>
+    </div>
+  </div>
+</footer>
 
-<script src="../../js/main.js"></script>
+<script>
+if(location.search.indexOf('still')>-1){
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+}else{
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+}
+</script>
 </body>
 </html>

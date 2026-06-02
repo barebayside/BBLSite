@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Zoho PageSense (smart code) -->
+  <script id="pagesenseCode">!function(){var e="1.0",t=document,a=window,n="zps-page-screen",r=t.head||t.getElementsByTagName("head")[0],i=t.getElementById("pagesenseCode");if(!t.getElementById(n)){var o=t.createElement("style");o.type="text/css",o.id=n;var s="body { background: transparent !important; opacity: 0 !important; visibility: hidden !important; } html { opacity: 0 !important; visibility: hidden !important; }";o.styleSheet?o.styleSheet.cssText=s:o.appendChild(t.createTextNode(s)),r.firstChild?r.insertBefore(o,r.firstChild):r.appendChild(o),a._ps_conf={};var c={addScript:function(e){try{var n=t.createElement("script");if(n.type="text/javascript",n.async=!0,e.src?n.src=e.src:e.text&&(void 0!==n.text?n.text=e.text:n.appendChild(t.createTextNode(e.text))),i&&i.getAttribute){var o=i.getAttribute("nonce");o&&n.setAttribute("nonce",o)}n.onload=n.onreadystatechange=function(){this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState||(n.onload=n.onreadystatechange=null,a._ps_conf&&a._ps_conf.pauseRenderForManualActivation?clearTimeout(d):c.revealPage())},n.onerror=function(){c.revealPage()},r.appendChild(n)}catch(e){throw c.revealPage(),e}},revealPage:function(){var e=t.getElementById(n);e&&e.parentNode&&e.parentNode.removeChild(e)}},d=setTimeout((function(){c.revealPage()}),1e4),p=c.revealPage;c.revealPage=function(){clearTimeout(d),p()};try{a._ps_conf&&a._ps_conf.pauseRenderForManualActivation&&(a.pagesense=a.pagesense||[],a.pagesense.push=function(e){e&&"activate"==e[0]&&c&&c.revealPage()}),a._ps_conf?a._ps_conf.version=e:a._ps_conf={version:e},c.addScript({src:"https://cdn-au.pagesense.io/js/yourrentalhomefinders/14574dedc7ea4fed9f16b7fea65d59f6.js"})}catch(e){c.revealPage()}}}();</script>
   <title>Local Business Marketing — Bare Bayside Labs Blog</title>
   <meta name="description" content="Ad strategies, Google reviews, and the marketing channels that work for tradies and service businesses. From Bare Bayside Labs.">
   <link rel="canonical" href="https://barebaysidelabs.com/pages/blog/local-marketing/">
-  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css?v=26">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -24,174 +29,193 @@
   <meta name="twitter:image" content="https://barebaysidelabs.com/assets/images/blog/cat-local-marketing.jpg">
 </head>
 <body>
+<div class="grain"></div>
 
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="/assets/logos/logo-nav.png" alt="Bare Bayside Labs" style="height:40px"></a><div class="nav-links"><a href="/" class="nav-link">HOME</a><a href="/pages/services/" class="nav-link">SERVICES</a><a href="/pages/how-it-works/" class="nav-link">HOW IT WORKS</a><a href="/pages/results/" class="nav-link">RESULTS</a><a href="/pages/about/" class="nav-link">ABOUT</a><a href="/pages/blog/" class="nav-link">BLOG</a><a href="/pages/faq/" class="nav-link">FAQ</a><button id="theme-toggle" class="theme-toggle"></button><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">GET YOUR FREE SNAPSHOT</a></div><button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mobile-menu"><a href="/" onclick="toggleMenu()">HOME</a><a href="/pages/services/" onclick="toggleMenu()">SERVICES</a><a href="/pages/how-it-works/" onclick="toggleMenu()">HOW IT WORKS</a><a href="/pages/results/" onclick="toggleMenu()">RESULTS</a><a href="/pages/about/" onclick="toggleMenu()">ABOUT</a>
-  <a href="/pages/blog/" onclick="toggleMenu()">BLOG</a>
-  <a href="/pages/faq/" onclick="toggleMenu()">FAQ</a><a href="/pages/competitor-intel/#free-snapshot" class="nav-cta" style="font-size:20px;padding:16px 40px" onclick="toggleMenu()">GET YOUR FREE SNAPSHOT</a>
-<button id="mobile-theme-toggle" class="mobile-theme-toggle"></button></div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-pill">
+    <a href="/" class="brand">BARE BAYSIDE <b>LABS</b></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/services/">Services</a>
+      <a href="/pages/how-it-works/">How it works</a>
+      <a href="/pages/results/">Results</a>
+      <a href="/pages/about/">About</a>
+      <a href="/pages/blog/" class="active">Blog</a>
+      <a href="/pages/faq/">FAQ</a>
+      <a href="/pages/competitor-intel/#free-snapshot" class="nav-cta">Free snapshot</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.mobile').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile">
+  <a href="/" onclick="this.parentElement.classList.remove('open')">Home</a>
+  <a href="/pages/services/" onclick="this.parentElement.classList.remove('open')">Services</a>
+  <a href="/pages/how-it-works/" onclick="this.parentElement.classList.remove('open')">How it works</a>
+  <a href="/pages/results/" onclick="this.parentElement.classList.remove('open')">Results</a>
+  <a href="/pages/about/" onclick="this.parentElement.classList.remove('open')">About</a>
+  <a href="/pages/blog/" onclick="this.parentElement.classList.remove('open')">Blog</a>
+  <a href="/pages/faq/" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+  <a href="/pages/competitor-intel/#free-snapshot" class="cta-m" onclick="this.parentElement.classList.remove('open')">Get your free snapshot</a>
+</div>
 
-<!-- HERO -->
-<section class="section aurora">
-  <div class="inner">
-    <span class="eyebrow eyebrow-sky reveal">MARKETING</span>
-    <h1 class="reveal stagger-1">MARKETING<br><span class="gradient-text">STRATEGIES</span></h1>
-    <p style="font-size:19px;color:var(--text2);max-width:560px;margin-top:20px" class="reveal stagger-2">Ad strategies, Google reviews, and the marketing channels that work for tradies and service businesses. Strategy, paid ads, and local growth.</p>
+<!-- DARK HERO -->
+<section class="blog-hero has-video" style="--accent:#2563EB">
+  <div class="blog-hero-media"><video autoplay muted loop playsinline poster="/assets/images/hero-guesswork-to-evidence.jpg"><source src="/assets/videos/hero-background.mp4" type="video/mp4"></video></div>
+  <div class="wrap">
+    <nav class="article-crumb"><a href="/pages/blog/">Blog</a><span class="sep">/</span><span>Local Marketing</span></nav>
+    <span class="eyebrow"><span class="dot"></span>Marketing</span>
+    <h1>Marketing Strategies</h1>
+    <p>Ad strategies, Google reviews, and the marketing channels that work for tradies and service businesses. Strategy, paid ads, and local growth.</p>
   </div>
 </section>
 
-<!-- BREADCRUMB -->
-<section class="section" style="padding-top:24px;padding-bottom:0">
-  <div class="inner">
-    <div class="breadcrumb"><a href="/pages/blog/">Blog</a><span>&rsaquo;</span>Local Marketing</div>
-  </div>
-</section>
+<!-- ARTICLE GRID -->
+<section class="blog-sec">
+  <div class="wrap">
+    <div class="bgrid">
 
-<!-- ARTICLES -->
-<section class="section" style="padding-top:24px">
-  <div class="inner">
-    <div class="grid-3">
-
-      <a href="/pages/blog/facebook-ads-vs-google-ads-local-business/" class="card reveal stagger-1" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/facebook-ads-vs-google-ads-local-business/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-facebook-ads-vs-google-ads-local-business.jpg" alt="Split-frame thumbs-up vs magnifying glass — Meta vs Google">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky);font-size:32px;line-height:1.1">META<br><span style="color:var(--muted);font-size:18px">VS</span><br>GOOGLE</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">META vs GOOGLE</div>
+            <div class="bcard-lab"></div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 7 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">FACEBOOK ADS VS GOOGLE ADS: WHICH WORKS FOR LOCAL SERVICE BUSINESSES?</h4>
-          <p style="font-size:15px;flex:1">Google captures demand. Meta creates it. The choice isn't preference — it depends on whether your customers already search for what you sell.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Local Marketing · 7 min read</div>
+          <h3>Facebook Ads vs Google Ads: Which Works for Local Service Businesses?</h3>
+          <p>Google captures demand. Meta creates it. The choice isn't preference — it depends on whether your customers already search for what you sell.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/500-month-marketing-budget/" class="card reveal stagger-2" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/500-month-marketing-budget/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-500-month-marketing-budget.jpg" alt="Sky-blue pie chart with four allocation wedges above a lab bench">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky)">$500</div>
-            <div class="blog-thumb-label mono">A MONTH,<br>ALLOCATED PROPERLY</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">$500</div>
+            <div class="bcard-lab">A month, allocated properly</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 6 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">WHAT A $500/MONTH MARKETING BUDGET SHOULD ACTUALLY BUY YOU</h4>
-          <p style="font-size:15px;flex:1">Enough to run, not enough to waste. The honest split between ads, reviews, intel, and content — plus what to cut first and what to add as budget grows.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Local Marketing · 6 min read</div>
+          <h3>What a $500/Month Marketing Budget Should Actually Buy You</h3>
+          <p>Enough to run, not enough to waste. The honest split between ads, reviews, intel, and content — plus what to cut first and what to add as budget grows.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/turn-one-time-customers-into-repeat-clients/" class="card reveal stagger-3" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/turn-one-time-customers-into-repeat-clients/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-turn-one-time-customers-into-repeat-clients.jpg" alt="Sky-blue orbit ring with two customer silhouettes — retention cycle">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky)">5X</div>
-            <div class="blog-thumb-label mono">CHEAPER THAN<br>WINNING NEW ONES</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">5X</div>
+            <div class="bcard-lab">Cheaper than winning new ones</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 6 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">HOW TO TURN ONE-TIME CUSTOMERS INTO REPEAT CLIENTS</h4>
-          <p style="font-size:15px;flex:1">5x cheaper to retain than acquire — but most local businesses spend nothing on retention. Three frameworks: 30-60-90 touch, anniversary, referral ask.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Local Marketing · 6 min read</div>
+          <h3>How to Turn One-Time Customers Into Repeat Clients</h3>
+          <p>5x cheaper to retain than acquire — but most local businesses spend nothing on retention. Three frameworks: 30-60-90 touch, anniversary, referral ask.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/why-ads-not-working/" class="card reveal stagger-1" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb blog-thumb-why-ads-not-working">
+      <a href="/pages/blog/why-ads-not-working/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-why-ads-not-working.jpg" alt="Lab beakers with cracked tube leaking — broken ad tracking">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky)">72%</div>
-            <div class="blog-thumb-label mono">CAN'T TRACE A SALE<br>BACK TO AN AD</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">72%</div>
+            <div class="bcard-lab">Can't trace a sale back to an ad</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 8 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">WHY YOUR ADS AREN'T WORKING (AND WHAT TO FIX FIRST)</h4>
-          <p style="font-size:15px;flex:1">The problem isn't your ads — it's that nobody's tracking what happens after the click. Here's how to connect ads to actual revenue.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Local Marketing · 8 min read</div>
+          <h3>Why Your Ads Aren't Working (And What to Fix First)</h3>
+          <p>The problem isn't your ads — it's that nobody's tracking what happens after the click. Here's how to connect ads to actual revenue.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/google-reviews-tradie-guide/" class="card reveal stagger-2" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb blog-thumb-google-reviews">
+      <a href="/pages/blog/google-reviews-tradie-guide/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-google-reviews.jpg" alt="Test tubes with golden liquid rising like a bar chart — review growth">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--gold)">266%</div>
-            <div class="blog-thumb-label mono">MORE LEADS WITH<br>50+ REVIEWS</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">266%</div>
+            <div class="bcard-lab">More leads with 50+ reviews</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 6 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">HOW TO GET MORE GOOGLE REVIEWS (THE TRADIE'S GUIDE)</h4>
-          <p style="font-size:15px;flex:1">93% of people read reviews before hiring. Here's how to ask, when to ask, and how to automate the whole thing.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Local Marketing · 6 min read</div>
+          <h3>How to Get More Google Reviews (The Tradie's Guide)</h3>
+          <p>93% of people read reviews before hiring. Here's how to ask, when to ask, and how to automate the whole thing.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/3-marketing-channels-local/" class="card reveal stagger-3" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb blog-thumb-3-channels">
+      <a href="/pages/blog/3-marketing-channels-local/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-3-channels.jpg" alt="Three Erlenmeyer flasks in blue, green, and gold — marketing channels">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky)">3</div>
-            <div class="blog-thumb-label mono">CHANNELS.<br>THAT'S ALL.</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">3</div>
+            <div class="bcard-lab">Channels. That's all.</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 7 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">THE ONLY 3 MARKETING CHANNELS A LOCAL BUSINESS ACTUALLY NEEDS</h4>
-          <p style="font-size:15px;flex:1">Stop spreading thin across 7 platforms. Google, email, and one social channel — that's the system that works.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Local Marketing · 7 min read</div>
+          <h3>The Only 3 Marketing Channels a Local Business Actually Needs</h3>
+          <p>Stop spreading thin across 7 platforms. Google, email, and one social channel — that's the system that works.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/social-media-local-business/" class="card reveal stagger-4" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/social-media-local-business/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-social-media-local-business.jpg" alt="Three social platform icons connected by data streams to a central business hub">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky)">4x</div>
-            <div class="blog-thumb-label mono">CONTENT MIX<br>THAT WORKS</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">4x</div>
+            <div class="bcard-lab">Content mix that works</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 7 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">SOCIAL MEDIA STRATEGY FOR LOCAL BUSINESS</h4>
-          <p style="font-size:15px;flex:1">Most local businesses post randomly and wonder why nothing happens. Here's a simple strategy that builds trust.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Local Marketing · 7 min read</div>
+          <h3>Social Media Strategy for Local Business</h3>
+          <p>Most local businesses post randomly and wonder why nothing happens. Here's a simple strategy that builds trust.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/meta-ads-local-business/" class="card reveal stagger-5" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/meta-ads-local-business/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-meta-ads-local-business.jpg" alt="Holographic social-feed ad card above a glowing audience cloud">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky)">$10</div>
-            <div class="blog-thumb-label mono">PER DAY<br>TO START</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">$10</div>
+            <div class="bcard-lab">Per day to start</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 7 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">META ADS: HOW TO STOP WASTING MONEY</h4>
-          <p style="font-size:15px;flex:1">Most local businesses waste money on Meta ads because they skip the basics. Here's how to run ads that convert.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Local Marketing · 7 min read</div>
+          <h3>Meta Ads: How to Stop Wasting Money</h3>
+          <p>Most local businesses waste money on Meta ads because they skip the basics. Here's how to run ads that convert.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
-      <a href="/pages/blog/google-review-replies/" class="card reveal" style="text-decoration:none;padding:0;overflow:hidden;display:flex;flex-direction:column">
-        <div class="blog-thumb">
+      <a href="/pages/blog/google-review-replies/" class="bcard reveal" style="--accent:#2563EB">
+        <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-google-review-replies.jpg" alt="Two glowing chat bubbles with stars and a quill pen mid-stroke">
-          <div class="blog-thumb-content">
-            <div class="blog-thumb-stat" style="color:var(--sky)">89%</div>
-            <div class="blog-thumb-label mono">READ YOUR<br>REPLY</div>
+          <div class="bcard-ov">
+            <div class="bcard-stat">89%</div>
+            <div class="bcard-lab">Read your reply</div>
           </div>
         </div>
-        <div style="padding:24px;flex:1;display:flex;flex-direction:column">
-          <span class="mono" style="margin-bottom:12px">LOCAL MARKETING &middot; 6 MIN READ</span>
-          <h4 style="margin-bottom:12px;font-size:20px;color:var(--text)">GOOGLE REVIEW REPLY TEMPLATES (COPY AND PASTE)</h4>
-          <p style="font-size:15px;flex:1">Ready-to-use templates for 5-star, 3-star, and negative reviews. Copy, personalise, and post.</p>
-          <span style="color:var(--sky);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-top:16px">READ MORE &rarr;</span>
+        <div class="bcard-body">
+          <div class="bcard-meta">Local Marketing · 6 min read</div>
+          <h3>Google Review Reply Templates (Copy and Paste)</h3>
+          <p>Ready-to-use templates for 5-star, 3-star, and negative reviews. Copy, personalise, and post.</p>
+          <span class="bcard-more">Read more →</span>
         </div>
       </a>
 
@@ -200,19 +224,57 @@
 </section>
 
 <!-- CTA -->
-<section class="section">
-  <div class="inner">
-    <div class="surface-cta reveal">
-      <span class="eyebrow eyebrow-sky">WANT HELP?</span>
-      <h2 style="margin-bottom:16px">DONE READING. READY TO BUILD.</h2>
-      <p style="color:var(--text2);font-size:19px;max-width:500px;margin:0 auto 36px">Get a free competitor snapshot — one of your rivals scored across 8 channels, in plain English. 48 hours, no card, no call.</p>
-      <a href="/pages/competitor-intel/#free-snapshot" class="btn-primary glow">GET YOUR FREE SNAPSHOT</a>
+<section class="blog-sec">
+  <div class="wrap">
+    <div class="article-cta reveal" style="--accent:#0E9C6E">
+      <div class="ck">Want help?</div>
+      <h3>Done reading. Ready to build.</h3>
+      <p>Get a free competitor snapshot — one of your rivals scored across 8 channels, in plain English. 48 hours, no card, no call.</p>
+      <a href="/pages/competitor-intel/#free-snapshot" class="btn btn-accent">Get your free snapshot<span class="ic">→</span></a>
     </div>
   </div>
 </section>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-top"><div><div class="footer-brand">BARE BAYSIDE LABS</div><p class="footer-desc">Marketing systems that run without you.</p></div><div><div class="footer-heading">SERVICES</div><ul class="footer-links"><li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li><li><a href="/pages/services/">Intelligence Reports</a></li></ul></div><div><div class="footer-heading">COMPANY</div><ul class="footer-links"><li><a href="/pages/about/">About</a></li><li><a href="/pages/results/">Results</a></li><li><a href="/pages/how-it-works/">How It Works</a></li><li><a href="/pages/contact/">Contact</a></li></ul></div><div><div class="footer-heading">RESOURCES</div><ul class="footer-links"><li><a href="/pages/blog/">Blog</a></li><li><a href="/pages/faq/">FAQ</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 BARE BAYSIDE LABS. ALL RIGHTS RESERVED.</div></div></div></footer>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="brand">BARE BAYSIDE <b style="color:var(--emerald)">LABS</b></div>
+        <p class="footer-desc">Marketing intelligence for local businesses. We run the tests, score your rivals, and hand you the evidence.</p>
+      </div>
+      <div><h5>Products</h5><ul>
+        <li><a href="/pages/products/competitor-intel-report/">Competitor Intelligence</a></li>
+        <li><a href="/pages/services/">Intelligence Reports</a></li>
+        <li><a href="/pages/services/">Marketing Systems</a></li>
+        <li><a href="/pages/services/">Strategy Sessions</a></li>
+      </ul></div>
+      <div><h5>Company</h5><ul>
+        <li><a href="/pages/about/">About</a></li>
+        <li><a href="/pages/results/">Results</a></li>
+        <li><a href="/pages/how-it-works/">How it works</a></li>
+        <li><a href="/pages/contact/">Contact</a></li>
+      </ul></div>
+      <div><h5>Resources</h5><ul>
+        <li><a href="/pages/blog/">Blog</a></li>
+        <li><a href="/strategy/">Free strategy tool</a></li>
+        <li><a href="/pages/faq/">FAQ</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="c">© 2026 Bare Bayside Labs. All rights reserved.</div>
+      <div class="c">Marketing systems that run without you.</div>
+    </div>
+  </div>
+</footer>
 
-<script src="../../../js/main.js"></script>
+<script>
+if(location.search.indexOf('still')>-1){
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+}else{
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+}
+</script>
 </body>
 </html>
