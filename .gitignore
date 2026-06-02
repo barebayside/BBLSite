@@ -1,0 +1,10 @@
+# Internal docs — never publish
+REDESIGN.md
+CONTEXT.md
+
+# Working / preview scratch
+preview/
+
+# Test + raw source assets (not for the live site)
+assets/images/_test/
+assets/videos/*.raw.mp4
