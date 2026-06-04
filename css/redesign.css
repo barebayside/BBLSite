@@ -1120,3 +1120,16 @@ h2.display{font-size:clamp(40px,5.5vw,82px)}
   .pdp-layout{padding-left:18px;padding-right:18px}
   .pdp-proof{grid-template-columns:1fr 1fr;gap:12px}
 }
+
+/* === category section sidebar (2026-06-04) === */
+.catwrap{display:grid;grid-template-columns:minmax(0,1fr) 256px;gap:clamp(32px,4vw,56px);align-items:start}
+.catwrap .catgroup{scroll-margin-top:100px}
+.catwrap .catgroup+.catgroup{margin-top:clamp(40px,5vw,64px)}
+.catwrap .blog-sec-h{text-align:left;margin-bottom:24px}
+.catwrap .blog-sec-h h2{font-size:clamp(24px,3vw,33px)}
+.catwrap .bgrid{grid-template-columns:repeat(2,1fr)}
+.cat-aside{position:sticky;top:100px;align-self:start}
+.cat-aside .aside-h{margin-bottom:10px}
+@media(max-width:1024px){.catwrap{grid-template-columns:1fr}.cat-aside{display:none}}
+@media(max-width:640px){.catwrap .bgrid{grid-template-columns:1fr}}
+/* === end category section sidebar === */

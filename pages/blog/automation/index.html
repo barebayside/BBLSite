@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/redesign.css?v=35">
+  <link rel="stylesheet" href="/css/redesign.css?v=36">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -73,8 +73,11 @@
 <!-- ARTICLE GRID -->
 <section class="blog-sec">
   <div class="wrap">
-    <div class="blog-sec-h"><h2>CRM basics</h2></div>
-    <div class="bgrid">
+    <div class="catwrap" style="--accent:#0E9C6E">
+      <div class="cat-main">
+        <section id="sub-1" class="catgroup">
+          <div class="blog-sec-h"><h2>CRM basics</h2></div>
+          <div class="bgrid">
 <a href="/pages/blog/do-you-need-a-crm/" class="bcard reveal" style="--accent:#0E9C6E">
         <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-do-you-need-a-crm.jpg" alt="CRM contact card with glowing connection nodes">
@@ -119,9 +122,11 @@
           <span class="bcard-more">Read more →</span>
         </div>
       </a>
-    </div>
-    <div class="blog-sec-h"><h2>Follow-up & nurture</h2></div>
-    <div class="bgrid">
+          </div>
+        </section>
+        <section id="sub-2" class="catgroup">
+          <div class="blog-sec-h"><h2>Follow-up &amp; nurture</h2></div>
+          <div class="bgrid">
 <a href="/pages/blog/email-nurture-sequence-that-converts/" class="bcard reveal" style="--accent:#0E9C6E">
         <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-email-nurture-sequence-that-converts.jpg" alt="Email envelope on emerald lab background">
@@ -152,9 +157,11 @@
           <span class="bcard-more">Read more →</span>
         </div>
       </a>
-    </div>
-    <div class="blog-sec-h"><h2>Lead capture & tracking</h2></div>
-    <div class="bgrid">
+          </div>
+        </section>
+        <section id="sub-3" class="catgroup">
+          <div class="blog-sec-h"><h2>Lead capture &amp; tracking</h2></div>
+          <div class="bgrid">
 <a href="/pages/blog/how-to-track-lead-sources/" class="bcard reveal" style="--accent:#0E9C6E">
         <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-how-to-track-lead-sources.jpg" alt="UTM tracking pipeline routing leads to their sources">
@@ -170,9 +177,11 @@
           <span class="bcard-more">Read more →</span>
         </div>
       </a>
-    </div>
-    <div class="blog-sec-h"><h2>Workflows & retention</h2></div>
-    <div class="bgrid">
+          </div>
+        </section>
+        <section id="sub-4" class="catgroup">
+          <div class="blog-sec-h"><h2>Workflows &amp; retention</h2></div>
+          <div class="bgrid">
 <a href="/pages/blog/3-automations-every-local-business-needs/" class="bcard reveal" style="--accent:#0E9C6E">
         <div class="bcard-thumb">
           <img src="/assets/images/blog/blog-3-automations-every-local-business-needs.jpg" alt="Three glowing emerald automation gears stacked">
@@ -188,9 +197,25 @@
           <span class="bcard-more">Read more →</span>
         </div>
       </a>
+          </div>
+        </section>
+      </div>
+      <aside class="cat-aside">
+        <div class="article-toc">
+          <div class="aside-h">Sections</div>
+          <a href="#sub-1">CRM basics</a>
+          <a href="#sub-2">Follow-up &amp; nurture</a>
+          <a href="#sub-3">Lead capture &amp; tracking</a>
+          <a href="#sub-4">Workflows &amp; retention</a>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
+
+<script>/* catspy */
+(function(){var nav=[].slice.call(document.querySelectorAll(".cat-aside .article-toc a"));if(!nav.length)return;var map={};nav.forEach(function(a){map[a.getAttribute("href").slice(1)]=a});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){nav.forEach(function(a){a.classList.remove("active")});var a=map[e.target.id];if(a)a.classList.add("active")}})},{rootMargin:"-40% 0px -55% 0px"});document.querySelectorAll(".catgroup").forEach(function(g){io.observe(g)});})();
+</script>
 
 <!-- CTA -->
 <section class="blog-sec">
