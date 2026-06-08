@@ -338,6 +338,11 @@ if(location.search.indexOf('still')>-1){
   .snap-title{font-family:'Bebas Neue',sans-serif;letter-spacing:.03em;text-transform:uppercase;font-size:27px;margin:0 0 3px;color:var(--ink)}
   .snap-sub{color:var(--ink2);font-size:14px;margin:0 0 18px}
   .snap-fld{width:100%;padding:13px 16px;border-radius:10px;border:1px solid var(--line);background:var(--white);color:var(--ink);font-size:15px;margin-bottom:10px;font-family:inherit}
+  /* Google Places element — match the form fields (closed shadow DOM, styled via ::part) */
+  gmp-place-autocomplete{width:100%;display:block;font-family:inherit}
+  gmp-place-autocomplete::part(input),
+  gmp-place-autocomplete::part(input-container){background:var(--white);color:var(--ink)}
+  gmp-place-autocomplete::part(input){width:100%;padding:13px 16px;border-radius:10px;border:1px solid var(--line);font-size:15px;font-family:inherit}
   .snap-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:6px}
   .snap-back{background:transparent;border:1px solid var(--line);color:var(--ink);cursor:pointer;padding:13px 18px;border-radius:10px;font-family:inherit;font-size:15px}
   body.snap-locked{overflow:hidden}
@@ -385,11 +390,14 @@ if(location.search.indexOf('still')>-1){
         <h3 class="snap-title">Your online presence</h3>
         <p class="snap-sub">So we look in the right places.</p>
         <input type="text" name="website" placeholder="Your website or main page (Google/Facebook)" required autocomplete="url" class="snap-fld">
-        <!-- Location: Google Places autocomplete mounts into #area-ac-wrap; #area-plain is the graceful fallback. The chosen value lands in the hidden name="area". -->
-        <div id="area-ac-wrap" class="snap-fld" style="padding:0;border:none;background:transparent;margin-bottom:10px;display:none"></div>
-        <input type="text" id="area-plain" placeholder="Your city, area, or region" autocomplete="address-level2" class="snap-fld">
+        <!-- Location: label + guidance, Google Places autocomplete (#area-ac-wrap), plain fallback (#area-plain), and a worldwide toggle. Chosen value lands in hidden name="area". -->
+        <label style="display:block;font-weight:600;font-size:14px;color:var(--ink);margin-bottom:3px">Where do you operate?</label>
+        <p style="font-size:13px;color:var(--ink2);margin:0 0 8px;line-height:1.45">Start typing and pick from the list — your suburb, city, state, or whole country, whichever matches where you serve customers. Operate everywhere? Tick "worldwide" below.</p>
+        <div id="area-ac-wrap" class="snap-fld" style="padding:0;border:none;background:transparent;margin-bottom:8px;display:none"></div>
+        <input type="text" id="area-plain" placeholder="e.g. Perth WA — or your city, region, or country" autocomplete="address-level2" class="snap-fld" style="margin-bottom:8px">
+        <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink);cursor:pointer;margin-bottom:10px"><input type="checkbox" id="area-global"> We operate worldwide / online — no single location</label>
         <input type="hidden" name="area">
-        <span id="area-err" style="display:none;color:#C0392B;font-size:13px;margin:-4px 0 8px">Please pick your location from the list.</span>
+        <span id="area-err" style="display:none;color:#C0392B;font-size:13px;margin:-4px 0 8px">Please pick your location from the list, or tick "worldwide".</span>
         <select name="primary_platform" autocomplete="off" class="snap-fld">
           <option value="" disabled selected>Where are you most active online? (optional)</option>
           <option value="Instagram">Instagram</option>
@@ -573,6 +581,23 @@ if(location.search.indexOf('still')>-1){
       const ae = document.getElementById('area-err'); if (ae) ae.style.display = 'none';
     });
   }
+  // Worldwide / no-single-location toggle
+  const areaGlobal = document.getElementById('area-global');
+  if (areaGlobal && areaHidden) {
+    areaGlobal.addEventListener('change', function () {
+      const ae = document.getElementById('area-err');
+      if (areaGlobal.checked) {
+        areaHidden.value = 'Worldwide / Global';
+        if (areaWrap) areaWrap.style.display = 'none';
+        if (areaPlain) areaPlain.style.display = 'none';
+        if (ae) ae.style.display = 'none';
+      } else {
+        areaHidden.value = '';
+        if (window.__bblAreaAC && areaWrap) areaWrap.style.display = 'block';
+        else if (areaPlain) areaPlain.style.display = 'block';
+      }
+    });
+  }
   window.__bblInitArea = async function () {
     try {
       const { PlaceAutocompleteElement } = await google.maps.importLibrary('places');
@@ -580,6 +605,7 @@ if(location.search.indexOf('still')>-1){
       ac.style.width = '100%';
       areaWrap.appendChild(ac);
       areaWrap.style.display = 'block';
+      window.__bblAreaAC = true;                              // autocomplete is live
       if (areaPlain) { areaPlain.style.display = 'none'; }   // component is primary; hide the fallback
       ac.addEventListener('gmp-select', async function (ev) {
         const place = ev.placePrediction.toPlace();
