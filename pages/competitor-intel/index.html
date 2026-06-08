@@ -427,7 +427,7 @@ if(location.search.indexOf('still')>-1){
           <button type="button" class="snap-back" data-back="2">← Back</button>
           <button type="submit" class="btn btn-accent" style="border:none;cursor:pointer;padding:14px 22px">SEND ME MY FREE SNAPSHOT</button>
         </div>
-        <p data-form-error style="color:#C0392B;font-size:13px;margin-top:12px;display:none">Something went wrong. Please try again or email <a href="mailto:edward@barebaysidelabs.com" style="color:#C0392B;text-decoration:underline">edward@barebaysidelabs.com</a>.</p>
+        <p data-form-error style="color:#C0392B;font-size:13px;margin-top:12px;display:none">Something went wrong. Please try again or email <a href="mailto:service@barebaysidelabs.com" style="color:#C0392B;text-decoration:underline">service@barebaysidelabs.com</a>.</p>
       </div>
 
       <!-- routing constants + lead-magnet identity -->
@@ -570,7 +570,7 @@ if(location.search.indexOf('still')>-1){
     const webhookUrl = form.dataset.webhookUrl;
     if (!webhookUrl || webhookUrl === 'REPLACE_WITH_ZOHO_FLOW_WEBHOOK_URL') {
       console.warn('[free-snapshot] Webhook URL not configured. Form payload:', data);
-      if (errEl) { errEl.textContent = 'Form is not yet wired to backend. Please email edward@barebaysidelabs.com.'; errEl.style.display = 'block'; }
+      if (errEl) { errEl.textContent = 'Form is not yet wired to backend. Please email service@barebaysidelabs.com.'; errEl.style.display = 'block'; }
       if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'SEND ME MY FREE SNAPSHOT'; }
       return;
     }
