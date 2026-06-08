@@ -385,7 +385,11 @@ if(location.search.indexOf('still')>-1){
         <h3 class="snap-title">Your online presence</h3>
         <p class="snap-sub">So we look in the right places.</p>
         <input type="text" name="website" placeholder="Your website or main page (Google/Facebook)" required autocomplete="url" class="snap-fld">
-        <input type="text" name="area" placeholder="Your city, area, or region" required autocomplete="address-level2" class="snap-fld">
+        <!-- Location: Google Places autocomplete mounts into #area-ac-wrap; #area-plain is the graceful fallback. The chosen value lands in the hidden name="area". -->
+        <div id="area-ac-wrap" class="snap-fld" style="padding:0;border:none;background:transparent;margin-bottom:10px;display:none"></div>
+        <input type="text" id="area-plain" placeholder="Your city, area, or region" autocomplete="address-level2" class="snap-fld">
+        <input type="hidden" name="area">
+        <span id="area-err" style="display:none;color:#C0392B;font-size:13px;margin:-4px 0 8px">Please pick your location from the list.</span>
         <select name="primary_platform" autocomplete="off" class="snap-fld">
           <option value="" disabled selected>Where are you most active online? (optional)</option>
           <option value="Instagram">Instagram</option>
@@ -508,8 +512,19 @@ if(location.search.indexOf('still')>-1){
     if (first) setTimeout(function () { try { first.focus(); } catch (e) {} }, 60);
   }
   function stepValid(n) {
-    const fields = form.querySelectorAll('.snap-step[data-step="' + n + '"] input, .snap-step[data-step="' + n + '"] select');
+    const fields = form.querySelectorAll('.snap-step[data-step="' + n + '"] input:not([type=hidden]), .snap-step[data-step="' + n + '"] select');
     for (const f of fields) { if (!f.checkValidity()) { f.reportValidity(); return false; } }
+    if (n === 2) {
+      const areaEl = form.querySelector('input[name="area"]');
+      const areaErr = document.getElementById('area-err');
+      if (!areaEl || !(areaEl.value || '').trim()) {
+        if (areaErr) areaErr.style.display = 'block';
+        const plain = document.getElementById('area-plain');
+        if (plain && plain.style.display !== 'none') plain.focus();
+        return false;
+      }
+      if (areaErr) areaErr.style.display = 'none';
+    }
     return true;
   }
   function openModal() {
@@ -545,6 +560,41 @@ if(location.search.indexOf('still')>-1){
   form.querySelectorAll('.snap-back').forEach(function (b) {
     b.addEventListener('click', function () { showStep(Number(this.dataset.back)); });
   });
+
+  // ---- Location field: Google Places autocomplete (graceful fallback to plain text) ----
+  var GOOGLE_MAPS_KEY = 'AIzaSyBKjHoqYFSgawEhVSBkZ5r6d5HMkdQ426A'; // Google Maps Platform — domain-restricted (see docs/reference/api-keys.md)
+  const areaHidden = form.querySelector('input[name="area"]');
+  const areaPlain  = document.getElementById('area-plain');
+  const areaWrap   = document.getElementById('area-ac-wrap');
+  // Fallback path: typing in the plain box fills the hidden area value directly.
+  if (areaPlain && areaHidden) {
+    areaPlain.addEventListener('input', function () {
+      areaHidden.value = areaPlain.value.trim();
+      const ae = document.getElementById('area-err'); if (ae) ae.style.display = 'none';
+    });
+  }
+  window.__bblInitArea = async function () {
+    try {
+      const { PlaceAutocompleteElement } = await google.maps.importLibrary('places');
+      const ac = new PlaceAutocompleteElement();
+      ac.style.width = '100%';
+      areaWrap.appendChild(ac);
+      areaWrap.style.display = 'block';
+      if (areaPlain) { areaPlain.style.display = 'none'; }   // component is primary; hide the fallback
+      ac.addEventListener('gmp-select', async function (ev) {
+        const place = ev.placePrediction.toPlace();
+        await place.fetchFields({ fields: ['formattedAddress'] });
+        if (areaHidden) areaHidden.value = place.formattedAddress || '';
+        const ae = document.getElementById('area-err'); if (ae) ae.style.display = 'none';
+      });
+    } catch (e) { console.warn('[area] Places init failed; using plain input.', e); }
+  };
+  if (GOOGLE_MAPS_KEY && GOOGLE_MAPS_KEY !== 'GOOGLE_MAPS_API_KEY') {
+    const gs = document.createElement('script');
+    gs.src = 'https://maps.googleapis.com/maps/api/js?key=' + GOOGLE_MAPS_KEY + '&loading=async&callback=__bblInitArea';
+    gs.async = true;
+    document.head.appendChild(gs);
+  }
 
   form.addEventListener('submit', async function (ev) {
     ev.preventDefault();
