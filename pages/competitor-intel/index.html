@@ -253,32 +253,8 @@
         <div class="bb-cad">1 rival · no card required</div>
       </div>
 
-      <form id="free-snapshot-form" data-webhook-url="REPLACE_WITH_ZOHO_FLOW_WEBHOOK_URL" novalidate style="margin-top:6px">
-        <input type="text" name="business_name" placeholder="Your business name" required autocomplete="organization" style="width:100%;padding:13px 16px;border-radius:10px;border:1px solid var(--line);background:var(--white);color:var(--ink);font-size:15px;margin-bottom:10px;font-family:inherit">
-        <input type="text" name="service_type" placeholder="What you do (e.g. dog daycare)" required style="width:100%;padding:13px 16px;border-radius:10px;border:1px solid var(--line);background:var(--white);color:var(--ink);font-size:15px;margin-bottom:10px;font-family:inherit">
-        <input type="text" name="area" placeholder="Your city, area, or region" required autocomplete="address-level2" style="width:100%;padding:13px 16px;border-radius:10px;border:1px solid var(--line);background:var(--white);color:var(--ink);font-size:15px;margin-bottom:10px;font-family:inherit">
-        <input type="email" name="email" placeholder="Your email" required autocomplete="email" style="width:100%;padding:13px 16px;border-radius:10px;border:1px solid var(--line);background:var(--white);color:var(--ink);font-size:15px;margin-bottom:14px;font-family:inherit">
-        <!-- Honeypot: real users won't fill this; bots will. Hidden offscreen, not display:none (some bots skip those). -->
-        <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-        <!-- Tracking — populated by inline script below from URL params, sessionStorage, document.referrer, location.href. -->
-        <input type="hidden" name="utm_source">
-        <input type="hidden" name="utm_medium">
-        <input type="hidden" name="utm_campaign">
-        <input type="hidden" name="utm_content">
-        <input type="hidden" name="utm_term">
-        <input type="hidden" name="gclid">
-        <input type="hidden" name="fbclid">
-        <input type="hidden" name="msclkid">
-        <input type="hidden" name="referrer">
-        <input type="hidden" name="landing_page">
-        <input type="hidden" name="outbound_campaign_code">
-        <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;padding:15px;border:none;cursor:pointer">SEND ME MY FREE SNAPSHOT</button>
-        <p data-form-error style="color:#C0392B;font-size:13px;margin-top:12px;display:none">Something went wrong. Please try again or email <a href="mailto:edward@barebaysidelabs.com" style="color:#C0392B;text-decoration:underline">edward@barebaysidelabs.com</a>.</p>
-      </form>
-      <div id="free-snapshot-success" style="display:none;padding:22px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:var(--r-md);text-align:center">
-        <h4 style="margin-bottom:8px;font-family:'Bebas Neue',sans-serif;letter-spacing:.03em;text-transform:uppercase;color:var(--accent)">Got it.</h4>
-        <p style="color:var(--ink2);font-size:14px;margin:0">We'll email your snapshot within 24–48 hours. Check your inbox (and spam, just in case).</p>
-      </div>
+      <button type="button" id="open-snapshot" class="btn btn-accent" style="width:100%;justify-content:center;padding:16px;border:none;cursor:pointer;font-size:16px;margin-top:6px">Get my free snapshot →</button>
+      <p style="text-align:center;color:var(--ink2);font-size:13px;margin:12px 0 0">Takes ~2 minutes · 1 rival scored · no card</p>
 
       <div class="pdp-trust">No spam · no card · 24–48 hrs</div>
     </div>
@@ -345,6 +321,141 @@ if(location.search.indexOf('still')>-1){
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 }
 </script>
+<!-- ============ FREE SNAPSHOT MODAL (3-step) ============ -->
+<style>
+  .snap-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+  .snap-modal.is-open{display:flex}
+  .snap-modal__backdrop{position:absolute;inset:0;background:rgba(12,16,22,.55);backdrop-filter:blur(3px)}
+  .snap-modal__card{position:relative;z-index:1;background:var(--white);border-radius:var(--r-md,16px);max-width:480px;width:100%;max-height:92vh;overflow-y:auto;padding:30px 26px 26px;box-shadow:0 30px 90px rgba(0,0,0,.4)}
+  .snap-modal__x{position:absolute;top:10px;right:12px;width:36px;height:36px;border:none;background:transparent;font-size:26px;line-height:1;color:var(--ink2);cursor:pointer;border-radius:8px}
+  .snap-modal__x:hover{background:rgba(0,0,0,.05)}
+  .snap-ind{display:flex;gap:8px;justify-content:center;margin-bottom:22px}
+  .snap-dot{width:32px;height:5px;border-radius:3px;background:var(--line);transition:background .2s}
+  .snap-dot.is-active{background:var(--accent)}
+  .snap-step{display:none}
+  .snap-step.is-active{display:block;animation:snapIn .25s ease}
+  @keyframes snapIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .snap-title{font-family:'Bebas Neue',sans-serif;letter-spacing:.03em;text-transform:uppercase;font-size:27px;margin:0 0 3px;color:var(--ink)}
+  .snap-sub{color:var(--ink2);font-size:14px;margin:0 0 18px}
+  .snap-fld{width:100%;padding:13px 16px;border-radius:10px;border:1px solid var(--line);background:var(--white);color:var(--ink);font-size:15px;margin-bottom:10px;font-family:inherit}
+  .snap-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:6px}
+  .snap-back{background:transparent;border:1px solid var(--line);color:var(--ink);cursor:pointer;padding:13px 18px;border-radius:10px;font-family:inherit;font-size:15px}
+  body.snap-locked{overflow:hidden}
+  @media(max-width:520px){.snap-modal__card{padding:26px 18px 20px;border-radius:14px}}
+</style>
+<div id="snapshot-modal" class="snap-modal" aria-hidden="true">
+  <div class="snap-modal__backdrop" data-snap-close></div>
+  <div class="snap-modal__card" role="dialog" aria-modal="true" aria-labelledby="snap-title-1">
+    <button type="button" class="snap-modal__x" data-snap-close aria-label="Close">&times;</button>
+
+    <form id="free-snapshot-form" data-webhook-url="REPLACE_WITH_ZOHO_FLOW_WEBHOOK_URL" novalidate>
+      <div class="snap-ind">
+        <span class="snap-dot is-active" data-dot="1"></span>
+        <span class="snap-dot" data-dot="2"></span>
+        <span class="snap-dot" data-dot="3"></span>
+      </div>
+
+      <!-- STEP 1 — About your business -->
+      <div class="snap-step is-active" data-step="1">
+        <h3 class="snap-title" id="snap-title-1">About your business</h3>
+        <p class="snap-sub">The basics, so we know who we're scoring.</p>
+        <div style="display:flex;gap:10px">
+          <input type="text" name="first_name" placeholder="First name" required autocomplete="given-name" class="snap-fld" style="flex:1;min-width:0">
+          <input type="text" name="last_name" placeholder="Last name" required autocomplete="family-name" class="snap-fld" style="flex:1;min-width:0">
+        </div>
+        <input type="text" name="business_name" placeholder="Your business name" required autocomplete="organization" class="snap-fld">
+        <input type="text" name="service_type" placeholder="What you do (e.g. dog daycare)" required class="snap-fld">
+        <select name="subcategory" required class="snap-fld">
+          <option value="" disabled selected>What type of business are you?</option>
+          <option value="Local service business — plumber, café, daycare, clinic">Local service (plumber, café, daycare, clinic…)</option>
+          <option value="Online service or SaaS — software, consulting, courses sold remotely">Online service / SaaS / consulting</option>
+          <option value="E-commerce — DTC, Shopify, Etsy, Amazon, physical product brand">E-commerce / physical product brand</option>
+          <option value="Personal brand or creator — YouTube, TikTok, IG, podcast, Substack">Personal brand / creator</option>
+          <option value="Political campaign — candidate, party branch, issue or referendum">Political campaign</option>
+          <option value="Cause / Not-for-profit — charity, NGO, advocacy, community group">Cause / Not-for-profit</option>
+        </select>
+        <div class="snap-nav">
+          <span></span>
+          <button type="button" class="btn btn-accent snap-next" data-next="2" style="border:none;cursor:pointer;padding:13px 22px">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 — Your online presence -->
+      <div class="snap-step" data-step="2">
+        <h3 class="snap-title">Your online presence</h3>
+        <p class="snap-sub">So we look in the right places.</p>
+        <input type="text" name="website" placeholder="Your website or main page (Google/Facebook)" required autocomplete="url" class="snap-fld">
+        <input type="text" name="area" placeholder="Your city, area, or region" required autocomplete="address-level2" class="snap-fld">
+        <select name="primary_platform" autocomplete="off" class="snap-fld">
+          <option value="" disabled selected>Where are you most active online? (optional)</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Facebook">Facebook</option>
+          <option value="TikTok">TikTok</option>
+          <option value="YouTube">YouTube</option>
+          <option value="LinkedIn">LinkedIn</option>
+          <option value="X (Twitter)">X (Twitter)</option>
+          <option value="Twitch">Twitch</option>
+          <option value="Substack">Substack</option>
+          <option value="Podcast">Podcast</option>
+          <option value="Other">Other</option>
+        </select>
+        <div style="margin-bottom:10px">
+          <div style="font-size:13px;color:var(--ink2);margin-bottom:7px">Anywhere else you're active? (optional)</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px 14px">
+            <label style="font-size:14px;color:var(--ink);display:inline-flex;align-items:center;gap:5px;cursor:pointer"><input type="checkbox" name="other_platforms" value="Instagram"> Instagram</label>
+            <label style="font-size:14px;color:var(--ink);display:inline-flex;align-items:center;gap:5px;cursor:pointer"><input type="checkbox" name="other_platforms" value="Facebook"> Facebook</label>
+            <label style="font-size:14px;color:var(--ink);display:inline-flex;align-items:center;gap:5px;cursor:pointer"><input type="checkbox" name="other_platforms" value="TikTok"> TikTok</label>
+            <label style="font-size:14px;color:var(--ink);display:inline-flex;align-items:center;gap:5px;cursor:pointer"><input type="checkbox" name="other_platforms" value="YouTube"> YouTube</label>
+            <label style="font-size:14px;color:var(--ink);display:inline-flex;align-items:center;gap:5px;cursor:pointer"><input type="checkbox" name="other_platforms" value="LinkedIn"> LinkedIn</label>
+            <label style="font-size:14px;color:var(--ink);display:inline-flex;align-items:center;gap:5px;cursor:pointer"><input type="checkbox" name="other_platforms" value="X (Twitter)"> X (Twitter)</label>
+            <label style="font-size:14px;color:var(--ink);display:inline-flex;align-items:center;gap:5px;cursor:pointer"><input type="checkbox" name="other_platforms" value="Other"> Other</label>
+          </div>
+        </div>
+        <div class="snap-nav">
+          <button type="button" class="snap-back" data-back="1">← Back</button>
+          <button type="button" class="btn btn-accent snap-next" data-next="3" style="border:none;cursor:pointer;padding:13px 22px">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 — Who to compare -->
+      <div class="snap-step" data-step="3">
+        <h3 class="snap-title">Who to compare</h3>
+        <p class="snap-sub">Name a rival, or we'll pick your closest one.</p>
+        <input type="text" name="competitor" placeholder="One competitor (optional)" autocomplete="off" class="snap-fld">
+        <input type="email" name="email" placeholder="Your email" required autocomplete="email" class="snap-fld" style="margin-bottom:14px">
+        <div class="snap-nav">
+          <button type="button" class="snap-back" data-back="2">← Back</button>
+          <button type="submit" class="btn btn-accent" style="border:none;cursor:pointer;padding:14px 22px">SEND ME MY FREE SNAPSHOT</button>
+        </div>
+        <p data-form-error style="color:#C0392B;font-size:13px;margin-top:12px;display:none">Something went wrong. Please try again or email <a href="mailto:edward@barebaysidelabs.com" style="color:#C0392B;text-decoration:underline">edward@barebaysidelabs.com</a>.</p>
+      </div>
+
+      <!-- routing constants + lead-magnet identity -->
+      <input type="hidden" name="product_interest" value="Competitor Intelligence (COMP)">
+      <input type="hidden" name="lead_origin" value="Inbound">
+      <input type="hidden" name="lead_magnet" value="Competitor Snapshot">
+      <input type="hidden" name="lead_magnet_version" value="1.0">
+      <!-- tracking — populated by the script below -->
+      <input type="hidden" name="utm_source">
+      <input type="hidden" name="utm_medium">
+      <input type="hidden" name="utm_campaign">
+      <input type="hidden" name="utm_content">
+      <input type="hidden" name="utm_term">
+      <input type="hidden" name="gclid">
+      <input type="hidden" name="fbclid">
+      <input type="hidden" name="msclkid">
+      <input type="hidden" name="referrer">
+      <input type="hidden" name="landing_page">
+    </form>
+
+    <div id="free-snapshot-success" style="display:none;padding:26px 22px;text-align:center">
+      <h4 style="margin-bottom:8px;font-family:'Bebas Neue',sans-serif;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);font-size:28px">Got it.</h4>
+      <p style="color:var(--ink2);font-size:14px;margin:0 0 18px">We'll email your snapshot within 24–48 hours. Check your inbox (and spam, just in case).</p>
+      <button type="button" class="btn" data-snap-close style="border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;padding:11px 22px">Close</button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* Free Snapshot form — UTM/GCLID capture + Zoho Flow webhook submit.
    Pairs with the Zoho Flow `inbound-snapshot-request` per docs/pipelines/outbound-snapshot-batch.md § 6.
@@ -353,7 +464,12 @@ if(location.search.indexOf('still')>-1){
   const form = document.getElementById('free-snapshot-form');
   if (!form) return;
 
-  const TRACKING_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','msclkid','outbound_campaign_code'];
+  // Bot speed-trap: record when the form became available; we send elapsed seconds at submit.
+  // Bots submit in under a second; humans take several. The Flow rejects fill_seconds < 3.
+  // `let` (not const) — reset when the modal opens, so the trap measures real fill time.
+  let formRenderedAt = Date.now();
+
+  const TRACKING_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','msclkid'];
   const STORAGE_KEY = 'bbl_tracking';
 
   // 1. Read URL params, persist tracking keys to sessionStorage so they survive cross-page nav within the visit.
@@ -380,6 +496,56 @@ if(location.search.indexOf('still')>-1){
   const errEl = form.querySelector('[data-form-error]');
   const successEl = document.getElementById('free-snapshot-success');
 
+  // ---- Modal + 3-step navigation ----
+  const modal = document.getElementById('snapshot-modal');
+  const steps = Array.from(form.querySelectorAll('.snap-step'));
+  const dots  = Array.from(form.querySelectorAll('.snap-dot'));
+
+  function showStep(n) {
+    steps.forEach(s => s.classList.toggle('is-active', s.dataset.step === String(n)));
+    dots.forEach(d => d.classList.toggle('is-active', Number(d.dataset.dot) <= n));
+    const first = form.querySelector('.snap-step.is-active input:not([type=checkbox]), .snap-step.is-active select');
+    if (first) setTimeout(function () { try { first.focus(); } catch (e) {} }, 60);
+  }
+  function stepValid(n) {
+    const fields = form.querySelectorAll('.snap-step[data-step="' + n + '"] input, .snap-step[data-step="' + n + '"] select');
+    for (const f of fields) { if (!f.checkValidity()) { f.reportValidity(); return false; } }
+    return true;
+  }
+  function openModal() {
+    if (!modal) return;
+    form.style.display = '';                 // reset if a previous submit hid it
+    if (successEl) successEl.style.display = 'none';
+    formRenderedAt = Date.now();             // reset speed-trap to real fill time
+    showStep(1);
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('snap-locked');
+  }
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('snap-locked');
+  }
+
+  // Open from the buybox button and any "free snapshot" link (nav, hero, mobile menu).
+  document.querySelectorAll('#open-snapshot, a[href="#snapshot"], a[href$="#snapshot"]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+  });
+  if (window.location.hash === '#snapshot') openModal();
+  if (modal) modal.querySelectorAll('[data-snap-close]').forEach(function (el) { el.addEventListener('click', closeModal); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) closeModal(); });
+  form.querySelectorAll('.snap-next').forEach(function (b) {
+    b.addEventListener('click', function () {
+      const cur = Number(this.closest('.snap-step').dataset.step);
+      if (stepValid(cur)) showStep(Number(this.dataset.next));
+    });
+  });
+  form.querySelectorAll('.snap-back').forEach(function (b) {
+    b.addEventListener('click', function () { showStep(Number(this.dataset.back)); });
+  });
+
   form.addEventListener('submit', async function (ev) {
     ev.preventDefault();
     if (errEl) errEl.style.display = 'none';
@@ -395,7 +561,11 @@ if(location.search.indexOf('still')>-1){
 
     const data = {};
     new FormData(form).forEach((v, k) => { data[k] = v; });
+    // Multi-select: collect ALL checked "other_platforms" into one comma string
+    // (FormData's forEach overwrites, so it would otherwise keep only the last tick).
+    data.other_platforms = Array.from(form.querySelectorAll('input[name="other_platforms"]:checked')).map(el => el.value).join(',');
     data.submitted_at = new Date().toISOString();
+    data.fill_seconds = Math.round((Date.now() - formRenderedAt) / 1000); // bot speed-trap (Flow rejects < 3)
 
     const webhookUrl = form.dataset.webhookUrl;
     if (!webhookUrl || webhookUrl === 'REPLACE_WITH_ZOHO_FLOW_WEBHOOK_URL') {
