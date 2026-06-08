@@ -343,6 +343,9 @@ if(location.search.indexOf('still')>-1){
   gmp-place-autocomplete::part(input),
   gmp-place-autocomplete::part(input-container){background:var(--white);color:var(--ink)}
   gmp-place-autocomplete::part(input){width:100%;padding:13px 16px;border-radius:10px;border:1px solid var(--line);font-size:15px;font-family:inherit}
+  .area-chip{display:inline-flex;align-items:center;gap:7px;background:var(--accent-tint,rgba(14,156,110,.10));color:var(--ink);border:1px solid var(--accent-line,rgba(14,156,110,.30));border-radius:20px;padding:5px 6px 5px 13px;font-size:13px}
+  .area-chip button{border:none;background:rgba(0,0,0,.08);color:var(--ink);border-radius:50%;width:18px;height:18px;line-height:1;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;padding:0}
+  .area-chip button:hover{background:rgba(0,0,0,.18)}
   .snap-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:6px}
   .snap-back{background:transparent;border:1px solid var(--line);color:var(--ink);cursor:pointer;padding:13px 18px;border-radius:10px;font-family:inherit;font-size:15px}
   body.snap-locked{overflow:hidden}
@@ -392,12 +395,13 @@ if(location.search.indexOf('still')>-1){
         <input type="text" name="website" placeholder="Your website or main page (Google/Facebook)" required autocomplete="url" class="snap-fld">
         <!-- Location: label + guidance, Google Places autocomplete (#area-ac-wrap), plain fallback (#area-plain), and a worldwide toggle. Chosen value lands in hidden name="area". -->
         <label style="display:block;font-weight:600;font-size:14px;color:var(--ink);margin-bottom:3px">Where do you operate?</label>
-        <p style="font-size:13px;color:var(--ink2);margin:0 0 8px;line-height:1.45">Start typing and pick from the list — your suburb, city, state, or whole country, whichever matches where you serve customers. Operate everywhere? Tick "worldwide" below.</p>
+        <p style="font-size:13px;color:var(--ink2);margin:0 0 8px;line-height:1.45">Start typing and pick from the list — suburb, city, state, or country, whichever fits. <b>Serve several areas or countries?</b> Add as many as you like. Operate everywhere? Tick "worldwide" below.</p>
         <div id="area-ac-wrap" class="snap-fld" style="padding:0;border:none;background:transparent;margin-bottom:8px;display:none"></div>
+        <div id="area-chips" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"></div>
         <input type="text" id="area-plain" placeholder="e.g. Perth WA — or your city, region, or country" autocomplete="address-level2" class="snap-fld" style="margin-bottom:8px">
         <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink);cursor:pointer;margin-bottom:10px"><input type="checkbox" id="area-global"> We operate worldwide / online — no single location</label>
         <input type="hidden" name="area">
-        <span id="area-err" style="display:none;color:#C0392B;font-size:13px;margin:-4px 0 8px">Please pick your location from the list, or tick "worldwide".</span>
+        <span id="area-err" style="display:none;color:#C0392B;font-size:13px;margin:-4px 0 8px">Please add at least one location, or tick "worldwide".</span>
         <select name="primary_platform" autocomplete="off" class="snap-fld">
           <option value="" disabled selected>Where are you most active online? (optional)</option>
           <option value="Instagram">Instagram</option>
@@ -575,24 +579,46 @@ if(location.search.indexOf('still')>-1){
   const areaPlain  = document.getElementById('area-plain');
   const areaWrap   = document.getElementById('area-ac-wrap');
   // Fallback path: typing in the plain box fills the hidden area value directly.
+  // Location holds MULTIPLE places as chips. Hidden name="area" = "Loc A; Loc B; ...".
+  var __bblPlaces = [];
+  function __bblSyncArea() {
+    if (areaHidden) areaHidden.value = __bblPlaces.join('; ');
+    var ae = document.getElementById('area-err'); if (ae && areaHidden && areaHidden.value) ae.style.display = 'none';
+  }
+  function __bblRenderChips() {
+    var chipsEl = document.getElementById('area-chips'); if (!chipsEl) return;
+    chipsEl.innerHTML = '';
+    __bblPlaces.forEach(function (loc, i) {
+      var chip = document.createElement('span'); chip.className = 'area-chip'; chip.textContent = loc;
+      var x = document.createElement('button'); x.type = 'button'; x.textContent = '×'; x.setAttribute('aria-label', 'Remove ' + loc);
+      x.addEventListener('click', function () { __bblPlaces.splice(i, 1); __bblRenderChips(); __bblSyncArea(); });
+      chip.appendChild(x); chipsEl.appendChild(chip);
+    });
+  }
+  window.__bblAreaClear = function () { __bblPlaces = []; __bblRenderChips(); __bblSyncArea(); };
+  // Plain fallback (Google didn't load): typed text fills area directly.
   if (areaPlain && areaHidden) {
     areaPlain.addEventListener('input', function () {
       areaHidden.value = areaPlain.value.trim();
-      const ae = document.getElementById('area-err'); if (ae) ae.style.display = 'none';
+      var ae = document.getElementById('area-err'); if (ae) ae.style.display = 'none';
     });
   }
   // Worldwide / no-single-location toggle
   const areaGlobal = document.getElementById('area-global');
   if (areaGlobal && areaHidden) {
     areaGlobal.addEventListener('change', function () {
-      const ae = document.getElementById('area-err');
+      var ae = document.getElementById('area-err');
+      var chipsEl = document.getElementById('area-chips');
       if (areaGlobal.checked) {
+        if (window.__bblAreaClear) window.__bblAreaClear();
         areaHidden.value = 'Worldwide / Global';
         if (areaWrap) areaWrap.style.display = 'none';
         if (areaPlain) areaPlain.style.display = 'none';
+        if (chipsEl) chipsEl.style.display = 'none';
         if (ae) ae.style.display = 'none';
       } else {
         areaHidden.value = '';
+        if (chipsEl) chipsEl.style.display = 'flex';
         if (window.__bblAreaAC && areaWrap) areaWrap.style.display = 'block';
         else if (areaPlain) areaPlain.style.display = 'block';
       }
@@ -600,19 +626,25 @@ if(location.search.indexOf('still')>-1){
   }
   window.__bblInitArea = async function () {
     try {
-      const { PlaceAutocompleteElement } = await google.maps.importLibrary('places');
-      const ac = new PlaceAutocompleteElement();
-      ac.style.width = '100%';
-      areaWrap.appendChild(ac);
+      const lib = await google.maps.importLibrary('places');
+      const PlaceAutocompleteElement = lib.PlaceAutocompleteElement;
+      window.__bblAreaAC = true;
+      if (areaPlain) areaPlain.style.display = 'none';
       areaWrap.style.display = 'block';
-      window.__bblAreaAC = true;                              // autocomplete is live
-      if (areaPlain) { areaPlain.style.display = 'none'; }   // component is primary; hide the fallback
-      ac.addEventListener('gmp-select', async function (ev) {
-        const place = ev.placePrediction.toPlace();
-        await place.fetchFields({ fields: ['formattedAddress'] });
-        if (areaHidden) areaHidden.value = place.formattedAddress || '';
-        const ae = document.getElementById('area-err'); if (ae) ae.style.display = 'none';
-      });
+      function mountAC() {
+        areaWrap.innerHTML = '';
+        var ac = new PlaceAutocompleteElement();
+        ac.style.width = '100%';
+        areaWrap.appendChild(ac);
+        ac.addEventListener('gmp-select', async function (ev) {
+          var place = ev.placePrediction.toPlace();
+          await place.fetchFields({ fields: ['formattedAddress'] });
+          var val = place.formattedAddress || '';
+          if (val && __bblPlaces.indexOf(val) === -1) { __bblPlaces.push(val); __bblRenderChips(); __bblSyncArea(); }
+          mountAC(); // clear the box for the next location
+        });
+      }
+      mountAC();
     } catch (e) { console.warn('[area] Places init failed; using plain input.', e); }
   };
   if (GOOGLE_MAPS_KEY && GOOGLE_MAPS_KEY !== 'GOOGLE_MAPS_API_KEY') {
