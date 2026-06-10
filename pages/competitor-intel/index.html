@@ -356,7 +356,7 @@ if(location.search.indexOf('still')>-1){
   <div class="snap-modal__card" role="dialog" aria-modal="true" aria-labelledby="snap-title-1">
     <button type="button" class="snap-modal__x" data-snap-close aria-label="Close">&times;</button>
 
-    <form id="free-snapshot-form" data-webhook-url="REPLACE_WITH_ZOHO_FLOW_WEBHOOK_URL" novalidate>
+    <form id="free-snapshot-form" data-webhook-url="https://flow.zoho.com.au/7000442673/flow/webhook/incoming?zapikey=1001.14e72b41a88dff9cd239c9841f13ebdc.29d9f57bcf42a65ba63b29da90d25e44&isdebug=false" novalidate>
       <div class="snap-ind">
         <span class="snap-dot is-active" data-dot="1"></span>
         <span class="snap-dot" data-dot="2"></span>
@@ -686,15 +686,19 @@ if(location.search.indexOf('still')>-1){
     }
 
     try {
-      const res = await fetch(webhookUrl, {
+      // Fire-and-forget. Zoho's apikey webhook sends no CORS headers, so a normal
+      // JSON fetch is blocked by the browser. text/plain + no-cors skips the preflight;
+      // the raw body still arrives and the Flow function's .toMap() reads it. The response
+      // is opaque (status 0, unreadable by design), so a resolved fetch = success.
+      await fetch(webhookUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error('Webhook returned ' + res.status);
 
       // Success: swap form for success state. Honeypot-tripped requests still
-      // return 200 from the Flow (silent reject), so a 200 here always shows success.
+      // return silently from the Flow, so a resolved fetch always shows success.
       form.style.display = 'none';
       if (successEl) successEl.style.display = 'block';
 
