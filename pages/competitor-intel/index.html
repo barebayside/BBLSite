@@ -9,6 +9,10 @@
   <title>Free Competitor Snapshot — See Where You Stand | Bare Bayside Labs</title>
   <meta name="description" content="Name one competitor and your suburb. We score the channels you can act on first and email you a plain-English snapshot — free, no card. A taste of the full Competitor Intelligence Report.">
   <link rel="canonical" href="https://barebaysidelabs.com/pages/competitor-intel/">
+  <!-- BBL asset registry code for this page (PageSense test/variant names must match this). -->
+  <meta name="bbl-asset-code" content="BBL-AWR-COMP-1.0A_WEB_LP">
+  <!-- Stamps LP_Asset_Code + LP_Variant into the form → CRM Lead (page/variant attribution). -->
+  <script defer src="/js/bbl-attribution.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -462,6 +466,9 @@ if(location.search.indexOf('still')>-1){
       <input type="hidden" name="gclid">
       <input type="hidden" name="fbclid">
       <input type="hidden" name="msclkid">
+      <!-- Page + A/B variant attribution — populated by /js/bbl-attribution.js from the bbl-asset-code meta tag. -->
+      <input type="hidden" name="LP_Asset_Code">
+      <input type="hidden" name="LP_Variant">
       <input type="hidden" name="referrer">
       <input type="hidden" name="landing_page">
     </form>
