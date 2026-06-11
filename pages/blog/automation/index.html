@@ -27,6 +27,17 @@
   <meta name="twitter:title" content="Automation &amp; Zoho Guides — Bare Bayside Labs Blog">
   <meta name="twitter:description" content="CRM setup, email automation, follow-up systems, and workflow guides for small business. Practical Zoho how-tos from Bare Bayside Labs.">
   <meta name="twitter:image" content="https://barebaysidelabs.com/assets/images/og-default.jpg">
+  <style>
+  /* category boxes -> swap-view */
+  .catgroup{display:none}
+  .catgroup.show{display:block}
+  .cat-boxes.hide{display:none}
+  .subback{display:none;align-items:center;gap:9px;background:none;border:0;cursor:pointer;
+    font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:26px;padding:0}
+  .subback.show{display:inline-flex}
+  .subback .ar{font-size:16px;line-height:1}
+  </style>
 </head>
 <body>
 <div class="grain"></div>
@@ -73,8 +84,39 @@
 <!-- ARTICLE GRID -->
 <section class="blog-sec">
   <div class="wrap">
-    <div class="catwrap" style="--accent:#0E9C6E">
+    <div class="catwrap" style="--accent:#0E9C6E;display:block">
       <div class="cat-main">
+        <div class="bcats cat-boxes">
+      <a href="#sub-1" class="bcat" style="--accent:#0E9C6E">
+        <img src="/assets/images/blog/blog-what-a-crm-costs.jpg" alt="">
+        <div class="bcat-count">4</div>
+        <div class="bcat-name">CRM basics</div>
+        <p class="bcat-desc">Do you need one — and how to set it up properly.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      <a href="#sub-2" class="bcat" style="--accent:#0E9C6E">
+        <img src="/assets/images/blog/blog-marketing-automation-small-business.jpg" alt="">
+        <div class="bcat-count">6</div>
+        <div class="bcat-name">Follow-up &amp; nurture</div>
+        <p class="bcat-desc">Sequences that chase every lead for you.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      <a href="#sub-3" class="bcat" style="--accent:#0E9C6E">
+        <img src="/assets/images/blog/blog-how-to-set-up-utm-tracking.jpg" alt="">
+        <div class="bcat-count">3</div>
+        <div class="bcat-name">Lead capture &amp; tracking</div>
+        <p class="bcat-desc">Catch every enquiry and see where it came from.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      <a href="#sub-4" class="bcat" style="--accent:#0E9C6E">
+        <img src="/assets/images/blog/blog-marketing-automation-vs-agency.jpg" alt="">
+        <div class="bcat-count">4</div>
+        <div class="bcat-name">Workflows &amp; retention</div>
+        <p class="bcat-desc">Automate the admin and keep customers coming back.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      </div>
+        <button class="subback" type="button"><span class="ar">←</span> All Automation</button>
         <section id="sub-1" class="catgroup">
           <div class="blog-sec-h"><h2>CRM basics</h2></div>
           <div class="bgrid">
@@ -350,22 +392,9 @@
           </div>
         </section>
       </div>
-      <aside class="cat-aside">
-        <div class="article-toc">
-          <div class="aside-h">Sections</div>
-          <a href="#sub-1">CRM basics</a>
-          <a href="#sub-2">Follow-up &amp; nurture</a>
-          <a href="#sub-3">Lead capture &amp; tracking</a>
-          <a href="#sub-4">Workflows &amp; retention</a>
-        </div>
-      </aside>
     </div>
   </div>
 </section>
-
-<script>/* catspy */
-(function(){var nav=[].slice.call(document.querySelectorAll(".cat-aside .article-toc a"));if(!nav.length)return;var map={};nav.forEach(function(a){map[a.getAttribute("href").slice(1)]=a});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){nav.forEach(function(a){a.classList.remove("active")});var a=map[e.target.id];if(a)a.classList.add("active")}})},{rootMargin:"-40% 0px -55% 0px"});document.querySelectorAll(".catgroup").forEach(function(g){io.observe(g)});})();
-</script>
 
 <!-- CTA -->
 <section class="blog-sec">
@@ -419,6 +448,32 @@ if(location.search.indexOf('still')>-1){
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 }
+</script>
+<script>/* category swap-view */
+(function(){
+  var boxes=document.querySelector('.cat-boxes');
+  if(!boxes)return;
+  var groups=[].slice.call(document.querySelectorAll('.catgroup'));
+  var back=document.querySelector('.subback');
+  function open(id){
+    var hit=false;
+    groups.forEach(function(g){var on=g.id===id;g.classList.toggle('show',on);
+      if(on){hit=true;g.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});}});
+    if(!hit){return close();}
+    boxes.classList.add('hide');back.classList.add('show');window.scrollTo(0,0);
+  }
+  function close(){
+    groups.forEach(function(g){g.classList.remove('show')});
+    boxes.classList.remove('hide');back.classList.remove('show');
+    if(location.hash)history.replaceState(null,'',location.pathname);
+  }
+  boxes.querySelectorAll('.bcat').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();var id=a.getAttribute('href').slice(1);
+      history.replaceState(null,'','#'+id);open(id);});
+  });
+  if(back)back.addEventListener('click',function(e){e.preventDefault();close();});
+  if(location.hash)open(location.hash.slice(1));
+})();
 </script>
 </body>
 </html>

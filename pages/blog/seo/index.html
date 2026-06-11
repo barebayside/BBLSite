@@ -27,6 +27,17 @@
   <meta name="twitter:title" content="SEO &amp; Search Visibility — Bare Bayside Labs Blog">
   <meta name="twitter:description" content="Local SEO, Google rankings, and getting found by customers searching for your services. From Bare Bayside Labs.">
   <meta name="twitter:image" content="https://barebaysidelabs.com/assets/images/blog/cat-seo.jpg">
+  <style>
+  /* category boxes -> swap-view */
+  .catgroup{display:none}
+  .catgroup.show{display:block}
+  .cat-boxes.hide{display:none}
+  .subback{display:none;align-items:center;gap:9px;background:none;border:0;cursor:pointer;
+    font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:26px;padding:0}
+  .subback.show{display:inline-flex}
+  .subback .ar{font-size:16px;line-height:1}
+  </style>
 </head>
 <body>
 <div class="grain"></div>
@@ -75,8 +86,32 @@
 <!-- ARTICLE GRID -->
 <section class="blog-sec">
   <div class="wrap">
-    <div class="catwrap" style="--accent:#D6890C">
+    <div class="catwrap" style="--accent:#D6890C;display:block">
       <div class="cat-main">
+        <div class="bcats cat-boxes">
+      <a href="#sub-1" class="bcat" style="--accent:#D6890C">
+        <img src="/assets/images/blog/blog-how-google-ranks-local-businesses.jpg" alt="">
+        <div class="bcat-count">5</div>
+        <div class="bcat-name">Local SEO &amp; Google Business Profile</div>
+        <p class="bcat-desc">Show up in the map pack and 'near me' searches.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      <a href="#sub-2" class="bcat" style="--accent:#D6890C">
+        <img src="/assets/images/blog/blog-what-is-schema-markup.jpg" alt="">
+        <div class="bcat-count">5</div>
+        <div class="bcat-name">Website &amp; location pages</div>
+        <p class="bcat-desc">On-page and location pages that actually rank.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      <a href="#sub-3" class="bcat" style="--accent:#D6890C">
+        <img src="/assets/images/blog/blog-how-to-show-up-in-ai-search.jpg" alt="">
+        <div class="bcat-count">5</div>
+        <div class="bcat-name">AI search (getting cited)</div>
+        <p class="bcat-desc">Get named by ChatGPT, Google AI and Perplexity.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      </div>
+        <button class="subback" type="button"><span class="ar">←</span> All Seo</button>
         <section id="sub-1" class="catgroup">
           <div class="blog-sec-h"><h2>Local SEO &amp; Google Business Profile</h2></div>
           <div class="bgrid">
@@ -318,21 +353,9 @@
           </div>
         </section>
       </div>
-      <aside class="cat-aside">
-        <div class="article-toc">
-          <div class="aside-h">Sections</div>
-          <a href="#sub-1">Local SEO &amp; Google Business Profile</a>
-          <a href="#sub-2">Website &amp; location pages</a>
-          <a href="#sub-3">AI search (getting cited)</a>
-        </div>
-      </aside>
     </div>
   </div>
 </section>
-
-<script>/* catspy */
-(function(){var nav=[].slice.call(document.querySelectorAll(".cat-aside .article-toc a"));if(!nav.length)return;var map={};nav.forEach(function(a){map[a.getAttribute("href").slice(1)]=a});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){nav.forEach(function(a){a.classList.remove("active")});var a=map[e.target.id];if(a)a.classList.add("active")}})},{rootMargin:"-40% 0px -55% 0px"});document.querySelectorAll(".catgroup").forEach(function(g){io.observe(g)});})();
-</script>
 
 <!-- CTA -->
 <section class="blog-sec">
@@ -386,6 +409,32 @@ if(location.search.indexOf('still')>-1){
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 }
+</script>
+<script>/* category swap-view */
+(function(){
+  var boxes=document.querySelector('.cat-boxes');
+  if(!boxes)return;
+  var groups=[].slice.call(document.querySelectorAll('.catgroup'));
+  var back=document.querySelector('.subback');
+  function open(id){
+    var hit=false;
+    groups.forEach(function(g){var on=g.id===id;g.classList.toggle('show',on);
+      if(on){hit=true;g.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});}});
+    if(!hit){return close();}
+    boxes.classList.add('hide');back.classList.add('show');window.scrollTo(0,0);
+  }
+  function close(){
+    groups.forEach(function(g){g.classList.remove('show')});
+    boxes.classList.remove('hide');back.classList.remove('show');
+    if(location.hash)history.replaceState(null,'',location.pathname);
+  }
+  boxes.querySelectorAll('.bcat').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();var id=a.getAttribute('href').slice(1);
+      history.replaceState(null,'','#'+id);open(id);});
+  });
+  if(back)back.addEventListener('click',function(e){e.preventDefault();close();});
+  if(location.hash)open(location.hash.slice(1));
+})();
 </script>
 </body>
 </html>

@@ -27,6 +27,17 @@
   <meta name="twitter:title" content="Local Business Marketing — Bare Bayside Labs Blog">
   <meta name="twitter:description" content="Ad strategies, Google reviews, and the marketing channels that work for tradies and service businesses. From Bare Bayside Labs.">
   <meta name="twitter:image" content="https://barebaysidelabs.com/assets/images/blog/cat-local-marketing.jpg">
+  <style>
+  /* category boxes -> swap-view */
+  .catgroup{display:none}
+  .catgroup.show{display:block}
+  .cat-boxes.hide{display:none}
+  .subback{display:none;align-items:center;gap:9px;background:none;border:0;cursor:pointer;
+    font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:26px;padding:0}
+  .subback.show{display:inline-flex}
+  .subback .ar{font-size:16px;line-height:1}
+  </style>
 </head>
 <body>
 <div class="grain"></div>
@@ -73,8 +84,46 @@
 <!-- ARTICLE GRID -->
 <section class="blog-sec">
   <div class="wrap">
-    <div class="catwrap" style="--accent:#2563EB">
+    <div class="catwrap" style="--accent:#2563EB;display:block">
       <div class="cat-main">
+        <div class="bcats cat-boxes">
+      <a href="#sub-1" class="bcat" style="--accent:#2563EB">
+        <img src="/assets/images/blog/blog-get-more-referrals-without-being-pushy.jpg" alt="">
+        <div class="bcat-count">5</div>
+        <div class="bcat-name">Getting started &amp; strategy</div>
+        <p class="bcat-desc">Where to start and which channels are worth it.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      <a href="#sub-2" class="bcat" style="--accent:#2563EB">
+        <img src="/assets/images/blog/blog-google-reviews.jpg" alt="">
+        <div class="bcat-count">5</div>
+        <div class="bcat-name">Reviews &amp; reputation</div>
+        <p class="bcat-desc">Get more reviews — and use them well.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      <a href="#sub-3" class="bcat" style="--accent:#2563EB">
+        <img src="/assets/images/blog/blog-facebook-ads-vs-google-ads-local-business.jpg" alt="">
+        <div class="bcat-count">5</div>
+        <div class="bcat-name">Paid ads</div>
+        <p class="bcat-desc">Google and Meta ads that pay for themselves.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      <a href="#sub-4" class="bcat" style="--accent:#2563EB">
+        <img src="/assets/images/blog/blog-social-media-local-business.jpg" alt="">
+        <div class="bcat-count">4</div>
+        <div class="bcat-name">Social media &amp; content</div>
+        <p class="bcat-desc">Simple organic posting and video that works.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      <a href="#sub-5" class="bcat" style="--accent:#2563EB">
+        <img src="/assets/images/blog/blog-service-into-product-page.jpg" alt="">
+        <div class="bcat-count">3</div>
+        <div class="bcat-name">Offer, pricing &amp; booking</div>
+        <p class="bcat-desc">Turn interest into booked jobs.</p>
+        <span class="bcat-link">View articles →</span>
+      </a>
+      </div>
+        <button class="subback" type="button"><span class="ar">←</span> All Local Marketing</button>
         <section id="sub-1" class="catgroup">
           <div class="blog-sec-h"><h2>Getting started &amp; strategy</h2></div>
           <div class="bgrid">
@@ -430,23 +479,9 @@
           </div>
         </section>
       </div>
-      <aside class="cat-aside">
-        <div class="article-toc">
-          <div class="aside-h">Sections</div>
-          <a href="#sub-1">Getting started &amp; strategy</a>
-          <a href="#sub-2">Reviews &amp; reputation</a>
-          <a href="#sub-3">Paid ads</a>
-          <a href="#sub-4">Social media &amp; content</a>
-          <a href="#sub-5">Offer, pricing &amp; booking</a>
-        </div>
-      </aside>
     </div>
   </div>
 </section>
-
-<script>/* catspy */
-(function(){var nav=[].slice.call(document.querySelectorAll(".cat-aside .article-toc a"));if(!nav.length)return;var map={};nav.forEach(function(a){map[a.getAttribute("href").slice(1)]=a});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){nav.forEach(function(a){a.classList.remove("active")});var a=map[e.target.id];if(a)a.classList.add("active")}})},{rootMargin:"-40% 0px -55% 0px"});document.querySelectorAll(".catgroup").forEach(function(g){io.observe(g)});})();
-</script>
 
 <!-- CTA -->
 <section class="blog-sec">
@@ -500,6 +535,32 @@ if(location.search.indexOf('still')>-1){
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 }
+</script>
+<script>/* category swap-view */
+(function(){
+  var boxes=document.querySelector('.cat-boxes');
+  if(!boxes)return;
+  var groups=[].slice.call(document.querySelectorAll('.catgroup'));
+  var back=document.querySelector('.subback');
+  function open(id){
+    var hit=false;
+    groups.forEach(function(g){var on=g.id===id;g.classList.toggle('show',on);
+      if(on){hit=true;g.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});}});
+    if(!hit){return close();}
+    boxes.classList.add('hide');back.classList.add('show');window.scrollTo(0,0);
+  }
+  function close(){
+    groups.forEach(function(g){g.classList.remove('show')});
+    boxes.classList.remove('hide');back.classList.remove('show');
+    if(location.hash)history.replaceState(null,'',location.pathname);
+  }
+  boxes.querySelectorAll('.bcat').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();var id=a.getAttribute('href').slice(1);
+      history.replaceState(null,'','#'+id);open(id);});
+  });
+  if(back)back.addEventListener('click',function(e){e.preventDefault();close();});
+  if(location.hash)open(location.hash.slice(1));
+})();
 </script>
 </body>
 </html>
