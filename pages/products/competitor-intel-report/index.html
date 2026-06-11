@@ -444,8 +444,13 @@
       </div>
 
       <div class="pdp-stripe" data-product="BBL_COMPINTEL_FULL">
-        <div class="ph-k">Stripe checkout embed</div>
-        <div class="ph-hint">Card, expiry, CVC, "Order my report" button</div>
+        <!-- Real buy button. bbl-checkout-ref.js appends ?client_reference_id=<page code> to this
+             link on click, so the purchase carries the landing-page/variant into the Deal.
+             TEST link — swap data-stripe + href to the LIVE buy.stripe.com link before launch. -->
+        <a class="bbl-buy btn btn-primary"
+           href="https://buy.stripe.com/test_cNi14ngANev29tZ9Svasg01"
+           data-stripe="https://buy.stripe.com/test_cNi14ngANev29tZ9Svasg01"
+           style="width:100%;justify-content:center;border:none;text-decoration:none">Order my report — A$747</a>
       </div>
 
       <div class="pdp-trust">
