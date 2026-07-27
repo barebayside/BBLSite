@@ -59,8 +59,9 @@
   function buildAssetCode(baseCode, variant) {
     if (!variant) return baseCode;
     // Insert variant into the code at the variant slot.
-    // Format: {STAGE}-{PRODUCT}-{seq}.{ver}{VARIANT}_{PLATFORM}_{FORMAT}
-    // If the base already has an uppercase variant (e.g. AWR-COMP-1.0A_WEB_LP),
+    // Format: {BUSINESS_LINE}-{STAGE}-{PRODUCT}-{seq}.{ver}{VARIANT}_{PLATFORM}_{FORMAT}
+    // (Regex targets the seq.ver+variant slot, so the brand prefix is safe.)
+    // If the base already has an uppercase variant (e.g. BBL-AWR-COMP-1.0A_WEB_LP),
     // override it with the test variant. Variant is UPPERCASE.
     return baseCode.replace(/(\d+\.\d+)[A-Z]?(_)/, '$1' + variant + '$2');
   }
