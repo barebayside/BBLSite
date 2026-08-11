@@ -286,7 +286,7 @@
 
           <div class="ik-field">
             <label class="ik-label" id="ik-loc-label">Define your region below<span class="req">*</span></label>
-            <p class="ik-help" id="ik-loc-help">Type a suburb, city, region, or country and press <b>Enter</b> to add it (or pick from the suggestions). Serve several areas? Add as many as you like.</p>
+            <p class="ik-help" id="ik-loc-help">Start typing a suburb, city, region or country and <b>pick it from the suggestions</b>. Serve several areas? Add as many as you like.</p>
             <div id="ik-area-ac" style="margin-bottom:8px;display:none"></div>
             <div id="ik-area-chips" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"></div>
             <input type="text" id="ik-area-plain" class="ik-input" placeholder="Type a suburb / city and press Enter">
@@ -650,14 +650,22 @@
   window.__ikInitPlaces = function () {
     google.maps.importLibrary('places').then(function (lib) {
       var PAE = lib.PlaceAutocompleteElement;
-      // Keep the manual box visible too — it's the reliable fallback if the
-      // autocomplete returns nothing (e.g. unauthorised domain during local testing).
+      // The manual box is the FALLBACK, not a second way in. Two inputs doing the
+      // same job read as "which one do I use?", and the plain one accepts anything
+      // ("sf", "the city") into the field that decides what gets scraped. So it is
+      // hidden the moment the autocomplete is actually on the page — and only then.
+      // It stays visible by default and is restored in .catch below, because if
+      // Places never loads (ad-blocker, shields, quota, unauthorised domain) the
+      // autocomplete never renders, and this is a REQUIRED field on a page a
+      // customer has already paid to reach.
       if (areaWrap) areaWrap.style.display = 'block';
       function mount() {
         areaWrap.innerHTML = '';
         var ac = new PAE();
         ac.style.width = '100%';
         areaWrap.appendChild(ac);
+        // Hide only after the element is really in the DOM.
+        if (areaPlain) areaPlain.style.display = 'none';
         ac.addEventListener('gmp-select', function (ev) {
           var place = ev.placePrediction.toPlace();
           place.fetchFields({ fields: ['formattedAddress'] }).then(function () {
@@ -668,7 +676,13 @@
         });
       }
       mount();
-    }).catch(function (e) { console.warn('[intake] Places init failed; using plain input.', e); });
+    }).catch(function (e) {
+      // Places failed — put the manual box back, or there is no way to answer a
+      // required question.
+      if (areaPlain) areaPlain.style.display = '';
+      if (areaWrap) areaWrap.style.display = 'none';
+      console.warn('[intake] Places init failed; using plain input.', e);
+    });
   };
   // Skip Google Places on localhost / file:// — the key is domain-locked to the
   // live site, so it returns nothing here. Locally you get the clean manual box.
