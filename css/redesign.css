@@ -545,6 +545,144 @@ h2.display{font-size:clamp(40px,5.5vw,82px)}
 .pdp-proof .pn{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4.4vw,52px);line-height:.85;color:var(--accent)}
 .pdp-proof .pl{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:9px;line-height:1.35}
 
+/* testimonials. .is-empty is the UNFILLED state and is deliberately ugly —
+   a slot must never be mistakable for a real quote. Remove the class (and the
+   .slot-tag span) when a real, attributable testimonial goes in. */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:30px 0 18px}
+.tcard{margin:0;padding:22px 24px;background:var(--white);border:1px solid var(--line2);border-radius:16px;
+  box-shadow:0 1px 2px rgba(14,22,38,.04),0 14px 32px -24px rgba(14,22,38,.28)}
+.tstars{display:flex;gap:3px;margin-bottom:12px}
+.tstars svg{width:16px;height:16px;fill:#F2A33B}
+.tquote{margin:0;font-family:'Fraunces',Georgia,serif;font-size:17px;line-height:1.5;color:var(--ink)}
+.tattr{margin-top:14px;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.tcard.is-empty{background:repeating-linear-gradient(45deg,#FFFBF3,#FFFBF3 9px,#FEF6E7 9px,#FEF6E7 18px);
+  border:1.5px dashed #E3A93C;box-shadow:none}
+.tcard.is-empty .tstars svg{fill:#E6D9BE}
+.tcard.is-empty .tquote{font-family:inherit;font-size:14px;color:#8A7A5E}
+.tcard.is-empty .slot-tag{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:#B07A16;margin-bottom:7px}
+.tcard.is-empty .tattr{color:#B08A4A}
+@media(max-width:860px){.tgrid{grid-template-columns:1fr}}
+
+/* PROBLEM band, light variant — the dark rules live on .problem (not .band-dark),
+   so every one of them has to be flipped back or it renders white-on-white. */
+/* PROBLEM band — the BBL lab loop (violet flasks, gold orbital rings) behind the
+   band. Generated from templates.yml `band-loop-light`, which is the established
+   `services-bubble-rise-loop` prompt with only the palette swapped. The clip is
+   deep navy (#080c14), so the band is DARK and the text is light — same treatment
+   as the services and how-it-works loops. */
+.problem-video{position:relative;overflow:hidden;isolation:isolate;background:#080C14;color:#EAF1FB}
+.problem-video .pv-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  z-index:0;pointer-events:none}
+/* Light global veil only — enough to seat the footage, not enough to hide the
+   rising smoke and bubbles. Legibility is handled locally by .copy's own panel
+   below, NOT by drowning the whole clip. */
+.problem-video::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(100deg,rgba(8,12,20,.62) 0%,rgba(8,12,20,.44) 42%,
+             rgba(8,12,20,.16) 72%,rgba(8,12,20,.06) 100%)}
+.problem-video>.wrap{position:relative;z-index:2}
+/* the text carries its own contrasting panel, so the background can stay bright */
+.problem-video .copy{position:relative;display:inline-block;padding:26px 30px 28px;
+  border-radius:20px;background:rgba(6,10,18,.72);border:1px solid rgba(255,255,255,.10);
+  backdrop-filter:blur(14px) saturate(120%);-webkit-backdrop-filter:blur(14px) saturate(120%)}
+.problem-video .copy h2,
+.problem-video .copy h2 .ev{color:#fff}
+.problem-video .eyebrow.gold{color:#F5C86B;background:rgba(245,200,107,.12);border-color:rgba(245,200,107,.34)}
+.problem-video .lead{color:#B9C4D8;max-width:680px}
+.problem-video .problem{gap:26px}
+.problem-video .fear-grid{margin-top:6px}
+/* glass cards over the footage, not white blocks punched out of it */
+.problem-video .fear-card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:none}
+.problem-video .fear-card:hover{background:rgba(255,255,255,.10);border-color:rgba(245,200,107,.45);
+  box-shadow:0 22px 44px -24px rgba(0,0,0,.7)}
+.problem-video .fear-card .t{color:#EDE6F7}
+.problem-video .fear-card .t b{color:#F5C86B}
+.problem-video .fear-card .fi{background:rgba(245,200,107,.14);color:#F5C86B}
+
+/* Data saver + accessibility: poster only, no video bytes. */
+@media (prefers-reduced-motion:reduce),(max-width:760px){
+  .problem-video .pv-media{display:none}
+  .problem-video{background:#080C14 url("/assets/images/lab/band-loop-poster.jpg") center/cover no-repeat}
+}
+
+/* fear cards — 2x2, white, staggered zoom-in */
+.fear-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+.fear-card{display:flex;gap:14px;align-items:flex-start;padding:20px 22px;background:var(--white);
+  border:1px solid var(--line2);border-radius:16px;
+  box-shadow:0 1px 2px rgba(14,22,38,.04),0 12px 28px -18px rgba(14,22,38,.20);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
+.fear-card:hover{transform:translateY(-3px);border-color:rgba(192,57,43,.32);
+  box-shadow:0 1px 2px rgba(14,22,38,.05),0 22px 44px -20px rgba(192,57,43,.30)}
+.fear-card .fi{flex-shrink:0;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+  background:rgba(192,57,43,.08);color:#C0392B;font-family:'DM Mono',monospace;font-size:11px}
+.fear-card .t{font-size:16px;line-height:1.55;color:var(--ink)}
+.fear-card .t b{color:#C0392B;font-weight:600}
+@media(max-width:760px){.fear-grid{grid-template-columns:1fr}}
+
+/* real report contact sheet — every section, full length, clipped with a fade so
+   the cut-off itself signals there is more below */
+.sheet-stat{text-align:center;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin:22px 0 4px}
+.sheet-stat b{color:var(--ink);font-weight:500}
+.tabsheet{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:16px;margin:22px 0 10px}
+.tabsheet .tabcard{display:block;width:100%;text-align:left;padding:0;border:0;background:none;
+  font:inherit;color:inherit;cursor:zoom-in}
+.tabsheet .tabcard>span{display:block}
+.tabsheet a{display:block;text-decoration:none;color:inherit}
+.tabsheet .tw{position:relative;height:330px;overflow:hidden;border:1px solid var(--line2);border-radius:12px;
+  background:var(--white);box-shadow:0 1px 2px rgba(14,22,38,.04),0 14px 30px -22px rgba(14,22,38,.35);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.tabsheet .tabcard:hover .tw,
+.tabsheet a:hover .tw{transform:translateY(-4px);
+  box-shadow:0 1px 2px rgba(14,22,38,.05),0 26px 48px -22px rgba(14,22,38,.45)}
+.tabsheet .tw img{display:block;width:100%;height:auto}
+.tabsheet .tw::after{content:"";position:absolute;left:0;right:0;bottom:0;height:96px;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(251,250,247,0),rgba(251,250,247,.97))}
+.tabsheet .tl{margin-top:10px;font-size:13px;line-height:1.35;color:var(--ink)}
+.tabsheet .tn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-top:3px}
+@media(max-width:560px){.tabsheet{grid-template-columns:1fr 1fr;gap:12px}.tabsheet .tw{height:250px}}
+
+/* lightbox — the tab images are up to 8,206px tall, so the panel scrolls
+   internally and the close bar stays pinned at the top */
+.lb{position:fixed;inset:0;z-index:9999;background:rgba(8,14,26,.92);display:flex;flex-direction:column}
+.lb[hidden]{display:none}
+.lb-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 20px;background:rgba(8,14,26,.96);border-bottom:1px solid rgba(255,255,255,.12)}
+.lb-name{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C9D5E8}
+.lb-x{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:#0E1626;background:#fff;border:0;border-radius:999px;padding:9px 16px;cursor:pointer}
+.lb-x:hover{background:#E8EDF5}
+.lb-scroll{flex:1 1 auto;overflow:auto;-webkit-overflow-scrolling:touch;padding:22px}
+.lb-scroll img{display:block;max-width:1000px;width:100%;margin:0 auto;border-radius:10px;background:#fff}
+
+/* zoom-in reveal — observed by the same IntersectionObserver as .reveal */
+.pop{opacity:0;transform:scale(.94) translateY(18px);
+  transition:opacity .55s var(--ease),transform .55s cubic-bezier(.2,.85,.3,1)}
+.pop.in{opacity:1;transform:none}
+.pop.p1{transition-delay:.05s}.pop.p2{transition-delay:.13s}
+.pop.p3{transition-delay:.21s}.pop.p4{transition-delay:.29s}
+@media(prefers-reduced-motion:reduce){.pop{opacity:1;transform:none;transition:none}}
+
+/* "What you can't answer right now" strip — replaces the inert stat row under the hero.
+   Four open loops, each tagged with the report section that closes it. */
+.pdp-asks{margin:30px 0}
+.pdp-asks .aks-h{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);text-align:center;margin-bottom:14px}
+.pdp-asks .aks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;background:var(--mist);
+  border:1px solid var(--line2);border-radius:var(--r-md);padding:28px 20px;text-align:center}
+/* flex column + margin-top:auto keeps the section tags on one baseline even when
+   a question wraps to two lines and its neighbour doesn't */
+.pdp-asks .aks-grid>div{display:flex;flex-direction:column}
+.pdp-asks .aq{font-family:'Fraunces',Georgia,serif;font-size:clamp(17px,1.7vw,21px);line-height:1.25;color:var(--ink)}
+.pdp-asks .as{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin-top:auto;padding-top:10px}
+.pdp-asks .aks-foot{text-align:center;margin-top:14px;font-family:'DM Mono',monospace;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+@media(max-width:760px){.pdp-asks .aks-grid{grid-template-columns:1fr 1fr;gap:14px}}
+
 /* media placeholders (light dashed) */
 .ph{border:1.5px dashed var(--line);border-radius:var(--r-md);background:var(--mist);text-align:center;
   display:flex;flex-direction:column;justify-content:center;gap:8px}
@@ -776,6 +914,9 @@ h2.display{font-size:clamp(40px,5.5vw,82px)}
 .article-figure{margin:34px 0 0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
   border-radius:var(--r-lg);padding:10px;box-shadow:0 50px 90px -50px rgba(0,0,0,.6)}
 .article-figure img{border-radius:calc(var(--r-lg) - 10px);width:100%;aspect-ratio:16/7;object-fit:cover;display:block}
+/* In-body figures are DIAGRAMS, not decoration — the 16:7 crop above sliced ~22% off a 16:9
+   diagram (title off the top, last row off the bottom). Heroes keep the letterbox crop. */
+.article-body .article-figure img{aspect-ratio:auto;height:auto;object-fit:contain}
 
 /* ---- two-column reading layout + sticky sidebar TOC ---- */
 .article-wrap{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:clamp(36px,4.5vw,64px);
@@ -833,7 +974,12 @@ h2.display{font-size:clamp(40px,5.5vw,82px)}
 /* DARK contrast block — contained WITHIN the text column (sidebar stays light + sticky) */
 .aband{margin:34px 0}
 .aband.dark{background:var(--navy);color:#EAF1FB;border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);
-  padding:clamp(26px,3.4vw,40px);position:relative;overflow:hidden;box-shadow:0 44px 80px -58px rgba(10,20,36,.55)}
+  padding:clamp(26px,3.4vw,40px);position:relative;box-shadow:0 44px 80px -58px rgba(10,20,36,.55);
+  /* overflow:clip clips WITHOUT making the band a scroll container. With overflow:hidden the
+     browser scrolled the band itself on a TOC anchor jump (the ::before glow overflows the
+     bottom by ~456px, giving it scroll range), which pushed the first section's text out of
+     the top and left dead navy at the bottom. hidden is the pre-Safari-16 fallback. */
+  overflow:hidden;overflow:clip}
 .aband.dark::before{content:"";position:absolute;top:-32%;right:-8%;width:48%;height:172%;border-radius:50%;
   background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent),transparent 64%);pointer-events:none}
 .aband.dark>*{position:relative;z-index:1}
