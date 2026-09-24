@@ -593,7 +593,11 @@ if(location.search.indexOf('still')>-1){
   // Location holds MULTIPLE places as chips. Hidden name="area" = "Loc A; Loc B; ...".
   var __bblPlaces = [];
   function __bblSyncArea() {
-    if (areaHidden) areaHidden.value = __bblPlaces.join('; ');
+    // Picked places (chips) PLUS anything typed in the plain box — the plain box always
+    // works, so a Google outage can never leave someone unable to enter a location.
+    var typedLoc = areaPlain ? areaPlain.value.trim() : '';
+    var all = __bblPlaces.slice(); if (typedLoc && all.indexOf(typedLoc) === -1) all.push(typedLoc);
+    if (areaHidden) areaHidden.value = all.join('; ');
     var ae = document.getElementById('area-err'); if (ae && areaHidden && areaHidden.value) ae.style.display = 'none';
   }
   function __bblRenderChips() {
@@ -610,7 +614,7 @@ if(location.search.indexOf('still')>-1){
   // Plain fallback (Google didn't load): typed text fills area directly.
   if (areaPlain && areaHidden) {
     areaPlain.addEventListener('input', function () {
-      areaHidden.value = areaPlain.value.trim();
+      __bblSyncArea();
       var ae = document.getElementById('area-err'); if (ae) ae.style.display = 'none';
     });
   }
@@ -631,7 +635,7 @@ if(location.search.indexOf('still')>-1){
         areaHidden.value = '';
         if (chipsEl) chipsEl.style.display = 'flex';
         if (window.__bblAreaAC && areaWrap) areaWrap.style.display = 'block';
-        else if (areaPlain) areaPlain.style.display = 'block';
+        if (areaPlain) areaPlain.style.display = 'block';
       }
     });
   }
@@ -640,7 +644,10 @@ if(location.search.indexOf('still')>-1){
       const lib = await google.maps.importLibrary('places');
       const PlaceAutocompleteElement = lib.PlaceAutocompleteElement;
       window.__bblAreaAC = true;
-      if (areaPlain) areaPlain.style.display = 'none';
+      // ⛔ Do NOT hide the plain box. 2026-09-24: Google loaded but refused every
+      // suggestion (403), and with the plain box hidden nobody could enter a location
+      // or submit the form. It stays visible as the always-works path.
+      if (areaPlain) areaPlain.placeholder = 'Not in the list? Type your area here';
       areaWrap.style.display = 'block';
       function mountAC() {
         areaWrap.innerHTML = '';
