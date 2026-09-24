@@ -126,4 +126,4 @@ Focus on enquiries and close rate first. Pipeline coverage becomes useful once y
 
 ---
 
-Want weekly intelligence on what's changing in your market before it hits your revenue? [Signal — $39/mo](/pages/products/signal-bundle/?utm_source=blog&utm_medium=cta&utm_campaign=sales-rollercoaster) tracks competitor ads and local shifts weekly so you spot trouble early. Cancel any time.
+Want weekly intelligence on what's changing in your market before it hits your revenue? Start with a [free competitor snapshot](/pages/competitor-intel/?utm_source=blog&utm_medium=cta&utm_campaign=sales-rollercoaster#free-snapshot) to see where one rival is beating you.

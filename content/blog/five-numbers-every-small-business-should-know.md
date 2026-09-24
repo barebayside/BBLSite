@@ -137,4 +137,4 @@ Win rate. It's the fastest to calculate, the easiest to influence, and the numbe
 
 ---
 
-Want to know exactly which of these numbers you're underperforming on compared to businesses in your category? The [Local Opportunity Report](/pages/products/local-opportunity/?utm_source=blog&utm_medium=cta&utm_campaign=five-numbers) benchmarks you against your market in 48 hours. $47, no sales call.
+Want to know exactly which of these numbers you're underperforming on compared to businesses in your category? Start with a [free competitor snapshot](/pages/competitor-intel/?utm_source=blog&utm_medium=cta&utm_campaign=five-numbers#free-snapshot) — one rival scored across 8 channels, no sales call.
