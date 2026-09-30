@@ -139,26 +139,29 @@
       <div class="reveal d1">
         <div style="background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:clamp(20px,3vw,32px)">
           <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:24px;color:var(--ink)">Send us a message</h3>
-          <form style="display:flex;flex-direction:column;gap:20px">
+          <form id="contact-form" data-webhook-url="https://bbl-pipeline-7006497428.catalystserverless.com.au/server/bbl_lead_capture/" novalidate style="display:flex;flex-direction:column;gap:20px">
+            <!-- Honeypot: people never see it, bots fill it. The function drops any send that has it. -->
+            <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input type="text" name="company_url" tabindex="-1" autocomplete="off"></div>
             <div>
               <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">YOUR NAME</label>
-              <input type="text" placeholder="Full name" style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'">
+              <input type="text" name="full_name" autocomplete="name" required placeholder="Full name" style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'">
             </div>
             <div>
               <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">EMAIL</label>
-              <input type="email" placeholder="you@business.com" style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'">
+              <input type="email" name="email" autocomplete="email" required placeholder="you@business.com" style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'">
             </div>
             <div>
               <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">BUSINESS TYPE</label>
-              <input type="text" placeholder="e.g. Plumber, Physio, Restaurant" style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'">
+              <input type="text" name="service_type" placeholder="e.g. Plumber, Physio, Restaurant" style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'">
             </div>
             <div>
               <label style="display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-transform:uppercase">WHAT DO YOU NEED HELP WITH?</label>
-              <textarea rows="4" placeholder="Tell us what's broken or what you want to build..." style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;resize:vertical;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'"></textarea>
+              <textarea name="message" required rows="4" placeholder="Tell us what's broken or what you want to build..." style="width:100%;background:var(--mist);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;resize:vertical;outline:none;transition:border-color 0.25s" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--line)'"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding-left:26px;border:none">Get my free action plan
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding-left:26px;border:none">Send my message
               <span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </button>
+            <p id="contact-status" role="status" aria-live="polite" style="display:none;margin:0;font-size:15px;line-height:1.5"></p>
             <div class="mono" style="text-align:center;color:var(--muted)">We reply within 24 hours · No obligation · Your data stays private</div>
           </form>
         </div>
@@ -235,6 +238,53 @@ if(location.search.indexOf('still')>-1){
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 }
+</script>
+<script>
+/* Contact form -> Catalyst bbl_lead_capture with form:"contact" (2026-09-30).
+   Lands in CRM as a Lead tagged Source_of_submission = "Contact Form" (the generic journey's entry),
+   emails Edward, and never starts a free snapshot. text/plain keeps it a CORS-"simple" request. */
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var status = document.getElementById('contact-status');
+  var btn = form.querySelector('button[type=submit]');
+  var openedAt = Date.now();
+  var KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','msclkid'];
+  var stored = {};
+  try { stored = JSON.parse(sessionStorage.getItem('bbl_tracking') || '{}') || {}; } catch (e) {}
+  try { var u = new URL(location.href); KEYS.forEach(function (k) { var v = u.searchParams.get(k); if (v) stored[k] = v; });
+        sessionStorage.setItem('bbl_tracking', JSON.stringify(stored)); } catch (e) {}
+  function say(text, ok) {
+    status.textContent = text; status.style.display = 'block';
+    status.style.color = ok ? 'var(--emerald)' : '#b42318';
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = String(v).trim(); });
+    if (!data.full_name || !data.email || data.email.indexOf('@') < 1 || !data.message) {
+      say('Please fill in your name, email and message.', false); return;
+    }
+    KEYS.forEach(function (k) { if (stored[k]) data[k] = stored[k]; });
+    data.form = 'contact';
+    data.page = location.pathname;
+    data.referrer = document.referrer || '';
+    data.fill_seconds = Math.round((Date.now() - openedAt) / 1000);
+    btn.disabled = true; say('Sending…', true);
+    fetch(form.dataset.webhookUrl, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok || j.status !== 'ok') throw new Error(j.message || r.status); return j; }); })
+      .then(function () {
+        form.reset();
+        say("Thanks — it's in. We'll reply within 24 hours.", true);
+        /* PageSense goal "Contact form sent": wait for PageSense's push hook (early pushes are dropped). */
+        (function ps(i){try{var q=window.pagesense=window.pagesense||[];if(q.push!==Array.prototype.push||i>=60){q.push(['trackEvent','contact_form_submitted']);return;}setTimeout(function(){ps(i+1);},250);}catch(e){}})(0);
+      })
+      .catch(function () {
+        btn.disabled = false;
+        say("That didn't send. Please try again, or email service@barebaysidelabs.com.", false);
+      });
+  });
+})();
 </script>
 </body>
 </html>
