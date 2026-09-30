@@ -572,8 +572,8 @@ if(location.search.indexOf('still')>-1){
 
 <!-- PageSense Goal: Landed on Product Page -->
 <script>
-  window.pagesense = window.pagesense || [];
-  window.pagesense.push(['trackEvent', 'Landed on Product Page']);
+  /* PageSense ignores pushes made before its script hooks window.pagesense.push, so wait for the hook (up to 15 s), then push anyway. Same fix as the OOP site 2026-09-22. */
+  (function ps(i){try{var q=window.pagesense=window.pagesense||[];if(q.push!==Array.prototype.push||i>=60){q.push(['trackEvent', 'Landed on Product Page']);return;}setTimeout(function(){ps(i+1);},250);}catch(e){}})(0);
 </script>
 </body>
 </html>
