@@ -8,6 +8,7 @@
      <div data-bbl-signup data-mode="popup"></div> a small card that slides in once the
          visitor has scrolled half the page or stayed 30 s; closing it hides it for 30 days
    Wording comes from data-heading / data-text / data-button, so copy changes need no JS.
+   data-asset-code carries the placement's registered code (e.g. BBL-AWR-GEN-1.0A_WEB_POPUP).
    text/plain keeps the POST a CORS-"simple" request, the same as the Contact page. */
 (function () {
   var ENDPOINT = 'https://bbl-pipeline-7006497428.catalystserverless.com.au/server/bbl_lead_capture/';
@@ -80,6 +81,8 @@
       if (!data.email || data.email.indexOf('@') < 1) { say('Please enter your email.', false); return; }
       KEYS.forEach(function (k) { if (stored[k]) data[k] = stored[k]; });
       data.form = 'signup';
+      // The pop-up's own registered code (docs/registry/marketing-assets/), the join key for the dashboard.
+      if (host.getAttribute('data-asset-code')) data.LP_Asset_Code = host.getAttribute('data-asset-code');
       data.page = location.pathname;
       data.referrer = document.referrer || '';
       data.fill_seconds = Math.round((Date.now() - openedAt) / 1000);
