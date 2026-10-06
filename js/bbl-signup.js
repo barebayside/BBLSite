@@ -126,7 +126,7 @@
         return;
       }
       shown = true;
-      openedAt = Date.now();
+      // The anti-bot clock keeps running from page load: restarting it here made a fast human (or autofill) look like a bot and get silently dropped (live test 2026-10-06).
       requestAnimationFrame(function () { box.classList.add('on'); });
       window.removeEventListener('scroll', onScroll);
     }
