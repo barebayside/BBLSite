@@ -103,9 +103,29 @@
     });
 
     if (!popup) return;
-    var shown = false;
+    var shown = false, waiting = false;
+    // Zoho's cookie banner (#zcb-banner) is a full-width bottom bar on the top layer.
+    // Found by the live test 2026-10-06: it sat over the pop-up's button on a phone.
+    // The cookie choice comes first, so the pop-up waits until the banner is gone.
+    // querySelector, not getElementById: once cookies are accepted PageSense wraps
+    // document.getElementById, and its wrapper threw in the live test. Any error here
+    // counts as "no banner", so the pop-up can never be stuck behind a failing check.
+    function cookieBannerUp() {
+      try {
+        var c = document.querySelector('#zcb-banner');
+        if (!c) return false;
+        var r = c.getBoundingClientRect(), st = getComputedStyle(c);
+        return r.height > 0 && st.display !== 'none' && st.visibility !== 'hidden' && r.top < window.innerHeight;
+      } catch (e) { return false; }
+    }
     function show() {
-      if (shown) return; shown = true;
+      if (shown) return;
+      if (cookieBannerUp()) {
+        if (!waiting) { waiting = true; var t = setInterval(function () {
+          if (!cookieBannerUp()) { clearInterval(t); waiting = false; show(); } }, 1000); }
+        return;
+      }
+      shown = true;
       openedAt = Date.now();
       requestAnimationFrame(function () { box.classList.add('on'); });
       window.removeEventListener('scroll', onScroll);
