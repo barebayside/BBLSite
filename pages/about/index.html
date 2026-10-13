@@ -122,60 +122,54 @@
 <!-- WHO THIS IS FOR -->
 <section class="section tinted" id="who" style="background:var(--mist)">
   <div class="wrap">
-    <span class="eyebrow reveal"><span class="dot"></span>Who this is for</span>
+    <span class="eyebrow plain reveal"><span class="dot"></span>Who this is for</span>
     <h2 class="display reveal d1" style="margin-top:16px;max-width:780px">Four people we built BBL for.</h2>
-    <p class="reveal d2" style="font-size:19px;color:var(--ink2);max-width:640px;margin:14px 0 48px">If you see yourself in any of these four, you're in the right place. If you don't — we'll tell you straight.</p>
+    <p class="reveal d2" style="font-size:19px;color:var(--ink2);max-width:640px;margin:14px 0 40px">If you see yourself in any of these four, you're in the right place. If you don't &mdash; we'll tell you straight.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px" class="reveal">
-      <!-- SEGMENT 1 -->
-      <div style="background:var(--white);border:1px solid var(--line2);border-radius:var(--r-md);padding:32px">
-        <span class="eyebrow blue" style="margin-bottom:14px"><span class="dot"></span>Segment 01</span>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.03em;text-transform:uppercase;color:var(--blue);margin:12px 0 10px">Small Business Owners</h3>
-        <p style="font-size:15px;color:var(--ink2);line-height:1.7;margin-bottom:14px">You're running a team of 1–10 people. You know you need better systems but you don't have the time to research tools, learn software, or build it yourself. You just need someone to make it work.</p>
-        <div style="background:var(--mist);border:1px solid var(--line2);border-radius:10px;padding:14px">
-          <span class="mono">Sounds like you?</span>
-          <p style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">Leads fall through the cracks. Follow-ups are inconsistent. You're tracking everything in your head or a spreadsheet.</p>
-        </div>
+    <style>
+      .who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 64px}
+      .who-item{padding:36px 0 40px;border-top:1px solid var(--line)}
+      @media (max-width:760px){.who-grid{grid-template-columns:1fr}}
+    </style>
+    <div class="who-grid reveal">
+      <!-- SEGMENT 01 -->
+      <div class="who-item" style="--accent:#2563EB;--accent-tint:rgba(37,99,235,.07)">
+        <span class="pm-kicker" style="margin-bottom:12px"><span class="dot"></span>Segment 01</span>
+        <h3 class="pm-title" style="font-size:clamp(28px,2.6vw,36px)">Small business owners</h3>
+        <p class="pm-hook" style="font-size:16px;line-height:1.65">You're running a team of 1&ndash;10 people. You know you need better systems but you don't have the time to research tools, learn software, or build it yourself. You just need someone to make it work.</p>
+        <span class="pm-sku" style="display:block;margin-top:22px">Sounds like you?</span>
+        <ul class="pm-list" style="margin-top:8px"><li>Leads fall through the cracks.</li><li>Follow-ups are inconsistent.</li><li>You're tracking everything in your head or a spreadsheet.</li></ul>
       </div>
-
-      <!-- SEGMENT 2 -->
-      <div style="background:var(--white);border:1px solid var(--line2);border-radius:var(--r-md);padding:32px">
-        <span class="eyebrow" style="margin-bottom:14px"><span class="dot"></span>Segment 02</span>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.03em;text-transform:uppercase;color:var(--emerald-d);margin:12px 0 10px">Local Service Businesses</h3>
-        <p style="font-size:15px;color:var(--ink2);line-height:1.7;margin-bottom:14px">Trades, clinics, studios, salons, restaurants — you're great at what you do, but the phone should be ringing more than it is. You're spending on ads and can't tell which ones work.</p>
-        <div style="background:var(--mist);border:1px solid var(--line2);border-radius:10px;padding:14px">
-          <span class="mono">Sounds like you?</span>
-          <p style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">Your calendar has gaps. Happy customers don't leave reviews. You're paying for ads with no idea what they produce.</p>
-        </div>
+      <!-- SEGMENT 02 -->
+      <div class="who-item" style="--accent:#0F9D6E;--accent-tint:rgba(15,157,110,.08)">
+        <span class="pm-kicker" style="margin-bottom:12px"><span class="dot"></span>Segment 02</span>
+        <h3 class="pm-title" style="font-size:clamp(28px,2.6vw,36px)">Local service businesses</h3>
+        <p class="pm-hook" style="font-size:16px;line-height:1.65">Trades, clinics, studios, salons, restaurants &mdash; you're great at what you do, but the phone should be ringing more than it is. You're spending on ads and can't tell which ones work.</p>
+        <span class="pm-sku" style="display:block;margin-top:22px">Sounds like you?</span>
+        <ul class="pm-list" style="margin-top:8px"><li>Your calendar has gaps.</li><li>Happy customers don't leave reviews.</li><li>You're paying for ads with no idea what they produce.</li></ul>
       </div>
-
-      <!-- SEGMENT 3 -->
-      <div style="background:var(--white);border:1px solid var(--line2);border-radius:var(--r-md);padding:32px">
-        <span class="eyebrow gold" style="margin-bottom:14px"><span class="dot"></span>Segment 03 — New</span>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.03em;text-transform:uppercase;color:var(--gold);margin:12px 0 10px">Creators &amp; Social Personalities</h3>
-        <p style="font-size:15px;color:var(--ink2);line-height:1.7;margin-bottom:14px">You're building an audience and watching rivals get ahead with ads or content you can't quite see. You want a clean read on what they're spending on, what they're testing, and what's actually landing — so you can leapfrog instead of guess.</p>
-        <div style="background:var(--mist);border:1px solid var(--line2);border-radius:10px;padding:14px">
-          <span class="mono">Sounds like you?</span>
-          <p style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">You keep seeing a competitor's ads and wondering "why is this one working?" You want answers, not gut feel.</p>
-        </div>
+      <!-- SEGMENT 03 -->
+      <div class="who-item" style="--accent:#D97706;--accent-tint:rgba(217,119,6,.08)">
+        <span class="pm-kicker" style="margin-bottom:12px"><span class="dot"></span>Segment 03</span>
+        <h3 class="pm-title" style="font-size:clamp(28px,2.6vw,36px)">Creators &amp; social personalities</h3>
+        <p class="pm-hook" style="font-size:16px;line-height:1.65">You're building an audience and watching rivals get ahead with ads or content you can't quite see. You want a clean read on what they're spending on, what they're testing, and what's actually landing &mdash; so you can leapfrog instead of guess.</p>
+        <span class="pm-sku" style="display:block;margin-top:22px">Sounds like you?</span>
+        <ul class="pm-list" style="margin-top:8px"><li>You keep seeing a competitor's ads and wondering &ldquo;why is this one working?&rdquo;</li><li>You want answers, not gut feel.</li></ul>
       </div>
-
-      <!-- SEGMENT 4 -->
-      <div style="background:var(--white);border:1px solid var(--line2);border-radius:var(--r-md);padding:32px">
-        <span class="eyebrow purple" style="margin-bottom:14px"><span class="dot"></span>Segment 04 — New</span>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.03em;text-transform:uppercase;color:var(--purple);margin:12px 0 10px">Short-Window &amp; Event Campaigns</h3>
-        <p style="font-size:15px;color:var(--ink2);line-height:1.7;margin-bottom:14px">Festivals, pop-ups, seasonal launches, election-style pushes — a wave of competitors all activating in the same 2–6 week window. You need a fast, current read on who's running what, where, and how loudly, so you don't get drowned out before the window closes.</p>
-        <div style="background:var(--mist);border:1px solid var(--line2);border-radius:10px;padding:14px">
-          <span class="mono">Sounds like you?</span>
-          <p style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">Your campaign has a hard end-date. The noise is loudest right when it matters most. You need intel this week, not next quarter.</p>
-        </div>
+      <!-- SEGMENT 04 -->
+      <div class="who-item" style="--accent:#7C3AED;--accent-tint:rgba(124,58,237,.08)">
+        <span class="pm-kicker" style="margin-bottom:12px"><span class="dot"></span>Segment 04</span>
+        <h3 class="pm-title" style="font-size:clamp(28px,2.6vw,36px)">Short-window &amp; event campaigns</h3>
+        <p class="pm-hook" style="font-size:16px;line-height:1.65">Festivals, pop-ups, seasonal launches, election-style pushes &mdash; a wave of competitors all activating in the same 2&ndash;6 week window. You need a fast, current read on who's running what, where, and how loudly, so you don't get drowned out before the window closes.</p>
+        <span class="pm-sku" style="display:block;margin-top:22px">Sounds like you?</span>
+        <ul class="pm-list" style="margin-top:8px"><li>Your campaign has a hard end-date.</li><li>The noise is loudest right when it matters most.</li><li>You need intel this week, not next quarter.</li></ul>
       </div>
     </div>
 
     <!-- WHO IT'S NOT FOR -->
-    <div class="reveal" style="margin-top:28px;padding:28px 32px;border-left:3px solid var(--gold);background:var(--white);border-radius:var(--r-md);border:1px solid var(--line2);border-left-width:3px">
-      <span class="eyebrow gold" style="margin-bottom:12px"><span class="dot"></span>Who it's not for</span>
-      <p style="font-size:15px;color:var(--ink2);line-height:1.7;margin-top:12px;max-width:680px">If you want a retainer agency that bills hours, or a custom done-for-you build, BBL isn't the fit. We sell productised reports and recipes — built once, owned forever, no surprise invoices. We'll happily point you elsewhere if that's what you need.</p>
+    <div class="reveal" style="margin-top:8px;padding:28px 0 0 24px;border-left:3px solid var(--gold);--accent:#D97706">
+      <span class="pm-kicker" style="margin-bottom:10px"><span class="dot"></span>Who it's not for</span>
+      <p style="font-size:16px;color:var(--ink2);line-height:1.7;margin:0;max-width:680px">If you want a retainer agency that bills hours, or a custom done-for-you build, BBL isn't the fit. We sell productised reports and recipes &mdash; built once, owned forever, no surprise invoices. We'll happily point you elsewhere if that's what you need.</p>
     </div>
   </div>
 </section>
