@@ -127,49 +127,56 @@
     <p class="reveal d2" style="font-size:19px;color:var(--ink2);max-width:640px;margin:14px 0 40px">If you see yourself in any of these four, you're in the right place. If you don't &mdash; we'll tell you straight.</p>
 
     <style>
-      .who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 64px}
-      .who-item{padding:36px 0 40px;border-top:1px solid var(--line)}
-      @media (max-width:760px){.who-grid{grid-template-columns:1fr}}
+      .who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+      .who-item{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:34px 34px 30px;box-shadow:0 1px 2px rgba(14,22,38,.04),0 8px 24px rgba(14,22,38,.05)}
+      .who-item .pm-kicker{font-size:12px;font-weight:500}
+      .who-item h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,2.8vw,38px);letter-spacing:.02em;line-height:1;text-transform:uppercase;color:var(--ink);margin:0}
+      .who-item .who-body{font-size:17px;color:var(--ink);line-height:1.6;margin:14px 0 0}
+      .who-item .who-ask{display:block;margin-top:24px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:500}
+      .who-item .pm-list{margin-top:6px}
+      .who-item .pm-list li{font-size:16px;color:var(--ink);max-width:none}
+      .who-item .pm-list li:last-child{border-bottom:0}
+      @media (max-width:760px){.who-grid{grid-template-columns:1fr}.who-item{padding:26px 22px 22px}}
     </style>
     <div class="who-grid reveal">
       <!-- SEGMENT 01 -->
       <div class="who-item" style="--accent:#2563EB;--accent-tint:rgba(37,99,235,.07)">
         <span class="pm-kicker" style="margin-bottom:12px"><span class="dot"></span>Segment 01</span>
-        <h3 class="pm-title" style="font-size:clamp(28px,2.6vw,36px)">Small business owners</h3>
-        <p class="pm-hook" style="font-size:16px;line-height:1.65">You're running a team of 1&ndash;10 people. You know you need better systems but you don't have the time to research tools, learn software, or build it yourself. You just need someone to make it work.</p>
-        <span class="pm-sku" style="display:block;margin-top:22px">Sounds like you?</span>
-        <ul class="pm-list" style="margin-top:8px"><li>Leads fall through the cracks.</li><li>Follow-ups are inconsistent.</li><li>You're tracking everything in your head or a spreadsheet.</li></ul>
+        <h3>Small business owners</h3>
+        <p class="who-body">You're running a team of 1&ndash;10 people. You know you need better systems but you don't have the time to research tools, learn software, or build it yourself. You just need someone to make it work.</p>
+        <span class="who-ask">Sounds like you?</span>
+        <ul class="pm-list"><li>Leads fall through the cracks.</li><li>Follow-ups are inconsistent.</li><li>You're tracking everything in your head or a spreadsheet.</li></ul>
       </div>
       <!-- SEGMENT 02 -->
       <div class="who-item" style="--accent:#0F9D6E;--accent-tint:rgba(15,157,110,.08)">
         <span class="pm-kicker" style="margin-bottom:12px"><span class="dot"></span>Segment 02</span>
-        <h3 class="pm-title" style="font-size:clamp(28px,2.6vw,36px)">Local service businesses</h3>
-        <p class="pm-hook" style="font-size:16px;line-height:1.65">Trades, clinics, studios, salons, restaurants &mdash; you're great at what you do, but the phone should be ringing more than it is. You're spending on ads and can't tell which ones work.</p>
-        <span class="pm-sku" style="display:block;margin-top:22px">Sounds like you?</span>
-        <ul class="pm-list" style="margin-top:8px"><li>Your calendar has gaps.</li><li>Happy customers don't leave reviews.</li><li>You're paying for ads with no idea what they produce.</li></ul>
+        <h3>Local service businesses</h3>
+        <p class="who-body">Trades, clinics, studios, salons, restaurants &mdash; you're great at what you do, but the phone should be ringing more than it is. You're spending on ads and can't tell which ones work.</p>
+        <span class="who-ask">Sounds like you?</span>
+        <ul class="pm-list"><li>Your calendar has gaps.</li><li>Happy customers don't leave reviews.</li><li>You're paying for ads with no idea what they produce.</li></ul>
       </div>
       <!-- SEGMENT 03 -->
       <div class="who-item" style="--accent:#D97706;--accent-tint:rgba(217,119,6,.08)">
         <span class="pm-kicker" style="margin-bottom:12px"><span class="dot"></span>Segment 03</span>
-        <h3 class="pm-title" style="font-size:clamp(28px,2.6vw,36px)">Creators &amp; social personalities</h3>
-        <p class="pm-hook" style="font-size:16px;line-height:1.65">You're building an audience and watching rivals get ahead with ads or content you can't quite see. You want a clean read on what they're spending on, what they're testing, and what's actually landing &mdash; so you can leapfrog instead of guess.</p>
-        <span class="pm-sku" style="display:block;margin-top:22px">Sounds like you?</span>
-        <ul class="pm-list" style="margin-top:8px"><li>You keep seeing a competitor's ads and wondering &ldquo;why is this one working?&rdquo;</li><li>You want answers, not gut feel.</li></ul>
+        <h3>Creators &amp; social personalities</h3>
+        <p class="who-body">You're building an audience and watching rivals get ahead with ads or content you can't quite see. You want a clean read on what they're spending on, what they're testing, and what's actually landing &mdash; so you can leapfrog instead of guess.</p>
+        <span class="who-ask">Sounds like you?</span>
+        <ul class="pm-list"><li>You keep seeing a competitor's ads and wondering &ldquo;why is this one working?&rdquo;</li><li>You want answers, not gut feel.</li></ul>
       </div>
       <!-- SEGMENT 04 -->
       <div class="who-item" style="--accent:#7C3AED;--accent-tint:rgba(124,58,237,.08)">
         <span class="pm-kicker" style="margin-bottom:12px"><span class="dot"></span>Segment 04</span>
-        <h3 class="pm-title" style="font-size:clamp(28px,2.6vw,36px)">Short-window &amp; event campaigns</h3>
-        <p class="pm-hook" style="font-size:16px;line-height:1.65">Festivals, pop-ups, seasonal launches, election-style pushes &mdash; a wave of competitors all activating in the same 2&ndash;6 week window. You need a fast, current read on who's running what, where, and how loudly, so you don't get drowned out before the window closes.</p>
-        <span class="pm-sku" style="display:block;margin-top:22px">Sounds like you?</span>
-        <ul class="pm-list" style="margin-top:8px"><li>Your campaign has a hard end-date.</li><li>The noise is loudest right when it matters most.</li><li>You need intel this week, not next quarter.</li></ul>
+        <h3>Short-window &amp; event campaigns</h3>
+        <p class="who-body">Festivals, pop-ups, seasonal launches, election-style pushes &mdash; a wave of competitors all activating in the same 2&ndash;6 week window. You need a fast, current read on who's running what, where, and how loudly, so you don't get drowned out before the window closes.</p>
+        <span class="who-ask">Sounds like you?</span>
+        <ul class="pm-list"><li>Your campaign has a hard end-date.</li><li>The noise is loudest right when it matters most.</li><li>You need intel this week, not next quarter.</li></ul>
       </div>
     </div>
 
     <!-- WHO IT'S NOT FOR -->
-    <div class="reveal" style="margin-top:8px;padding:28px 0 0 24px;border-left:3px solid var(--gold);--accent:#D97706">
-      <span class="pm-kicker" style="margin-bottom:10px"><span class="dot"></span>Who it's not for</span>
-      <p style="font-size:16px;color:var(--ink2);line-height:1.7;margin:0;max-width:680px">If you want a retainer agency that bills hours, or a custom done-for-you build, BBL isn't the fit. We sell productised reports and recipes &mdash; built once, owned forever, no surprise invoices. We'll happily point you elsewhere if that's what you need.</p>
+    <div class="reveal" style="margin-top:20px;padding:26px 34px;background:var(--white);border:1px solid var(--line);border-left:3px solid #D97706;border-radius:var(--r-md);--accent:#D97706">
+      <span class="pm-kicker" style="margin-bottom:10px;font-size:12px;font-weight:500"><span class="dot"></span>Who it's not for</span>
+      <p style="font-size:17px;color:var(--ink);line-height:1.65;margin:0;max-width:720px">If you want a retainer agency that bills hours, or a custom done-for-you build, BBL isn't the fit. We sell productised reports and recipes &mdash; built once, owned forever, no surprise invoices. We'll happily point you elsewhere if that's what you need.</p>
     </div>
   </div>
 </section>
