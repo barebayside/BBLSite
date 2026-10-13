@@ -1281,27 +1281,6 @@ h2.display{font-size:clamp(40px,5.5vw,82px)}
 @media(max-width:640px){.catwrap .bgrid{grid-template-columns:1fr}}
 /* === end category section sidebar === */
 
-/* ---------- FLAT variants (Edward 2026-10-13, Services page) ----------
-   .eyebrow.plain = the label without the pill and dot.
-   .pgrid.flat   = cards without boxes: two columns split by one hairline, no inner tinted panel. */
+/* ---------- PLAIN phase label (Edward 2026-10-13, Services page): the label without the pill and dot ---------- */
 .eyebrow.plain{background:none;border:0;border-radius:0;padding:0;font-size:12px}
 .eyebrow.plain .dot{display:none}
-.pgrid.flat{gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.pgrid.flat .rpcard{background:none;border:0;border-radius:0;overflow:visible}
-.pgrid.flat .rpcard:hover{transform:none;box-shadow:none}
-.pgrid.flat .rpcard + .rpcard{border-left:1px solid var(--line)}
-.pgrid.flat .rp-body{padding:30px 3vw 30px 0}
-.pgrid.flat .rpcard + .rpcard .rp-body{padding-left:3vw;padding-right:0}
-.pgrid.flat .rp-tag{background:none;border:0;border-radius:0;padding:0}
-.pgrid.flat .rp-title{font-size:30px}
-.pgrid.flat .includes{background:none;border:0;border-radius:0;padding:0;margin:6px 0 20px}
-.pgrid.flat .includes .inc-h{color:var(--muted)}
-.pgrid.flat .includes .inc-h::before{display:none}
-.pgrid.flat .includes li{border-bottom-color:var(--line)}
-.pgrid.flat .soon-card::after{top:30px;right:3vw;background:none;border:0;border-radius:0;padding:0}
-.pgrid.flat .rpcard + .soon-card::after{right:0}
-@media(max-width:980px){
-  .pgrid.flat .rpcard + .rpcard{border-left:0;border-top:1px solid var(--line)}
-  .pgrid.flat .rp-body,.pgrid.flat .rpcard + .rpcard .rp-body{padding:26px 0}
-  .pgrid.flat .soon-card::after,.pgrid.flat .rpcard + .soon-card::after{top:26px;right:0}
-}
