@@ -128,38 +128,44 @@
   .ob .shead .no{font-family:'Bebas Neue',sans-serif;font-size:96px;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(14,156,110,.6)}
   .ob .shead h2{font-size:clamp(30px,3vw,52px);font-weight:600;letter-spacing:-.035em;line-height:1.05;color:var(--ink)}
   .ob .shead h2 span{color:var(--fg3)}
-  .ob-step{display:grid;grid-template-columns:110px 1.1fr 1fr;gap:0 3vw;padding:38px 0;border-bottom:1px solid var(--rule)}
-  .ob-step .mn{font-family:'Bebas Neue',sans-serif;font-size:92px;line-height:.8;color:var(--mint)}
-  .ob-step h3{font-size:clamp(22px,1.8vw,30px);font-weight:600;letter-spacing:-.02em;line-height:1.2;margin:10px 0 12px;color:var(--ink)}
-  .ob-step .what p{font-size:17px;line-height:1.65;color:var(--fg2);margin:0}
-  .ob-step .ask{border-left:1px solid var(--rule);padding-left:2vw;padding-top:4px}
-  .ob-step ol{list-style:none;counter-reset:h;margin:10px 0 0;padding:0}
-  .ob-step li{counter-increment:h;display:grid;grid-template-columns:26px 1fr;padding:11px 0;border-bottom:1px solid var(--rule2);color:var(--ink);font-size:16px;line-height:1.5}
-  .ob-step li:last-child{border-bottom:0}
-  .ob-step li::before{content:counter(h,lower-alpha);font-family:'DM Mono',monospace;color:var(--mint)}
-  .ob-band{background:#FBFAF7;color:#0E1626;padding:64px 0;border-top:1px solid #E2DDD2;border-bottom:1px solid #E2DDD2}
-  .ob-band .ob-mono{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#0A7C57}
+  .ob-moves{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+  .ob-move{padding:32px 28px 30px;border-radius:4px;background:var(--bgm);--bgm:#F3F5F9}
+  .ob-move.m2{--bgm:#E6F2EB}
+  .ob-move.m3{--bgm:#EFEBE2}
+  .ob-move.m4{--bgm:#0A1424;--ink:#fff;--fg2:rgba(255,255,255,.74);--fg3:rgba(255,255,255,.55);--rule2:rgba(255,255,255,.12);--mint:#5FE0B6;color:#fff}
+  .ob-move .mn{font-family:'Bebas Neue',sans-serif;font-size:80px;line-height:.8;color:transparent;-webkit-text-stroke:1.2px var(--mint)}
+  .ob-move .when{display:block;margin:20px 0 8px;color:var(--mint)}
+  .ob-move h3{font-size:clamp(19px,1.45vw,23px);font-weight:600;letter-spacing:-.015em;line-height:1.25;color:var(--ink);margin:0}
+  .ob-move p{font-size:15.5px;line-height:1.6;color:var(--fg2);margin:10px 0 0}
+  .ob-move .ask{display:block;margin-top:22px;color:var(--fg3)}
+  .ob-move ol{list-style:none;counter-reset:h;margin:6px 0 0;padding:0}
+  .ob-move li{counter-increment:h;display:grid;grid-template-columns:22px 1fr;padding:9px 0;border-top:1px solid var(--rule2);color:var(--ink);font-size:15px;line-height:1.45}
+  .ob-move li::before{content:counter(h,lower-alpha);font-family:'DM Mono',monospace;color:var(--mint)}
+  .ob-band{background:#0A1424;color:#fff;padding:56px 0}
+  .ob-band .ob-mono{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#5FE0B6}
   .ob-band p{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:clamp(24px,2.2vw,38px);font-weight:600;letter-spacing:-.025em;line-height:1.2;margin-top:14px;max-width:1100px}
-  .ob-band p b{color:#0A7C57;font-weight:600}
-  .ob-band p span{color:#75829A;font-weight:500}
+  .ob-band p b{color:#5FE0B6;font-weight:600}
+  .ob-band p span{color:rgba(255,255,255,.6);font-weight:500}
+  @media (max-width:1100px){.ob-moves{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:640px){.ob-moves{grid-template-columns:1fr}}
   @media (max-width:860px){
-    .ob .shead,.ob-step{grid-template-columns:1fr}
+    .ob .shead{grid-template-columns:1fr}
     .ob .shead .no{font-size:72px}
-    .ob-step .mn{font-size:64px;margin-bottom:10px}
-    .ob-step .ask{border-left:0;padding-left:0;margin-top:22px;padding-top:18px;border-top:1px solid var(--rule2)}
   }
 </style>
 <section class="section ob" id="who">
   <div class="wrap">
     <div class="shead reveal"><div class="no">4</div><div><div class="ob-mono ob-mint" style="margin-bottom:10px">Who this is for</div><h2>Four people we built BBL for. <span>If you see yourself in any of these, you're in the right place.</span></h2></div></div>
-      <div class="ob-step reveal" style="--mint:#0E9C6E"><div class="mn">01</div><div class="what"><span class="ob-mono ob-mint">Segment 01 &middot; Running a team of 1&ndash;10 people</span><h3>Small business owners</h3><p>You know you need better systems, but you don't have the time to research tools, learn software, or build it yourself. You just need someone to make it work.</p></div><div class="ask"><span class="ob-mono">Sounds like you?</span><ol><li>Leads fall through the cracks.</li><li>Follow-ups are inconsistent.</li><li>You're tracking everything in your head or a spreadsheet.</li></ol></div></div>
-      <div class="ob-step reveal" style="--mint:#0E7490"><div class="mn">02</div><div class="what"><span class="ob-mono ob-mint">Segment 02 &middot; Trades, clinics, salons &amp; more</span><h3>Local service businesses</h3><p>You're great at what you do, but the phone should be ringing more than it is. You're spending on ads and can't tell which ones work.</p></div><div class="ask"><span class="ob-mono">Sounds like you?</span><ol><li>Your calendar has gaps.</li><li>Happy customers don't leave reviews.</li><li>You're paying for ads with no idea what they produce.</li></ol></div></div>
-      <div class="ob-step reveal" style="--mint:#C0492F"><div class="mn">03</div><div class="what"><span class="ob-mono ob-mint">Segment 03 &middot; Building an audience</span><h3>Creators &amp; social personalities</h3><p>You're watching rivals get ahead with ads or content you can't quite see. You want a clean read on what they're spending on, what they're testing, and what's actually landing &mdash; so you can leapfrog instead of guess.</p></div><div class="ask"><span class="ob-mono">Sounds like you?</span><ol><li>You keep seeing a competitor's ads and wondering &ldquo;why is this one working?&rdquo;</li><li>You want answers, not gut feel.</li></ol></div></div>
-      <div class="ob-step reveal" style="--mint:#3B4FA8"><div class="mn">04</div><div class="what"><span class="ob-mono ob-mint">Segment 04 &middot; Festivals, pop-ups, seasonal launches</span><h3>Short-window &amp; event campaigns</h3><p>A wave of competitors all activating in the same 2&ndash;6 week window. You need a fast, current read on who's running what, where, and how loudly, so you don't get drowned out before the window closes.</p></div><div class="ask"><span class="ob-mono">Sounds like you?</span><ol><li>Your campaign has a hard end-date.</li><li>The noise is loudest right when it matters most.</li><li>You need intel this week, not next quarter.</li></ol></div></div>
+    <div class="ob-moves">
+      <div class="ob-move m1 reveal"><div class="mn">01</div><span class="ob-mono when">Running a team of 1&ndash;10 people</span><h3>Small business owners</h3><p>You know you need better systems, but you don't have the time to research tools, learn software, or build it yourself. You just need someone to make it work.</p><span class="ob-mono ask">Sounds like you?</span><ol><li>Leads fall through the cracks.</li><li>Follow-ups are inconsistent.</li><li>You're tracking everything in your head or a spreadsheet.</li></ol></div>
+      <div class="ob-move m2 reveal"><div class="mn">02</div><span class="ob-mono when">Trades, clinics, salons &amp; more</span><h3>Local service businesses</h3><p>You're great at what you do, but the phone should be ringing more than it is. You're spending on ads and can't tell which ones work.</p><span class="ob-mono ask">Sounds like you?</span><ol><li>Your calendar has gaps.</li><li>Happy customers don't leave reviews.</li><li>You're paying for ads with no idea what they produce.</li></ol></div>
+      <div class="ob-move m3 reveal"><div class="mn">03</div><span class="ob-mono when">Building an audience</span><h3>Creators &amp; social personalities</h3><p>You're watching rivals get ahead with ads or content you can't quite see. You want a clean read on what they're spending on, what they're testing, and what's actually landing &mdash; so you can leapfrog instead of guess.</p><span class="ob-mono ask">Sounds like you?</span><ol><li>You keep seeing a competitor's ads and wondering &ldquo;why is this one working?&rdquo;</li><li>You want answers, not gut feel.</li></ol></div>
+      <div class="ob-move m4 reveal"><div class="mn">04</div><span class="ob-mono when">Festivals, pop-ups, seasonal launches</span><h3>Short-window &amp; event campaigns</h3><p>A wave of competitors all activating in the same 2&ndash;6 week window. You need a fast, current read on who's running what, where, and how loudly, so you don't get drowned out before the window closes.</p><span class="ob-mono ask">Sounds like you?</span><ol><li>Your campaign has a hard end-date.</li><li>The noise is loudest right when it matters most.</li><li>You need intel this week, not next quarter.</li></ol></div>
+    </div>
   </div>
 </section>
 
-<!-- WHO IT'S NOT FOR — paper band (rows above alternate mist/navy) -->
+<!-- WHO IT'S NOT FOR — navy band -->
 <section class="ob-band">
   <div class="wrap reveal">
     <div class="ob-mono">Who it's not for</div>
