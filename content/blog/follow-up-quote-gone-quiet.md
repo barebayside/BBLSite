@@ -63,7 +63,7 @@ Two or three days after the quote, send a short, no-pressure check-in. The only 
 
 Keep it under four sentences. Don't re-pitch. Don't apologise for "bothering" them.
 
-> Hi [Name], just making sure my quote for [the job] landed in your inbox — sometimes they slip into spam. No rush at all. Happy to answer any questions whenever you're ready.
+> "Hi [Name], just making sure my quote for [the job] landed in your inbox — sometimes they slip into spam. No rush at all. Happy to answer any questions whenever you're ready."
 
 That's it. You're being helpful, not chasing. Roughly half the replies you ever get will come from this one message.
 
@@ -73,7 +73,7 @@ If the first message gets no reply, the second one does a bit more work. Here yo
 
 Pick the objection you hear most and address it without being defensive.
 
-> Hi [Name], still happy to help whenever the timing's right. A couple of things people often ask me at this stage: whether the quote can be staged into phases, and how soon we could start. If either's on your mind, just say the word and I'll talk you through it.
+> "Hi [Name], still happy to help whenever the timing's right. A couple of things people often ask me at this stage: whether the quote can be staged into phases, and how soon we could start. If either's on your mind, just say the word and I'll talk you through it."
 
 Notice what this does. It gives them an easy reason to reply, names a real concern, and signals flexibility — without dropping your price unprompted.
 
@@ -83,7 +83,7 @@ If you've got a relevant review or a quick photo of similar work, this is the me
 
 If two messages get no reply, send one final, graceful note. This is the "should I close your file?" message — and it works precisely because it lets them off the hook.
 
-> Hi [Name], I don't want to keep cluttering your inbox, so this'll be my last note on this one. If the timing's not right, no worries at all — I'll close the file for now and you can reach out anytime down the track. Either way, all the best with the project.
+> "Hi [Name], I don't want to keep cluttering your inbox, so this'll be my last note on this one. If the timing's not right, no worries at all — I'll close the file for now and you can reach out anytime down the track. Either way, all the best with the project."
 
 This message gets more replies than people expect. Some come back with "Actually, can we go ahead?" Others tell you they chose someone else — which is still useful, because now you know.
 
