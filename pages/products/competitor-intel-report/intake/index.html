@@ -203,18 +203,8 @@
               <label class="ik-check"><input type="checkbox" name="primary_platform" value="X"> X</label>
               <label class="ik-check"><input type="checkbox" name="primary_platform" value="Facebook"> Facebook</label>
               <label class="ik-check"><input type="checkbox" name="primary_platform" value="Linkedin"> Linkedin</label>
-              <label class="ik-check"><input type="checkbox" name="primary_platform" value="Twitch"> Twitch</label>
-              <label class="ik-check"><input type="checkbox" name="primary_platform" value="Substack"> Substack</label>
-              <label class="ik-check"><input type="checkbox" name="primary_platform" value="Podcast"> Podcast</label>
-              <label class="ik-check"><input type="checkbox" name="primary_platform" value="Other"> Other</label>
               <label class="ik-check"><input type="checkbox" name="primary_platform" value="None" data-none> None — we don’t really use social platforms</label>
             </div>
-          </div>
-
-          <div class="ik-field">
-            <label class="ik-label" for="ik-otherplat">Anywhere else you're already posting?</label>
-            <p class="ik-help">Anywhere else that is not mentioned above?</p>
-            <input type="text" id="ik-otherplat" name="other_platform_posting" class="ik-input">
           </div>
 
           <!-- ecommerce-only: positioning + where you sell -->
@@ -285,7 +275,8 @@
           </div>
 
           <div class="ik-field">
-            <label class="ik-label" id="ik-loc-label">Define your region below<span class="req">*</span></label>
+            <label class="ik-label" id="ik-loc-label">Define your region below<span class="req" id="ik-loc-req">*</span></label>
+            <p class="ik-help" id="ik-loc-ww" style="display:none"><b>Selected World wide only? Leave this blank and just click Next.</b></p>
             <p class="ik-help" id="ik-loc-help">Start typing a suburb, city, region or country and <b>pick it from the suggestions</b>. Serve several areas? Add as many as you like.</p>
             <div id="ik-area-ac" style="margin-bottom:8px;display:none"></div>
             <div id="ik-area-chips" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"></div>
@@ -311,7 +302,6 @@
               <label class="ik-check"><input type="checkbox" name="discovery_channels" value="Paid Ads"> Paid Ads</label>
               <label class="ik-check"><input type="checkbox" name="discovery_channels" value="Social Media"> Social Media</label>
               <label class="ik-check"><input type="checkbox" name="discovery_channels" value="Referrals / Word of Mouth"> Referrals / Word of Mouth</label>
-              <label class="ik-check"><input type="checkbox" name="discovery_channels" value="Marketplaces (Amazon, Etsy, eBay, Etc)"> Marketplaces (Amazon, Etsy, eBay, Etc)</label>
               <label class="ik-check"><input type="checkbox" name="discovery_channels" value="Other"> Other</label>
             </div>
           </div>
@@ -371,10 +361,6 @@
             <div><label class="ik-label" for="h-ig">Instagram</label><input type="text" id="h-ig" name="handle_instagram" class="ik-input" placeholder="@myinstagrampage"></div>
             <div><label class="ik-label" for="h-x">X (Twitter)</label><input type="text" id="h-x" name="handle_x" class="ik-input" placeholder="@myxhandle"></div>
             <div><label class="ik-label" for="h-li">LinkedIn</label><input type="text" id="h-li" name="handle_linkedin" class="ik-input" placeholder="@mylinkedinpage"></div>
-            <div><label class="ik-label" for="h-tw">Twitch</label><input type="text" id="h-tw" name="handle_twitch" class="ik-input" placeholder="@mytwitchhandle"></div>
-            <div><label class="ik-label" for="h-sub">Substack</label><input type="text" id="h-sub" name="handle_substack" class="ik-input" placeholder="@mysubstack"></div>
-            <div><label class="ik-label" for="h-pod">Podcast</label><input type="text" id="h-pod" name="handle_podcast" class="ik-input" placeholder="@mypodcast"></div>
-            <div><label class="ik-label" for="h-oth">Other?</label><input type="text" id="h-oth" name="handle_other" class="ik-input" placeholder="another platform"><p class="ik-help" style="margin-top:6px">Please type or include another platform that has not been mentioned.</p></div>
           </div>
 
           <div class="ik-nav">
@@ -466,7 +452,9 @@
    Matching key = EMAIL (prefilled from ?email=). niche/deal_id/session_id/
    product_code carried as hidden fields from the URL.
    Multi-selects are sent as JSON ARRAYS (the Deluge function reads arrays).
-   other_platform_posting is TEXT (single-line CRM field).
+   Platforms + handles offer ONLY what the report scrapes (FB, IG, YT, TikTok, X,
+   LinkedIn — catalyst resolve.py CUSTOMER_HANDLE_FIELDS). Twitch/Substack/Podcast/
+   Other and "anywhere else you post" were removed 2026-10-19: asked, never read.
    ============================================================================ */
 (function () {
   var form = document.getElementById('intake-form');
@@ -617,6 +605,19 @@
       } else if (e.target !== noneBox && e.target.checked) {
         noneBox.checked = false;
       }
+    });
+  }
+
+  // "World wide" on its own needs no region (validation already allows it), so say so
+  // and drop the asterisk — otherwise the box reads as mandatory and people type junk in.
+  var geoGroup = document.getElementById('ik-geo');
+  if (geoGroup) {
+    geoGroup.addEventListener('change', function () {
+      var picked = Array.prototype.slice.call(geoGroup.querySelectorAll('input:checked')).map(function (c) { return c.value; });
+      var wwOnly = picked.length === 1 && picked[0] === 'World wide';
+      document.getElementById('ik-loc-ww').style.display = wwOnly ? 'block' : 'none';
+      document.getElementById('ik-loc-req').style.display = wwOnly ? 'none' : '';
+      if (wwOnly) document.getElementById('ik-area-err').style.display = 'none';
     });
   }
 
