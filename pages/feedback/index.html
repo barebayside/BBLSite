@@ -38,6 +38,8 @@
     .fb-help{font-size:15px;color:var(--ink2);line-height:1.55;margin:0 0 18px}
     .fb-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,58px);line-height:1;letter-spacing:.01em;text-transform:uppercase;color:var(--ink);margin:0 0 16px}
     .fb-lead{font-size:17px;color:var(--ink2);line-height:1.65;margin:0 0 14px}
+    .fb-beat{font-size:19px;font-weight:600;line-height:1.4;color:var(--ink);margin:0 0 22px}
+    .fb-step[data-step="0"] .fb-title{margin-bottom:28px}
     .fb-text{width:100%;box-sizing:border-box;min-height:150px;padding:14px 16px;border:1px solid var(--line);border-radius:10px;
       font-family:inherit;font-size:16px;line-height:1.55;color:var(--ink);background:var(--white);resize:vertical}
     .fb-text.short{min-height:90px}
@@ -103,9 +105,10 @@
            products/feedback-survey/README.md section 6. -->
       <div class="fb-step" data-step="0" data-intro="A">
         <h1 class="fb-title" id="fb-intro-head">What's really stopping your business getting more customers?</h1>
-        <p class="fb-lead">You've had your report for two days.<br>You know what your rivals are doing now.</p>
-        <p class="fb-lead">But a report can't answer the one thing that matters.<br>What's in your way right now?</p>
-        <p class="fb-lead">Tell me. I read every answer myself.</p>
+        <!-- Three beats, bang bang bang (Edward 2026-10-19): short, semi-bold, spaced. -->
+        <p class="fb-beat">A report can't answer the one thing that matters.</p>
+        <p class="fb-beat">What's in your way right now?</p>
+        <p class="fb-beat">Tell me. I read every answer myself.</p>
         <div class="fb-nav"><span></span><button type="button" class="btn btn-accent" data-go="next" style="border:none;cursor:pointer;padding:13px 26px">Tell me what's in the way →</button></div>
         <p class="fb-help" style="margin:16px 0 0;font-size:13px;color:var(--muted)">Only 2 questions are required.</p>
       </div>
