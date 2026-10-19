@@ -99,12 +99,15 @@
       </div>
 
       <!-- 0: intro -->
-      <div class="fb-step" data-step="0">
-        <h1 class="fb-title">Got 4 minutes<span data-first-comma></span>?</h1>
-        <p class="fb-lead">Your report's had a couple of days to land. I'd like to know what you really think.</p>
-        <p class="fb-lead">I read every answer myself. What you tell me decides what I build next.</p>
-        <p class="fb-lead">Only the first question and the score matter most. Skip anything else.</p>
-        <div class="fb-nav"><span></span><button type="button" class="btn btn-accent" data-go="next" style="border:none;cursor:pointer;padding:13px 26px">Start →</button></div>
+      <!-- Intro copy: option A "pain first" (Edward 2026-10-19). Option B for a later A/B test is in
+           products/feedback-survey/README.md section 6. -->
+      <div class="fb-step" data-step="0" data-intro="A">
+        <h1 class="fb-title" id="fb-intro-head">What's really stopping your business getting more customers?</h1>
+        <p class="fb-lead">You've had your report for two days.<br>You know what your rivals are doing now.</p>
+        <p class="fb-lead">But a report can't answer the one thing that matters.<br>What's in your way right now?</p>
+        <p class="fb-lead">Tell me. I read every answer myself.</p>
+        <div class="fb-nav"><span></span><button type="button" class="btn btn-accent" data-go="next" style="border:none;cursor:pointer;padding:13px 26px">Tell me what's in the way →</button></div>
+        <p class="fb-help" style="margin:16px 0 0;font-size:13px;color:var(--muted)">Only 2 questions are required.</p>
       </div>
 
       <!-- 1: SMIQ (required) -->
@@ -288,7 +291,7 @@
       $('#fb-bar').style.width = Math.round((n - 1) / LAST * 100) + '%';
       $('#fb-bar-label').textContent = 'Question ' + n + ' of ' + LAST;
       skipBtn.style.visibility = REQUIRED_STEPS.indexOf(n) >= 0 ? 'hidden' : 'visible';
-      $('[data-go="back"]', nav).style.visibility = n > 1 ? 'visible' : 'hidden';
+      $('[data-go="back"]', nav).style.visibility = 'visible';   // on question 1 it returns to the intro
       nextBtn.textContent = n === LAST ? 'Send my answers' : 'Next →';
       var ta = $('textarea', stepEl(n)); if (ta && window.innerWidth > 720) ta.focus();
     }
@@ -296,7 +299,11 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // ?preview=1 — look at the survey without a buyer's link. Nothing is sent or saved.
+  var PREVIEW = params.get('preview') === '1';
+
   function post(body) {
+    if (PREVIEW) return new Promise(function (ok) { setTimeout(function () { ok({ _code: 200, status: 'ok', completed: !!body.done }); }, 250); });
     // text/plain = no CORS preflight. Catalyst's gateway answers preflights itself, wrongly.
     return fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(body) })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { j._code = r.status; return j; }); });
@@ -339,16 +346,22 @@
     if (!go) return;
     if (go === 'next') { current === 0 ? show(1) : advance(false); }
     if (go === 'skip') advance(true);
-    if (go === 'back' && current > 1) show(current - 1);
+    if (go === 'back' && current >= 1) show(current - 1);
   });
 
   function greet(first, business) {
     if (first) $$('[data-first-comma]').forEach(function (s) { s.textContent = ', ' + first; });
     if (business) $$('[data-business]').forEach(function (s) { s.textContent = business; });
+    $('#fb-intro-head').textContent = (first ? first + ", what's" : "What's") + ' really stopping ' +
+      (business || 'your business') + ' getting more customers?';
   }
 
   function problem(msg) { $('#fb-problem-msg').textContent = msg; showState('problem'); $('.fb-note').hidden = true; }
 
+  if (PREVIEW) {
+    $('.fb-eyebrow').textContent = 'Preview · nothing is saved';
+    greet('Jane', 'Pawfect Daycare'); show(0); return;
+  }
   if (!/^[A-Za-z0-9_\-]{8,255}$/.test(token)) { problem('Something is missing from the link.'); return; }
   fetch(API + '?t=' + encodeURIComponent(token)).then(function (r) {
     return r.json().catch(function () { return {}; }).then(function (j) { j._code = r.status; return j; });
