@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Report — Quick Feedback</title>
+  <meta name="description" content="Tell us how your report went. A few minutes, and every answer is read.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css?v=50">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <!--
+    Buyer feedback survey (ASK method). Spec: products/feedback-survey/README.md
+    Backend: catalyst/functions/bbl_feedback — the question KEYS below must match its
+    QUESTIONS; the wording lives only here. Every "Next" saves that screen.
+  -->
+  <style>
+    .fb-hero{position:relative;padding:140px 24px 60px;overflow:hidden;min-height:70vh}
+    .fb-hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+      width:800px;height:800px;background:radial-gradient(circle,rgba(14,156,110,.1) 0%,transparent 60%);pointer-events:none;z-index:0}
+    .fb-shell{max-width:680px;margin:0 auto;position:relative;z-index:1}
+    .fb-eyebrow{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--emerald-d);background:rgba(14,156,110,.1);border:1px solid rgba(14,156,110,.25);border-radius:999px;padding:6px 14px;margin:0 0 18px}
+    .fb-bar{height:6px;background:var(--mist);border-radius:999px;margin:0 0 8px;overflow:hidden}
+    .fb-bar span{display:block;height:100%;background:var(--emerald);width:0;transition:width .35s ease}
+    .fb-bar-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 24px}
+    .fb-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:34px 30px;
+      box-shadow:0 30px 70px -40px rgba(10,20,36,.35),0 2px 4px rgba(10,20,36,.06)}
+    .fb-step{display:none;animation:fbfade .3s ease}
+    .fb-step.is-active{display:block}
+    @keyframes fbfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    .fb-q{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(22px,3.4vw,28px);line-height:1.3;color:var(--ink);margin:0 0 10px}
+    .fb-help{font-size:15px;color:var(--ink2);line-height:1.55;margin:0 0 18px}
+    .fb-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,58px);line-height:1;letter-spacing:.01em;text-transform:uppercase;color:var(--ink);margin:0 0 16px}
+    .fb-lead{font-size:17px;color:var(--ink2);line-height:1.65;margin:0 0 14px}
+    .fb-text{width:100%;box-sizing:border-box;min-height:150px;padding:14px 16px;border:1px solid var(--line);border-radius:10px;
+      font-family:inherit;font-size:16px;line-height:1.55;color:var(--ink);background:var(--white);resize:vertical}
+    .fb-text.short{min-height:90px}
+    .fb-text:focus{outline:none;border-color:var(--emerald)}
+    .fb-count{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);text-align:right;margin:6px 0 0}
+    .fb-scale{display:grid;grid-template-columns:repeat(11,1fr);gap:6px;margin:6px 0 8px}
+    .fb-scale button{aspect-ratio:1;border:1px solid var(--line);border-radius:10px;background:var(--white);font-family:'DM Mono',monospace;
+      font-size:16px;color:var(--ink);cursor:pointer;transition:all .15s;padding:0}
+    .fb-scale button:hover{border-color:var(--emerald)}
+    .fb-scale button[aria-pressed="true"]{background:var(--emerald);border-color:var(--emerald);color:#fff}
+    .fb-scale-ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+    .fb-choices{display:grid;gap:10px;margin:4px 0 6px}
+    .fb-choice{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:16px;color:var(--ink);transition:border-color .15s}
+    .fb-choice:hover{border-color:var(--emerald)}
+    .fb-choice input{accent-color:var(--emerald);width:18px;height:18px;margin:0}
+    .fb-sub{margin-top:18px}
+    .fb-sub label{display:block;font-weight:600;font-size:15px;color:var(--ink);margin:0 0 8px}
+    [hidden]{display:none!important} /* .fb-nav's display:flex would otherwise beat the attribute */
+    .fb-nav{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:12px}
+    .fb-left{display:flex;gap:6px;align-items:center}
+    .fb-link{background:none;border:none;color:var(--muted);font-family:inherit;font-size:14px;cursor:pointer;padding:8px 4px}
+    .fb-link:hover{color:var(--ink)}
+    .fb-err{color:#C0392B;font-size:14px;margin:12px 0 0;display:none}
+    .fb-err.show{display:block}
+    .fb-sign{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--ink);margin:18px 0 0}
+    .fb-note{font-size:13px;color:var(--muted);margin:22px 0 0;line-height:1.5}
+    @media(max-width:720px){
+      .fb-hero{padding:116px 16px 40px}
+      .fb-card{padding:24px 18px}
+      .fb-scale{grid-template-columns:repeat(6,1fr)}
+    }
+  </style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="nav">
+  <div class="nav-pill">
+    <a href="/" class="brand" aria-label="Bare Bayside Labs home"><img src="/assets/logos/logo-icon.png" alt=""><span>BARE BAYSIDE <b>LABS</b></span></a>
+  </div>
+</nav>
+
+<main class="fb-hero">
+  <div class="fb-shell">
+    <p class="fb-eyebrow">Your report · feedback</p>
+    <div class="fb-bar" id="fb-bar-wrap" hidden><span id="fb-bar"></span></div>
+    <p class="fb-bar-label" id="fb-bar-label" hidden></p>
+
+    <div class="fb-card">
+
+      <!-- loading / problem states -->
+      <div class="fb-step is-active" data-state="loading">
+        <p class="fb-lead">One moment…</p>
+      </div>
+      <div class="fb-step" data-state="problem">
+        <h1 class="fb-title">That link didn't open</h1>
+        <p class="fb-lead" id="fb-problem-msg">Something is missing from the link.</p>
+        <p class="fb-lead">Reply to the email it came in and I'll sort it out.</p>
+      </div>
+
+      <!-- 0: intro -->
+      <div class="fb-step" data-step="0">
+        <h1 class="fb-title">Got 4 minutes<span data-first-comma></span>?</h1>
+        <p class="fb-lead">Your report's had a couple of days to land. I'd like to know what you really think.</p>
+        <p class="fb-lead">I read every answer myself. What you tell me decides what I build next.</p>
+        <p class="fb-lead">Only the first question and the score matter most. Skip anything else.</p>
+        <div class="fb-nav"><span></span><button type="button" class="btn btn-accent" data-go="next" style="border:none;cursor:pointer;padding:13px 26px">Start →</button></div>
+      </div>
+
+      <!-- 1: SMIQ (required) -->
+      <div class="fb-step" data-step="1" data-key="q_challenge" data-required>
+        <h2 class="fb-q">When it comes to winning more customers for <span data-business>your business</span>, what's the single biggest challenge you're facing right now?</h2>
+        <p class="fb-help">Please be as detailed as you can. The more you tell me, the more useful it is.</p>
+        <textarea class="fb-text" maxlength="4000" aria-label="Your biggest challenge"></textarea>
+        <p class="fb-count"></p>
+      </div>
+
+      <div class="fb-step" data-step="2" data-key="q_trigger">
+        <h2 class="fb-q">What was going on in the business when you decided to get the report?</h2>
+        <p class="fb-help">What made it the right time?</p>
+        <textarea class="fb-text" maxlength="4000" aria-label="What was going on"></textarea>
+        <p class="fb-count"></p>
+      </div>
+
+      <div class="fb-step" data-step="3" data-key="q_tried">
+        <h2 class="fb-q">Before this, what had you tried to find out what your competitors were up to?</h2>
+        <p class="fb-help">And how did that go?</p>
+        <textarea class="fb-text" maxlength="4000" aria-label="What you tried before"></textarea>
+        <p class="fb-count"></p>
+      </div>
+
+      <div class="fb-step" data-step="4" data-key="q_hesitation">
+        <h2 class="fb-q">What nearly stopped you from buying?</h2>
+        <p class="fb-help">Price, timing, not sure it'd be worth it. Anything at all.</p>
+        <textarea class="fb-text short" maxlength="4000" aria-label="What nearly stopped you"></textarea>
+        <p class="fb-count"></p>
+      </div>
+
+      <div class="fb-step" data-step="5" data-key="q_useful">
+        <h2 class="fb-q">What was the single most useful thing in the report?</h2>
+        <textarea class="fb-text short" maxlength="4000" aria-label="Most useful thing"></textarea>
+        <p class="fb-count"></p>
+      </div>
+
+      <div class="fb-step" data-step="6" data-key="q_missing">
+        <h2 class="fb-q">What did you hope the report would tell you that it didn't?</h2>
+        <p class="fb-help">Be blunt. This is the answer that makes the next one better.</p>
+        <textarea class="fb-text short" maxlength="4000" aria-label="What was missing"></textarea>
+        <p class="fb-count"></p>
+      </div>
+
+      <div class="fb-step" data-step="7" data-key="q_wand">
+        <h2 class="fb-q">If you could wave a magic wand, what would you want us to do for you next?</h2>
+        <textarea class="fb-text short" maxlength="4000" aria-label="Magic wand"></textarea>
+        <p class="fb-count"></p>
+      </div>
+
+      <!-- 8: score (required) -->
+      <div class="fb-step" data-step="8" data-key="score" data-required>
+        <h2 class="fb-q">How likely are you to recommend the report to another business owner?</h2>
+        <div class="fb-scale" role="group" aria-label="0 to 10"></div>
+        <div class="fb-scale-ends"><span>0 · not at all</span><span>10 · definitely</span></div>
+      </div>
+
+      <div class="fb-step" data-step="9" data-key="acted">
+        <h2 class="fb-q">Have you acted on anything in the plan yet?</h2>
+        <div class="fb-choices">
+          <label class="fb-choice"><input type="radio" name="acted" value="Yes, already"> Yes, already</label>
+          <label class="fb-choice"><input type="radio" name="acted" value="Planning to this month"> Planning to this month</label>
+          <label class="fb-choice"><input type="radio" name="acted" value="Not yet"> Not yet</label>
+          <label class="fb-choice"><input type="radio" name="acted" value="Not going to"> Not going to</label>
+        </div>
+        <div class="fb-sub">
+          <label for="fb-acted-detail">Which part? <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+          <textarea id="fb-acted-detail" class="fb-text short" maxlength="2000" data-extra="acted_detail"></textarea>
+        </div>
+      </div>
+
+      <div class="fb-step" data-step="10" data-key="quote_ok" data-last>
+        <h2 class="fb-q">Can we quote what you've written?</h2>
+        <p class="fb-help">Only to show other owners what the report is like. Never your numbers.</p>
+        <div class="fb-choices">
+          <label class="fb-choice"><input type="radio" name="quote_ok" value="Yes, with my name and business"> Yes, with my name and business</label>
+          <label class="fb-choice"><input type="radio" name="quote_ok" value="Yes, first name only"> Yes, first name only</label>
+          <label class="fb-choice"><input type="radio" name="quote_ok" value="No"> No</label>
+        </div>
+      </div>
+
+      <!-- shared nav for steps 1-10 -->
+      <div class="fb-nav" id="fb-nav" hidden>
+        <div class="fb-left">
+          <button type="button" class="fb-link" data-go="back">← Back</button>
+          <button type="button" class="fb-link" data-go="skip" id="fb-skip">Skip</button>
+        </div>
+        <button type="button" class="btn btn-accent" data-go="next" id="fb-next" style="border:none;cursor:pointer;padding:13px 24px">Next →</button>
+      </div>
+      <p class="fb-err" id="fb-err"></p>
+
+      <!-- done -->
+      <div class="fb-step" data-state="done">
+        <h1 class="fb-title">Thank you<span data-first-comma></span></h1>
+        <p class="fb-lead">That's genuinely useful. I read every one of these.</p>
+        <p class="fb-lead">If anything you wrote needs a reply, you'll hear from me directly.</p>
+        <p class="fb-sign">Edward</p>
+      </div>
+    </div>
+    <p class="fb-note">Your answers save as you go. Close this and the same link picks up where you stopped.</p>
+  </div>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  var ENDPOINTS = {
+    live: 'https://bbl-pipeline-7006497428.catalystserverless.com.au/server/bbl_feedback/',
+    dev: 'https://bbl-pipeline-7006497428.development.catalystserverless.com.au/server/bbl_feedback/'
+  };
+  var params = new URLSearchParams(location.search);
+  var token = (params.get('t') || '').trim();
+  var API = params.get('env') === 'dev' ? ENDPOINTS.dev : ENDPOINTS.live;
+  var LAST = 10, REQUIRED_STEPS = [1, 8];
+  var current = 0, answers = {}, busy = false;
+
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var errEl = $('#fb-err'), nav = $('#fb-nav'), nextBtn = $('#fb-next'), skipBtn = $('#fb-skip');
+
+  function stepEl(n) { return $('.fb-step[data-step="' + n + '"]'); }
+  function showState(name) { $$('.fb-step').forEach(function (s) { s.classList.toggle('is-active', s.dataset.state === name); }); nav.hidden = true; }
+  function err(msg) { errEl.textContent = msg || ''; errEl.classList.toggle('show', !!msg); }
+
+  // 0-10 buttons
+  var scale = $('.fb-scale');
+  for (var i = 0; i <= 10; i++) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = i; b.dataset.v = i; b.setAttribute('aria-pressed', 'false');
+    scale.appendChild(b);
+  }
+  scale.addEventListener('click', function (e) {
+    var v = e.target.dataset && e.target.dataset.v;
+    if (v === undefined) return;
+    answers.score = parseInt(v, 10);
+    $$('button', scale).forEach(function (x) { x.setAttribute('aria-pressed', String(x.dataset.v === v)); });
+    err('');
+  });
+
+  // live character count — long answers are the point, so show them growing
+  $$('.fb-text').forEach(function (t) {
+    t.addEventListener('input', function () {
+      var c = t.parentElement.querySelector('.fb-count');
+      if (c) c.textContent = t.value.length ? t.value.length + ' characters' : '';
+    });
+  });
+
+  function collect(n) {
+    var el = stepEl(n), key = el && el.dataset.key, out = {};
+    if (!key) return out;
+    if (key === 'score') { if (answers.score !== undefined) out.score = answers.score; return out; }
+    var ta = $('textarea:not([data-extra])', el);
+    if (ta) out[key] = ta.value.trim();
+    var radio = $('input[type=radio]:checked', el);
+    if (radio) out[key] = radio.value;
+    $$('textarea[data-extra]', el).forEach(function (x) { out[x.dataset.extra] = x.value.trim(); });
+    return out;
+  }
+
+  function fill(saved) {
+    Object.keys(saved || {}).forEach(function (key) {
+      if (key === 'score') { var b = $('button[data-v="' + saved.score + '"]', scale); if (b) b.click(); return; }
+      var extra = $('textarea[data-extra="' + key + '"]');
+      if (extra) { extra.value = saved[key]; return; }
+      var el = $('.fb-step[data-key="' + key + '"]');
+      if (!el) return;
+      var ta = $('textarea:not([data-extra])', el);
+      if (ta) { ta.value = saved[key]; ta.dispatchEvent(new Event('input')); }
+      var r = $('input[type=radio][value="' + String(saved[key]).replace(/"/g, '\\"') + '"]', el);
+      if (r) r.checked = true;
+    });
+  }
+
+  function show(n) {
+    current = n;
+    $$('.fb-step').forEach(function (s) { s.classList.toggle('is-active', s.dataset.step === String(n)); });
+    var inQuestions = n >= 1;
+    nav.hidden = !inQuestions;
+    $('#fb-bar-wrap').hidden = !inQuestions; $('#fb-bar-label').hidden = !inQuestions;
+    if (inQuestions) {
+      $('#fb-bar').style.width = Math.round((n - 1) / LAST * 100) + '%';
+      $('#fb-bar-label').textContent = 'Question ' + n + ' of ' + LAST;
+      skipBtn.style.visibility = REQUIRED_STEPS.indexOf(n) >= 0 ? 'hidden' : 'visible';
+      $('[data-go="back"]', nav).style.visibility = n > 1 ? 'visible' : 'hidden';
+      nextBtn.textContent = n === LAST ? 'Send my answers' : 'Next →';
+      var ta = $('textarea', stepEl(n)); if (ta && window.innerWidth > 720) ta.focus();
+    }
+    err('');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function post(body) {
+    // text/plain = no CORS preflight. Catalyst's gateway answers preflights itself, wrongly.
+    return fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { j._code = r.status; return j; }); });
+  }
+
+  function advance(skip) {
+    if (busy) return;
+    var n = current, got = skip ? {} : collect(n);
+    if (!skip && REQUIRED_STEPS.indexOf(n) >= 0) {
+      var key = stepEl(n).dataset.key;
+      if (got[key] === undefined || got[key] === '') { err(key === 'score' ? 'Pick a number from 0 to 10.' : 'This is the one I most need. A sentence or two is plenty.'); return; }
+    }
+    var last = n === LAST;
+    busy = true; nextBtn.disabled = true; if (last) nextBtn.textContent = 'Sending…';
+    post({ t: token, answers: got, step: n, done: last }).then(function (j) {
+      busy = false; nextBtn.disabled = false;
+      // ⛔ A 200 with no "status" is a killed worker, not a save.
+      if (j._code !== 200 || j.status !== 'ok') {
+        if (j.missing && j.missing.length) { show(j.missing[0] === 'score' ? 8 : 1); err('Please answer this one before sending.'); return; }
+        if (last) nextBtn.textContent = 'Send my answers';
+        err((j.message || 'That did not save') + '. Please try again.');
+        return;
+      }
+      if (last || j.completed) { finish(); return; }
+      show(n + 1);
+    }).catch(function () {
+      busy = false; nextBtn.disabled = false; if (last) nextBtn.textContent = 'Send my answers';
+      err('No connection just now. Your answer is still here, press Next again.');
+    });
+  }
+
+  function finish() {
+    $('#fb-bar-wrap').hidden = true; $('#fb-bar-label').hidden = true; $('.fb-note').hidden = true;
+    showState('done');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.addEventListener('click', function (e) {
+    var go = e.target.dataset && e.target.dataset.go;
+    if (!go) return;
+    if (go === 'next') { current === 0 ? show(1) : advance(false); }
+    if (go === 'skip') advance(true);
+    if (go === 'back' && current > 1) show(current - 1);
+  });
+
+  function greet(first, business) {
+    if (first) $$('[data-first-comma]').forEach(function (s) { s.textContent = ', ' + first; });
+    if (business) $$('[data-business]').forEach(function (s) { s.textContent = business; });
+  }
+
+  function problem(msg) { $('#fb-problem-msg').textContent = msg; showState('problem'); $('.fb-note').hidden = true; }
+
+  if (!/^[A-Za-z0-9_\-]{8,255}$/.test(token)) { problem('Something is missing from the link.'); return; }
+  fetch(API + '?t=' + encodeURIComponent(token)).then(function (r) {
+    return r.json().catch(function () { return {}; }).then(function (j) { j._code = r.status; return j; });
+  }).then(function (j) {
+    if (j._code === 200 && j.status === 'ok') {
+      greet(j.first_name, j.business);
+      if (j.completed) { finish(); return; }
+      fill(j.answers);
+      show(0);
+      return;
+    }
+    if (j.status === 'not_ready') { problem('Your report is still being finished. This link opens once it is in your inbox.'); return; }
+    if (j._code === 404) { problem('I could not find the order this link belongs to.'); return; }
+    problem('Something went wrong on our side. Please try the link again in a minute.');
+  }).catch(function () { problem('No connection just now. Please try the link again in a minute.'); });
+})();
+</script>
+</body>
+</html>
