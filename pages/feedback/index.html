@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Report: Quick Feedback</title>
-  <meta name="description" content="Tell us how your report went. A few minutes, and every answer is read.">
+  <title>Quick Feedback</title>
+  <meta name="description" content="8 quick questions. Every answer is read.">
   <meta name="robots" content="noindex,nofollow">
   <meta name="referrer" content="no-referrer">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
     .fb-hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
       width:800px;height:800px;background:radial-gradient(circle,rgba(14,156,110,.1) 0%,transparent 60%);pointer-events:none;z-index:0}
     .fb-shell{max-width:680px;margin:0 auto;position:relative;z-index:1}
-    .fb-eyebrow{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--emerald-d);background:rgba(14,156,110,.1);border:1px solid rgba(14,156,110,.25);border-radius:999px;padding:6px 14px;margin:0 0 18px}
+    .fb-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--emerald-d);margin:0 0 18px}
     .fb-bar{height:6px;background:var(--mist);border-radius:999px;margin:0 0 8px;overflow:hidden}
     .fb-bar span{display:block;height:100%;background:var(--emerald);width:0;transition:width .35s ease}
     .fb-bar-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 24px}
@@ -84,7 +84,7 @@
 
 <main class="fb-hero">
   <div class="fb-shell">
-    <p class="fb-eyebrow">Your report · feedback</p>
+    <p class="fb-eyebrow">Feedback</p>
     <div class="fb-bar" id="fb-bar-wrap" hidden><span id="fb-bar"></span></div>
     <p class="fb-bar-label" id="fb-bar-label" hidden></p>
 
@@ -96,103 +96,77 @@
       </div>
       <div class="fb-step" data-state="problem">
         <h1 class="fb-title">That link didn't open</h1>
-        <p class="fb-lead" id="fb-problem-msg">Something is missing from the link.</p>
-        <p class="fb-lead">Reply to the email it came in and I'll sort it out.</p>
+        <p class="fb-lead" id="fb-problem-msg">Something's missing from the link.</p>
+        <p class="fb-lead">Reply to the email. I'll fix it.</p>
       </div>
 
-      <!-- 0: intro -->
-      <!-- Intro copy: option A "pain first" (Edward 2026-10-19). Option B for a later A/B test is in
-           products/feedback-survey/README.md section 6. -->
-      <div class="fb-step" data-step="0" data-intro="A">
-        <h1 class="fb-title" id="fb-intro-head">What's really stopping your business getting more customers?</h1>
-        <!-- Three beats, bang bang bang (Edward 2026-10-19): short, semi-bold, spaced. -->
-        <p class="fb-beat">A report can't answer the one thing that matters.</p>
-        <p class="fb-beat">What's in your way right now?</p>
-        <p class="fb-beat">Tell me. I read every answer myself.</p>
-        <div class="fb-nav"><span></span><button type="button" class="btn btn-accent" data-go="next" style="border:none;cursor:pointer;padding:13px 26px">Tell me what's in the way →</button></div>
-        <p class="fb-help" style="margin:16px 0 0;font-size:13px;color:var(--muted)">Only 2 questions are required.</p>
+      <!-- 0: intro. v2 (Edward 2026-11-03): short. Word budgets: /bbl-copywriting. -->
+      <div class="fb-step" data-step="0">
+        <h1 class="fb-title">What's in your way?</h1>
+        <p class="fb-beat">8 quick questions. I read every one.</p>
+        <div class="fb-nav"><span></span><button type="button" class="btn btn-accent" data-go="next" style="border:none;cursor:pointer;padding:13px 26px">Start →</button></div>
       </div>
 
-      <!-- 1: SMIQ (required) -->
+      <!-- 1: SMIQ (required). Levesque's one big question, asked first. -->
       <div class="fb-step" data-step="1" data-key="q_challenge" data-required>
-        <h2 class="fb-q">When it comes to winning more customers for <span data-business>your business</span>, what's the single biggest challenge you're facing right now?</h2>
-        <p class="fb-help">Please be as detailed as you can. The more you tell me, the more useful it is.</p>
-        <textarea class="fb-text" maxlength="4000" aria-label="Your biggest challenge"></textarea>
+        <h2 class="fb-q">Your biggest challenge <span data-goal>getting customers</span>?</h2>
+        <textarea class="fb-text" maxlength="4000" aria-label="Your biggest challenge" placeholder="Say as much as you like"></textarea>
         <p class="fb-count"></p>
       </div>
 
-      <div class="fb-step" data-step="2" data-key="q_trigger">
-        <h2 class="fb-q">What was going on in the business when you decided to get the report?</h2>
-        <p class="fb-help">What made it the right time?</p>
-        <textarea class="fb-text" maxlength="4000" aria-label="What was going on"></textarea>
+      <div class="fb-step" data-step="2" data-key="q_hate">
+        <h2 class="fb-q">What do you hate doing most?</h2>
+        <textarea class="fb-text short" maxlength="4000" aria-label="What you hate doing most"></textarea>
         <p class="fb-count"></p>
       </div>
 
-      <div class="fb-step" data-step="3" data-key="q_tried">
-        <h2 class="fb-q">Before this, what had you tried to find out what your competitors were up to?</h2>
-        <p class="fb-help">And how did that go?</p>
-        <textarea class="fb-text" maxlength="4000" aria-label="What you tried before"></textarea>
-        <p class="fb-count"></p>
-      </div>
-
-      <div class="fb-step" data-step="4" data-key="q_hesitation">
-        <h2 class="fb-q">What nearly stopped you from buying?</h2>
-        <p class="fb-help">Price, timing, not sure it'd be worth it. Anything at all.</p>
-        <textarea class="fb-text short" maxlength="4000" aria-label="What nearly stopped you"></textarea>
-        <p class="fb-count"></p>
-      </div>
-
-      <div class="fb-step" data-step="5" data-key="q_useful">
-        <h2 class="fb-q">What was the single most useful thing in the report?</h2>
-        <textarea class="fb-text short" maxlength="4000" aria-label="Most useful thing"></textarea>
-        <p class="fb-count"></p>
-      </div>
-
-      <div class="fb-step" data-step="6" data-key="q_missing">
-        <h2 class="fb-q">What did you hope the report would tell you that it didn't?</h2>
-        <p class="fb-help">Be blunt. This is the answer that makes the next one better.</p>
-        <textarea class="fb-text short" maxlength="4000" aria-label="What was missing"></textarea>
-        <p class="fb-count"></p>
-      </div>
-
-      <div class="fb-step" data-step="7" data-key="q_wand">
-        <h2 class="fb-q">If you could wave a magic wand, what would you want us to do for you next?</h2>
-        <textarea class="fb-text short" maxlength="4000" aria-label="Magic wand"></textarea>
-        <p class="fb-count"></p>
-      </div>
-
-      <!-- 8: score (required) -->
-      <div class="fb-step" data-step="8" data-key="score" data-required>
-        <h2 class="fb-q">How likely are you to recommend the report to another business owner?</h2>
-        <div class="fb-scale" role="group" aria-label="0 to 10"></div>
-        <div class="fb-scale-ends"><span>0 · not at all</span><span>10 · definitely</span></div>
-      </div>
-
-      <div class="fb-step" data-step="9" data-key="acted">
-        <h2 class="fb-q">Have you acted on anything in the plan yet?</h2>
+      <div class="fb-step" data-step="3" data-key="acted">
+        <h2 class="fb-q">Used <span data-thing>the report</span> yet?</h2>
         <div class="fb-choices">
-          <label class="fb-choice"><input type="radio" name="acted" value="Yes, already"> Yes, already</label>
-          <label class="fb-choice"><input type="radio" name="acted" value="Planning to this month"> Planning to this month</label>
-          <label class="fb-choice"><input type="radio" name="acted" value="Not yet"> Not yet</label>
-          <label class="fb-choice"><input type="radio" name="acted" value="Not going to"> Not going to</label>
+          <label class="fb-choice"><input type="radio" name="acted" value="Yes, acted on it"> Yes, acted on it</label>
+          <label class="fb-choice"><input type="radio" name="acted" value="Read it, not yet"> Read it, not yet</label>
+          <label class="fb-choice"><input type="radio" name="acted" value="Not opened"> Not opened</label>
         </div>
         <div class="fb-sub">
-          <label for="fb-acted-detail">Which part? <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
-          <textarea id="fb-acted-detail" class="fb-text short" maxlength="2000" data-extra="acted_detail"></textarea>
+          <textarea class="fb-text short" maxlength="2000" data-extra="acted_detail" aria-label="Which part" placeholder="Which part? (optional)"></textarea>
         </div>
       </div>
 
-      <div class="fb-step" data-step="10" data-key="quote_ok" data-last>
-        <h2 class="fb-q">Can we quote what you've written?</h2>
-        <p class="fb-help">Only to show other owners what the report is like. Never your numbers.</p>
+      <div class="fb-step" data-step="4" data-key="q_useful">
+        <h2 class="fb-q">Most useful part?</h2>
+        <textarea class="fb-text short" maxlength="4000" aria-label="Most useful part"></textarea>
+        <p class="fb-count"></p>
+      </div>
+
+      <div class="fb-step" data-step="5" data-key="q_missing">
+        <h2 class="fb-q">What was missing?</h2>
+        <textarea class="fb-text short" maxlength="4000" aria-label="What was missing" placeholder="Be blunt"></textarea>
+        <p class="fb-count"></p>
+      </div>
+
+      <!-- 6: the money test. Options come from the offer (catalyst bbl_feedback/offers.json). -->
+      <div class="fb-step" data-step="6" data-key="q_pay_which">
+        <h2 class="fb-q">What would you pay for?</h2>
+        <div class="fb-choices" data-pay></div>
+      </div>
+
+      <!-- 7: score (required) -->
+      <div class="fb-step" data-step="7" data-key="score" data-required>
+        <h2 class="fb-q">Would you recommend it?</h2>
+        <div class="fb-scale" role="group" aria-label="0 to 10"></div>
+        <div class="fb-scale-ends"><span>0 · no way</span><span>10 · definitely</span></div>
+      </div>
+
+      <div class="fb-step" data-step="8" data-key="quote_ok" data-last>
+        <h2 class="fb-q">Can we quote you?</h2>
         <div class="fb-choices">
-          <label class="fb-choice"><input type="radio" name="quote_ok" value="Yes, with my name and business"> Yes, with my name and business</label>
-          <label class="fb-choice"><input type="radio" name="quote_ok" value="Yes, first name only"> Yes, first name only</label>
+          <label class="fb-choice"><input type="radio" name="quote_ok" value="Yes, full name"> Yes, full name</label>
+          <label class="fb-choice"><input type="radio" name="quote_ok" value="First name only"> First name only</label>
           <label class="fb-choice"><input type="radio" name="quote_ok" value="No"> No</label>
         </div>
       </div>
 
-      <!-- shared nav for steps 1-10 -->
+      <!-- shared nav for steps 1-8 -->
       <div class="fb-nav" id="fb-nav" hidden>
         <div class="fb-left">
           <button type="button" class="fb-link" data-go="back">← Back</button>
@@ -204,13 +178,12 @@
 
       <!-- done -->
       <div class="fb-step" data-state="done">
-        <h1 class="fb-title">Thank you<span data-first-comma></span></h1>
-        <p class="fb-lead">That's genuinely useful. I read every one of these.</p>
-        <p class="fb-lead">If anything you wrote needs a reply, you'll hear from me directly.</p>
+        <h1 class="fb-title">Thanks<span data-first-comma></span></h1>
+        <p class="fb-beat">I'll read every word.</p>
         <p class="fb-sign">Edward</p>
       </div>
     </div>
-    <p class="fb-note">Your answers save as you go. Close this and the same link picks up where you stopped.</p>
+    <p class="fb-note">Saves as you go.</p>
   </div>
 </main>
 
@@ -224,7 +197,7 @@
   var params = new URLSearchParams(location.search);
   var token = (params.get('t') || '').trim();
   var API = params.get('env') === 'dev' ? ENDPOINTS.dev : ENDPOINTS.live;
-  var LAST = 10, REQUIRED_STEPS = [1, 8];
+  var LAST = 8, REQUIRED_STEPS = [1, 7];
   var current = 0, answers = {}, busy = false;
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -292,10 +265,10 @@
     $('#fb-bar-wrap').hidden = !inQuestions; $('#fb-bar-label').hidden = !inQuestions;
     if (inQuestions) {
       $('#fb-bar').style.width = Math.round((n - 1) / LAST * 100) + '%';
-      $('#fb-bar-label').textContent = 'Question ' + n + ' of ' + LAST;
+      $('#fb-bar-label').textContent = n + ' of ' + LAST;
       skipBtn.style.visibility = REQUIRED_STEPS.indexOf(n) >= 0 ? 'hidden' : 'visible';
       $('[data-go="back"]', nav).style.visibility = 'visible';   // on question 1 it returns to the intro
-      nextBtn.textContent = n === LAST ? 'Send my answers' : 'Next →';
+      nextBtn.textContent = n === LAST ? 'Send →' : 'Next →';
       var ta = $('textarea', stepEl(n)); if (ta && window.innerWidth > 720) ta.focus();
     }
     err('');
@@ -317,7 +290,7 @@
     var n = current, got = skip ? {} : collect(n);
     if (!skip && REQUIRED_STEPS.indexOf(n) >= 0) {
       var key = stepEl(n).dataset.key;
-      if (got[key] === undefined || got[key] === '') { err(key === 'score' ? 'Pick a number from 0 to 10.' : 'This is the one I most need. A sentence or two is plenty.'); return; }
+      if (got[key] === undefined || got[key] === '') { err(key === 'score' ? 'Pick a number.' : 'Just a line or two.'); return; }
     }
     var last = n === LAST;
     busy = true; nextBtn.disabled = true; if (last) nextBtn.textContent = 'Sending…';
@@ -325,16 +298,16 @@
       busy = false; nextBtn.disabled = false;
       // ⛔ A 200 with no "status" is a killed worker, not a save.
       if (j._code !== 200 || j.status !== 'ok') {
-        if (j.missing && j.missing.length) { show(j.missing[0] === 'score' ? 8 : 1); err('Please answer this one before sending.'); return; }
-        if (last) nextBtn.textContent = 'Send my answers';
-        err((j.message || 'That did not save') + '. Please try again.');
+        if (j.missing && j.missing.length) { show(j.missing[0] === 'score' ? 7 : 1); err('Answer this one first.'); return; }
+        if (last) nextBtn.textContent = 'Send →';
+        err((j.message || 'That did not save') + '. Try again.');
         return;
       }
       if (last || j.completed) { finish(); return; }
       show(n + 1);
     }).catch(function () {
-      busy = false; nextBtn.disabled = false; if (last) nextBtn.textContent = 'Send my answers';
-      err('No connection just now. Your answer is still here, press Next again.');
+      busy = false; nextBtn.disabled = false; if (last) nextBtn.textContent = 'Send →';
+      err('No connection. Press Next again.');
     });
   }
 
@@ -354,32 +327,47 @@
 
   function greet(first, business) {
     if (first) $$('[data-first-comma]').forEach(function (s) { s.textContent = ', ' + first; });
-    if (business) $$('[data-business]').forEach(function (s) { s.textContent = business; });
-    $('#fb-intro-head').textContent = (first ? first + ", what's" : "What's") + ' really stopping ' +
-      (business || 'your business') + ' getting more customers?';
+  }
+
+  // The offer's own words and pay options (bbl_feedback offers.json, sent with the lookup).
+  var PREVIEW_OFFER = { thing: 'the report', goal: 'getting customers',
+    pay_options: ['The report, once', 'A monthly rival watch', 'A do-it-yourself AI pack', 'Us doing it for you', 'None'] };
+  function applyOffer(o) {
+    o = o || PREVIEW_OFFER;
+    if (o.thing) $$('[data-thing]').forEach(function (s) { s.textContent = o.thing; });
+    if (o.goal) $$('[data-goal]').forEach(function (s) { s.textContent = o.goal; });
+    var box = $('[data-pay]');
+    box.textContent = '';
+    (o.pay_options || []).forEach(function (opt) {
+      var label = document.createElement('label'), input = document.createElement('input');
+      label.className = 'fb-choice'; input.type = 'radio'; input.name = 'q_pay_which'; input.value = opt;
+      label.appendChild(input); label.appendChild(document.createTextNode(' ' + opt));
+      box.appendChild(label);
+    });
   }
 
   function problem(msg) { $('#fb-problem-msg').textContent = msg; showState('problem'); $('.fb-note').hidden = true; }
 
   if (PREVIEW) {
     $('.fb-eyebrow').textContent = 'Preview · nothing is saved';
-    greet('Jane', 'Pawfect Daycare'); show(0); return;
+    greet('Jane', 'Pawfect Daycare'); applyOffer(PREVIEW_OFFER); show(0); return;
   }
-  if (!/^[A-Za-z0-9_\-]{8,255}$/.test(token)) { problem('Something is missing from the link.'); return; }
+  if (!/^[A-Za-z0-9_\-]{8,255}$/.test(token)) { problem("Something's missing from the link."); return; }
   fetch(API + '?t=' + encodeURIComponent(token)).then(function (r) {
     return r.json().catch(function () { return {}; }).then(function (j) { j._code = r.status; return j; });
   }).then(function (j) {
     if (j._code === 200 && j.status === 'ok') {
       greet(j.first_name, j.business);
       if (j.completed) { finish(); return; }
+      applyOffer(j.offer);
       fill(j.answers);
       show(0);
       return;
     }
-    if (j.status === 'not_ready') { problem('Your report is still being finished. This link opens once it is in your inbox.'); return; }
-    if (j._code === 404) { problem('I could not find the order this link belongs to.'); return; }
-    problem('Something went wrong on our side. Please try the link again in a minute.');
-  }).catch(function () { problem('No connection just now. Please try the link again in a minute.'); });
+    if (j.status === 'not_ready') { problem('Not ready yet. It opens once it lands.'); return; }
+    if (j._code === 404) { problem("I can't find that order."); return; }
+    problem('Our end broke. Try again shortly.');
+  }).catch(function () { problem('No connection. Try again shortly.'); });
 })();
 </script>
 </body>
