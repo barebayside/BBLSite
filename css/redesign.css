@@ -494,6 +494,8 @@ h2.display{font-size:clamp(40px,5.5vw,82px)}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;filter:none;transition:none}}
 
 /* ---------- RESPONSIVE ---------- */
+/* The menu needs about 1050px since the Account link went in. */
+@media(max-width:1080px){.nav-links{display:none}.burger{display:flex}}
 @media(max-width:980px){
   .nav-links{display:none}.burger{display:flex}
   .hero-grid,.problem,.proof-row,.footer-top,.feature-grid{grid-template-columns:1fr}
